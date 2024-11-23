@@ -1,0 +1,1200 @@
+CRITICAL:root:Iter: 50 / 10000, Pseudo Loss: 0.3140, Pseudo Inverse Loss: 0.0699, Discriminator Loss: 5.1967, Pseudo Target MSELoss: 0.0941,  Dis_Pseudo_Loss: -0.3140, Dis_target_Loss.: 0.7025 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 2.3162, VFL Acc: 16.3800,
+ Pseudo Loss: 2.4093, Pseudo Acc: 13.6600
+CRITICAL:root:Iter: 100 / 10000, Pseudo Loss: 2.8570, Pseudo Inverse Loss: 0.0560, Discriminator Loss: -0.2886, Pseudo Target MSELoss: 0.0752,  Dis_Pseudo_Loss: -2.8570, Dis_target_Loss.: 1.8353 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 2.1593, VFL Acc: 23.6300,
+ Pseudo Loss: 2.5338, Pseudo Acc: 18.0900
+CRITICAL:root:Iter: 150 / 10000, Pseudo Loss: 15.4074, Pseudo Inverse Loss: 0.0500, Discriminator Loss: -5.0184, Pseudo Target MSELoss: 0.0600,  Dis_Pseudo_Loss: -15.4074, Dis_target_Loss.: 9.8028 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 2.0160, VFL Acc: 26.2800,
+ Pseudo Loss: 2.2084, Pseudo Acc: 19.0500
+CRITICAL:root:Iter: 200 / 10000, Pseudo Loss: 21.5677, Pseudo Inverse Loss: 0.0443, Discriminator Loss: -9.8378, Pseudo Target MSELoss: 0.0573,  Dis_Pseudo_Loss: -21.5677, Dis_target_Loss.: 11.2159 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.9567, VFL Acc: 27.0300,
+ Pseudo Loss: 2.3873, Pseudo Acc: 15.5900
+CRITICAL:root:Iter: 250 / 10000, Pseudo Loss: 19.3717, Pseudo Inverse Loss: 0.0493, Discriminator Loss: -9.5047, Pseudo Target MSELoss: 0.0702,  Dis_Pseudo_Loss: -19.3717, Dis_target_Loss.: 9.4092 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.8605, VFL Acc: 31.0800,
+ Pseudo Loss: 2.1297, Pseudo Acc: 21.1300
+CRITICAL:root:Iter: 300 / 10000, Pseudo Loss: 15.5466, Pseudo Inverse Loss: 0.0431, Discriminator Loss: -10.4807, Pseudo Target MSELoss: 0.0602,  Dis_Pseudo_Loss: -15.5466, Dis_target_Loss.: 4.6195 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.8369, VFL Acc: 32.1300,
+ Pseudo Loss: 2.1740, Pseudo Acc: 21.9000
+CRITICAL:root:Iter: 350 / 10000, Pseudo Loss: 16.3599, Pseudo Inverse Loss: 0.0488, Discriminator Loss: -11.9791, Pseudo Target MSELoss: 0.0597,  Dis_Pseudo_Loss: -16.3599, Dis_target_Loss.: 3.6917 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.7688, VFL Acc: 32.6400,
+ Pseudo Loss: 2.0416, Pseudo Acc: 24.4600
+CRITICAL:root:Iter: 400 / 10000, Pseudo Loss: 13.0354, Pseudo Inverse Loss: 0.0425, Discriminator Loss: -11.9904, Pseudo Target MSELoss: 0.0820,  Dis_Pseudo_Loss: -13.0354, Dis_target_Loss.: 0.6589 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.7639, VFL Acc: 34.4300,
+ Pseudo Loss: 2.1034, Pseudo Acc: 24.1900
+CRITICAL:root:Iter: 450 / 10000, Pseudo Loss: 13.4479, Pseudo Inverse Loss: 0.0447, Discriminator Loss: -10.6861, Pseudo Target MSELoss: 0.0864,  Dis_Pseudo_Loss: -13.4479, Dis_target_Loss.: 2.5372 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.7070, VFL Acc: 37.6800,
+ Pseudo Loss: 2.0869, Pseudo Acc: 24.3800
+CRITICAL:root:Iter: 500 / 10000, Pseudo Loss: 18.5099, Pseudo Inverse Loss: 0.0440, Discriminator Loss: -11.7306, Pseudo Target MSELoss: 0.0772,  Dis_Pseudo_Loss: -18.5099, Dis_target_Loss.: 5.1190 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.8463, VFL Acc: 35.5700,
+ Pseudo Loss: 2.1236, Pseudo Acc: 23.8400
+CRITICAL:root:Iter: 550 / 10000, Pseudo Loss: 11.7619, Pseudo Inverse Loss: 0.0400, Discriminator Loss: -12.3974, Pseudo Target MSELoss: 0.0763,  Dis_Pseudo_Loss: -11.7619, Dis_target_Loss.: -1.3105 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.6889, VFL Acc: 37.1000,
+ Pseudo Loss: 2.0206, Pseudo Acc: 26.9400
+CRITICAL:root:Iter: 600 / 10000, Pseudo Loss: 11.5809, Pseudo Inverse Loss: 0.0351, Discriminator Loss: -12.6928, Pseudo Target MSELoss: 0.0549,  Dis_Pseudo_Loss: -11.5809, Dis_target_Loss.: -1.7291 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.6528, VFL Acc: 39.2200,
+ Pseudo Loss: 2.0325, Pseudo Acc: 27.9700
+CRITICAL:root:Iter: 650 / 10000, Pseudo Loss: 9.5025, Pseudo Inverse Loss: 0.0379, Discriminator Loss: -10.9336, Pseudo Target MSELoss: 0.0510,  Dis_Pseudo_Loss: -9.5025, Dis_target_Loss.: -1.6900 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.6388, VFL Acc: 39.1000,
+ Pseudo Loss: 1.8720, Pseudo Acc: 31.0500
+CRITICAL:root:Iter: 700 / 10000, Pseudo Loss: 18.0349, Pseudo Inverse Loss: 0.0366, Discriminator Loss: -8.0886, Pseudo Target MSELoss: 0.0514,  Dis_Pseudo_Loss: -18.0349, Dis_target_Loss.: 7.6130 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.6513, VFL Acc: 39.6900,
+ Pseudo Loss: 1.8098, Pseudo Acc: 31.4900
+CRITICAL:root:Iter: 750 / 10000, Pseudo Loss: 12.8090, Pseudo Inverse Loss: 0.0346, Discriminator Loss: -10.9540, Pseudo Target MSELoss: 0.0476,  Dis_Pseudo_Loss: -12.8090, Dis_target_Loss.: 1.4626 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5959, VFL Acc: 40.8200,
+ Pseudo Loss: 1.8049, Pseudo Acc: 32.8900
+CRITICAL:root:Iter: 800 / 10000, Pseudo Loss: 12.6708, Pseudo Inverse Loss: 0.0297, Discriminator Loss: -10.0558, Pseudo Target MSELoss: 0.0472,  Dis_Pseudo_Loss: -12.6708, Dis_target_Loss.: 0.9247 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.6036, VFL Acc: 39.8700,
+ Pseudo Loss: 1.8564, Pseudo Acc: 30.4800
+CRITICAL:root:Iter: 850 / 10000, Pseudo Loss: 8.9067, Pseudo Inverse Loss: 0.0282, Discriminator Loss: -11.7660, Pseudo Target MSELoss: 0.0468,  Dis_Pseudo_Loss: -8.9067, Dis_target_Loss.: -3.3656 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5427, VFL Acc: 43.3100,
+ Pseudo Loss: 1.8019, Pseudo Acc: 33.7500
+CRITICAL:root:Iter: 900 / 10000, Pseudo Loss: 11.0455, Pseudo Inverse Loss: 0.0268, Discriminator Loss: -9.6104, Pseudo Target MSELoss: 0.0420,  Dis_Pseudo_Loss: -11.0455, Dis_target_Loss.: 1.1046 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5556, VFL Acc: 43.1300,
+ Pseudo Loss: 1.8158, Pseudo Acc: 33.7200
+CRITICAL:root:Iter: 950 / 10000, Pseudo Loss: 9.1132, Pseudo Inverse Loss: 0.0247, Discriminator Loss: -10.9285, Pseudo Target MSELoss: 0.0469,  Dis_Pseudo_Loss: -9.1132, Dis_target_Loss.: -2.2051 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5600, VFL Acc: 42.9200,
+ Pseudo Loss: 1.7586, Pseudo Acc: 35.1700
+CRITICAL:root:Iter: 1000 / 10000, Pseudo Loss: 6.8353, Pseudo Inverse Loss: 0.0258, Discriminator Loss: -10.0508, Pseudo Target MSELoss: 0.0446,  Dis_Pseudo_Loss: -6.8353, Dis_target_Loss.: -3.5858 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5313, VFL Acc: 43.5300,
+ Pseudo Loss: 1.7418, Pseudo Acc: 35.4200
+CRITICAL:root:Iter: 1050 / 10000, Pseudo Loss: 10.9957, Pseudo Inverse Loss: 0.0237, Discriminator Loss: -11.7317, Pseudo Target MSELoss: 0.0503,  Dis_Pseudo_Loss: -10.9957, Dis_target_Loss.: -1.2229 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5173, VFL Acc: 44.5700,
+ Pseudo Loss: 1.8307, Pseudo Acc: 32.6200
+CRITICAL:root:Iter: 1100 / 10000, Pseudo Loss: 6.0502, Pseudo Inverse Loss: 0.0283, Discriminator Loss: -9.4388, Pseudo Target MSELoss: 0.0349,  Dis_Pseudo_Loss: -6.0502, Dis_target_Loss.: -3.7899 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5404, VFL Acc: 43.8200,
+ Pseudo Loss: 1.8050, Pseudo Acc: 34.5900
+CRITICAL:root:Iter: 1150 / 10000, Pseudo Loss: 7.3869, Pseudo Inverse Loss: 0.0253, Discriminator Loss: -9.1164, Pseudo Target MSELoss: 0.0472,  Dis_Pseudo_Loss: -7.3869, Dis_target_Loss.: -2.1865 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5071, VFL Acc: 45.4500,
+ Pseudo Loss: 1.8233, Pseudo Acc: 34.6100
+CRITICAL:root:Iter: 1200 / 10000, Pseudo Loss: 3.3415, Pseudo Inverse Loss: 0.0246, Discriminator Loss: -10.5931, Pseudo Target MSELoss: 0.0383,  Dis_Pseudo_Loss: -3.3415, Dis_target_Loss.: -7.6982 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4929, VFL Acc: 45.1700,
+ Pseudo Loss: 1.7886, Pseudo Acc: 34.5900
+CRITICAL:root:Iter: 1250 / 10000, Pseudo Loss: 4.5642, Pseudo Inverse Loss: 0.0245, Discriminator Loss: -8.7302, Pseudo Target MSELoss: 0.0351,  Dis_Pseudo_Loss: -4.5642, Dis_target_Loss.: -4.5006 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4839, VFL Acc: 46.8700,
+ Pseudo Loss: 1.8227, Pseudo Acc: 34.3000
+CRITICAL:root:Iter: 1300 / 10000, Pseudo Loss: 3.5157, Pseudo Inverse Loss: 0.0246, Discriminator Loss: -10.3592, Pseudo Target MSELoss: 0.0400,  Dis_Pseudo_Loss: -3.5157, Dis_target_Loss.: -7.1695 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4644, VFL Acc: 46.4700,
+ Pseudo Loss: 1.7555, Pseudo Acc: 36.1300
+CRITICAL:root:Iter: 1350 / 10000, Pseudo Loss: -0.7178, Pseudo Inverse Loss: 0.0247, Discriminator Loss: -8.8324, Pseudo Target MSELoss: 0.0463,  Dis_Pseudo_Loss: 0.7178, Dis_target_Loss.: -9.8662 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.5301, VFL Acc: 43.6700,
+ Pseudo Loss: 1.9025, Pseudo Acc: 31.0100
+CRITICAL:root:Iter: 1400 / 10000, Pseudo Loss: 2.5579, Pseudo Inverse Loss: 0.0228, Discriminator Loss: -9.6983, Pseudo Target MSELoss: 0.0348,  Dis_Pseudo_Loss: -2.5579, Dis_target_Loss.: -7.6174 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4244, VFL Acc: 48.5100,
+ Pseudo Loss: 1.7219, Pseudo Acc: 35.6400
+CRITICAL:root:Iter: 1450 / 10000, Pseudo Loss: 6.5272, Pseudo Inverse Loss: 0.0236, Discriminator Loss: -8.6234, Pseudo Target MSELoss: 0.0382,  Dis_Pseudo_Loss: -6.5272, Dis_target_Loss.: -2.3708 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4304, VFL Acc: 48.0900,
+ Pseudo Loss: 1.7481, Pseudo Acc: 34.8400
+CRITICAL:root:Iter: 1500 / 10000, Pseudo Loss: 0.8660, Pseudo Inverse Loss: 0.0230, Discriminator Loss: -9.0578, Pseudo Target MSELoss: 0.0404,  Dis_Pseudo_Loss: -0.8660, Dis_target_Loss.: -9.1012 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4299, VFL Acc: 47.6900,
+ Pseudo Loss: 1.7800, Pseudo Acc: 35.2500
+CRITICAL:root:Iter: 1550 / 10000, Pseudo Loss: -0.0338, Pseudo Inverse Loss: 0.0223, Discriminator Loss: -8.2066, Pseudo Target MSELoss: 0.0340,  Dis_Pseudo_Loss: 0.0338, Dis_target_Loss.: -8.5286 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4287, VFL Acc: 48.7200,
+ Pseudo Loss: 1.7309, Pseudo Acc: 36.4300
+CRITICAL:root:Iter: 1600 / 10000, Pseudo Loss: 1.3324, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -8.7812, Pseudo Target MSELoss: 0.0392,  Dis_Pseudo_Loss: -1.3324, Dis_target_Loss.: -7.7001 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4140, VFL Acc: 49.8300,
+ Pseudo Loss: 1.7866, Pseudo Acc: 35.3900
+CRITICAL:root:Iter: 1650 / 10000, Pseudo Loss: 1.2551, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -8.9244, Pseudo Target MSELoss: 0.0471,  Dis_Pseudo_Loss: -1.2551, Dis_target_Loss.: -8.3295 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4477, VFL Acc: 48.4400,
+ Pseudo Loss: 1.8481, Pseudo Acc: 34.7900
+CRITICAL:root:Iter: 1700 / 10000, Pseudo Loss: 1.9413, Pseudo Inverse Loss: 0.0195, Discriminator Loss: -9.6646, Pseudo Target MSELoss: 0.0413,  Dis_Pseudo_Loss: -1.9413, Dis_target_Loss.: -8.1083 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4133, VFL Acc: 48.0300,
+ Pseudo Loss: 1.7892, Pseudo Acc: 34.7700
+CRITICAL:root:Iter: 1750 / 10000, Pseudo Loss: 0.3606, Pseudo Inverse Loss: 0.0219, Discriminator Loss: -8.6086, Pseudo Target MSELoss: 0.0420,  Dis_Pseudo_Loss: -0.3606, Dis_target_Loss.: -8.4846 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4071, VFL Acc: 49.1000,
+ Pseudo Loss: 1.8155, Pseudo Acc: 34.9100
+CRITICAL:root:Iter: 1800 / 10000, Pseudo Loss: -0.4250, Pseudo Inverse Loss: 0.0212, Discriminator Loss: -9.0763, Pseudo Target MSELoss: 0.0612,  Dis_Pseudo_Loss: 0.4250, Dis_target_Loss.: -9.8287 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3995, VFL Acc: 49.5200,
+ Pseudo Loss: 1.7540, Pseudo Acc: 36.2600
+CRITICAL:root:Iter: 1850 / 10000, Pseudo Loss: 0.3079, Pseudo Inverse Loss: 0.0215, Discriminator Loss: -10.4365, Pseudo Target MSELoss: 0.0372,  Dis_Pseudo_Loss: -0.3079, Dis_target_Loss.: -10.5015 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3686, VFL Acc: 50.4600,
+ Pseudo Loss: 1.6435, Pseudo Acc: 40.0400
+CRITICAL:root:Iter: 1900 / 10000, Pseudo Loss: 0.9033, Pseudo Inverse Loss: 0.0226, Discriminator Loss: -9.3081, Pseudo Target MSELoss: 0.0392,  Dis_Pseudo_Loss: -0.9033, Dis_target_Loss.: -8.6728 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4640, VFL Acc: 48.3000,
+ Pseudo Loss: 1.6609, Pseudo Acc: 39.2700
+CRITICAL:root:Iter: 1950 / 10000, Pseudo Loss: -0.8860, Pseudo Inverse Loss: 0.0204, Discriminator Loss: -8.9228, Pseudo Target MSELoss: 0.0372,  Dis_Pseudo_Loss: 0.8860, Dis_target_Loss.: -10.0436 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3754, VFL Acc: 50.3800,
+ Pseudo Loss: 1.7560, Pseudo Acc: 36.0100
+CRITICAL:root:Iter: 2000 / 10000, Pseudo Loss: -1.2094, Pseudo Inverse Loss: 0.0198, Discriminator Loss: -9.4086, Pseudo Target MSELoss: 0.0468,  Dis_Pseudo_Loss: 1.2094, Dis_target_Loss.: -11.1906 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3762, VFL Acc: 49.9400,
+ Pseudo Loss: 1.7519, Pseudo Acc: 36.1500
+CRITICAL:root:Iter: 2050 / 10000, Pseudo Loss: 0.9991, Pseudo Inverse Loss: 0.0192, Discriminator Loss: -9.8083, Pseudo Target MSELoss: 0.0404,  Dis_Pseudo_Loss: -0.9991, Dis_target_Loss.: -9.0731 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.4331, VFL Acc: 49.1300,
+ Pseudo Loss: 1.6871, Pseudo Acc: 38.3100
+CRITICAL:root:Iter: 2100 / 10000, Pseudo Loss: -0.9532, Pseudo Inverse Loss: 0.0173, Discriminator Loss: -9.5927, Pseudo Target MSELoss: 0.0384,  Dis_Pseudo_Loss: 0.9532, Dis_target_Loss.: -10.7951 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3554, VFL Acc: 50.9500,
+ Pseudo Loss: 1.7042, Pseudo Acc: 37.9300
+CRITICAL:root:Iter: 2150 / 10000, Pseudo Loss: -0.1029, Pseudo Inverse Loss: 0.0206, Discriminator Loss: -9.5433, Pseudo Target MSELoss: 0.0443,  Dis_Pseudo_Loss: 0.1029, Dis_target_Loss.: -9.9096 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3491, VFL Acc: 51.7000,
+ Pseudo Loss: 1.7016, Pseudo Acc: 39.6700
+CRITICAL:root:Iter: 2200 / 10000, Pseudo Loss: 0.1009, Pseudo Inverse Loss: 0.0186, Discriminator Loss: -10.0301, Pseudo Target MSELoss: 0.0464,  Dis_Pseudo_Loss: -0.1009, Dis_target_Loss.: -10.4199 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3481, VFL Acc: 51.2800,
+ Pseudo Loss: 1.7198, Pseudo Acc: 38.6000
+CRITICAL:root:Iter: 2250 / 10000, Pseudo Loss: 0.6971, Pseudo Inverse Loss: 0.0188, Discriminator Loss: -9.1559, Pseudo Target MSELoss: 0.0481,  Dis_Pseudo_Loss: -0.6971, Dis_target_Loss.: -8.6297 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3427, VFL Acc: 51.6100,
+ Pseudo Loss: 1.7404, Pseudo Acc: 38.1500
+CRITICAL:root:Iter: 2300 / 10000, Pseudo Loss: 1.4990, Pseudo Inverse Loss: 0.0172, Discriminator Loss: -9.7706, Pseudo Target MSELoss: 0.0388,  Dis_Pseudo_Loss: -1.4990, Dis_target_Loss.: -8.6498 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3116, VFL Acc: 51.9900,
+ Pseudo Loss: 1.6509, Pseudo Acc: 40.2800
+CRITICAL:root:Iter: 2350 / 10000, Pseudo Loss: -1.6414, Pseudo Inverse Loss: 0.0273, Discriminator Loss: -9.9384, Pseudo Target MSELoss: 0.0452,  Dis_Pseudo_Loss: 1.6414, Dis_target_Loss.: -12.1533 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3252, VFL Acc: 51.6800,
+ Pseudo Loss: 1.6312, Pseudo Acc: 40.2200
+CRITICAL:root:Iter: 2400 / 10000, Pseudo Loss: -2.7195, Pseudo Inverse Loss: 0.0221, Discriminator Loss: -10.0032, Pseudo Target MSELoss: 0.0454,  Dis_Pseudo_Loss: 2.7195, Dis_target_Loss.: -13.1875 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3073, VFL Acc: 52.7200,
+ Pseudo Loss: 1.7287, Pseudo Acc: 39.6400
+CRITICAL:root:Iter: 2450 / 10000, Pseudo Loss: 0.6253, Pseudo Inverse Loss: 0.0241, Discriminator Loss: -8.8014, Pseudo Target MSELoss: 0.0556,  Dis_Pseudo_Loss: -0.6253, Dis_target_Loss.: -8.7047 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3121, VFL Acc: 53.1500,
+ Pseudo Loss: 1.7436, Pseudo Acc: 38.6600
+CRITICAL:root:Iter: 2500 / 10000, Pseudo Loss: -1.7665, Pseudo Inverse Loss: 0.0193, Discriminator Loss: -7.7173, Pseudo Target MSELoss: 0.0421,  Dis_Pseudo_Loss: 1.7665, Dis_target_Loss.: -9.7799 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3320, VFL Acc: 52.3900,
+ Pseudo Loss: 1.6820, Pseudo Acc: 39.0400
+CRITICAL:root:Iter: 2550 / 10000, Pseudo Loss: 1.7327, Pseudo Inverse Loss: 0.0197, Discriminator Loss: -8.8731, Pseudo Target MSELoss: 0.0356,  Dis_Pseudo_Loss: -1.7327, Dis_target_Loss.: -7.7494 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3240, VFL Acc: 53.1500,
+ Pseudo Loss: 1.6360, Pseudo Acc: 41.2700
+CRITICAL:root:Iter: 2600 / 10000, Pseudo Loss: -2.8003, Pseudo Inverse Loss: 0.0204, Discriminator Loss: -7.8550, Pseudo Target MSELoss: 0.0352,  Dis_Pseudo_Loss: 2.8003, Dis_target_Loss.: -10.9489 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.3006, VFL Acc: 52.9700,
+ Pseudo Loss: 1.6584, Pseudo Acc: 41.2700
+CRITICAL:root:Iter: 2650 / 10000, Pseudo Loss: 0.0021, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -9.0353, Pseudo Target MSELoss: 0.0388,  Dis_Pseudo_Loss: -0.0021, Dis_target_Loss.: -9.2737 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2946, VFL Acc: 53.6000,
+ Pseudo Loss: 1.6129, Pseudo Acc: 42.8900
+CRITICAL:root:Iter: 2700 / 10000, Pseudo Loss: 0.5650, Pseudo Inverse Loss: 0.0190, Discriminator Loss: -7.4048, Pseudo Target MSELoss: 0.0420,  Dis_Pseudo_Loss: -0.5650, Dis_target_Loss.: -7.8352 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2855, VFL Acc: 54.1300,
+ Pseudo Loss: 1.6785, Pseudo Acc: 40.8300
+CRITICAL:root:Iter: 2750 / 10000, Pseudo Loss: -1.7236, Pseudo Inverse Loss: 0.0173, Discriminator Loss: -8.6288, Pseudo Target MSELoss: 0.0404,  Dis_Pseudo_Loss: 1.7236, Dis_target_Loss.: -11.2167 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2752, VFL Acc: 54.3300,
+ Pseudo Loss: 1.6469, Pseudo Acc: 41.9400
+CRITICAL:root:Iter: 2800 / 10000, Pseudo Loss: -1.2551, Pseudo Inverse Loss: 0.0183, Discriminator Loss: -7.7737, Pseudo Target MSELoss: 0.0344,  Dis_Pseudo_Loss: 1.2551, Dis_target_Loss.: -10.0754 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2637, VFL Acc: 54.5100,
+ Pseudo Loss: 1.6164, Pseudo Acc: 42.4600
+CRITICAL:root:Iter: 2850 / 10000, Pseudo Loss: -2.0235, Pseudo Inverse Loss: 0.0197, Discriminator Loss: -8.0626, Pseudo Target MSELoss: 0.0452,  Dis_Pseudo_Loss: 2.0235, Dis_target_Loss.: -10.5105 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2721, VFL Acc: 54.9800,
+ Pseudo Loss: 1.6675, Pseudo Acc: 41.1400
+CRITICAL:root:Iter: 2900 / 10000, Pseudo Loss: -0.4658, Pseudo Inverse Loss: 0.0191, Discriminator Loss: -8.1545, Pseudo Target MSELoss: 0.0439,  Dis_Pseudo_Loss: 0.4658, Dis_target_Loss.: -8.9431 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2592, VFL Acc: 54.1500,
+ Pseudo Loss: 1.6325, Pseudo Acc: 41.0800
+CRITICAL:root:Iter: 2950 / 10000, Pseudo Loss: -0.8362, Pseudo Inverse Loss: 0.0169, Discriminator Loss: -7.8637, Pseudo Target MSELoss: 0.0543,  Dis_Pseudo_Loss: 0.8362, Dis_target_Loss.: -9.2554 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2529, VFL Acc: 54.9700,
+ Pseudo Loss: 1.5697, Pseudo Acc: 44.8200
+CRITICAL:root:Iter: 3000 / 10000, Pseudo Loss: -3.4761, Pseudo Inverse Loss: 0.0164, Discriminator Loss: -7.5596, Pseudo Target MSELoss: 0.0461,  Dis_Pseudo_Loss: 3.4761, Dis_target_Loss.: -11.3653 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2670, VFL Acc: 55.2800,
+ Pseudo Loss: 1.6263, Pseudo Acc: 41.8700
+CRITICAL:root:Iter: 3050 / 10000, Pseudo Loss: -0.0257, Pseudo Inverse Loss: 0.0190, Discriminator Loss: -8.5775, Pseudo Target MSELoss: 0.0386,  Dis_Pseudo_Loss: 0.0257, Dis_target_Loss.: -9.1049 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2798, VFL Acc: 53.5400,
+ Pseudo Loss: 1.6068, Pseudo Acc: 41.4600
+CRITICAL:root:Iter: 3100 / 10000, Pseudo Loss: -2.2746, Pseudo Inverse Loss: 0.0181, Discriminator Loss: -7.6240, Pseudo Target MSELoss: 0.0454,  Dis_Pseudo_Loss: 2.2746, Dis_target_Loss.: -10.4359 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2353, VFL Acc: 56.2300,
+ Pseudo Loss: 1.5504, Pseudo Acc: 45.5800
+CRITICAL:root:Iter: 3150 / 10000, Pseudo Loss: -0.0543, Pseudo Inverse Loss: 0.0162, Discriminator Loss: -6.9348, Pseudo Target MSELoss: 0.0370,  Dis_Pseudo_Loss: 0.0543, Dis_target_Loss.: -7.3989 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2262, VFL Acc: 56.7300,
+ Pseudo Loss: 1.5898, Pseudo Acc: 44.0100
+CRITICAL:root:Iter: 3200 / 10000, Pseudo Loss: -1.1630, Pseudo Inverse Loss: 0.0198, Discriminator Loss: -8.0609, Pseudo Target MSELoss: 0.0438,  Dis_Pseudo_Loss: 1.1630, Dis_target_Loss.: -9.8182 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2643, VFL Acc: 55.2400,
+ Pseudo Loss: 1.5953, Pseudo Acc: 43.8000
+CRITICAL:root:Iter: 3250 / 10000, Pseudo Loss: -2.0375, Pseudo Inverse Loss: 0.0197, Discriminator Loss: -7.1077, Pseudo Target MSELoss: 0.0384,  Dis_Pseudo_Loss: 2.0375, Dis_target_Loss.: -9.7186 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2494, VFL Acc: 55.7000,
+ Pseudo Loss: 1.6149, Pseudo Acc: 42.0500
+CRITICAL:root:Iter: 3300 / 10000, Pseudo Loss: -3.2883, Pseudo Inverse Loss: 0.0157, Discriminator Loss: -7.3932, Pseudo Target MSELoss: 0.0395,  Dis_Pseudo_Loss: 3.2883, Dis_target_Loss.: -11.4768 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2270, VFL Acc: 55.6600,
+ Pseudo Loss: 1.5754, Pseudo Acc: 43.4400
+CRITICAL:root:Iter: 3350 / 10000, Pseudo Loss: -0.9576, Pseudo Inverse Loss: 0.0182, Discriminator Loss: -8.3879, Pseudo Target MSELoss: 0.0329,  Dis_Pseudo_Loss: 0.9576, Dis_target_Loss.: -9.7043 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2556, VFL Acc: 54.8400,
+ Pseudo Loss: 1.5458, Pseudo Acc: 44.9300
+CRITICAL:root:Iter: 3400 / 10000, Pseudo Loss: -4.8941, Pseudo Inverse Loss: 0.0189, Discriminator Loss: -7.2310, Pseudo Target MSELoss: 0.0359,  Dis_Pseudo_Loss: 4.8941, Dis_target_Loss.: -12.5366 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2297, VFL Acc: 56.6200,
+ Pseudo Loss: 1.5109, Pseudo Acc: 45.8500
+CRITICAL:root:Iter: 3450 / 10000, Pseudo Loss: -0.7892, Pseudo Inverse Loss: 0.0159, Discriminator Loss: -8.0082, Pseudo Target MSELoss: 0.0374,  Dis_Pseudo_Loss: 0.7892, Dis_target_Loss.: -9.0805 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1947, VFL Acc: 57.1200,
+ Pseudo Loss: 1.5433, Pseudo Acc: 44.7900
+CRITICAL:root:Iter: 3500 / 10000, Pseudo Loss: -1.0612, Pseudo Inverse Loss: 0.0176, Discriminator Loss: -8.3224, Pseudo Target MSELoss: 0.0447,  Dis_Pseudo_Loss: 1.0612, Dis_target_Loss.: -9.7093 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2079, VFL Acc: 57.4100,
+ Pseudo Loss: 1.4789, Pseudo Acc: 47.6200
+CRITICAL:root:Iter: 3550 / 10000, Pseudo Loss: -4.7012, Pseudo Inverse Loss: 0.0163, Discriminator Loss: -7.8581, Pseudo Target MSELoss: 0.0343,  Dis_Pseudo_Loss: 4.7012, Dis_target_Loss.: -12.9110 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2204, VFL Acc: 56.7700,
+ Pseudo Loss: 1.4617, Pseudo Acc: 47.3200
+CRITICAL:root:Iter: 3600 / 10000, Pseudo Loss: -6.1185, Pseudo Inverse Loss: 0.0158, Discriminator Loss: -6.1811, Pseudo Target MSELoss: 0.0407,  Dis_Pseudo_Loss: 6.1185, Dis_target_Loss.: -14.4858 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2148, VFL Acc: 56.5000,
+ Pseudo Loss: 1.5548, Pseudo Acc: 45.1500
+CRITICAL:root:Iter: 3650 / 10000, Pseudo Loss: 0.7687, Pseudo Inverse Loss: 0.0160, Discriminator Loss: -8.4456, Pseudo Target MSELoss: 0.0386,  Dis_Pseudo_Loss: -0.7687, Dis_target_Loss.: -7.9385 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1866, VFL Acc: 57.1400,
+ Pseudo Loss: 1.5596, Pseudo Acc: 44.2500
+CRITICAL:root:Iter: 3700 / 10000, Pseudo Loss: -4.1617, Pseudo Inverse Loss: 0.0173, Discriminator Loss: -7.4291, Pseudo Target MSELoss: 0.0388,  Dis_Pseudo_Loss: 4.1617, Dis_target_Loss.: -12.2293 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2074, VFL Acc: 56.9200,
+ Pseudo Loss: 1.5247, Pseudo Acc: 45.8300
+CRITICAL:root:Iter: 3750 / 10000, Pseudo Loss: -3.3685, Pseudo Inverse Loss: 0.0154, Discriminator Loss: -8.8534, Pseudo Target MSELoss: 0.0337,  Dis_Pseudo_Loss: 3.3685, Dis_target_Loss.: -12.5799 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2021, VFL Acc: 57.1000,
+ Pseudo Loss: 1.4537, Pseudo Acc: 47.9200
+CRITICAL:root:Iter: 3800 / 10000, Pseudo Loss: -5.0260, Pseudo Inverse Loss: 0.0185, Discriminator Loss: -7.7102, Pseudo Target MSELoss: 0.0382,  Dis_Pseudo_Loss: 5.0260, Dis_target_Loss.: -13.3217 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1975, VFL Acc: 57.4000,
+ Pseudo Loss: 1.4635, Pseudo Acc: 48.1000
+CRITICAL:root:Iter: 3850 / 10000, Pseudo Loss: -3.1528, Pseudo Inverse Loss: 0.0157, Discriminator Loss: -8.1116, Pseudo Target MSELoss: 0.0364,  Dis_Pseudo_Loss: 3.1528, Dis_target_Loss.: -11.5056 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1556, VFL Acc: 59.5200,
+ Pseudo Loss: 1.4180, Pseudo Acc: 49.6000
+CRITICAL:root:Iter: 3900 / 10000, Pseudo Loss: -4.8152, Pseudo Inverse Loss: 0.0171, Discriminator Loss: -7.4082, Pseudo Target MSELoss: 0.0347,  Dis_Pseudo_Loss: 4.8152, Dis_target_Loss.: -12.7220 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1825, VFL Acc: 57.7500,
+ Pseudo Loss: 1.4590, Pseudo Acc: 47.8200
+CRITICAL:root:Iter: 3950 / 10000, Pseudo Loss: -4.6071, Pseudo Inverse Loss: 0.0176, Discriminator Loss: -7.5291, Pseudo Target MSELoss: 0.0319,  Dis_Pseudo_Loss: 4.6071, Dis_target_Loss.: -12.6006 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1889, VFL Acc: 58.5400,
+ Pseudo Loss: 1.4964, Pseudo Acc: 47.7900
+CRITICAL:root:Iter: 4000 / 10000, Pseudo Loss: -0.7323, Pseudo Inverse Loss: 0.0174, Discriminator Loss: -7.6310, Pseudo Target MSELoss: 0.0372,  Dis_Pseudo_Loss: 0.7323, Dis_target_Loss.: -9.0292 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2166, VFL Acc: 57.5500,
+ Pseudo Loss: 1.5474, Pseudo Acc: 46.5600
+CRITICAL:root:Iter: 4050 / 10000, Pseudo Loss: -0.9475, Pseudo Inverse Loss: 0.0160, Discriminator Loss: -8.1553, Pseudo Target MSELoss: 0.0365,  Dis_Pseudo_Loss: 0.9475, Dis_target_Loss.: -9.4571 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1779, VFL Acc: 57.9300,
+ Pseudo Loss: 1.5258, Pseudo Acc: 47.1100
+CRITICAL:root:Iter: 4100 / 10000, Pseudo Loss: -3.3509, Pseudo Inverse Loss: 0.0173, Discriminator Loss: -8.2963, Pseudo Target MSELoss: 0.0349,  Dis_Pseudo_Loss: 3.3509, Dis_target_Loss.: -12.3004 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1819, VFL Acc: 57.9300,
+ Pseudo Loss: 1.4679, Pseudo Acc: 47.7400
+CRITICAL:root:Iter: 4150 / 10000, Pseudo Loss: -5.6870, Pseudo Inverse Loss: 0.0179, Discriminator Loss: -6.4817, Pseudo Target MSELoss: 0.0372,  Dis_Pseudo_Loss: 5.6870, Dis_target_Loss.: -13.4997 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1691, VFL Acc: 59.0400,
+ Pseudo Loss: 1.4456, Pseudo Acc: 48.7400
+CRITICAL:root:Iter: 4200 / 10000, Pseudo Loss: -1.9091, Pseudo Inverse Loss: 0.0169, Discriminator Loss: -8.6223, Pseudo Target MSELoss: 0.0309,  Dis_Pseudo_Loss: 1.9091, Dis_target_Loss.: -11.2675 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.2033, VFL Acc: 57.5000,
+ Pseudo Loss: 1.4027, Pseudo Acc: 49.4700
+CRITICAL:root:Iter: 4250 / 10000, Pseudo Loss: -4.5083, Pseudo Inverse Loss: 0.0161, Discriminator Loss: -7.8552, Pseudo Target MSELoss: 0.0366,  Dis_Pseudo_Loss: 4.5083, Dis_target_Loss.: -13.2165 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1285, VFL Acc: 60.8300,
+ Pseudo Loss: 1.4099, Pseudo Acc: 49.7000
+CRITICAL:root:Iter: 4300 / 10000, Pseudo Loss: -2.1601, Pseudo Inverse Loss: 0.0165, Discriminator Loss: -8.4359, Pseudo Target MSELoss: 0.0320,  Dis_Pseudo_Loss: 2.1601, Dis_target_Loss.: -11.0442 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1830, VFL Acc: 58.5300,
+ Pseudo Loss: 1.5056, Pseudo Acc: 47.7200
+CRITICAL:root:Iter: 4350 / 10000, Pseudo Loss: -3.9498, Pseudo Inverse Loss: 0.0161, Discriminator Loss: -8.1909, Pseudo Target MSELoss: 0.0328,  Dis_Pseudo_Loss: 3.9498, Dis_target_Loss.: -12.6907 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1591, VFL Acc: 59.5900,
+ Pseudo Loss: 1.4315, Pseudo Acc: 49.7700
+CRITICAL:root:Iter: 4400 / 10000, Pseudo Loss: 3.4419, Pseudo Inverse Loss: 0.0153, Discriminator Loss: -7.3434, Pseudo Target MSELoss: 0.0261,  Dis_Pseudo_Loss: -3.4419, Dis_target_Loss.: -4.3325 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1588, VFL Acc: 60.0800,
+ Pseudo Loss: 1.4192, Pseudo Acc: 50.5400
+CRITICAL:root:Iter: 4450 / 10000, Pseudo Loss: -3.2986, Pseudo Inverse Loss: 0.0152, Discriminator Loss: -7.9971, Pseudo Target MSELoss: 0.0370,  Dis_Pseudo_Loss: 3.2986, Dis_target_Loss.: -11.7931 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1426, VFL Acc: 60.3800,
+ Pseudo Loss: 1.4738, Pseudo Acc: 49.2000
+CRITICAL:root:Iter: 4500 / 10000, Pseudo Loss: -4.2470, Pseudo Inverse Loss: 0.0134, Discriminator Loss: -8.2500, Pseudo Target MSELoss: 0.0379,  Dis_Pseudo_Loss: 4.2470, Dis_target_Loss.: -13.0467 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1610, VFL Acc: 59.3000,
+ Pseudo Loss: 1.4369, Pseudo Acc: 49.7100
+CRITICAL:root:Iter: 4550 / 10000, Pseudo Loss: -3.4937, Pseudo Inverse Loss: 0.0147, Discriminator Loss: -7.9834, Pseudo Target MSELoss: 0.0343,  Dis_Pseudo_Loss: 3.4937, Dis_target_Loss.: -11.7494 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1438, VFL Acc: 60.0300,
+ Pseudo Loss: 1.4272, Pseudo Acc: 51.5900
+CRITICAL:root:Iter: 4600 / 10000, Pseudo Loss: -1.2442, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -7.1779, Pseudo Target MSELoss: 0.0318,  Dis_Pseudo_Loss: 1.2442, Dis_target_Loss.: -8.7297 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1252, VFL Acc: 60.4500,
+ Pseudo Loss: 1.4318, Pseudo Acc: 49.3900
+CRITICAL:root:Iter: 4650 / 10000, Pseudo Loss: -4.2632, Pseudo Inverse Loss: 0.0161, Discriminator Loss: -8.0888, Pseudo Target MSELoss: 0.0296,  Dis_Pseudo_Loss: 4.2632, Dis_target_Loss.: -12.6491 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1350, VFL Acc: 59.8600,
+ Pseudo Loss: 1.5007, Pseudo Acc: 47.8500
+CRITICAL:root:Iter: 4700 / 10000, Pseudo Loss: -1.1303, Pseudo Inverse Loss: 0.0179, Discriminator Loss: -8.1831, Pseudo Target MSELoss: 0.0336,  Dis_Pseudo_Loss: 1.1303, Dis_target_Loss.: -9.7519 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1032, VFL Acc: 61.1900,
+ Pseudo Loss: 1.4263, Pseudo Acc: 51.2400
+CRITICAL:root:Iter: 4750 / 10000, Pseudo Loss: -5.6240, Pseudo Inverse Loss: 0.0184, Discriminator Loss: -7.2564, Pseudo Target MSELoss: 0.0312,  Dis_Pseudo_Loss: 5.6240, Dis_target_Loss.: -13.1434 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1679, VFL Acc: 59.6600,
+ Pseudo Loss: 1.4739, Pseudo Acc: 50.5900
+CRITICAL:root:Iter: 4800 / 10000, Pseudo Loss: -3.5548, Pseudo Inverse Loss: 0.0160, Discriminator Loss: -8.5806, Pseudo Target MSELoss: 0.0294,  Dis_Pseudo_Loss: 3.5548, Dis_target_Loss.: -12.3750 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1740, VFL Acc: 58.5600,
+ Pseudo Loss: 1.3917, Pseudo Acc: 51.4400
+CRITICAL:root:Iter: 4850 / 10000, Pseudo Loss: 0.3336, Pseudo Inverse Loss: 0.0156, Discriminator Loss: -6.6395, Pseudo Target MSELoss: 0.0332,  Dis_Pseudo_Loss: -0.3336, Dis_target_Loss.: -7.0943 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1492, VFL Acc: 60.4900,
+ Pseudo Loss: 1.3956, Pseudo Acc: 52.6000
+CRITICAL:root:Iter: 4900 / 10000, Pseudo Loss: -2.0597, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -7.6847, Pseudo Target MSELoss: 0.0303,  Dis_Pseudo_Loss: 2.0597, Dis_target_Loss.: -10.4039 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1203, VFL Acc: 60.9300,
+ Pseudo Loss: 1.3677, Pseudo Acc: 52.7200
+CRITICAL:root:Iter: 4950 / 10000, Pseudo Loss: -3.1737, Pseudo Inverse Loss: 0.0176, Discriminator Loss: -7.9307, Pseudo Target MSELoss: 0.0306,  Dis_Pseudo_Loss: 3.1737, Dis_target_Loss.: -11.4734 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1742, VFL Acc: 59.0200,
+ Pseudo Loss: 1.3782, Pseudo Acc: 52.0000
+CRITICAL:root:Iter: 5000 / 10000, Pseudo Loss: 1.3926, Pseudo Inverse Loss: 0.0186, Discriminator Loss: -7.6284, Pseudo Target MSELoss: 0.0284,  Dis_Pseudo_Loss: -1.3926, Dis_target_Loss.: -6.5749 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1381, VFL Acc: 60.7600,
+ Pseudo Loss: 1.3591, Pseudo Acc: 53.0900
+CRITICAL:root:Iter: 5050 / 10000, Pseudo Loss: -8.2624, Pseudo Inverse Loss: 0.0153, Discriminator Loss: -7.7852, Pseudo Target MSELoss: 0.0276,  Dis_Pseudo_Loss: 8.2624, Dis_target_Loss.: -16.3314 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0988, VFL Acc: 61.4700,
+ Pseudo Loss: 1.3294, Pseudo Acc: 53.1700
+CRITICAL:root:Iter: 5100 / 10000, Pseudo Loss: -2.3994, Pseudo Inverse Loss: 0.0169, Discriminator Loss: -8.4486, Pseudo Target MSELoss: 0.0273,  Dis_Pseudo_Loss: 2.3994, Dis_target_Loss.: -11.2199 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1287, VFL Acc: 60.7300,
+ Pseudo Loss: 1.3423, Pseudo Acc: 53.5800
+CRITICAL:root:Iter: 5150 / 10000, Pseudo Loss: -5.3254, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -7.3176, Pseudo Target MSELoss: 0.0317,  Dis_Pseudo_Loss: 5.3254, Dis_target_Loss.: -13.0096 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1300, VFL Acc: 60.4200,
+ Pseudo Loss: 1.3180, Pseudo Acc: 54.1200
+CRITICAL:root:Iter: 5200 / 10000, Pseudo Loss: -0.6748, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -7.5313, Pseudo Target MSELoss: 0.0286,  Dis_Pseudo_Loss: 0.6748, Dis_target_Loss.: -9.0815 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1144, VFL Acc: 61.1100,
+ Pseudo Loss: 1.2892, Pseudo Acc: 54.4700
+CRITICAL:root:Iter: 5250 / 10000, Pseudo Loss: -0.8101, Pseudo Inverse Loss: 0.0196, Discriminator Loss: -7.5329, Pseudo Target MSELoss: 0.0257,  Dis_Pseudo_Loss: 0.8101, Dis_target_Loss.: -9.1602 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1256, VFL Acc: 61.3100,
+ Pseudo Loss: 1.2837, Pseudo Acc: 55.3400
+CRITICAL:root:Iter: 5300 / 10000, Pseudo Loss: -0.2387, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -7.5688, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: 0.2387, Dis_target_Loss.: -8.2280 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1677, VFL Acc: 59.1800,
+ Pseudo Loss: 1.3457, Pseudo Acc: 52.7200
+CRITICAL:root:Iter: 5350 / 10000, Pseudo Loss: -1.8902, Pseudo Inverse Loss: 0.0182, Discriminator Loss: -7.4334, Pseudo Target MSELoss: 0.0299,  Dis_Pseudo_Loss: 1.8902, Dis_target_Loss.: -9.5731 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1016, VFL Acc: 61.3900,
+ Pseudo Loss: 1.3114, Pseudo Acc: 54.0100
+CRITICAL:root:Iter: 5400 / 10000, Pseudo Loss: -3.5050, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -6.8866, Pseudo Target MSELoss: 0.0287,  Dis_Pseudo_Loss: 3.5050, Dis_target_Loss.: -10.6518 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1085, VFL Acc: 61.1100,
+ Pseudo Loss: 1.3311, Pseudo Acc: 53.4100
+CRITICAL:root:Iter: 5450 / 10000, Pseudo Loss: -0.9657, Pseudo Inverse Loss: 0.0171, Discriminator Loss: -7.3158, Pseudo Target MSELoss: 0.0294,  Dis_Pseudo_Loss: 0.9657, Dis_target_Loss.: -8.7074 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1161, VFL Acc: 61.3800,
+ Pseudo Loss: 1.2817, Pseudo Acc: 55.6700
+CRITICAL:root:Iter: 5500 / 10000, Pseudo Loss: -2.4693, Pseudo Inverse Loss: 0.0145, Discriminator Loss: -7.1320, Pseudo Target MSELoss: 0.0226,  Dis_Pseudo_Loss: 2.4693, Dis_target_Loss.: -9.8499 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1180, VFL Acc: 61.8600,
+ Pseudo Loss: 1.3102, Pseudo Acc: 55.5300
+CRITICAL:root:Iter: 5550 / 10000, Pseudo Loss: -0.4788, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -6.5326, Pseudo Target MSELoss: 0.0294,  Dis_Pseudo_Loss: 0.4788, Dis_target_Loss.: -7.2472 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1409, VFL Acc: 61.0500,
+ Pseudo Loss: 1.3406, Pseudo Acc: 54.5200
+CRITICAL:root:Iter: 5600 / 10000, Pseudo Loss: -6.9699, Pseudo Inverse Loss: 0.0163, Discriminator Loss: -6.5560, Pseudo Target MSELoss: 0.0285,  Dis_Pseudo_Loss: 6.9699, Dis_target_Loss.: -14.1822 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1474, VFL Acc: 61.1700,
+ Pseudo Loss: 1.3127, Pseudo Acc: 56.6000
+CRITICAL:root:Iter: 5650 / 10000, Pseudo Loss: 0.0500, Pseudo Inverse Loss: 0.0166, Discriminator Loss: -7.1601, Pseudo Target MSELoss: 0.0283,  Dis_Pseudo_Loss: -0.0500, Dis_target_Loss.: -7.3745 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1199, VFL Acc: 61.8400,
+ Pseudo Loss: 1.3257, Pseudo Acc: 54.7900
+CRITICAL:root:Iter: 5700 / 10000, Pseudo Loss: -5.1719, Pseudo Inverse Loss: 0.0149, Discriminator Loss: -7.2627, Pseudo Target MSELoss: 0.0325,  Dis_Pseudo_Loss: 5.1719, Dis_target_Loss.: -12.6539 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1136, VFL Acc: 61.5800,
+ Pseudo Loss: 1.3108, Pseudo Acc: 55.5100
+CRITICAL:root:Iter: 5750 / 10000, Pseudo Loss: -1.2658, Pseudo Inverse Loss: 0.0157, Discriminator Loss: -6.7924, Pseudo Target MSELoss: 0.0294,  Dis_Pseudo_Loss: 1.2658, Dis_target_Loss.: -8.3454 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1013, VFL Acc: 62.0500,
+ Pseudo Loss: 1.3271, Pseudo Acc: 54.8200
+CRITICAL:root:Iter: 5800 / 10000, Pseudo Loss: -3.9307, Pseudo Inverse Loss: 0.0170, Discriminator Loss: -5.8948, Pseudo Target MSELoss: 0.0282,  Dis_Pseudo_Loss: 3.9307, Dis_target_Loss.: -10.2605 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1146, VFL Acc: 62.2100,
+ Pseudo Loss: 1.3633, Pseudo Acc: 54.1500
+CRITICAL:root:Iter: 5850 / 10000, Pseudo Loss: -4.9555, Pseudo Inverse Loss: 0.0163, Discriminator Loss: -7.5331, Pseudo Target MSELoss: 0.0260,  Dis_Pseudo_Loss: 4.9555, Dis_target_Loss.: -12.8287 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1026, VFL Acc: 61.8000,
+ Pseudo Loss: 1.2875, Pseudo Acc: 55.2200
+CRITICAL:root:Iter: 5900 / 10000, Pseudo Loss: -0.4461, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -7.0524, Pseudo Target MSELoss: 0.0271,  Dis_Pseudo_Loss: 0.4461, Dis_target_Loss.: -8.0078 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0796, VFL Acc: 62.5400,
+ Pseudo Loss: 1.2965, Pseudo Acc: 54.9100
+CRITICAL:root:Iter: 5950 / 10000, Pseudo Loss: -2.7397, Pseudo Inverse Loss: 0.0141, Discriminator Loss: -6.8945, Pseudo Target MSELoss: 0.0289,  Dis_Pseudo_Loss: 2.7397, Dis_target_Loss.: -9.9072 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0596, VFL Acc: 63.3100,
+ Pseudo Loss: 1.2487, Pseudo Acc: 57.1300
+CRITICAL:root:Iter: 6000 / 10000, Pseudo Loss: -1.4225, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.6594, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: 1.4225, Dis_target_Loss.: -9.2454 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0587, VFL Acc: 63.1000,
+ Pseudo Loss: 1.2875, Pseudo Acc: 55.7600
+CRITICAL:root:Iter: 6050 / 10000, Pseudo Loss: 1.3684, Pseudo Inverse Loss: 0.0137, Discriminator Loss: -7.9119, Pseudo Target MSELoss: 0.0264,  Dis_Pseudo_Loss: -1.3684, Dis_target_Loss.: -6.8972 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1163, VFL Acc: 61.4000,
+ Pseudo Loss: 1.2752, Pseudo Acc: 56.0600
+CRITICAL:root:Iter: 6100 / 10000, Pseudo Loss: -0.5834, Pseudo Inverse Loss: 0.0181, Discriminator Loss: -6.2671, Pseudo Target MSELoss: 0.0362,  Dis_Pseudo_Loss: 0.5834, Dis_target_Loss.: -7.1794 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0466, VFL Acc: 63.4100,
+ Pseudo Loss: 1.2443, Pseudo Acc: 56.6900
+CRITICAL:root:Iter: 6150 / 10000, Pseudo Loss: -3.0044, Pseudo Inverse Loss: 0.0139, Discriminator Loss: -7.5111, Pseudo Target MSELoss: 0.0246,  Dis_Pseudo_Loss: 3.0044, Dis_target_Loss.: -10.9324 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0633, VFL Acc: 63.2300,
+ Pseudo Loss: 1.2038, Pseudo Acc: 56.9700
+CRITICAL:root:Iter: 6200 / 10000, Pseudo Loss: -2.2196, Pseudo Inverse Loss: 0.0131, Discriminator Loss: -7.0359, Pseudo Target MSELoss: 0.0256,  Dis_Pseudo_Loss: 2.2196, Dis_target_Loss.: -9.5201 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0738, VFL Acc: 63.0000,
+ Pseudo Loss: 1.2406, Pseudo Acc: 56.9400
+CRITICAL:root:Iter: 6250 / 10000, Pseudo Loss: -0.2814, Pseudo Inverse Loss: 0.0139, Discriminator Loss: -7.0411, Pseudo Target MSELoss: 0.0287,  Dis_Pseudo_Loss: 0.2814, Dis_target_Loss.: -7.6655 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0658, VFL Acc: 63.0100,
+ Pseudo Loss: 1.2166, Pseudo Acc: 58.1900
+CRITICAL:root:Iter: 6300 / 10000, Pseudo Loss: -7.3384, Pseudo Inverse Loss: 0.0142, Discriminator Loss: -7.2915, Pseudo Target MSELoss: 0.0293,  Dis_Pseudo_Loss: 7.3384, Dis_target_Loss.: -15.0519 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0875, VFL Acc: 62.7800,
+ Pseudo Loss: 1.2825, Pseudo Acc: 56.4100
+CRITICAL:root:Iter: 6350 / 10000, Pseudo Loss: 1.0360, Pseudo Inverse Loss: 0.0133, Discriminator Loss: -7.3480, Pseudo Target MSELoss: 0.0271,  Dis_Pseudo_Loss: -1.0360, Dis_target_Loss.: -6.6032 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1141, VFL Acc: 63.0200,
+ Pseudo Loss: 1.2680, Pseudo Acc: 57.6800
+CRITICAL:root:Iter: 6400 / 10000, Pseudo Loss: -5.4894, Pseudo Inverse Loss: 0.0158, Discriminator Loss: -6.6586, Pseudo Target MSELoss: 0.0245,  Dis_Pseudo_Loss: 5.4894, Dis_target_Loss.: -12.3945 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0645, VFL Acc: 63.4900,
+ Pseudo Loss: 1.3018, Pseudo Acc: 55.5200
+CRITICAL:root:Iter: 6450 / 10000, Pseudo Loss: -1.9660, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -6.1027, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: 1.9660, Dis_target_Loss.: -8.6133 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0860, VFL Acc: 62.8100,
+ Pseudo Loss: 1.2685, Pseudo Acc: 56.6700
+CRITICAL:root:Iter: 6500 / 10000, Pseudo Loss: 2.2086, Pseudo Inverse Loss: 0.0148, Discriminator Loss: -6.5257, Pseudo Target MSELoss: 0.0274,  Dis_Pseudo_Loss: -2.2086, Dis_target_Loss.: -4.7690 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0745, VFL Acc: 62.9600,
+ Pseudo Loss: 1.3307, Pseudo Acc: 54.8400
+CRITICAL:root:Iter: 6550 / 10000, Pseudo Loss: -2.1316, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -5.8275, Pseudo Target MSELoss: 0.0233,  Dis_Pseudo_Loss: 2.1316, Dis_target_Loss.: -8.9023 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0767, VFL Acc: 63.2400,
+ Pseudo Loss: 1.2550, Pseudo Acc: 57.0900
+CRITICAL:root:Iter: 6600 / 10000, Pseudo Loss: -2.2766, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -6.3901, Pseudo Target MSELoss: 0.0269,  Dis_Pseudo_Loss: 2.2766, Dis_target_Loss.: -8.9483 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0939, VFL Acc: 62.6700,
+ Pseudo Loss: 1.2791, Pseudo Acc: 56.8800
+CRITICAL:root:Iter: 6650 / 10000, Pseudo Loss: -4.9195, Pseudo Inverse Loss: 0.0137, Discriminator Loss: -7.2733, Pseudo Target MSELoss: 0.0243,  Dis_Pseudo_Loss: 4.9195, Dis_target_Loss.: -12.8558 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0833, VFL Acc: 62.9000,
+ Pseudo Loss: 1.2635, Pseudo Acc: 56.4200
+CRITICAL:root:Iter: 6700 / 10000, Pseudo Loss: 2.2054, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -7.3053, Pseudo Target MSELoss: 0.0274,  Dis_Pseudo_Loss: -2.2054, Dis_target_Loss.: -5.4975 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0859, VFL Acc: 63.0000,
+ Pseudo Loss: 1.2408, Pseudo Acc: 57.8100
+CRITICAL:root:Iter: 6750 / 10000, Pseudo Loss: -1.8744, Pseudo Inverse Loss: 0.0142, Discriminator Loss: -7.0090, Pseudo Target MSELoss: 0.0268,  Dis_Pseudo_Loss: 1.8744, Dis_target_Loss.: -9.5327 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0641, VFL Acc: 63.7200,
+ Pseudo Loss: 1.2140, Pseudo Acc: 58.5800
+CRITICAL:root:Iter: 6800 / 10000, Pseudo Loss: -0.2756, Pseudo Inverse Loss: 0.0145, Discriminator Loss: -7.0289, Pseudo Target MSELoss: 0.0259,  Dis_Pseudo_Loss: 0.2756, Dis_target_Loss.: -7.6663 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0409, VFL Acc: 63.9500,
+ Pseudo Loss: 1.1913, Pseudo Acc: 58.8400
+CRITICAL:root:Iter: 6850 / 10000, Pseudo Loss: -2.4603, Pseudo Inverse Loss: 0.0137, Discriminator Loss: -7.6991, Pseudo Target MSELoss: 0.0250,  Dis_Pseudo_Loss: 2.4603, Dis_target_Loss.: -10.3907 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0384, VFL Acc: 63.9800,
+ Pseudo Loss: 1.2009, Pseudo Acc: 58.8300
+CRITICAL:root:Iter: 6900 / 10000, Pseudo Loss: 0.1636, Pseudo Inverse Loss: 0.0139, Discriminator Loss: -7.4885, Pseudo Target MSELoss: 0.0215,  Dis_Pseudo_Loss: -0.1636, Dis_target_Loss.: -7.5984 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0348, VFL Acc: 64.1800,
+ Pseudo Loss: 1.2133, Pseudo Acc: 57.8300
+CRITICAL:root:Iter: 6950 / 10000, Pseudo Loss: 0.2699, Pseudo Inverse Loss: 0.0174, Discriminator Loss: -6.6857, Pseudo Target MSELoss: 0.0241,  Dis_Pseudo_Loss: -0.2699, Dis_target_Loss.: -6.5895 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0505, VFL Acc: 64.3000,
+ Pseudo Loss: 1.1766, Pseudo Acc: 59.6600
+CRITICAL:root:Iter: 7000 / 10000, Pseudo Loss: -5.7717, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -7.1255, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: 5.7717, Dis_target_Loss.: -13.1313 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0530, VFL Acc: 62.5500,
+ Pseudo Loss: 1.1787, Pseudo Acc: 59.0100
+CRITICAL:root:Iter: 7050 / 10000, Pseudo Loss: 0.2434, Pseudo Inverse Loss: 0.0157, Discriminator Loss: -7.4918, Pseudo Target MSELoss: 0.0261,  Dis_Pseudo_Loss: -0.2434, Dis_target_Loss.: -7.4456 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0315, VFL Acc: 63.9100,
+ Pseudo Loss: 1.1760, Pseudo Acc: 59.6100
+CRITICAL:root:Iter: 7100 / 10000, Pseudo Loss: -0.4167, Pseudo Inverse Loss: 0.0145, Discriminator Loss: -7.2714, Pseudo Target MSELoss: 0.0265,  Dis_Pseudo_Loss: 0.4167, Dis_target_Loss.: -8.1320 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0498, VFL Acc: 64.4100,
+ Pseudo Loss: 1.1667, Pseudo Acc: 61.0100
+CRITICAL:root:Iter: 7150 / 10000, Pseudo Loss: -3.6673, Pseudo Inverse Loss: 0.0164, Discriminator Loss: -7.4800, Pseudo Target MSELoss: 0.0236,  Dis_Pseudo_Loss: 3.6673, Dis_target_Loss.: -11.5329 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0547, VFL Acc: 64.1600,
+ Pseudo Loss: 1.2216, Pseudo Acc: 58.1200
+CRITICAL:root:Iter: 7200 / 10000, Pseudo Loss: 0.3022, Pseudo Inverse Loss: 0.0119, Discriminator Loss: -6.4980, Pseudo Target MSELoss: 0.0241,  Dis_Pseudo_Loss: -0.3022, Dis_target_Loss.: -6.4917 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0467, VFL Acc: 65.2200,
+ Pseudo Loss: 1.2056, Pseudo Acc: 59.3000
+CRITICAL:root:Iter: 7250 / 10000, Pseudo Loss: -1.8327, Pseudo Inverse Loss: 0.0121, Discriminator Loss: -6.7705, Pseudo Target MSELoss: 0.0224,  Dis_Pseudo_Loss: 1.8327, Dis_target_Loss.: -9.2875 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0766, VFL Acc: 63.8600,
+ Pseudo Loss: 1.2248, Pseudo Acc: 59.0500
+CRITICAL:root:Iter: 7300 / 10000, Pseudo Loss: -8.4393, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -7.9833, Pseudo Target MSELoss: 0.0272,  Dis_Pseudo_Loss: 8.4393, Dis_target_Loss.: -16.7345 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0670, VFL Acc: 64.6000,
+ Pseudo Loss: 1.2865, Pseudo Acc: 58.1000
+CRITICAL:root:Iter: 7350 / 10000, Pseudo Loss: 1.4363, Pseudo Inverse Loss: 0.0121, Discriminator Loss: -6.2066, Pseudo Target MSELoss: 0.0233,  Dis_Pseudo_Loss: -1.4363, Dis_target_Loss.: -5.1433 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0731, VFL Acc: 63.7500,
+ Pseudo Loss: 1.1850, Pseudo Acc: 60.0000
+CRITICAL:root:Iter: 7400 / 10000, Pseudo Loss: -3.4907, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.0934, Pseudo Target MSELoss: 0.0223,  Dis_Pseudo_Loss: 3.4907, Dis_target_Loss.: -10.9205 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0806, VFL Acc: 63.7800,
+ Pseudo Loss: 1.2261, Pseudo Acc: 58.7400
+CRITICAL:root:Iter: 7450 / 10000, Pseudo Loss: -5.0075, Pseudo Inverse Loss: 0.0134, Discriminator Loss: -6.8099, Pseudo Target MSELoss: 0.0220,  Dis_Pseudo_Loss: 5.0075, Dis_target_Loss.: -12.3550 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0474, VFL Acc: 64.2400,
+ Pseudo Loss: 1.2126, Pseudo Acc: 59.0300
+CRITICAL:root:Iter: 7500 / 10000, Pseudo Loss: 3.7640, Pseudo Inverse Loss: 0.0126, Discriminator Loss: -7.6621, Pseudo Target MSELoss: 0.0260,  Dis_Pseudo_Loss: -3.7640, Dis_target_Loss.: -4.3115 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0452, VFL Acc: 64.6700,
+ Pseudo Loss: 1.2080, Pseudo Acc: 59.3500
+CRITICAL:root:Iter: 7550 / 10000, Pseudo Loss: -5.2449, Pseudo Inverse Loss: 0.0126, Discriminator Loss: -7.1047, Pseudo Target MSELoss: 0.0256,  Dis_Pseudo_Loss: 5.2449, Dis_target_Loss.: -12.5893 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0377, VFL Acc: 64.6200,
+ Pseudo Loss: 1.1674, Pseudo Acc: 60.7200
+CRITICAL:root:Iter: 7600 / 10000, Pseudo Loss: 0.3896, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -7.1564, Pseudo Target MSELoss: 0.0258,  Dis_Pseudo_Loss: -0.3896, Dis_target_Loss.: -7.1076 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1001, VFL Acc: 63.5500,
+ Pseudo Loss: 1.2099, Pseudo Acc: 58.4700
+CRITICAL:root:Iter: 7650 / 10000, Pseudo Loss: -4.5464, Pseudo Inverse Loss: 0.0118, Discriminator Loss: -7.7875, Pseudo Target MSELoss: 0.0230,  Dis_Pseudo_Loss: 4.5464, Dis_target_Loss.: -12.6934 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0687, VFL Acc: 63.8200,
+ Pseudo Loss: 1.2306, Pseudo Acc: 58.2800
+CRITICAL:root:Iter: 7700 / 10000, Pseudo Loss: 4.0860, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -7.6559, Pseudo Target MSELoss: 0.0287,  Dis_Pseudo_Loss: -4.0860, Dis_target_Loss.: -3.8993 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0492, VFL Acc: 64.3200,
+ Pseudo Loss: 1.2339, Pseudo Acc: 58.3300
+CRITICAL:root:Iter: 7750 / 10000, Pseudo Loss: -8.2995, Pseudo Inverse Loss: 0.0141, Discriminator Loss: -7.2938, Pseudo Target MSELoss: 0.0237,  Dis_Pseudo_Loss: 8.2995, Dis_target_Loss.: -15.8830 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0474, VFL Acc: 65.0200,
+ Pseudo Loss: 1.2403, Pseudo Acc: 58.7800
+CRITICAL:root:Iter: 7800 / 10000, Pseudo Loss: 6.4137, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -6.8204, Pseudo Target MSELoss: 0.0319,  Dis_Pseudo_Loss: -6.4137, Dis_target_Loss.: -0.7048 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0339, VFL Acc: 64.6500,
+ Pseudo Loss: 1.2233, Pseudo Acc: 58.7300
+CRITICAL:root:Iter: 7850 / 10000, Pseudo Loss: -9.6414, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -6.7764, Pseudo Target MSELoss: 0.0262,  Dis_Pseudo_Loss: 9.6414, Dis_target_Loss.: -17.1292 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0424, VFL Acc: 65.5600,
+ Pseudo Loss: 1.1859, Pseudo Acc: 61.4600
+CRITICAL:root:Iter: 7900 / 10000, Pseudo Loss: 1.2133, Pseudo Inverse Loss: 0.0154, Discriminator Loss: -8.0603, Pseudo Target MSELoss: 0.0235,  Dis_Pseudo_Loss: -1.2133, Dis_target_Loss.: -7.2122 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1053, VFL Acc: 64.6800,
+ Pseudo Loss: 1.2813, Pseudo Acc: 60.1300
+CRITICAL:root:Iter: 7950 / 10000, Pseudo Loss: -6.1094, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -7.4624, Pseudo Target MSELoss: 0.0213,  Dis_Pseudo_Loss: 6.1094, Dis_target_Loss.: -13.8438 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0920, VFL Acc: 63.9000,
+ Pseudo Loss: 1.2512, Pseudo Acc: 59.4500
+CRITICAL:root:Iter: 8000 / 10000, Pseudo Loss: 3.8863, Pseudo Inverse Loss: 0.0132, Discriminator Loss: -8.2785, Pseudo Target MSELoss: 0.0205,  Dis_Pseudo_Loss: -3.8863, Dis_target_Loss.: -4.7588 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0750, VFL Acc: 64.2900,
+ Pseudo Loss: 1.2337, Pseudo Acc: 59.4100
+CRITICAL:root:Iter: 8050 / 10000, Pseudo Loss: -4.4085, Pseudo Inverse Loss: 0.0123, Discriminator Loss: -7.7215, Pseudo Target MSELoss: 0.0227,  Dis_Pseudo_Loss: 4.4085, Dis_target_Loss.: -13.0154 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0744, VFL Acc: 64.6400,
+ Pseudo Loss: 1.2401, Pseudo Acc: 59.4000
+CRITICAL:root:Iter: 8100 / 10000, Pseudo Loss: 4.8097, Pseudo Inverse Loss: 0.0118, Discriminator Loss: -7.0346, Pseudo Target MSELoss: 0.0228,  Dis_Pseudo_Loss: -4.8097, Dis_target_Loss.: -2.6305 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0520, VFL Acc: 65.6800,
+ Pseudo Loss: 1.2225, Pseudo Acc: 60.8500
+CRITICAL:root:Iter: 8150 / 10000, Pseudo Loss: -5.2865, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.6164, Pseudo Target MSELoss: 0.0214,  Dis_Pseudo_Loss: 5.2865, Dis_target_Loss.: -13.2664 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0458, VFL Acc: 65.0100,
+ Pseudo Loss: 1.2122, Pseudo Acc: 59.6500
+CRITICAL:root:Iter: 8200 / 10000, Pseudo Loss: 1.7050, Pseudo Inverse Loss: 0.0119, Discriminator Loss: -7.2616, Pseudo Target MSELoss: 0.0231,  Dis_Pseudo_Loss: -1.7050, Dis_target_Loss.: -5.9102 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0385, VFL Acc: 65.0400,
+ Pseudo Loss: 1.1909, Pseudo Acc: 60.1300
+CRITICAL:root:Iter: 8250 / 10000, Pseudo Loss: -4.4087, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.1791, Pseudo Target MSELoss: 0.0206,  Dis_Pseudo_Loss: 4.4087, Dis_target_Loss.: -11.7862 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0400, VFL Acc: 65.1000,
+ Pseudo Loss: 1.1976, Pseudo Acc: 60.1400
+CRITICAL:root:Iter: 8300 / 10000, Pseudo Loss: 0.4487, Pseudo Inverse Loss: 0.0134, Discriminator Loss: -6.8227, Pseudo Target MSELoss: 0.0240,  Dis_Pseudo_Loss: -0.4487, Dis_target_Loss.: -6.9269 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0270, VFL Acc: 65.3800,
+ Pseudo Loss: 1.2061, Pseudo Acc: 59.7300
+CRITICAL:root:Iter: 8350 / 10000, Pseudo Loss: -10.3711, Pseudo Inverse Loss: 0.0129, Discriminator Loss: -7.3928, Pseudo Target MSELoss: 0.0231,  Dis_Pseudo_Loss: 10.3711, Dis_target_Loss.: -17.9892 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0419, VFL Acc: 65.2200,
+ Pseudo Loss: 1.2221, Pseudo Acc: 59.5100
+CRITICAL:root:Iter: 8400 / 10000, Pseudo Loss: 0.2123, Pseudo Inverse Loss: 0.0135, Discriminator Loss: -7.7695, Pseudo Target MSELoss: 0.0277,  Dis_Pseudo_Loss: -0.2123, Dis_target_Loss.: -8.1530 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0383, VFL Acc: 64.5200,
+ Pseudo Loss: 1.1910, Pseudo Acc: 59.5500
+CRITICAL:root:Iter: 8450 / 10000, Pseudo Loss: -3.8433, Pseudo Inverse Loss: 0.0132, Discriminator Loss: -6.8681, Pseudo Target MSELoss: 0.0209,  Dis_Pseudo_Loss: 3.8433, Dis_target_Loss.: -10.9908 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 0.9978, VFL Acc: 66.3300,
+ Pseudo Loss: 1.1620, Pseudo Acc: 60.9600
+CRITICAL:root:Iter: 8500 / 10000, Pseudo Loss: -5.0137, Pseudo Inverse Loss: 0.0142, Discriminator Loss: -6.3185, Pseudo Target MSELoss: 0.0265,  Dis_Pseudo_Loss: 5.0137, Dis_target_Loss.: -11.8153 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0320, VFL Acc: 65.3500,
+ Pseudo Loss: 1.1968, Pseudo Acc: 60.0500
+CRITICAL:root:Iter: 8550 / 10000, Pseudo Loss: -0.4922, Pseudo Inverse Loss: 0.0121, Discriminator Loss: -6.8157, Pseudo Target MSELoss: 0.0227,  Dis_Pseudo_Loss: 0.4922, Dis_target_Loss.: -7.7978 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0069, VFL Acc: 65.4000,
+ Pseudo Loss: 1.1606, Pseudo Acc: 60.6300
+CRITICAL:root:Iter: 8600 / 10000, Pseudo Loss: -4.0820, Pseudo Inverse Loss: 0.0114, Discriminator Loss: -6.2944, Pseudo Target MSELoss: 0.0221,  Dis_Pseudo_Loss: 4.0820, Dis_target_Loss.: -10.7053 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0283, VFL Acc: 65.7100,
+ Pseudo Loss: 1.1861, Pseudo Acc: 60.4600
+CRITICAL:root:Iter: 8650 / 10000, Pseudo Loss: 2.8246, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -7.7970, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: -2.8246, Dis_target_Loss.: -5.3759 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0679, VFL Acc: 65.9700,
+ Pseudo Loss: 1.2630, Pseudo Acc: 60.4100
+CRITICAL:root:Iter: 8700 / 10000, Pseudo Loss: -5.1800, Pseudo Inverse Loss: 0.0112, Discriminator Loss: -7.1385, Pseudo Target MSELoss: 0.0236,  Dis_Pseudo_Loss: 5.1800, Dis_target_Loss.: -12.7147 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0793, VFL Acc: 65.4600,
+ Pseudo Loss: 1.2039, Pseudo Acc: 61.5500
+CRITICAL:root:Iter: 8750 / 10000, Pseudo Loss: -3.8821, Pseudo Inverse Loss: 0.0133, Discriminator Loss: -7.5511, Pseudo Target MSELoss: 0.0273,  Dis_Pseudo_Loss: 3.8821, Dis_target_Loss.: -11.6310 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1092, VFL Acc: 64.8600,
+ Pseudo Loss: 1.2566, Pseudo Acc: 59.7100
+CRITICAL:root:Iter: 8800 / 10000, Pseudo Loss: 1.1993, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -6.5446, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: -1.1993, Dis_target_Loss.: -5.9151 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1165, VFL Acc: 64.3800,
+ Pseudo Loss: 1.2429, Pseudo Acc: 60.0900
+CRITICAL:root:Iter: 8850 / 10000, Pseudo Loss: -2.4013, Pseudo Inverse Loss: 0.0128, Discriminator Loss: -7.0791, Pseudo Target MSELoss: 0.0258,  Dis_Pseudo_Loss: 2.4013, Dis_target_Loss.: -9.7843 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1104, VFL Acc: 64.5200,
+ Pseudo Loss: 1.2580, Pseudo Acc: 59.2600
+CRITICAL:root:Iter: 8900 / 10000, Pseudo Loss: -1.3070, Pseudo Inverse Loss: 0.0120, Discriminator Loss: -6.9862, Pseudo Target MSELoss: 0.0196,  Dis_Pseudo_Loss: 1.3070, Dis_target_Loss.: -8.5112 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0790, VFL Acc: 65.3400,
+ Pseudo Loss: 1.2376, Pseudo Acc: 59.9000
+CRITICAL:root:Iter: 8950 / 10000, Pseudo Loss: -4.0958, Pseudo Inverse Loss: 0.0123, Discriminator Loss: -7.1192, Pseudo Target MSELoss: 0.0231,  Dis_Pseudo_Loss: 4.0958, Dis_target_Loss.: -11.4459 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0660, VFL Acc: 65.3800,
+ Pseudo Loss: 1.2330, Pseudo Acc: 60.2300
+CRITICAL:root:Iter: 9000 / 10000, Pseudo Loss: -0.7613, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -6.6628, Pseudo Target MSELoss: 0.0204,  Dis_Pseudo_Loss: 0.7613, Dis_target_Loss.: -7.7996 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0665, VFL Acc: 65.3900,
+ Pseudo Loss: 1.2289, Pseudo Acc: 60.5000
+CRITICAL:root:Iter: 9050 / 10000, Pseudo Loss: -0.3603, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -7.3131, Pseudo Target MSELoss: 0.0203,  Dis_Pseudo_Loss: 0.3603, Dis_target_Loss.: -8.1570 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0397, VFL Acc: 65.5800,
+ Pseudo Loss: 1.1825, Pseudo Acc: 60.7600
+CRITICAL:root:Iter: 9100 / 10000, Pseudo Loss: -6.9698, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -7.2714, Pseudo Target MSELoss: 0.0242,  Dis_Pseudo_Loss: 6.9698, Dis_target_Loss.: -14.6695 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0482, VFL Acc: 65.8400,
+ Pseudo Loss: 1.2158, Pseudo Acc: 60.7000
+CRITICAL:root:Iter: 9150 / 10000, Pseudo Loss: 4.7275, Pseudo Inverse Loss: 0.0154, Discriminator Loss: -6.7059, Pseudo Target MSELoss: 0.0235,  Dis_Pseudo_Loss: -4.7275, Dis_target_Loss.: -2.4683 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0603, VFL Acc: 65.0400,
+ Pseudo Loss: 1.1881, Pseudo Acc: 61.0000
+CRITICAL:root:Iter: 9200 / 10000, Pseudo Loss: -9.6105, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -6.7348, Pseudo Target MSELoss: 0.0218,  Dis_Pseudo_Loss: 9.6105, Dis_target_Loss.: -16.8022 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0423, VFL Acc: 64.9800,
+ Pseudo Loss: 1.2021, Pseudo Acc: 59.9700
+CRITICAL:root:Iter: 9250 / 10000, Pseudo Loss: 0.1305, Pseudo Inverse Loss: 0.0121, Discriminator Loss: -6.3873, Pseudo Target MSELoss: 0.0269,  Dis_Pseudo_Loss: -0.1305, Dis_target_Loss.: -6.8622 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0853, VFL Acc: 65.5200,
+ Pseudo Loss: 1.2978, Pseudo Acc: 59.4100
+CRITICAL:root:Iter: 9300 / 10000, Pseudo Loss: -0.3834, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -7.4510, Pseudo Target MSELoss: 0.0229,  Dis_Pseudo_Loss: 0.3834, Dis_target_Loss.: -8.0327 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0371, VFL Acc: 65.6900,
+ Pseudo Loss: 1.1992, Pseudo Acc: 61.1600
+CRITICAL:root:Iter: 9350 / 10000, Pseudo Loss: -0.2089, Pseudo Inverse Loss: 0.0136, Discriminator Loss: -7.1089, Pseudo Target MSELoss: 0.0229,  Dis_Pseudo_Loss: 0.2089, Dis_target_Loss.: -7.6808 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0303, VFL Acc: 66.2400,
+ Pseudo Loss: 1.2007, Pseudo Acc: 59.9800
+CRITICAL:root:Iter: 9400 / 10000, Pseudo Loss: 0.4879, Pseudo Inverse Loss: 0.0119, Discriminator Loss: -7.2246, Pseudo Target MSELoss: 0.0221,  Dis_Pseudo_Loss: -0.4879, Dis_target_Loss.: -7.1934 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0750, VFL Acc: 66.4300,
+ Pseudo Loss: 1.2535, Pseudo Acc: 60.9600
+CRITICAL:root:Iter: 9450 / 10000, Pseudo Loss: -7.9303, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -7.6681, Pseudo Target MSELoss: 0.0243,  Dis_Pseudo_Loss: 7.9303, Dis_target_Loss.: -15.8788 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.1832, VFL Acc: 64.4500,
+ Pseudo Loss: 1.3302, Pseudo Acc: 59.7000
+CRITICAL:root:Iter: 9500 / 10000, Pseudo Loss: 2.6906, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -7.2624, Pseudo Target MSELoss: 0.0216,  Dis_Pseudo_Loss: -2.6906, Dis_target_Loss.: -5.1264 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0583, VFL Acc: 65.5300,
+ Pseudo Loss: 1.2356, Pseudo Acc: 60.7800
+CRITICAL:root:Iter: 9550 / 10000, Pseudo Loss: -2.0982, Pseudo Inverse Loss: 0.0172, Discriminator Loss: -7.2152, Pseudo Target MSELoss: 0.0230,  Dis_Pseudo_Loss: 2.0982, Dis_target_Loss.: -9.5669 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0663, VFL Acc: 65.9800,
+ Pseudo Loss: 1.2451, Pseudo Acc: 60.7700
+CRITICAL:root:Iter: 9600 / 10000, Pseudo Loss: -3.4508, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -7.6100, Pseudo Target MSELoss: 0.0199,  Dis_Pseudo_Loss: 3.4508, Dis_target_Loss.: -11.4276 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0925, VFL Acc: 64.9700,
+ Pseudo Loss: 1.2457, Pseudo Acc: 60.3000
+CRITICAL:root:Iter: 9650 / 10000, Pseudo Loss: 0.5122, Pseudo Inverse Loss: 0.0119, Discriminator Loss: -7.2280, Pseudo Target MSELoss: 0.0240,  Dis_Pseudo_Loss: -0.5122, Dis_target_Loss.: -7.0105 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0669, VFL Acc: 65.5300,
+ Pseudo Loss: 1.2233, Pseudo Acc: 60.6600
+CRITICAL:root:Iter: 9700 / 10000, Pseudo Loss: -1.8807, Pseudo Inverse Loss: 0.0114, Discriminator Loss: -7.6776, Pseudo Target MSELoss: 0.0208,  Dis_Pseudo_Loss: 1.8807, Dis_target_Loss.: -9.8915 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0784, VFL Acc: 65.0100,
+ Pseudo Loss: 1.2373, Pseudo Acc: 60.6700
+CRITICAL:root:Iter: 9750 / 10000, Pseudo Loss: -2.2654, Pseudo Inverse Loss: 0.0106, Discriminator Loss: -7.7601, Pseudo Target MSELoss: 0.0241,  Dis_Pseudo_Loss: 2.2654, Dis_target_Loss.: -10.3641 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0704, VFL Acc: 66.3800,
+ Pseudo Loss: 1.2860, Pseudo Acc: 59.0500
+CRITICAL:root:Iter: 9800 / 10000, Pseudo Loss: 0.9807, Pseudo Inverse Loss: 0.0129, Discriminator Loss: -7.3404, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: -0.9807, Dis_target_Loss.: -6.6267 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0203, VFL Acc: 65.7600,
+ Pseudo Loss: 1.1837, Pseudo Acc: 61.3100
+CRITICAL:root:Iter: 9850 / 10000, Pseudo Loss: -0.7744, Pseudo Inverse Loss: 0.0126, Discriminator Loss: -7.0910, Pseudo Target MSELoss: 0.0204,  Dis_Pseudo_Loss: 0.7744, Dis_target_Loss.: -8.4009 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0500, VFL Acc: 66.1600,
+ Pseudo Loss: 1.2005, Pseudo Acc: 61.7900
+CRITICAL:root:Iter: 9900 / 10000, Pseudo Loss: -7.1997, Pseudo Inverse Loss: 0.0115, Discriminator Loss: -8.1718, Pseudo Target MSELoss: 0.0214,  Dis_Pseudo_Loss: 7.1997, Dis_target_Loss.: -15.7232 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0253, VFL Acc: 66.2900,
+ Pseudo Loss: 1.1527, Pseudo Acc: 62.0000
+CRITICAL:root:Iter: 9950 / 10000, Pseudo Loss: -0.4622, Pseudo Inverse Loss: 0.0131, Discriminator Loss: -8.1218, Pseudo Target MSELoss: 0.0221,  Dis_Pseudo_Loss: 0.4622, Dis_target_Loss.: -8.9338 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0651, VFL Acc: 65.6000,
+ Pseudo Loss: 1.2664, Pseudo Acc: 59.6400
+CRITICAL:root:Iter: 10000 / 10000, Pseudo Loss: -2.3964, Pseudo Inverse Loss: 0.0190, Discriminator Loss: -7.6207, Pseudo Target MSELoss: 0.0222,  Dis_Pseudo_Loss: 2.3964, Dis_target_Loss.: -10.4341 
+
+CRITICAL:root:Start testing the accuracy of the model: 
+
+CRITICAL:root:VFL Loss: 1.0783, VFL Acc: 65.2000,
+ Pseudo Loss: 1.2200, Pseudo Acc: 60.6100
