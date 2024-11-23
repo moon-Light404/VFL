@@ -1,0 +1,1581 @@
+2024-11-23T18:14:09.244836+08:00 - INFO - >>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>
+2024-11-23T18:14:09.244993+08:00 - INFO - iteration: 12000
+2024-11-23T18:14:09.245065+08:00 - INFO - lr: 0.0001
+2024-11-23T18:14:09.245136+08:00 - INFO - dlr: 0.0001
+2024-11-23T18:14:09.245213+08:00 - INFO - batch_size: 64
+2024-11-23T18:14:09.245271+08:00 - INFO - print_freq: 40
+2024-11-23T18:14:09.245327+08:00 - INFO - dataset: cifar10
+2024-11-23T18:14:09.245397+08:00 - INFO - level: 2
+2024-11-23T18:14:09.245451+08:00 - INFO - dataset_portion: 0.05
+2024-11-23T18:14:09.245507+08:00 - INFO - train_portion: 0.7
+2024-11-23T18:14:09.245577+08:00 - INFO - test_portion: 0.3
+2024-11-23T18:14:09.245629+08:00 - INFO - attack: our
+2024-11-23T18:14:09.245681+08:00 - INFO - loss_threshold: 1.65
+2024-11-23T18:14:09.245734+08:00 - INFO - if_update: False
+2024-11-23T18:14:09.245785+08:00 - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+2024-11-23T18:14:10.895327+08:00 - INFO - DataSet:cifar10
+2024-11-23T18:14:10.895885+08:00 - INFO - Train Dataset: 50000
+2024-11-23T18:14:10.895982+08:00 - INFO - Test Dataset: 10000
+2024-11-23T18:14:10.896045+08:00 - INFO - Shadow Dataset:2500
+2024-11-23T18:14:18.643104+08:00 - CRITICAL - Iter: 40 / 10000, Pseudo Loss: 0.0133, Pseudo Inverse Loss: 0.0779, Discriminator Loss: 8.1367, Pseudo Target MSELoss: 0.1009,  Dis_Pseudo_Loss: -0.0133, Dis_target_Loss.: 0.4614 
+
+2024-11-23T18:14:20.129927+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:14:22.573885+08:00 - CRITICAL - VFL Loss: 2.5455, VFL Acc: 16.2300,
+ Pseudo Loss: 2.4218, Pseudo Acc: 14.4300
+2024-11-23T18:14:26.751181+08:00 - CRITICAL - Iter: 80 / 10000, Pseudo Loss: 2.0510, Pseudo Inverse Loss: 0.0526, Discriminator Loss: 0.5191, Pseudo Target MSELoss: 0.0759,  Dis_Pseudo_Loss: -2.0510, Dis_target_Loss.: 1.3760 
+
+2024-11-23T18:14:29.416336+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:14:31.784678+08:00 - CRITICAL - VFL Loss: 2.0597, VFL Acc: 24.0000,
+ Pseudo Loss: 2.2449, Pseudo Acc: 16.9300
+2024-11-23T18:14:34.408221+08:00 - CRITICAL - Iter: 120 / 10000, Pseudo Loss: 9.9587, Pseudo Inverse Loss: 0.0452, Discriminator Loss: -3.9165, Pseudo Target MSELoss: 0.0727,  Dis_Pseudo_Loss: -9.9587, Dis_target_Loss.: 5.5491 
+
+2024-11-23T18:14:38.369265+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:14:40.704534+08:00 - CRITICAL - VFL Loss: 1.9649, VFL Acc: 26.3000,
+ Pseudo Loss: 2.2504, Pseudo Acc: 18.3200
+2024-11-23T18:14:42.098170+08:00 - CRITICAL - Iter: 160 / 10000, Pseudo Loss: 30.1711, Pseudo Inverse Loss: 0.0443, Discriminator Loss: -12.8620, Pseudo Target MSELoss: 0.0637,  Dis_Pseudo_Loss: -30.1711, Dis_target_Loss.: 16.9308 
+
+2024-11-23T18:14:47.553872+08:00 - CRITICAL - Iter: 200 / 10000, Pseudo Loss: 25.4645, Pseudo Inverse Loss: 0.0467, Discriminator Loss: -13.8055, Pseudo Target MSELoss: 0.0694,  Dis_Pseudo_Loss: -25.4645, Dis_target_Loss.: 10.8844 
+
+2024-11-23T18:14:47.554880+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:14:49.863837+08:00 - CRITICAL - VFL Loss: 1.9425, VFL Acc: 27.7000,
+ Pseudo Loss: 2.1947, Pseudo Acc: 20.6000
+2024-11-23T18:14:55.203240+08:00 - CRITICAL - Iter: 240 / 10000, Pseudo Loss: 22.1857, Pseudo Inverse Loss: 0.0516, Discriminator Loss: -12.8474, Pseudo Target MSELoss: 0.0625,  Dis_Pseudo_Loss: -22.1857, Dis_target_Loss.: 8.7850 
+
+2024-11-23T18:14:56.494245+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:14:58.790443+08:00 - CRITICAL - VFL Loss: 1.8503, VFL Acc: 30.6400,
+ Pseudo Loss: 2.1798, Pseudo Acc: 20.6000
+2024-11-23T18:15:02.981609+08:00 - CRITICAL - Iter: 280 / 10000, Pseudo Loss: 19.4618, Pseudo Inverse Loss: 0.0541, Discriminator Loss: -11.6876, Pseudo Target MSELoss: 0.0660,  Dis_Pseudo_Loss: -19.4618, Dis_target_Loss.: 7.1226 
+
+2024-11-23T18:15:05.671433+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:15:07.975876+08:00 - CRITICAL - VFL Loss: 1.8030, VFL Acc: 33.5500,
+ Pseudo Loss: 2.2299, Pseudo Acc: 20.1700
+2024-11-23T18:15:10.650042+08:00 - CRITICAL - Iter: 320 / 10000, Pseudo Loss: 15.1150, Pseudo Inverse Loss: 0.0442, Discriminator Loss: -11.6904, Pseudo Target MSELoss: 0.0667,  Dis_Pseudo_Loss: -15.1150, Dis_target_Loss.: 2.7528 
+
+2024-11-23T18:15:14.630291+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:15:17.042882+08:00 - CRITICAL - VFL Loss: 1.7492, VFL Acc: 34.4500,
+ Pseudo Loss: 2.0359, Pseudo Acc: 24.3900
+2024-11-23T18:15:18.439323+08:00 - CRITICAL - Iter: 360 / 10000, Pseudo Loss: 14.0363, Pseudo Inverse Loss: 0.0423, Discriminator Loss: -11.3894, Pseudo Target MSELoss: 0.0861,  Dis_Pseudo_Loss: -14.0363, Dis_target_Loss.: 2.3316 
+
+2024-11-23T18:15:24.198133+08:00 - CRITICAL - Iter: 400 / 10000, Pseudo Loss: 13.8423, Pseudo Inverse Loss: 0.0411, Discriminator Loss: -11.0079, Pseudo Target MSELoss: 0.1001,  Dis_Pseudo_Loss: -13.8423, Dis_target_Loss.: 1.9148 
+
+2024-11-23T18:15:24.199461+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:15:26.586900+08:00 - CRITICAL - VFL Loss: 1.8033, VFL Acc: 34.7500,
+ Pseudo Loss: 2.1144, Pseudo Acc: 24.2600
+2024-11-23T18:15:32.193746+08:00 - CRITICAL - Iter: 440 / 10000, Pseudo Loss: 12.9973, Pseudo Inverse Loss: 0.0405, Discriminator Loss: -10.8927, Pseudo Target MSELoss: 0.0882,  Dis_Pseudo_Loss: -12.9973, Dis_target_Loss.: 1.0447 
+
+2024-11-23T18:15:33.597720+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:15:35.947005+08:00 - CRITICAL - VFL Loss: 1.6980, VFL Acc: 37.5200,
+ Pseudo Loss: 2.1146, Pseudo Acc: 23.6000
+2024-11-23T18:15:40.375959+08:00 - CRITICAL - Iter: 480 / 10000, Pseudo Loss: 12.9100, Pseudo Inverse Loss: 0.0411, Discriminator Loss: -12.4467, Pseudo Target MSELoss: 0.0767,  Dis_Pseudo_Loss: -12.9100, Dis_target_Loss.: 0.0543 
+
+2024-11-23T18:15:43.215977+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:15:45.521994+08:00 - CRITICAL - VFL Loss: 1.7414, VFL Acc: 36.7800,
+ Pseudo Loss: 2.0307, Pseudo Acc: 26.5100
+2024-11-23T18:15:48.352031+08:00 - CRITICAL - Iter: 520 / 10000, Pseudo Loss: 15.0789, Pseudo Inverse Loss: 0.0352, Discriminator Loss: -11.4736, Pseudo Target MSELoss: 0.0589,  Dis_Pseudo_Loss: -15.0789, Dis_target_Loss.: 2.5280 
+
+2024-11-23T18:15:52.895483+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:15:55.317129+08:00 - CRITICAL - VFL Loss: 1.6471, VFL Acc: 38.5100,
+ Pseudo Loss: 1.8798, Pseudo Acc: 31.0500
+2024-11-23T18:15:56.542592+08:00 - CRITICAL - Iter: 560 / 10000, Pseudo Loss: 11.4627, Pseudo Inverse Loss: 0.0387, Discriminator Loss: -10.1100, Pseudo Target MSELoss: 0.0562,  Dis_Pseudo_Loss: -11.4627, Dis_target_Loss.: 0.5788 
+
+2024-11-23T18:16:01.707117+08:00 - CRITICAL - Iter: 600 / 10000, Pseudo Loss: 17.1797, Pseudo Inverse Loss: 0.0349, Discriminator Loss: -11.1246, Pseudo Target MSELoss: 0.0503,  Dis_Pseudo_Loss: -17.1797, Dis_target_Loss.: 5.7936 
+
+2024-11-23T18:16:01.708455+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:16:04.132926+08:00 - CRITICAL - VFL Loss: 1.6158, VFL Acc: 40.7700,
+ Pseudo Loss: 1.8686, Pseudo Acc: 30.8600
+2024-11-23T18:16:09.986791+08:00 - CRITICAL - Iter: 640 / 10000, Pseudo Loss: 12.6594, Pseudo Inverse Loss: 0.0383, Discriminator Loss: -9.0776, Pseudo Target MSELoss: 0.0457,  Dis_Pseudo_Loss: -12.6594, Dis_target_Loss.: 3.3442 
+
+2024-11-23T18:16:11.513583+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:16:14.068545+08:00 - CRITICAL - VFL Loss: 1.6138, VFL Acc: 41.0400,
+ Pseudo Loss: 1.8211, Pseudo Acc: 33.0300
+2024-11-23T18:16:18.464355+08:00 - CRITICAL - Iter: 680 / 10000, Pseudo Loss: 11.6092, Pseudo Inverse Loss: 0.0326, Discriminator Loss: -9.3098, Pseudo Target MSELoss: 0.0486,  Dis_Pseudo_Loss: -11.6092, Dis_target_Loss.: 1.6730 
+
+2024-11-23T18:16:21.482917+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:16:23.892738+08:00 - CRITICAL - VFL Loss: 1.6228, VFL Acc: 40.8000,
+ Pseudo Loss: 1.8037, Pseudo Acc: 33.9900
+2024-11-23T18:16:26.945746+08:00 - CRITICAL - Iter: 720 / 10000, Pseudo Loss: 11.2219, Pseudo Inverse Loss: 0.0318, Discriminator Loss: -9.5987, Pseudo Target MSELoss: 0.0476,  Dis_Pseudo_Loss: -11.2219, Dis_target_Loss.: 1.2997 
+
+2024-11-23T18:16:31.633419+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:16:33.983430+08:00 - CRITICAL - VFL Loss: 1.5689, VFL Acc: 42.4500,
+ Pseudo Loss: 1.7207, Pseudo Acc: 36.6700
+2024-11-23T18:16:35.435350+08:00 - CRITICAL - Iter: 760 / 10000, Pseudo Loss: 9.7516, Pseudo Inverse Loss: 0.0304, Discriminator Loss: -8.0998, Pseudo Target MSELoss: 0.0430,  Dis_Pseudo_Loss: -9.7516, Dis_target_Loss.: 1.1573 
+
+2024-11-23T18:16:41.623151+08:00 - CRITICAL - Iter: 800 / 10000, Pseudo Loss: 8.2166, Pseudo Inverse Loss: 0.0298, Discriminator Loss: -8.5887, Pseudo Target MSELoss: 0.0410,  Dis_Pseudo_Loss: -8.2166, Dis_target_Loss.: -0.6354 
+
+2024-11-23T18:16:41.624481+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:16:43.997231+08:00 - CRITICAL - VFL Loss: 1.5804, VFL Acc: 40.6300,
+ Pseudo Loss: 1.8265, Pseudo Acc: 32.7400
+2024-11-23T18:16:50.049984+08:00 - CRITICAL - Iter: 840 / 10000, Pseudo Loss: 7.7944, Pseudo Inverse Loss: 0.0314, Discriminator Loss: -7.1563, Pseudo Target MSELoss: 0.0347,  Dis_Pseudo_Loss: -7.7944, Dis_target_Loss.: 0.2667 
+
+2024-11-23T18:16:51.345618+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:16:53.669831+08:00 - CRITICAL - VFL Loss: 1.5362, VFL Acc: 44.1100,
+ Pseudo Loss: 1.7482, Pseudo Acc: 35.8800
+2024-11-23T18:16:58.107355+08:00 - CRITICAL - Iter: 880 / 10000, Pseudo Loss: 7.0484, Pseudo Inverse Loss: 0.0256, Discriminator Loss: -6.2535, Pseudo Target MSELoss: 0.0429,  Dis_Pseudo_Loss: -7.0484, Dis_target_Loss.: 0.6062 
+
+2024-11-23T18:17:01.233336+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:03.580484+08:00 - CRITICAL - VFL Loss: 1.5281, VFL Acc: 44.3900,
+ Pseudo Loss: 1.6817, Pseudo Acc: 38.6900
+2024-11-23T18:17:06.494900+08:00 - CRITICAL - Iter: 920 / 10000, Pseudo Loss: 7.0421, Pseudo Inverse Loss: 0.0249, Discriminator Loss: -7.1407, Pseudo Target MSELoss: 0.0379,  Dis_Pseudo_Loss: -7.0421, Dis_target_Loss.: -0.3506 
+
+2024-11-23T18:17:10.249765+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:12.979996+08:00 - CRITICAL - VFL Loss: 1.5292, VFL Acc: 43.3500,
+ Pseudo Loss: 1.6197, Pseudo Acc: 40.4300
+2024-11-23T18:17:14.225829+08:00 - CRITICAL - Iter: 960 / 10000, Pseudo Loss: 6.0755, Pseudo Inverse Loss: 0.0239, Discriminator Loss: -8.3930, Pseudo Target MSELoss: 0.0396,  Dis_Pseudo_Loss: -6.0755, Dis_target_Loss.: -2.4947 
+
+2024-11-23T18:17:19.133177+08:00 - CRITICAL - Iter: 1000 / 10000, Pseudo Loss: 4.9392, Pseudo Inverse Loss: 0.0256, Discriminator Loss: -8.0843, Pseudo Target MSELoss: 0.0419,  Dis_Pseudo_Loss: -4.9392, Dis_target_Loss.: -3.3933 
+
+2024-11-23T18:17:19.134712+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:21.561709+08:00 - CRITICAL - VFL Loss: 1.5191, VFL Acc: 44.7700,
+ Pseudo Loss: 1.6342, Pseudo Acc: 40.0200
+2024-11-23T18:17:26.790464+08:00 - CRITICAL - Iter: 1040 / 10000, Pseudo Loss: 3.5299, Pseudo Inverse Loss: 0.0292, Discriminator Loss: -7.2269, Pseudo Target MSELoss: 0.0401,  Dis_Pseudo_Loss: -3.5299, Dis_target_Loss.: -3.8669 
+
+2024-11-23T18:17:28.019107+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:30.388288+08:00 - CRITICAL - VFL Loss: 1.4978, VFL Acc: 45.2600,
+ Pseudo Loss: 1.6720, Pseudo Acc: 38.7600
+2024-11-23T18:17:34.391745+08:00 - CRITICAL - Iter: 1080 / 10000, Pseudo Loss: 4.7446, Pseudo Inverse Loss: 0.0244, Discriminator Loss: -7.3099, Pseudo Target MSELoss: 0.0334,  Dis_Pseudo_Loss: -4.7446, Dis_target_Loss.: -2.7583 
+
+2024-11-23T18:17:37.252949+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:39.626235+08:00 - CRITICAL - VFL Loss: 1.5266, VFL Acc: 44.3700,
+ Pseudo Loss: 1.6618, Pseudo Acc: 39.9000
+2024-11-23T18:17:42.517324+08:00 - CRITICAL - Iter: 1120 / 10000, Pseudo Loss: 2.2163, Pseudo Inverse Loss: 0.0241, Discriminator Loss: -7.6010, Pseudo Target MSELoss: 0.0365,  Dis_Pseudo_Loss: -2.2163, Dis_target_Loss.: -5.6081 
+
+2024-11-23T18:17:46.839938+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:49.678155+08:00 - CRITICAL - VFL Loss: 1.4793, VFL Acc: 45.8300,
+ Pseudo Loss: 1.5850, Pseudo Acc: 41.7000
+2024-11-23T18:17:51.147139+08:00 - CRITICAL - Iter: 1160 / 10000, Pseudo Loss: 2.3622, Pseudo Inverse Loss: 0.0268, Discriminator Loss: -6.6730, Pseudo Target MSELoss: 0.0369,  Dis_Pseudo_Loss: -2.3622, Dis_target_Loss.: -4.5114 
+
+2024-11-23T18:17:57.335798+08:00 - CRITICAL - Iter: 1200 / 10000, Pseudo Loss: 1.7422, Pseudo Inverse Loss: 0.0246, Discriminator Loss: -7.4248, Pseudo Target MSELoss: 0.0370,  Dis_Pseudo_Loss: -1.7422, Dis_target_Loss.: -5.9988 
+
+2024-11-23T18:17:57.337347+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:17:59.799598+08:00 - CRITICAL - VFL Loss: 1.4612, VFL Acc: 46.4700,
+ Pseudo Loss: 1.5877, Pseudo Acc: 41.3800
+2024-11-23T18:18:05.535398+08:00 - CRITICAL - Iter: 1240 / 10000, Pseudo Loss: 2.4351, Pseudo Inverse Loss: 0.0244, Discriminator Loss: -6.8918, Pseudo Target MSELoss: 0.0361,  Dis_Pseudo_Loss: -2.4351, Dis_target_Loss.: -4.7272 
+
+2024-11-23T18:18:07.051604+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:18:09.473398+08:00 - CRITICAL - VFL Loss: 1.4698, VFL Acc: 46.9600,
+ Pseudo Loss: 1.5712, Pseudo Acc: 42.7600
+2024-11-23T18:18:13.834139+08:00 - CRITICAL - Iter: 1280 / 10000, Pseudo Loss: 1.8989, Pseudo Inverse Loss: 0.0211, Discriminator Loss: -8.2098, Pseudo Target MSELoss: 0.0348,  Dis_Pseudo_Loss: -1.8989, Dis_target_Loss.: -6.5901 
+
+2024-11-23T18:18:17.066113+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:18:19.496730+08:00 - CRITICAL - VFL Loss: 1.4609, VFL Acc: 48.2100,
+ Pseudo Loss: 1.5594, Pseudo Acc: 44.0300
+2024-11-23T18:18:22.321656+08:00 - CRITICAL - Iter: 1320 / 10000, Pseudo Loss: 1.0608, Pseudo Inverse Loss: 0.0207, Discriminator Loss: -8.6508, Pseudo Target MSELoss: 0.0331,  Dis_Pseudo_Loss: -1.0608, Dis_target_Loss.: -7.8706 
+
+2024-11-23T18:18:26.948259+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:18:29.376379+08:00 - CRITICAL - VFL Loss: 1.4728, VFL Acc: 46.3600,
+ Pseudo Loss: 1.5714, Pseudo Acc: 42.6400
+2024-11-23T18:18:30.832652+08:00 - CRITICAL - Iter: 1360 / 10000, Pseudo Loss: 2.3773, Pseudo Inverse Loss: 0.0201, Discriminator Loss: -6.9387, Pseudo Target MSELoss: 0.0307,  Dis_Pseudo_Loss: -2.3773, Dis_target_Loss.: -5.0605 
+
+2024-11-23T18:18:37.015366+08:00 - CRITICAL - Iter: 1400 / 10000, Pseudo Loss: 1.8755, Pseudo Inverse Loss: 0.0228, Discriminator Loss: -8.4634, Pseudo Target MSELoss: 0.0299,  Dis_Pseudo_Loss: -1.8755, Dis_target_Loss.: -6.8952 
+
+2024-11-23T18:18:37.016631+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:18:39.480581+08:00 - CRITICAL - VFL Loss: 1.4124, VFL Acc: 48.9000,
+ Pseudo Loss: 1.4811, Pseudo Acc: 45.8800
+2024-11-23T18:18:45.091632+08:00 - CRITICAL - Iter: 1440 / 10000, Pseudo Loss: 1.0727, Pseudo Inverse Loss: 0.0210, Discriminator Loss: -7.3365, Pseudo Target MSELoss: 0.0319,  Dis_Pseudo_Loss: -1.0727, Dis_target_Loss.: -6.7933 
+
+2024-11-23T18:18:46.643193+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:18:49.040126+08:00 - CRITICAL - VFL Loss: 1.4045, VFL Acc: 49.8700,
+ Pseudo Loss: 1.4762, Pseudo Acc: 47.3200
+2024-11-23T18:18:53.118234+08:00 - CRITICAL - Iter: 1480 / 10000, Pseudo Loss: 1.1212, Pseudo Inverse Loss: 0.0205, Discriminator Loss: -7.7596, Pseudo Target MSELoss: 0.0319,  Dis_Pseudo_Loss: -1.1212, Dis_target_Loss.: -6.9210 
+
+2024-11-23T18:18:55.934199+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:18:58.482623+08:00 - CRITICAL - VFL Loss: 1.4187, VFL Acc: 48.7300,
+ Pseudo Loss: 1.4910, Pseudo Acc: 45.9800
+2024-11-23T18:19:01.226672+08:00 - CRITICAL - Iter: 1520 / 10000, Pseudo Loss: 2.6573, Pseudo Inverse Loss: 0.0263, Discriminator Loss: -5.9460, Pseudo Target MSELoss: 0.0321,  Dis_Pseudo_Loss: -2.6573, Dis_target_Loss.: -3.5477 
+
+2024-11-23T18:19:05.685996+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:19:08.102363+08:00 - CRITICAL - VFL Loss: 1.4086, VFL Acc: 48.8100,
+ Pseudo Loss: 1.5068, Pseudo Acc: 44.6800
+2024-11-23T18:19:09.586616+08:00 - CRITICAL - Iter: 1560 / 10000, Pseudo Loss: -0.2192, Pseudo Inverse Loss: 0.0236, Discriminator Loss: -7.2062, Pseudo Target MSELoss: 0.0301,  Dis_Pseudo_Loss: 0.2192, Dis_target_Loss.: -7.7227 
+
+2024-11-23T18:19:16.105209+08:00 - CRITICAL - Iter: 1600 / 10000, Pseudo Loss: 0.5949, Pseudo Inverse Loss: 0.0214, Discriminator Loss: -7.1297, Pseudo Target MSELoss: 0.0314,  Dis_Pseudo_Loss: -0.5949, Dis_target_Loss.: -6.9119 
+
+2024-11-23T18:19:16.106438+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:19:18.405236+08:00 - CRITICAL - VFL Loss: 1.3932, VFL Acc: 49.9700,
+ Pseudo Loss: 1.4790, Pseudo Acc: 47.5000
+2024-11-23T18:19:23.763336+08:00 - CRITICAL - Iter: 1640 / 10000, Pseudo Loss: -0.0957, Pseudo Inverse Loss: 0.0210, Discriminator Loss: -6.9658, Pseudo Target MSELoss: 0.0273,  Dis_Pseudo_Loss: 0.0957, Dis_target_Loss.: -7.3540 
+
+2024-11-23T18:19:25.162638+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:19:27.701442+08:00 - CRITICAL - VFL Loss: 1.4144, VFL Acc: 48.8000,
+ Pseudo Loss: 1.5283, Pseudo Acc: 44.0800
+2024-11-23T18:19:32.268131+08:00 - CRITICAL - Iter: 1680 / 10000, Pseudo Loss: -0.5067, Pseudo Inverse Loss: 0.0207, Discriminator Loss: -8.0632, Pseudo Target MSELoss: 0.0292,  Dis_Pseudo_Loss: 0.5067, Dis_target_Loss.: -8.7417 
+
+2024-11-23T18:19:34.603070+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:19:37.092007+08:00 - CRITICAL - VFL Loss: 1.3710, VFL Acc: 50.1600,
+ Pseudo Loss: 1.4476, Pseudo Acc: 47.6300
+2024-11-23T18:19:39.646718+08:00 - CRITICAL - Iter: 1720 / 10000, Pseudo Loss: 1.3623, Pseudo Inverse Loss: 0.0204, Discriminator Loss: -7.0915, Pseudo Target MSELoss: 0.0293,  Dis_Pseudo_Loss: -1.3623, Dis_target_Loss.: -5.8524 
+
+2024-11-23T18:19:43.293228+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:19:45.828731+08:00 - CRITICAL - VFL Loss: 1.3824, VFL Acc: 49.6300,
+ Pseudo Loss: 1.4431, Pseudo Acc: 46.7900
+2024-11-23T18:19:47.400072+08:00 - CRITICAL - Iter: 1760 / 10000, Pseudo Loss: 0.3675, Pseudo Inverse Loss: 0.0220, Discriminator Loss: -6.5424, Pseudo Target MSELoss: 0.0280,  Dis_Pseudo_Loss: -0.3675, Dis_target_Loss.: -6.8753 
+
+2024-11-23T18:19:52.399452+08:00 - CRITICAL - Iter: 1800 / 10000, Pseudo Loss: 0.7042, Pseudo Inverse Loss: 0.0203, Discriminator Loss: -5.7582, Pseudo Target MSELoss: 0.0334,  Dis_Pseudo_Loss: -0.7042, Dis_target_Loss.: -5.6786 
+
+2024-11-23T18:19:52.400778+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:19:54.897501+08:00 - CRITICAL - VFL Loss: 1.3740, VFL Acc: 50.0800,
+ Pseudo Loss: 1.4476, Pseudo Acc: 47.2700
+2024-11-23T18:20:00.905477+08:00 - CRITICAL - Iter: 1840 / 10000, Pseudo Loss: -4.1614, Pseudo Inverse Loss: 0.0195, Discriminator Loss: -7.8075, Pseudo Target MSELoss: 0.0299,  Dis_Pseudo_Loss: 4.1614, Dis_target_Loss.: -12.2747 
+
+2024-11-23T18:20:02.299249+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:20:04.878345+08:00 - CRITICAL - VFL Loss: 1.3923, VFL Acc: 50.4000,
+ Pseudo Loss: 1.4303, Pseudo Acc: 48.3700
+2024-11-23T18:20:08.978865+08:00 - CRITICAL - Iter: 1880 / 10000, Pseudo Loss: -1.6136, Pseudo Inverse Loss: 0.0209, Discriminator Loss: -6.2252, Pseudo Target MSELoss: 0.0316,  Dis_Pseudo_Loss: 1.6136, Dis_target_Loss.: -8.0190 
+
+2024-11-23T18:20:11.771302+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:20:14.232944+08:00 - CRITICAL - VFL Loss: 1.3711, VFL Acc: 50.6700,
+ Pseudo Loss: 1.4549, Pseudo Acc: 47.6600
+2024-11-23T18:20:17.374761+08:00 - CRITICAL - Iter: 1920 / 10000, Pseudo Loss: -1.4333, Pseudo Inverse Loss: 0.0183, Discriminator Loss: -7.0456, Pseudo Target MSELoss: 0.0284,  Dis_Pseudo_Loss: 1.4333, Dis_target_Loss.: -8.6537 
+
+2024-11-23T18:20:22.053739+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:20:24.641691+08:00 - CRITICAL - VFL Loss: 1.3638, VFL Acc: 50.9700,
+ Pseudo Loss: 1.4514, Pseudo Acc: 46.7000
+2024-11-23T18:20:26.230436+08:00 - CRITICAL - Iter: 1960 / 10000, Pseudo Loss: -3.6062, Pseudo Inverse Loss: 0.0204, Discriminator Loss: -7.2624, Pseudo Target MSELoss: 0.0376,  Dis_Pseudo_Loss: 3.6062, Dis_target_Loss.: -11.1099 
+
+2024-11-23T18:20:32.909628+08:00 - CRITICAL - Iter: 2000 / 10000, Pseudo Loss: -0.0725, Pseudo Inverse Loss: 0.0212, Discriminator Loss: -6.6721, Pseudo Target MSELoss: 0.0336,  Dis_Pseudo_Loss: 0.0725, Dis_target_Loss.: -6.9324 
+
+2024-11-23T18:20:32.911163+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:20:35.589113+08:00 - CRITICAL - VFL Loss: 1.3628, VFL Acc: 50.9800,
+ Pseudo Loss: 1.4344, Pseudo Acc: 47.4300
+2024-11-23T18:20:41.801466+08:00 - CRITICAL - Iter: 2040 / 10000, Pseudo Loss: -1.3149, Pseudo Inverse Loss: 0.0217, Discriminator Loss: -6.8783, Pseudo Target MSELoss: 0.0298,  Dis_Pseudo_Loss: 1.3149, Dis_target_Loss.: -8.5706 
+
+2024-11-23T18:20:43.191110+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:20:45.663258+08:00 - CRITICAL - VFL Loss: 1.3516, VFL Acc: 51.4900,
+ Pseudo Loss: 1.4432, Pseudo Acc: 48.0800
+2024-11-23T18:20:50.384311+08:00 - CRITICAL - Iter: 2080 / 10000, Pseudo Loss: 0.1904, Pseudo Inverse Loss: 0.0184, Discriminator Loss: -7.1427, Pseudo Target MSELoss: 0.0285,  Dis_Pseudo_Loss: -0.1904, Dis_target_Loss.: -7.1817 
+
+2024-11-23T18:20:53.500867+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:20:56.006080+08:00 - CRITICAL - VFL Loss: 1.3356, VFL Acc: 51.5100,
+ Pseudo Loss: 1.3843, Pseudo Acc: 49.7300
+2024-11-23T18:20:59.203139+08:00 - CRITICAL - Iter: 2120 / 10000, Pseudo Loss: -2.0918, Pseudo Inverse Loss: 0.0186, Discriminator Loss: -6.9585, Pseudo Target MSELoss: 0.0256,  Dis_Pseudo_Loss: 2.0918, Dis_target_Loss.: -9.3028 
+
+2024-11-23T18:21:03.833111+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:21:06.258468+08:00 - CRITICAL - VFL Loss: 1.3042, VFL Acc: 52.8800,
+ Pseudo Loss: 1.4040, Pseudo Acc: 48.8300
+2024-11-23T18:21:07.481561+08:00 - CRITICAL - Iter: 2160 / 10000, Pseudo Loss: -1.6137, Pseudo Inverse Loss: 0.0222, Discriminator Loss: -7.5136, Pseudo Target MSELoss: 0.0354,  Dis_Pseudo_Loss: 1.6137, Dis_target_Loss.: -9.3993 
+
+2024-11-23T18:21:13.658645+08:00 - CRITICAL - Iter: 2200 / 10000, Pseudo Loss: -0.7173, Pseudo Inverse Loss: 0.0193, Discriminator Loss: -6.7527, Pseudo Target MSELoss: 0.0337,  Dis_Pseudo_Loss: 0.7173, Dis_target_Loss.: -8.0375 
+
+2024-11-23T18:21:13.660230+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:21:16.229640+08:00 - CRITICAL - VFL Loss: 1.3542, VFL Acc: 50.8400,
+ Pseudo Loss: 1.4010, Pseudo Acc: 48.4300
+2024-11-23T18:21:22.067990+08:00 - CRITICAL - Iter: 2240 / 10000, Pseudo Loss: -0.4427, Pseudo Inverse Loss: 0.0203, Discriminator Loss: -7.1557, Pseudo Target MSELoss: 0.0252,  Dis_Pseudo_Loss: 0.4427, Dis_target_Loss.: -7.9255 
+
+2024-11-23T18:21:23.402665+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:21:25.914240+08:00 - CRITICAL - VFL Loss: 1.3082, VFL Acc: 53.4200,
+ Pseudo Loss: 1.3733, Pseudo Acc: 50.7200
+2024-11-23T18:21:29.130192+08:00 - CRITICAL - Iter: 2280 / 10000, Pseudo Loss: -4.4004, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -7.1147, Pseudo Target MSELoss: 0.0285,  Dis_Pseudo_Loss: 4.4004, Dis_target_Loss.: -12.0094 
+
+2024-11-23T18:21:32.043437+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:21:34.534561+08:00 - CRITICAL - VFL Loss: 1.3071, VFL Acc: 52.7200,
+ Pseudo Loss: 1.3858, Pseudo Acc: 49.4000
+2024-11-23T18:21:37.337903+08:00 - CRITICAL - Iter: 2320 / 10000, Pseudo Loss: -3.3203, Pseudo Inverse Loss: 0.0196, Discriminator Loss: -7.5524, Pseudo Target MSELoss: 0.0296,  Dis_Pseudo_Loss: 3.3203, Dis_target_Loss.: -11.1526 
+
+2024-11-23T18:21:41.227596+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:21:43.678746+08:00 - CRITICAL - VFL Loss: 1.2949, VFL Acc: 53.1900,
+ Pseudo Loss: 1.3598, Pseudo Acc: 51.2500
+2024-11-23T18:21:45.038899+08:00 - CRITICAL - Iter: 2360 / 10000, Pseudo Loss: -2.5824, Pseudo Inverse Loss: 0.0190, Discriminator Loss: -8.0922, Pseudo Target MSELoss: 0.0269,  Dis_Pseudo_Loss: 2.5824, Dis_target_Loss.: -10.9901 
+
+2024-11-23T18:21:50.631387+08:00 - CRITICAL - Iter: 2400 / 10000, Pseudo Loss: -3.0759, Pseudo Inverse Loss: 0.0218, Discriminator Loss: -7.8718, Pseudo Target MSELoss: 0.0281,  Dis_Pseudo_Loss: 3.0759, Dis_target_Loss.: -11.3206 
+
+2024-11-23T18:21:50.632483+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:21:53.102713+08:00 - CRITICAL - VFL Loss: 1.3079, VFL Acc: 53.2400,
+ Pseudo Loss: 1.3590, Pseudo Acc: 50.8900
+2024-11-23T18:21:58.735266+08:00 - CRITICAL - Iter: 2440 / 10000, Pseudo Loss: -7.6579, Pseudo Inverse Loss: 0.0201, Discriminator Loss: -7.4337, Pseudo Target MSELoss: 0.0286,  Dis_Pseudo_Loss: 7.6579, Dis_target_Loss.: -15.4438 
+
+2024-11-23T18:22:00.050247+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:22:02.496882+08:00 - CRITICAL - VFL Loss: 1.3033, VFL Acc: 54.0100,
+ Pseudo Loss: 1.3858, Pseudo Acc: 50.5300
+2024-11-23T18:22:07.150448+08:00 - CRITICAL - Iter: 2480 / 10000, Pseudo Loss: -2.2059, Pseudo Inverse Loss: 0.0165, Discriminator Loss: -7.6706, Pseudo Target MSELoss: 0.0283,  Dis_Pseudo_Loss: 2.2059, Dis_target_Loss.: -10.2145 
+
+2024-11-23T18:22:10.302281+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:22:12.820399+08:00 - CRITICAL - VFL Loss: 1.3282, VFL Acc: 51.9200,
+ Pseudo Loss: 1.3983, Pseudo Acc: 49.8700
+2024-11-23T18:22:15.445590+08:00 - CRITICAL - Iter: 2520 / 10000, Pseudo Loss: 0.3713, Pseudo Inverse Loss: 0.0230, Discriminator Loss: -7.4650, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: -0.3713, Dis_target_Loss.: -7.3543 
+
+2024-11-23T18:22:20.050018+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:22:22.605385+08:00 - CRITICAL - VFL Loss: 1.2928, VFL Acc: 54.3400,
+ Pseudo Loss: 1.3329, Pseudo Acc: 52.0000
+2024-11-23T18:22:24.105969+08:00 - CRITICAL - Iter: 2560 / 10000, Pseudo Loss: -3.9691, Pseudo Inverse Loss: 0.0197, Discriminator Loss: -7.6481, Pseudo Target MSELoss: 0.0272,  Dis_Pseudo_Loss: 3.9691, Dis_target_Loss.: -11.7439 
+
+2024-11-23T18:22:30.180932+08:00 - CRITICAL - Iter: 2600 / 10000, Pseudo Loss: -2.6891, Pseudo Inverse Loss: 0.0201, Discriminator Loss: -7.6321, Pseudo Target MSELoss: 0.0242,  Dis_Pseudo_Loss: 2.6891, Dis_target_Loss.: -10.6382 
+
+2024-11-23T18:22:30.181794+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:22:32.627074+08:00 - CRITICAL - VFL Loss: 1.3180, VFL Acc: 52.6400,
+ Pseudo Loss: 1.3700, Pseudo Acc: 50.5500
+2024-11-23T18:22:38.552772+08:00 - CRITICAL - Iter: 2640 / 10000, Pseudo Loss: -3.2968, Pseudo Inverse Loss: 0.0216, Discriminator Loss: -8.4429, Pseudo Target MSELoss: 0.0240,  Dis_Pseudo_Loss: 3.2968, Dis_target_Loss.: -11.9876 
+
+2024-11-23T18:22:40.107112+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:22:42.565966+08:00 - CRITICAL - VFL Loss: 1.2995, VFL Acc: 54.3100,
+ Pseudo Loss: 1.3362, Pseudo Acc: 52.1200
+2024-11-23T18:22:47.239597+08:00 - CRITICAL - Iter: 2680 / 10000, Pseudo Loss: -4.5002, Pseudo Inverse Loss: 0.0186, Discriminator Loss: -7.5199, Pseudo Target MSELoss: 0.0258,  Dis_Pseudo_Loss: 4.5002, Dis_target_Loss.: -12.5067 
+
+2024-11-23T18:22:50.569805+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:22:53.159148+08:00 - CRITICAL - VFL Loss: 1.2714, VFL Acc: 53.5400,
+ Pseudo Loss: 1.2924, Pseudo Acc: 53.7900
+2024-11-23T18:22:56.218219+08:00 - CRITICAL - Iter: 2720 / 10000, Pseudo Loss: -3.2239, Pseudo Inverse Loss: 0.0176, Discriminator Loss: -7.9870, Pseudo Target MSELoss: 0.0270,  Dis_Pseudo_Loss: 3.2239, Dis_target_Loss.: -11.5093 
+
+2024-11-23T18:23:01.067996+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:23:03.525936+08:00 - CRITICAL - VFL Loss: 1.2438, VFL Acc: 55.6300,
+ Pseudo Loss: 1.2956, Pseudo Acc: 53.7000
+2024-11-23T18:23:05.022662+08:00 - CRITICAL - Iter: 2760 / 10000, Pseudo Loss: -3.8906, Pseudo Inverse Loss: 0.0184, Discriminator Loss: -6.9972, Pseudo Target MSELoss: 0.0300,  Dis_Pseudo_Loss: 3.8906, Dis_target_Loss.: -11.1352 
+
+2024-11-23T18:23:11.352247+08:00 - CRITICAL - Iter: 2800 / 10000, Pseudo Loss: -0.4090, Pseudo Inverse Loss: 0.0196, Discriminator Loss: -7.8189, Pseudo Target MSELoss: 0.0254,  Dis_Pseudo_Loss: 0.4090, Dis_target_Loss.: -8.5540 
+
+2024-11-23T18:23:11.353566+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:23:14.081591+08:00 - CRITICAL - VFL Loss: 1.2383, VFL Acc: 55.1700,
+ Pseudo Loss: 1.2809, Pseudo Acc: 53.2500
+2024-11-23T18:23:20.097263+08:00 - CRITICAL - Iter: 2840 / 10000, Pseudo Loss: 0.8817, Pseudo Inverse Loss: 0.0224, Discriminator Loss: -8.0311, Pseudo Target MSELoss: 0.0278,  Dis_Pseudo_Loss: -0.8817, Dis_target_Loss.: -7.4729 
+
+2024-11-23T18:23:21.817871+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:23:24.378588+08:00 - CRITICAL - VFL Loss: 1.2339, VFL Acc: 56.5700,
+ Pseudo Loss: 1.2791, Pseudo Acc: 54.2600
+2024-11-23T18:23:28.939481+08:00 - CRITICAL - Iter: 2880 / 10000, Pseudo Loss: 0.3375, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -7.1695, Pseudo Target MSELoss: 0.0258,  Dis_Pseudo_Loss: -0.3375, Dis_target_Loss.: -6.9859 
+
+2024-11-23T18:23:32.273137+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:23:34.945699+08:00 - CRITICAL - VFL Loss: 1.2512, VFL Acc: 55.4900,
+ Pseudo Loss: 1.3362, Pseudo Acc: 52.5200
+2024-11-23T18:23:37.591652+08:00 - CRITICAL - Iter: 2920 / 10000, Pseudo Loss: -1.8794, Pseudo Inverse Loss: 0.0176, Discriminator Loss: -8.1345, Pseudo Target MSELoss: 0.0289,  Dis_Pseudo_Loss: 1.8794, Dis_target_Loss.: -10.6924 
+
+2024-11-23T18:23:41.757152+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:23:44.329654+08:00 - CRITICAL - VFL Loss: 1.2494, VFL Acc: 55.1500,
+ Pseudo Loss: 1.3092, Pseudo Acc: 53.2300
+2024-11-23T18:23:45.658578+08:00 - CRITICAL - Iter: 2960 / 10000, Pseudo Loss: -2.3569, Pseudo Inverse Loss: 0.0196, Discriminator Loss: -6.7771, Pseudo Target MSELoss: 0.0255,  Dis_Pseudo_Loss: 2.3569, Dis_target_Loss.: -9.9395 
+
+2024-11-23T18:23:51.619854+08:00 - CRITICAL - Iter: 3000 / 10000, Pseudo Loss: -3.5368, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -7.0596, Pseudo Target MSELoss: 0.0264,  Dis_Pseudo_Loss: 3.5368, Dis_target_Loss.: -10.8617 
+
+2024-11-23T18:23:51.621289+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:23:54.181056+08:00 - CRITICAL - VFL Loss: 1.2352, VFL Acc: 55.7000,
+ Pseudo Loss: 1.2789, Pseudo Acc: 54.2500
+2024-11-23T18:24:00.475049+08:00 - CRITICAL - Iter: 3040 / 10000, Pseudo Loss: -0.7469, Pseudo Inverse Loss: 0.0179, Discriminator Loss: -6.6345, Pseudo Target MSELoss: 0.0250,  Dis_Pseudo_Loss: 0.7469, Dis_target_Loss.: -8.0463 
+
+2024-11-23T18:24:02.178225+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:24:04.715362+08:00 - CRITICAL - VFL Loss: 1.2101, VFL Acc: 56.3700,
+ Pseudo Loss: 1.2687, Pseudo Acc: 54.5200
+2024-11-23T18:24:08.836542+08:00 - CRITICAL - Iter: 3080 / 10000, Pseudo Loss: -0.5792, Pseudo Inverse Loss: 0.0170, Discriminator Loss: -7.9494, Pseudo Target MSELoss: 0.0249,  Dis_Pseudo_Loss: 0.5792, Dis_target_Loss.: -8.8059 
+
+2024-11-23T18:24:11.815582+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:24:14.194082+08:00 - CRITICAL - VFL Loss: 1.2257, VFL Acc: 56.2000,
+ Pseudo Loss: 1.2874, Pseudo Acc: 54.4800
+2024-11-23T18:24:17.098809+08:00 - CRITICAL - Iter: 3120 / 10000, Pseudo Loss: -1.2927, Pseudo Inverse Loss: 0.0170, Discriminator Loss: -6.9055, Pseudo Target MSELoss: 0.0278,  Dis_Pseudo_Loss: 1.2927, Dis_target_Loss.: -8.4567 
+
+2024-11-23T18:24:21.083810+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:24:23.482241+08:00 - CRITICAL - VFL Loss: 1.2243, VFL Acc: 56.5600,
+ Pseudo Loss: 1.2677, Pseudo Acc: 55.2300
+2024-11-23T18:24:25.193234+08:00 - CRITICAL - Iter: 3160 / 10000, Pseudo Loss: -0.9985, Pseudo Inverse Loss: 0.0183, Discriminator Loss: -7.7464, Pseudo Target MSELoss: 0.0232,  Dis_Pseudo_Loss: 0.9985, Dis_target_Loss.: -9.1185 
+
+2024-11-23T18:24:31.515093+08:00 - CRITICAL - Iter: 3200 / 10000, Pseudo Loss: -1.9464, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -7.3222, Pseudo Target MSELoss: 0.0291,  Dis_Pseudo_Loss: 1.9464, Dis_target_Loss.: -9.5039 
+
+2024-11-23T18:24:31.516394+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:24:33.811521+08:00 - CRITICAL - VFL Loss: 1.2222, VFL Acc: 56.6700,
+ Pseudo Loss: 1.2673, Pseudo Acc: 55.6800
+2024-11-23T18:24:40.083086+08:00 - CRITICAL - Iter: 3240 / 10000, Pseudo Loss: 0.3978, Pseudo Inverse Loss: 0.0216, Discriminator Loss: -7.4554, Pseudo Target MSELoss: 0.0296,  Dis_Pseudo_Loss: -0.3978, Dis_target_Loss.: -7.2913 
+
+2024-11-23T18:24:41.625837+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:24:44.084150+08:00 - CRITICAL - VFL Loss: 1.2311, VFL Acc: 55.9400,
+ Pseudo Loss: 1.2697, Pseudo Acc: 54.8100
+2024-11-23T18:24:48.826570+08:00 - CRITICAL - Iter: 3280 / 10000, Pseudo Loss: -2.2738, Pseudo Inverse Loss: 0.0185, Discriminator Loss: -6.4583, Pseudo Target MSELoss: 0.0230,  Dis_Pseudo_Loss: 2.2738, Dis_target_Loss.: -9.1485 
+
+2024-11-23T18:24:51.666235+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:24:54.024874+08:00 - CRITICAL - VFL Loss: 1.2411, VFL Acc: 55.4400,
+ Pseudo Loss: 1.2853, Pseudo Acc: 53.8700
+2024-11-23T18:24:57.302471+08:00 - CRITICAL - Iter: 3320 / 10000, Pseudo Loss: -5.3699, Pseudo Inverse Loss: 0.0171, Discriminator Loss: -7.4660, Pseudo Target MSELoss: 0.0264,  Dis_Pseudo_Loss: 5.3699, Dis_target_Loss.: -13.1705 
+
+2024-11-23T18:25:01.785312+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:25:04.558780+08:00 - CRITICAL - VFL Loss: 1.2581, VFL Acc: 54.7800,
+ Pseudo Loss: 1.2753, Pseudo Acc: 53.7600
+2024-11-23T18:25:06.312801+08:00 - CRITICAL - Iter: 3360 / 10000, Pseudo Loss: -2.9142, Pseudo Inverse Loss: 0.0190, Discriminator Loss: -7.7795, Pseudo Target MSELoss: 0.0222,  Dis_Pseudo_Loss: 2.9142, Dis_target_Loss.: -10.9208 
+
+2024-11-23T18:25:12.915614+08:00 - CRITICAL - Iter: 3400 / 10000, Pseudo Loss: -2.9746, Pseudo Inverse Loss: 0.0207, Discriminator Loss: -7.2027, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: 2.9746, Dis_target_Loss.: -10.7913 
+
+2024-11-23T18:25:12.917300+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:25:15.338363+08:00 - CRITICAL - VFL Loss: 1.2298, VFL Acc: 56.2400,
+ Pseudo Loss: 1.2780, Pseudo Acc: 54.4900
+2024-11-23T18:25:21.717838+08:00 - CRITICAL - Iter: 3440 / 10000, Pseudo Loss: -2.6408, Pseudo Inverse Loss: 0.0197, Discriminator Loss: -8.6253, Pseudo Target MSELoss: 0.0251,  Dis_Pseudo_Loss: 2.6408, Dis_target_Loss.: -11.5897 
+
+2024-11-23T18:25:22.967548+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:25:25.517876+08:00 - CRITICAL - VFL Loss: 1.1869, VFL Acc: 57.9100,
+ Pseudo Loss: 1.2187, Pseudo Acc: 56.4100
+2024-11-23T18:25:29.739425+08:00 - CRITICAL - Iter: 3480 / 10000, Pseudo Loss: -2.1380, Pseudo Inverse Loss: 0.0213, Discriminator Loss: -7.3338, Pseudo Target MSELoss: 0.0278,  Dis_Pseudo_Loss: 2.1380, Dis_target_Loss.: -9.8941 
+
+2024-11-23T18:25:32.595392+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:25:35.077016+08:00 - CRITICAL - VFL Loss: 1.2205, VFL Acc: 57.1100,
+ Pseudo Loss: 1.2641, Pseudo Acc: 55.6800
+2024-11-23T18:25:38.255661+08:00 - CRITICAL - Iter: 3520 / 10000, Pseudo Loss: -6.6715, Pseudo Inverse Loss: 0.0173, Discriminator Loss: -7.4620, Pseudo Target MSELoss: 0.0306,  Dis_Pseudo_Loss: 6.6715, Dis_target_Loss.: -14.4075 
+
+2024-11-23T18:25:43.039422+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:25:45.837016+08:00 - CRITICAL - VFL Loss: 1.2085, VFL Acc: 57.3600,
+ Pseudo Loss: 1.2356, Pseudo Acc: 56.2500
+2024-11-23T18:25:47.364339+08:00 - CRITICAL - Iter: 3560 / 10000, Pseudo Loss: -0.1643, Pseudo Inverse Loss: 0.0188, Discriminator Loss: -6.4342, Pseudo Target MSELoss: 0.0235,  Dis_Pseudo_Loss: 0.1643, Dis_target_Loss.: -6.8517 
+
+2024-11-23T18:25:53.498077+08:00 - CRITICAL - Iter: 3600 / 10000, Pseudo Loss: -1.9831, Pseudo Inverse Loss: 0.0177, Discriminator Loss: -7.2998, Pseudo Target MSELoss: 0.0278,  Dis_Pseudo_Loss: 1.9831, Dis_target_Loss.: -9.5351 
+
+2024-11-23T18:25:53.499780+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:25:55.883017+08:00 - CRITICAL - VFL Loss: 1.1872, VFL Acc: 58.1100,
+ Pseudo Loss: 1.2291, Pseudo Acc: 56.5700
+2024-11-23T18:26:02.098580+08:00 - CRITICAL - Iter: 3640 / 10000, Pseudo Loss: -1.9148, Pseudo Inverse Loss: 0.0182, Discriminator Loss: -7.3201, Pseudo Target MSELoss: 0.0233,  Dis_Pseudo_Loss: 1.9148, Dis_target_Loss.: -9.6103 
+
+2024-11-23T18:26:03.631759+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:26:06.143417+08:00 - CRITICAL - VFL Loss: 1.1877, VFL Acc: 57.7200,
+ Pseudo Loss: 1.2267, Pseudo Acc: 55.8700
+2024-11-23T18:26:10.774232+08:00 - CRITICAL - Iter: 3680 / 10000, Pseudo Loss: -2.0563, Pseudo Inverse Loss: 0.0163, Discriminator Loss: -7.8410, Pseudo Target MSELoss: 0.0258,  Dis_Pseudo_Loss: 2.0563, Dis_target_Loss.: -10.1765 
+
+2024-11-23T18:26:13.883093+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:26:16.285514+08:00 - CRITICAL - VFL Loss: 1.1609, VFL Acc: 58.9800,
+ Pseudo Loss: 1.1966, Pseudo Acc: 57.4500
+2024-11-23T18:26:19.594433+08:00 - CRITICAL - Iter: 3720 / 10000, Pseudo Loss: -4.7868, Pseudo Inverse Loss: 0.0183, Discriminator Loss: -6.5510, Pseudo Target MSELoss: 0.0254,  Dis_Pseudo_Loss: 4.7868, Dis_target_Loss.: -11.9571 
+
+2024-11-23T18:26:24.180494+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:26:26.820057+08:00 - CRITICAL - VFL Loss: 1.1863, VFL Acc: 58.2400,
+ Pseudo Loss: 1.2092, Pseudo Acc: 57.0800
+2024-11-23T18:26:28.122333+08:00 - CRITICAL - Iter: 3760 / 10000, Pseudo Loss: -0.7991, Pseudo Inverse Loss: 0.0205, Discriminator Loss: -8.0701, Pseudo Target MSELoss: 0.0251,  Dis_Pseudo_Loss: 0.7991, Dis_target_Loss.: -9.1412 
+
+2024-11-23T18:26:34.135419+08:00 - CRITICAL - Iter: 3800 / 10000, Pseudo Loss: -4.8088, Pseudo Inverse Loss: 0.0185, Discriminator Loss: -6.0547, Pseudo Target MSELoss: 0.0266,  Dis_Pseudo_Loss: 4.8088, Dis_target_Loss.: -11.2234 
+
+2024-11-23T18:26:34.136636+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:26:36.517824+08:00 - CRITICAL - VFL Loss: 1.1597, VFL Acc: 59.7000,
+ Pseudo Loss: 1.2081, Pseudo Acc: 57.8000
+2024-11-23T18:26:42.625735+08:00 - CRITICAL - Iter: 3840 / 10000, Pseudo Loss: -5.7794, Pseudo Inverse Loss: 0.0175, Discriminator Loss: -8.5536, Pseudo Target MSELoss: 0.0238,  Dis_Pseudo_Loss: 5.7794, Dis_target_Loss.: -14.9102 
+
+2024-11-23T18:26:44.174737+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:26:46.683353+08:00 - CRITICAL - VFL Loss: 1.1589, VFL Acc: 58.8000,
+ Pseudo Loss: 1.2019, Pseudo Acc: 56.9700
+2024-11-23T18:26:51.018252+08:00 - CRITICAL - Iter: 3880 / 10000, Pseudo Loss: -1.9875, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -6.7516, Pseudo Target MSELoss: 0.0230,  Dis_Pseudo_Loss: 1.9875, Dis_target_Loss.: -8.9368 
+
+2024-11-23T18:26:54.033906+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:26:56.606394+08:00 - CRITICAL - VFL Loss: 1.2048, VFL Acc: 57.0900,
+ Pseudo Loss: 1.2338, Pseudo Acc: 55.5000
+2024-11-23T18:26:59.842801+08:00 - CRITICAL - Iter: 3920 / 10000, Pseudo Loss: 0.2351, Pseudo Inverse Loss: 0.0176, Discriminator Loss: -6.5796, Pseudo Target MSELoss: 0.0241,  Dis_Pseudo_Loss: -0.2351, Dis_target_Loss.: -6.5042 
+
+2024-11-23T18:27:04.520946+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:27:06.958885+08:00 - CRITICAL - VFL Loss: 1.1514, VFL Acc: 59.5800,
+ Pseudo Loss: 1.1888, Pseudo Acc: 57.8200
+2024-11-23T18:27:08.444482+08:00 - CRITICAL - Iter: 3960 / 10000, Pseudo Loss: -5.2059, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -6.5325, Pseudo Target MSELoss: 0.0248,  Dis_Pseudo_Loss: 5.2059, Dis_target_Loss.: -12.1224 
+
+2024-11-23T18:27:14.760455+08:00 - CRITICAL - Iter: 4000 / 10000, Pseudo Loss: -6.3684, Pseudo Inverse Loss: 0.0183, Discriminator Loss: -6.9496, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: 6.3684, Dis_target_Loss.: -13.5212 
+
+2024-11-23T18:27:14.762020+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:27:17.267893+08:00 - CRITICAL - VFL Loss: 1.1774, VFL Acc: 59.5700,
+ Pseudo Loss: 1.2019, Pseudo Acc: 58.3000
+2024-11-23T18:27:23.459421+08:00 - CRITICAL - Iter: 4040 / 10000, Pseudo Loss: -8.8718, Pseudo Inverse Loss: 0.0155, Discriminator Loss: -6.9883, Pseudo Target MSELoss: 0.0252,  Dis_Pseudo_Loss: 8.8718, Dis_target_Loss.: -16.0736 
+
+2024-11-23T18:27:24.993644+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:27:27.500101+08:00 - CRITICAL - VFL Loss: 1.1672, VFL Acc: 58.9000,
+ Pseudo Loss: 1.2390, Pseudo Acc: 56.3800
+2024-11-23T18:27:31.783669+08:00 - CRITICAL - Iter: 4080 / 10000, Pseudo Loss: -9.8044, Pseudo Inverse Loss: 0.0158, Discriminator Loss: -7.0213, Pseudo Target MSELoss: 0.0249,  Dis_Pseudo_Loss: 9.8044, Dis_target_Loss.: -17.0185 
+
+2024-11-23T18:27:34.982225+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:27:37.378465+08:00 - CRITICAL - VFL Loss: 1.1733, VFL Acc: 58.7100,
+ Pseudo Loss: 1.2486, Pseudo Acc: 56.2400
+2024-11-23T18:27:40.411191+08:00 - CRITICAL - Iter: 4120 / 10000, Pseudo Loss: -6.0338, Pseudo Inverse Loss: 0.0148, Discriminator Loss: -6.5747, Pseudo Target MSELoss: 0.0251,  Dis_Pseudo_Loss: 6.0338, Dis_target_Loss.: -12.8488 
+
+2024-11-23T18:27:45.163078+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:27:47.558198+08:00 - CRITICAL - VFL Loss: 1.1485, VFL Acc: 59.9900,
+ Pseudo Loss: 1.1840, Pseudo Acc: 58.2600
+2024-11-23T18:27:49.053641+08:00 - CRITICAL - Iter: 4160 / 10000, Pseudo Loss: -8.1372, Pseudo Inverse Loss: 0.0148, Discriminator Loss: -6.7739, Pseudo Target MSELoss: 0.0252,  Dis_Pseudo_Loss: 8.1372, Dis_target_Loss.: -15.2696 
+
+2024-11-23T18:27:54.993507+08:00 - CRITICAL - Iter: 4200 / 10000, Pseudo Loss: 1.0511, Pseudo Inverse Loss: 0.0178, Discriminator Loss: -7.5489, Pseudo Target MSELoss: 0.0225,  Dis_Pseudo_Loss: -1.0511, Dis_target_Loss.: -6.6884 
+
+2024-11-23T18:27:54.994943+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:27:57.658055+08:00 - CRITICAL - VFL Loss: 1.1379, VFL Acc: 59.3200,
+ Pseudo Loss: 1.1853, Pseudo Acc: 58.4600
+2024-11-23T18:28:04.090587+08:00 - CRITICAL - Iter: 4240 / 10000, Pseudo Loss: 0.1098, Pseudo Inverse Loss: 0.0149, Discriminator Loss: -7.2688, Pseudo Target MSELoss: 0.0232,  Dis_Pseudo_Loss: -0.1098, Dis_target_Loss.: -7.5044 
+
+2024-11-23T18:28:05.611161+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:28:08.195092+08:00 - CRITICAL - VFL Loss: 1.1253, VFL Acc: 59.7900,
+ Pseudo Loss: 1.1549, Pseudo Acc: 58.5900
+2024-11-23T18:28:12.216320+08:00 - CRITICAL - Iter: 4280 / 10000, Pseudo Loss: 3.2372, Pseudo Inverse Loss: 0.0161, Discriminator Loss: -6.8518, Pseudo Target MSELoss: 0.0251,  Dis_Pseudo_Loss: -3.2372, Dis_target_Loss.: -4.0889 
+
+2024-11-23T18:28:15.020158+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:28:17.666082+08:00 - CRITICAL - VFL Loss: 1.1555, VFL Acc: 58.8600,
+ Pseudo Loss: 1.1776, Pseudo Acc: 58.4100
+2024-11-23T18:28:19.830579+08:00 - CRITICAL - Iter: 4320 / 10000, Pseudo Loss: -0.8957, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -6.1162, Pseudo Target MSELoss: 0.0252,  Dis_Pseudo_Loss: 0.8957, Dis_target_Loss.: -7.3767 
+
+2024-11-23T18:28:24.088860+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:28:26.502939+08:00 - CRITICAL - VFL Loss: 1.1198, VFL Acc: 60.4600,
+ Pseudo Loss: 1.1630, Pseudo Acc: 59.0400
+2024-11-23T18:28:27.632349+08:00 - CRITICAL - Iter: 4360 / 10000, Pseudo Loss: -3.5755, Pseudo Inverse Loss: 0.0164, Discriminator Loss: -6.8721, Pseudo Target MSELoss: 0.0266,  Dis_Pseudo_Loss: 3.5755, Dis_target_Loss.: -10.6923 
+
+2024-11-23T18:28:32.834056+08:00 - CRITICAL - Iter: 4400 / 10000, Pseudo Loss: -4.1308, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -7.5994, Pseudo Target MSELoss: 0.0233,  Dis_Pseudo_Loss: 4.1308, Dis_target_Loss.: -11.9151 
+
+2024-11-23T18:28:32.835712+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:28:35.366224+08:00 - CRITICAL - VFL Loss: 1.1365, VFL Acc: 59.9800,
+ Pseudo Loss: 1.1659, Pseudo Acc: 58.8400
+2024-11-23T18:28:41.358159+08:00 - CRITICAL - Iter: 4440 / 10000, Pseudo Loss: -4.5444, Pseudo Inverse Loss: 0.0164, Discriminator Loss: -6.7941, Pseudo Target MSELoss: 0.0247,  Dis_Pseudo_Loss: 4.5444, Dis_target_Loss.: -11.5317 
+
+2024-11-23T18:28:43.099583+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:28:45.511384+08:00 - CRITICAL - VFL Loss: 1.1192, VFL Acc: 61.2600,
+ Pseudo Loss: 1.1329, Pseudo Acc: 60.3200
+2024-11-23T18:28:49.805916+08:00 - CRITICAL - Iter: 4480 / 10000, Pseudo Loss: -10.0809, Pseudo Inverse Loss: 0.0175, Discriminator Loss: -6.4239, Pseudo Target MSELoss: 0.0240,  Dis_Pseudo_Loss: 10.0809, Dis_target_Loss.: -16.8380 
+
+2024-11-23T18:28:52.753060+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:28:55.371222+08:00 - CRITICAL - VFL Loss: 1.1473, VFL Acc: 59.2700,
+ Pseudo Loss: 1.1573, Pseudo Acc: 58.7600
+2024-11-23T18:28:58.003789+08:00 - CRITICAL - Iter: 4520 / 10000, Pseudo Loss: -0.2689, Pseudo Inverse Loss: 0.0155, Discriminator Loss: -6.1496, Pseudo Target MSELoss: 0.0293,  Dis_Pseudo_Loss: 0.2689, Dis_target_Loss.: -6.5916 
+
+2024-11-23T18:29:02.630902+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:29:05.025809+08:00 - CRITICAL - VFL Loss: 1.1206, VFL Acc: 61.0300,
+ Pseudo Loss: 1.1452, Pseudo Acc: 59.7100
+2024-11-23T18:29:06.449170+08:00 - CRITICAL - Iter: 4560 / 10000, Pseudo Loss: 2.6466, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -7.1376, Pseudo Target MSELoss: 0.0216,  Dis_Pseudo_Loss: -2.6466, Dis_target_Loss.: -4.7847 
+
+2024-11-23T18:29:12.509381+08:00 - CRITICAL - Iter: 4600 / 10000, Pseudo Loss: -3.2239, Pseudo Inverse Loss: 0.0155, Discriminator Loss: -5.9749, Pseudo Target MSELoss: 0.0261,  Dis_Pseudo_Loss: 3.2239, Dis_target_Loss.: -9.7253 
+
+2024-11-23T18:29:12.510874+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:29:14.938596+08:00 - CRITICAL - VFL Loss: 1.1066, VFL Acc: 60.5700,
+ Pseudo Loss: 1.1271, Pseudo Acc: 60.0600
+2024-11-23T18:29:20.773240+08:00 - CRITICAL - Iter: 4640 / 10000, Pseudo Loss: -7.7775, Pseudo Inverse Loss: 0.0188, Discriminator Loss: -6.0858, Pseudo Target MSELoss: 0.0241,  Dis_Pseudo_Loss: 7.7775, Dis_target_Loss.: -14.2309 
+
+2024-11-23T18:29:22.436073+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:29:24.833453+08:00 - CRITICAL - VFL Loss: 1.1209, VFL Acc: 60.1100,
+ Pseudo Loss: 1.1566, Pseudo Acc: 58.8300
+2024-11-23T18:29:29.260115+08:00 - CRITICAL - Iter: 4680 / 10000, Pseudo Loss: -12.6654, Pseudo Inverse Loss: 0.0172, Discriminator Loss: -6.9645, Pseudo Target MSELoss: 0.0208,  Dis_Pseudo_Loss: 12.6654, Dis_target_Loss.: -19.9166 
+
+2024-11-23T18:29:32.513333+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:29:34.795651+08:00 - CRITICAL - VFL Loss: 1.1139, VFL Acc: 60.6600,
+ Pseudo Loss: 1.1247, Pseudo Acc: 60.5600
+2024-11-23T18:29:37.876984+08:00 - CRITICAL - Iter: 4720 / 10000, Pseudo Loss: -5.3161, Pseudo Inverse Loss: 0.0160, Discriminator Loss: -6.6989, Pseudo Target MSELoss: 0.0227,  Dis_Pseudo_Loss: 5.3161, Dis_target_Loss.: -12.2665 
+
+2024-11-23T18:29:41.773482+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:29:44.204878+08:00 - CRITICAL - VFL Loss: 1.1204, VFL Acc: 61.4300,
+ Pseudo Loss: 1.1666, Pseudo Acc: 60.0500
+2024-11-23T18:29:45.681545+08:00 - CRITICAL - Iter: 4760 / 10000, Pseudo Loss: -6.4010, Pseudo Inverse Loss: 0.0141, Discriminator Loss: -6.5838, Pseudo Target MSELoss: 0.0222,  Dis_Pseudo_Loss: 6.4010, Dis_target_Loss.: -13.2575 
+
+2024-11-23T18:29:51.206231+08:00 - CRITICAL - Iter: 4800 / 10000, Pseudo Loss: -6.3324, Pseudo Inverse Loss: 0.0167, Discriminator Loss: -7.7407, Pseudo Target MSELoss: 0.0251,  Dis_Pseudo_Loss: 6.3324, Dis_target_Loss.: -14.5695 
+
+2024-11-23T18:29:51.207381+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:29:53.614118+08:00 - CRITICAL - VFL Loss: 1.1337, VFL Acc: 60.8500,
+ Pseudo Loss: 1.1734, Pseudo Acc: 59.5800
+2024-11-23T18:29:58.783429+08:00 - CRITICAL - Iter: 4840 / 10000, Pseudo Loss: -1.0412, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -6.6459, Pseudo Target MSELoss: 0.0229,  Dis_Pseudo_Loss: 1.0412, Dis_target_Loss.: -8.0791 
+
+2024-11-23T18:30:00.322469+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:30:02.809771+08:00 - CRITICAL - VFL Loss: 1.1241, VFL Acc: 60.8400,
+ Pseudo Loss: 1.1521, Pseudo Acc: 59.1500
+2024-11-23T18:30:07.022613+08:00 - CRITICAL - Iter: 4880 / 10000, Pseudo Loss: -1.1025, Pseudo Inverse Loss: 0.0180, Discriminator Loss: -6.5052, Pseudo Target MSELoss: 0.0254,  Dis_Pseudo_Loss: 1.1025, Dis_target_Loss.: -7.9364 
+
+2024-11-23T18:30:09.792245+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:30:12.308354+08:00 - CRITICAL - VFL Loss: 1.1102, VFL Acc: 61.0900,
+ Pseudo Loss: 1.1419, Pseudo Acc: 59.2700
+2024-11-23T18:30:15.474054+08:00 - CRITICAL - Iter: 4920 / 10000, Pseudo Loss: -2.9586, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -6.2784, Pseudo Target MSELoss: 0.0253,  Dis_Pseudo_Loss: 2.9586, Dis_target_Loss.: -9.6180 
+
+2024-11-23T18:30:20.121523+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:30:22.641562+08:00 - CRITICAL - VFL Loss: 1.1085, VFL Acc: 61.3900,
+ Pseudo Loss: 1.1309, Pseudo Acc: 60.0200
+2024-11-23T18:30:24.355632+08:00 - CRITICAL - Iter: 4960 / 10000, Pseudo Loss: -2.8410, Pseudo Inverse Loss: 0.0148, Discriminator Loss: -6.9753, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: 2.8410, Dis_target_Loss.: -10.1649 
+
+2024-11-23T18:30:30.348675+08:00 - CRITICAL - Iter: 5000 / 10000, Pseudo Loss: -2.1725, Pseudo Inverse Loss: 0.0173, Discriminator Loss: -6.6335, Pseudo Target MSELoss: 0.0219,  Dis_Pseudo_Loss: 2.1725, Dis_target_Loss.: -9.1202 
+
+2024-11-23T18:30:30.349906+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:30:32.747805+08:00 - CRITICAL - VFL Loss: 1.1079, VFL Acc: 61.0000,
+ Pseudo Loss: 1.1493, Pseudo Acc: 59.8300
+2024-11-23T18:30:38.711814+08:00 - CRITICAL - Iter: 5040 / 10000, Pseudo Loss: -0.9133, Pseudo Inverse Loss: 0.0149, Discriminator Loss: -6.8229, Pseudo Target MSELoss: 0.0221,  Dis_Pseudo_Loss: 0.9133, Dis_target_Loss.: -8.0798 
+
+2024-11-23T18:30:40.135370+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:30:42.639226+08:00 - CRITICAL - VFL Loss: 1.0926, VFL Acc: 62.3300,
+ Pseudo Loss: 1.1269, Pseudo Acc: 60.7300
+2024-11-23T18:30:46.436152+08:00 - CRITICAL - Iter: 5080 / 10000, Pseudo Loss: -7.9445, Pseudo Inverse Loss: 0.0174, Discriminator Loss: -6.1284, Pseudo Target MSELoss: 0.0220,  Dis_Pseudo_Loss: 7.9445, Dis_target_Loss.: -14.3549 
+
+2024-11-23T18:30:49.183689+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:30:51.620367+08:00 - CRITICAL - VFL Loss: 1.1192, VFL Acc: 60.4000,
+ Pseudo Loss: 1.1501, Pseudo Acc: 59.0000
+2024-11-23T18:30:53.936398+08:00 - CRITICAL - Iter: 5120 / 10000, Pseudo Loss: -4.2227, Pseudo Inverse Loss: 0.0149, Discriminator Loss: -7.4466, Pseudo Target MSELoss: 0.0224,  Dis_Pseudo_Loss: 4.2227, Dis_target_Loss.: -11.8391 
+
+2024-11-23T18:30:57.647476+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:00.243352+08:00 - CRITICAL - VFL Loss: 1.1017, VFL Acc: 61.2800,
+ Pseudo Loss: 1.1237, Pseudo Acc: 60.3600
+2024-11-23T18:31:01.636828+08:00 - CRITICAL - Iter: 5160 / 10000, Pseudo Loss: -4.2711, Pseudo Inverse Loss: 0.0200, Discriminator Loss: -6.1405, Pseudo Target MSELoss: 0.0226,  Dis_Pseudo_Loss: 4.2711, Dis_target_Loss.: -10.6902 
+
+2024-11-23T18:31:06.950917+08:00 - CRITICAL - Iter: 5200 / 10000, Pseudo Loss: -2.7500, Pseudo Inverse Loss: 0.0185, Discriminator Loss: -6.1502, Pseudo Target MSELoss: 0.0222,  Dis_Pseudo_Loss: 2.7500, Dis_target_Loss.: -9.3025 
+
+2024-11-23T18:31:06.952111+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:09.464803+08:00 - CRITICAL - VFL Loss: 1.0920, VFL Acc: 61.4900,
+ Pseudo Loss: 1.1211, Pseudo Acc: 60.4600
+2024-11-23T18:31:15.391392+08:00 - CRITICAL - Iter: 5240 / 10000, Pseudo Loss: -5.3281, Pseudo Inverse Loss: 0.0135, Discriminator Loss: -6.2134, Pseudo Target MSELoss: 0.0219,  Dis_Pseudo_Loss: 5.3281, Dis_target_Loss.: -11.9972 
+
+2024-11-23T18:31:16.909274+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:19.427631+08:00 - CRITICAL - VFL Loss: 1.0865, VFL Acc: 62.2300,
+ Pseudo Loss: 1.1165, Pseudo Acc: 60.9800
+2024-11-23T18:31:23.649228+08:00 - CRITICAL - Iter: 5280 / 10000, Pseudo Loss: -2.5202, Pseudo Inverse Loss: 0.0149, Discriminator Loss: -6.3743, Pseudo Target MSELoss: 0.0263,  Dis_Pseudo_Loss: 2.5202, Dis_target_Loss.: -9.2387 
+
+2024-11-23T18:31:26.599680+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:29.106003+08:00 - CRITICAL - VFL Loss: 1.0843, VFL Acc: 62.1100,
+ Pseudo Loss: 1.1002, Pseudo Acc: 61.6100
+2024-11-23T18:31:31.927562+08:00 - CRITICAL - Iter: 5320 / 10000, Pseudo Loss: 1.7620, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -7.0016, Pseudo Target MSELoss: 0.0233,  Dis_Pseudo_Loss: -1.7620, Dis_target_Loss.: -5.4765 
+
+2024-11-23T18:31:36.445643+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:38.934252+08:00 - CRITICAL - VFL Loss: 1.0814, VFL Acc: 62.3800,
+ Pseudo Loss: 1.1061, Pseudo Acc: 61.9500
+2024-11-23T18:31:40.276366+08:00 - CRITICAL - Iter: 5360 / 10000, Pseudo Loss: 2.7995, Pseudo Inverse Loss: 0.0174, Discriminator Loss: -6.4782, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: -2.7995, Dis_target_Loss.: -3.8778 
+
+2024-11-23T18:31:46.475647+08:00 - CRITICAL - Iter: 5400 / 10000, Pseudo Loss: 4.6261, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -6.7674, Pseudo Target MSELoss: 0.0247,  Dis_Pseudo_Loss: -4.6261, Dis_target_Loss.: -2.4785 
+
+2024-11-23T18:31:46.477082+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:49.031828+08:00 - CRITICAL - VFL Loss: 1.0744, VFL Acc: 62.7000,
+ Pseudo Loss: 1.0925, Pseudo Acc: 62.0000
+2024-11-23T18:31:54.730250+08:00 - CRITICAL - Iter: 5440 / 10000, Pseudo Loss: 2.1365, Pseudo Inverse Loss: 0.0155, Discriminator Loss: -6.8282, Pseudo Target MSELoss: 0.0208,  Dis_Pseudo_Loss: -2.1365, Dis_target_Loss.: -5.2742 
+
+2024-11-23T18:31:56.124733+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:31:58.590349+08:00 - CRITICAL - VFL Loss: 1.0516, VFL Acc: 63.0600,
+ Pseudo Loss: 1.0754, Pseudo Acc: 62.6100
+2024-11-23T18:32:03.493793+08:00 - CRITICAL - Iter: 5480 / 10000, Pseudo Loss: -3.3840, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -6.7045, Pseudo Target MSELoss: 0.0261,  Dis_Pseudo_Loss: 3.3840, Dis_target_Loss.: -10.2560 
+
+2024-11-23T18:32:06.199595+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:32:08.561997+08:00 - CRITICAL - VFL Loss: 1.0869, VFL Acc: 63.0400,
+ Pseudo Loss: 1.1223, Pseudo Acc: 62.0800
+2024-11-23T18:32:11.523266+08:00 - CRITICAL - Iter: 5520 / 10000, Pseudo Loss: -8.7170, Pseudo Inverse Loss: 0.0177, Discriminator Loss: -5.8688, Pseudo Target MSELoss: 0.0245,  Dis_Pseudo_Loss: 8.7170, Dis_target_Loss.: -14.7843 
+
+2024-11-23T18:32:15.999921+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:32:18.561706+08:00 - CRITICAL - VFL Loss: 1.1051, VFL Acc: 62.5600,
+ Pseudo Loss: 1.1069, Pseudo Acc: 61.9800
+2024-11-23T18:32:20.063361+08:00 - CRITICAL - Iter: 5560 / 10000, Pseudo Loss: -5.9872, Pseudo Inverse Loss: 0.0152, Discriminator Loss: -6.7345, Pseudo Target MSELoss: 0.0226,  Dis_Pseudo_Loss: 5.9872, Dis_target_Loss.: -12.9713 
+
+2024-11-23T18:32:25.532219+08:00 - CRITICAL - Iter: 5600 / 10000, Pseudo Loss: -7.1441, Pseudo Inverse Loss: 0.0162, Discriminator Loss: -6.7898, Pseudo Target MSELoss: 0.0232,  Dis_Pseudo_Loss: 7.1441, Dis_target_Loss.: -14.1836 
+
+2024-11-23T18:32:25.533588+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:32:28.083802+08:00 - CRITICAL - VFL Loss: 1.1069, VFL Acc: 62.4800,
+ Pseudo Loss: 1.1576, Pseudo Acc: 60.9500
+2024-11-23T18:32:33.140833+08:00 - CRITICAL - Iter: 5640 / 10000, Pseudo Loss: 0.9118, Pseudo Inverse Loss: 0.0221, Discriminator Loss: -6.5290, Pseudo Target MSELoss: 0.0236,  Dis_Pseudo_Loss: -0.9118, Dis_target_Loss.: -5.9045 
+
+2024-11-23T18:32:34.424753+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:32:37.094710+08:00 - CRITICAL - VFL Loss: 1.0919, VFL Acc: 62.7200,
+ Pseudo Loss: 1.1168, Pseudo Acc: 61.8500
+2024-11-23T18:32:41.051200+08:00 - CRITICAL - Iter: 5680 / 10000, Pseudo Loss: -7.9935, Pseudo Inverse Loss: 0.0136, Discriminator Loss: -6.3975, Pseudo Target MSELoss: 0.0248,  Dis_Pseudo_Loss: 7.9935, Dis_target_Loss.: -14.7893 
+
+2024-11-23T18:32:43.482238+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:32:46.048713+08:00 - CRITICAL - VFL Loss: 1.0972, VFL Acc: 62.1200,
+ Pseudo Loss: 1.1365, Pseudo Acc: 60.5800
+2024-11-23T18:32:48.346029+08:00 - CRITICAL - Iter: 5720 / 10000, Pseudo Loss: -2.5991, Pseudo Inverse Loss: 0.0156, Discriminator Loss: -6.2283, Pseudo Target MSELoss: 0.0209,  Dis_Pseudo_Loss: 2.5991, Dis_target_Loss.: -9.3561 
+
+2024-11-23T18:32:52.662357+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:32:55.277861+08:00 - CRITICAL - VFL Loss: 1.0785, VFL Acc: 62.8200,
+ Pseudo Loss: 1.1037, Pseudo Acc: 62.1000
+2024-11-23T18:32:56.723920+08:00 - CRITICAL - Iter: 5760 / 10000, Pseudo Loss: 2.3870, Pseudo Inverse Loss: 0.0160, Discriminator Loss: -6.6758, Pseudo Target MSELoss: 0.0224,  Dis_Pseudo_Loss: -2.3870, Dis_target_Loss.: -4.5891 
+
+2024-11-23T18:33:02.971056+08:00 - CRITICAL - Iter: 5800 / 10000, Pseudo Loss: -6.2363, Pseudo Inverse Loss: 0.0160, Discriminator Loss: -6.5533, Pseudo Target MSELoss: 0.0223,  Dis_Pseudo_Loss: 6.2363, Dis_target_Loss.: -13.2922 
+
+2024-11-23T18:33:02.972713+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:33:05.573689+08:00 - CRITICAL - VFL Loss: 1.0596, VFL Acc: 63.6400,
+ Pseudo Loss: 1.1066, Pseudo Acc: 62.2300
+2024-11-23T18:33:11.519535+08:00 - CRITICAL - Iter: 5840 / 10000, Pseudo Loss: -3.7168, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.6536, Pseudo Target MSELoss: 0.0222,  Dis_Pseudo_Loss: 3.7168, Dis_target_Loss.: -11.6272 
+
+2024-11-23T18:33:13.044962+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:33:15.511863+08:00 - CRITICAL - VFL Loss: 1.0601, VFL Acc: 63.4800,
+ Pseudo Loss: 1.1117, Pseudo Acc: 61.5400
+2024-11-23T18:33:20.104978+08:00 - CRITICAL - Iter: 5880 / 10000, Pseudo Loss: 1.5227, Pseudo Inverse Loss: 0.0185, Discriminator Loss: -6.4233, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: -1.5227, Dis_target_Loss.: -5.2413 
+
+2024-11-23T18:33:23.451367+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:33:25.925972+08:00 - CRITICAL - VFL Loss: 1.0640, VFL Acc: 63.8900,
+ Pseudo Loss: 1.0816, Pseudo Acc: 62.8700
+2024-11-23T18:33:28.984809+08:00 - CRITICAL - Iter: 5920 / 10000, Pseudo Loss: -5.0475, Pseudo Inverse Loss: 0.0149, Discriminator Loss: -6.7998, Pseudo Target MSELoss: 0.0204,  Dis_Pseudo_Loss: 5.0475, Dis_target_Loss.: -12.2068 
+
+2024-11-23T18:33:33.890614+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:33:36.491754+08:00 - CRITICAL - VFL Loss: 1.0591, VFL Acc: 63.7300,
+ Pseudo Loss: 1.0755, Pseudo Acc: 63.0200
+2024-11-23T18:33:37.780908+08:00 - CRITICAL - Iter: 5960 / 10000, Pseudo Loss: -1.0991, Pseudo Inverse Loss: 0.0142, Discriminator Loss: -6.1766, Pseudo Target MSELoss: 0.0214,  Dis_Pseudo_Loss: 1.0991, Dis_target_Loss.: -7.5105 
+
+2024-11-23T18:33:43.741251+08:00 - CRITICAL - Iter: 6000 / 10000, Pseudo Loss: -5.7831, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -6.3810, Pseudo Target MSELoss: 0.0194,  Dis_Pseudo_Loss: 5.7831, Dis_target_Loss.: -12.3635 
+
+2024-11-23T18:33:43.742754+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:33:46.249645+08:00 - CRITICAL - VFL Loss: 1.0602, VFL Acc: 63.9700,
+ Pseudo Loss: 1.0929, Pseudo Acc: 63.2000
+2024-11-23T18:33:52.569088+08:00 - CRITICAL - Iter: 6040 / 10000, Pseudo Loss: -1.9936, Pseudo Inverse Loss: 0.0138, Discriminator Loss: -5.9396, Pseudo Target MSELoss: 0.0225,  Dis_Pseudo_Loss: 1.9936, Dis_target_Loss.: -8.3122 
+
+2024-11-23T18:33:54.244047+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:33:56.677858+08:00 - CRITICAL - VFL Loss: 1.1218, VFL Acc: 61.6000,
+ Pseudo Loss: 1.1293, Pseudo Acc: 61.0800
+2024-11-23T18:34:01.271491+08:00 - CRITICAL - Iter: 6080 / 10000, Pseudo Loss: -1.6421, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -7.3018, Pseudo Target MSELoss: 0.0239,  Dis_Pseudo_Loss: 1.6421, Dis_target_Loss.: -9.1812 
+
+2024-11-23T18:34:04.043150+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:34:06.541241+08:00 - CRITICAL - VFL Loss: 1.0397, VFL Acc: 64.2400,
+ Pseudo Loss: 1.0883, Pseudo Acc: 62.3400
+2024-11-23T18:34:09.428068+08:00 - CRITICAL - Iter: 6120 / 10000, Pseudo Loss: -4.4878, Pseudo Inverse Loss: 0.0151, Discriminator Loss: -6.3487, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: 4.4878, Dis_target_Loss.: -11.0725 
+
+2024-11-23T18:34:14.234502+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:34:16.696915+08:00 - CRITICAL - VFL Loss: 1.0237, VFL Acc: 64.2900,
+ Pseudo Loss: 1.0718, Pseudo Acc: 62.8200
+2024-11-23T18:34:18.188869+08:00 - CRITICAL - Iter: 6160 / 10000, Pseudo Loss: -4.8822, Pseudo Inverse Loss: 0.0138, Discriminator Loss: -7.0313, Pseudo Target MSELoss: 0.0235,  Dis_Pseudo_Loss: 4.8822, Dis_target_Loss.: -12.3024 
+
+2024-11-23T18:34:24.016662+08:00 - CRITICAL - Iter: 6200 / 10000, Pseudo Loss: 9.6928, Pseudo Inverse Loss: 0.0142, Discriminator Loss: -7.4236, Pseudo Target MSELoss: 0.0205,  Dis_Pseudo_Loss: -9.6928, Dis_target_Loss.: 2.0368 
+
+2024-11-23T18:34:24.018129+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:34:26.428204+08:00 - CRITICAL - VFL Loss: 1.0332, VFL Acc: 64.4300,
+ Pseudo Loss: 1.0602, Pseudo Acc: 63.6100
+2024-11-23T18:34:32.671762+08:00 - CRITICAL - Iter: 6240 / 10000, Pseudo Loss: -2.2268, Pseudo Inverse Loss: 0.0129, Discriminator Loss: -6.6707, Pseudo Target MSELoss: 0.0266,  Dis_Pseudo_Loss: 2.2268, Dis_target_Loss.: -9.5028 
+
+2024-11-23T18:34:34.384991+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:34:36.836227+08:00 - CRITICAL - VFL Loss: 1.0237, VFL Acc: 63.9500,
+ Pseudo Loss: 1.0574, Pseudo Acc: 62.9700
+2024-11-23T18:34:41.595143+08:00 - CRITICAL - Iter: 6280 / 10000, Pseudo Loss: -0.5957, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -6.5572, Pseudo Target MSELoss: 0.0197,  Dis_Pseudo_Loss: 0.5957, Dis_target_Loss.: -7.3680 
+
+2024-11-23T18:34:44.550400+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:34:47.073173+08:00 - CRITICAL - VFL Loss: 1.0618, VFL Acc: 64.8500,
+ Pseudo Loss: 1.0958, Pseudo Acc: 63.3900
+2024-11-23T18:34:50.174550+08:00 - CRITICAL - Iter: 6320 / 10000, Pseudo Loss: -1.9277, Pseudo Inverse Loss: 0.0133, Discriminator Loss: -6.7390, Pseudo Target MSELoss: 0.0214,  Dis_Pseudo_Loss: 1.9277, Dis_target_Loss.: -8.8460 
+
+2024-11-23T18:34:54.685671+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:34:57.205474+08:00 - CRITICAL - VFL Loss: 1.0549, VFL Acc: 64.5600,
+ Pseudo Loss: 1.0889, Pseudo Acc: 63.2900
+2024-11-23T18:34:58.664767+08:00 - CRITICAL - Iter: 6360 / 10000, Pseudo Loss: -7.3193, Pseudo Inverse Loss: 0.0162, Discriminator Loss: -7.0554, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: 7.3193, Dis_target_Loss.: -14.6706 
+
+2024-11-23T18:35:04.336665+08:00 - CRITICAL - Iter: 6400 / 10000, Pseudo Loss: -3.1790, Pseudo Inverse Loss: 0.0159, Discriminator Loss: -6.8213, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: 3.1790, Dis_target_Loss.: -10.2426 
+
+2024-11-23T18:35:04.338150+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:35:07.059420+08:00 - CRITICAL - VFL Loss: 1.0627, VFL Acc: 64.4100,
+ Pseudo Loss: 1.0715, Pseudo Acc: 63.7300
+2024-11-23T18:35:12.749117+08:00 - CRITICAL - Iter: 6440 / 10000, Pseudo Loss: -4.8255, Pseudo Inverse Loss: 0.0144, Discriminator Loss: -7.0113, Pseudo Target MSELoss: 0.0197,  Dis_Pseudo_Loss: 4.8255, Dis_target_Loss.: -12.1101 
+
+2024-11-23T18:35:14.287198+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:35:16.869925+08:00 - CRITICAL - VFL Loss: 1.0373, VFL Acc: 64.2500,
+ Pseudo Loss: 1.0689, Pseudo Acc: 63.4500
+2024-11-23T18:35:20.936956+08:00 - CRITICAL - Iter: 6480 / 10000, Pseudo Loss: 0.8548, Pseudo Inverse Loss: 0.0139, Discriminator Loss: -6.8054, Pseudo Target MSELoss: 0.0216,  Dis_Pseudo_Loss: -0.8548, Dis_target_Loss.: -6.2919 
+
+2024-11-23T18:35:23.687592+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:35:26.226548+08:00 - CRITICAL - VFL Loss: 1.0336, VFL Acc: 64.4600,
+ Pseudo Loss: 1.0867, Pseudo Acc: 62.8700
+2024-11-23T18:35:29.417768+08:00 - CRITICAL - Iter: 6520 / 10000, Pseudo Loss: -3.9510, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.1363, Pseudo Target MSELoss: 0.0203,  Dis_Pseudo_Loss: 3.9510, Dis_target_Loss.: -11.3955 
+
+2024-11-23T18:35:33.813607+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:35:36.209459+08:00 - CRITICAL - VFL Loss: 1.0416, VFL Acc: 64.1900,
+ Pseudo Loss: 1.0559, Pseudo Acc: 63.3500
+2024-11-23T18:35:37.686058+08:00 - CRITICAL - Iter: 6560 / 10000, Pseudo Loss: 2.8774, Pseudo Inverse Loss: 0.0136, Discriminator Loss: -7.2832, Pseudo Target MSELoss: 0.0198,  Dis_Pseudo_Loss: -2.8774, Dis_target_Loss.: -4.5962 
+
+2024-11-23T18:35:43.471159+08:00 - CRITICAL - Iter: 6600 / 10000, Pseudo Loss: -1.1150, Pseudo Inverse Loss: 0.0136, Discriminator Loss: -7.1499, Pseudo Target MSELoss: 0.0238,  Dis_Pseudo_Loss: 1.1150, Dis_target_Loss.: -8.5595 
+
+2024-11-23T18:35:43.472538+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:35:46.042717+08:00 - CRITICAL - VFL Loss: 1.0527, VFL Acc: 64.6600,
+ Pseudo Loss: 1.0793, Pseudo Acc: 63.9000
+2024-11-23T18:35:52.092647+08:00 - CRITICAL - Iter: 6640 / 10000, Pseudo Loss: 0.7277, Pseudo Inverse Loss: 0.0134, Discriminator Loss: -7.5019, Pseudo Target MSELoss: 0.0199,  Dis_Pseudo_Loss: -0.7277, Dis_target_Loss.: -6.9608 
+
+2024-11-23T18:35:53.587398+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:35:56.259612+08:00 - CRITICAL - VFL Loss: 1.0322, VFL Acc: 64.6500,
+ Pseudo Loss: 1.0449, Pseudo Acc: 63.6800
+2024-11-23T18:36:00.551799+08:00 - CRITICAL - Iter: 6680 / 10000, Pseudo Loss: -2.3891, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -6.4231, Pseudo Target MSELoss: 0.0183,  Dis_Pseudo_Loss: 2.3891, Dis_target_Loss.: -9.1719 
+
+2024-11-23T18:36:03.383777+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:36:05.862675+08:00 - CRITICAL - VFL Loss: 1.1060, VFL Acc: 62.4600,
+ Pseudo Loss: 1.0871, Pseudo Acc: 62.9700
+2024-11-23T18:36:08.695487+08:00 - CRITICAL - Iter: 6720 / 10000, Pseudo Loss: -2.1653, Pseudo Inverse Loss: 0.0135, Discriminator Loss: -6.6644, Pseudo Target MSELoss: 0.0208,  Dis_Pseudo_Loss: 2.1653, Dis_target_Loss.: -8.9965 
+
+2024-11-23T18:36:13.330531+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:36:15.867938+08:00 - CRITICAL - VFL Loss: 1.0240, VFL Acc: 64.9700,
+ Pseudo Loss: 1.0554, Pseudo Acc: 64.1000
+2024-11-23T18:36:17.223568+08:00 - CRITICAL - Iter: 6760 / 10000, Pseudo Loss: 1.7181, Pseudo Inverse Loss: 0.0156, Discriminator Loss: -6.5316, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: -1.7181, Dis_target_Loss.: -5.3788 
+
+2024-11-23T18:36:23.564883+08:00 - CRITICAL - Iter: 6800 / 10000, Pseudo Loss: 0.4232, Pseudo Inverse Loss: 0.0141, Discriminator Loss: -6.7192, Pseudo Target MSELoss: 0.0237,  Dis_Pseudo_Loss: -0.4232, Dis_target_Loss.: -6.6853 
+
+2024-11-23T18:36:23.566447+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:36:25.981066+08:00 - CRITICAL - VFL Loss: 1.0214, VFL Acc: 65.4700,
+ Pseudo Loss: 1.0587, Pseudo Acc: 63.6400
+2024-11-23T18:36:32.689977+08:00 - CRITICAL - Iter: 6840 / 10000, Pseudo Loss: 3.3016, Pseudo Inverse Loss: 0.0162, Discriminator Loss: -6.8968, Pseudo Target MSELoss: 0.0213,  Dis_Pseudo_Loss: -3.3016, Dis_target_Loss.: -3.8194 
+
+2024-11-23T18:36:34.403923+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:36:36.896147+08:00 - CRITICAL - VFL Loss: 1.0332, VFL Acc: 64.8700,
+ Pseudo Loss: 1.0554, Pseudo Acc: 63.7900
+2024-11-23T18:36:41.630336+08:00 - CRITICAL - Iter: 6880 / 10000, Pseudo Loss: -6.4898, Pseudo Inverse Loss: 0.0178, Discriminator Loss: -6.6574, Pseudo Target MSELoss: 0.0257,  Dis_Pseudo_Loss: 6.4898, Dis_target_Loss.: -13.4306 
+
+2024-11-23T18:36:44.690347+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:36:47.204357+08:00 - CRITICAL - VFL Loss: 1.0126, VFL Acc: 65.5000,
+ Pseudo Loss: 1.0513, Pseudo Acc: 64.2300
+2024-11-23T18:36:50.366891+08:00 - CRITICAL - Iter: 6920 / 10000, Pseudo Loss: -1.7662, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -6.3777, Pseudo Target MSELoss: 0.0181,  Dis_Pseudo_Loss: 1.7662, Dis_target_Loss.: -8.3974 
+
+2024-11-23T18:36:55.188024+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:36:57.705308+08:00 - CRITICAL - VFL Loss: 1.0199, VFL Acc: 65.2900,
+ Pseudo Loss: 1.0349, Pseudo Acc: 63.8200
+2024-11-23T18:36:59.199938+08:00 - CRITICAL - Iter: 6960 / 10000, Pseudo Loss: -8.5701, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.0313, Pseudo Target MSELoss: 0.0249,  Dis_Pseudo_Loss: 8.5701, Dis_target_Loss.: -15.7851 
+
+2024-11-23T18:37:05.131888+08:00 - CRITICAL - Iter: 7000 / 10000, Pseudo Loss: -7.9586, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -6.7140, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: 7.9586, Dis_target_Loss.: -14.8581 
+
+2024-11-23T18:37:05.133145+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:37:07.526989+08:00 - CRITICAL - VFL Loss: 1.0194, VFL Acc: 65.0000,
+ Pseudo Loss: 1.0292, Pseudo Acc: 64.4100
+2024-11-23T18:37:13.104972+08:00 - CRITICAL - Iter: 7040 / 10000, Pseudo Loss: -7.4155, Pseudo Inverse Loss: 0.0134, Discriminator Loss: -6.5554, Pseudo Target MSELoss: 0.0243,  Dis_Pseudo_Loss: 7.4155, Dis_target_Loss.: -14.2003 
+
+2024-11-23T18:37:14.430776+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:37:16.881731+08:00 - CRITICAL - VFL Loss: 1.0185, VFL Acc: 65.3900,
+ Pseudo Loss: 1.0308, Pseudo Acc: 64.9100
+2024-11-23T18:37:21.501368+08:00 - CRITICAL - Iter: 7080 / 10000, Pseudo Loss: -1.7822, Pseudo Inverse Loss: 0.0132, Discriminator Loss: -5.6576, Pseudo Target MSELoss: 0.0196,  Dis_Pseudo_Loss: 1.7822, Dis_target_Loss.: -7.7600 
+
+2024-11-23T18:37:24.812263+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:37:27.424991+08:00 - CRITICAL - VFL Loss: 1.0420, VFL Acc: 65.5200,
+ Pseudo Loss: 1.0495, Pseudo Acc: 64.8000
+2024-11-23T18:37:30.442226+08:00 - CRITICAL - Iter: 7120 / 10000, Pseudo Loss: 4.9903, Pseudo Inverse Loss: 0.0156, Discriminator Loss: -6.5426, Pseudo Target MSELoss: 0.0206,  Dis_Pseudo_Loss: -4.9903, Dis_target_Loss.: -1.9168 
+
+2024-11-23T18:37:35.187498+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:37:37.717901+08:00 - CRITICAL - VFL Loss: 1.0378, VFL Acc: 65.0900,
+ Pseudo Loss: 1.0419, Pseudo Acc: 64.6400
+2024-11-23T18:37:39.140853+08:00 - CRITICAL - Iter: 7160 / 10000, Pseudo Loss: -2.0772, Pseudo Inverse Loss: 0.0132, Discriminator Loss: -7.3060, Pseudo Target MSELoss: 0.0220,  Dis_Pseudo_Loss: 2.0772, Dis_target_Loss.: -9.6217 
+
+2024-11-23T18:37:44.896925+08:00 - CRITICAL - Iter: 7200 / 10000, Pseudo Loss: -3.9682, Pseudo Inverse Loss: 0.0129, Discriminator Loss: -6.9791, Pseudo Target MSELoss: 0.0217,  Dis_Pseudo_Loss: 3.9682, Dis_target_Loss.: -11.1169 
+
+2024-11-23T18:37:44.898119+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:37:47.377853+08:00 - CRITICAL - VFL Loss: 1.0563, VFL Acc: 64.7000,
+ Pseudo Loss: 1.0590, Pseudo Acc: 64.1400
+2024-11-23T18:37:52.949406+08:00 - CRITICAL - Iter: 7240 / 10000, Pseudo Loss: -8.2646, Pseudo Inverse Loss: 0.0135, Discriminator Loss: -8.1547, Pseudo Target MSELoss: 0.0198,  Dis_Pseudo_Loss: 8.2646, Dis_target_Loss.: -16.6454 
+
+2024-11-23T18:37:54.253886+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:37:56.725530+08:00 - CRITICAL - VFL Loss: 1.0585, VFL Acc: 64.2900,
+ Pseudo Loss: 1.0639, Pseudo Acc: 64.0100
+2024-11-23T18:38:01.104732+08:00 - CRITICAL - Iter: 7280 / 10000, Pseudo Loss: -1.8251, Pseudo Inverse Loss: 0.0139, Discriminator Loss: -6.8036, Pseudo Target MSELoss: 0.0220,  Dis_Pseudo_Loss: 1.8251, Dis_target_Loss.: -8.7956 
+
+2024-11-23T18:38:04.306744+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:38:06.969960+08:00 - CRITICAL - VFL Loss: 1.0634, VFL Acc: 63.9400,
+ Pseudo Loss: 1.0980, Pseudo Acc: 62.8500
+2024-11-23T18:38:09.912939+08:00 - CRITICAL - Iter: 7320 / 10000, Pseudo Loss: 4.3174, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -7.3113, Pseudo Target MSELoss: 0.0201,  Dis_Pseudo_Loss: -4.3174, Dis_target_Loss.: -3.2403 
+
+2024-11-23T18:38:14.793279+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:38:17.276196+08:00 - CRITICAL - VFL Loss: 1.0404, VFL Acc: 64.9100,
+ Pseudo Loss: 1.0496, Pseudo Acc: 64.6400
+2024-11-23T18:38:18.786977+08:00 - CRITICAL - Iter: 7360 / 10000, Pseudo Loss: 1.2437, Pseudo Inverse Loss: 0.0154, Discriminator Loss: -7.2796, Pseudo Target MSELoss: 0.0220,  Dis_Pseudo_Loss: -1.2437, Dis_target_Loss.: -6.3228 
+
+2024-11-23T18:38:24.949525+08:00 - CRITICAL - Iter: 7400 / 10000, Pseudo Loss: 2.0931, Pseudo Inverse Loss: 0.0133, Discriminator Loss: -7.9389, Pseudo Target MSELoss: 0.0207,  Dis_Pseudo_Loss: -2.0931, Dis_target_Loss.: -6.4152 
+
+2024-11-23T18:38:24.950995+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:38:27.362296+08:00 - CRITICAL - VFL Loss: 1.0411, VFL Acc: 64.9600,
+ Pseudo Loss: 1.0909, Pseudo Acc: 63.0800
+2024-11-23T18:38:33.572034+08:00 - CRITICAL - Iter: 7440 / 10000, Pseudo Loss: -3.3800, Pseudo Inverse Loss: 0.0169, Discriminator Loss: -6.8917, Pseudo Target MSELoss: 0.0294,  Dis_Pseudo_Loss: 3.3800, Dis_target_Loss.: -10.6313 
+
+2024-11-23T18:38:35.249161+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:38:37.747239+08:00 - CRITICAL - VFL Loss: 1.0637, VFL Acc: 63.7600,
+ Pseudo Loss: 1.0871, Pseudo Acc: 62.6400
+2024-11-23T18:38:41.321431+08:00 - CRITICAL - Iter: 7480 / 10000, Pseudo Loss: -6.0835, Pseudo Inverse Loss: 0.0180, Discriminator Loss: -7.1432, Pseudo Target MSELoss: 0.0283,  Dis_Pseudo_Loss: 6.0835, Dis_target_Loss.: -13.5951 
+
+2024-11-23T18:38:44.394353+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:38:46.972419+08:00 - CRITICAL - VFL Loss: 1.0345, VFL Acc: 65.0300,
+ Pseudo Loss: 1.0336, Pseudo Acc: 64.5100
+2024-11-23T18:38:49.641003+08:00 - CRITICAL - Iter: 7520 / 10000, Pseudo Loss: -8.3289, Pseudo Inverse Loss: 0.0158, Discriminator Loss: -6.8935, Pseudo Target MSELoss: 0.0205,  Dis_Pseudo_Loss: 8.3289, Dis_target_Loss.: -15.3918 
+
+2024-11-23T18:38:54.093461+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:38:56.720896+08:00 - CRITICAL - VFL Loss: 1.0049, VFL Acc: 65.9300,
+ Pseudo Loss: 1.0343, Pseudo Acc: 65.0100
+2024-11-23T18:38:57.752535+08:00 - CRITICAL - Iter: 7560 / 10000, Pseudo Loss: -5.6350, Pseudo Inverse Loss: 0.0138, Discriminator Loss: -7.1534, Pseudo Target MSELoss: 0.0222,  Dis_Pseudo_Loss: 5.6350, Dis_target_Loss.: -13.4263 
+
+2024-11-23T18:39:03.545408+08:00 - CRITICAL - Iter: 7600 / 10000, Pseudo Loss: -2.3243, Pseudo Inverse Loss: 0.0144, Discriminator Loss: -7.6448, Pseudo Target MSELoss: 0.0255,  Dis_Pseudo_Loss: 2.3243, Dis_target_Loss.: -10.2056 
+
+2024-11-23T18:39:03.547605+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:39:05.962690+08:00 - CRITICAL - VFL Loss: 1.0715, VFL Acc: 63.5000,
+ Pseudo Loss: 1.0784, Pseudo Acc: 62.7000
+2024-11-23T18:39:11.520813+08:00 - CRITICAL - Iter: 7640 / 10000, Pseudo Loss: -8.3429, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -6.7687, Pseudo Target MSELoss: 0.0210,  Dis_Pseudo_Loss: 8.3429, Dis_target_Loss.: -15.3762 
+
+2024-11-23T18:39:13.175972+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:39:15.666248+08:00 - CRITICAL - VFL Loss: 1.0271, VFL Acc: 64.1900,
+ Pseudo Loss: 1.0435, Pseudo Acc: 63.5800
+2024-11-23T18:39:20.256178+08:00 - CRITICAL - Iter: 7680 / 10000, Pseudo Loss: -4.2641, Pseudo Inverse Loss: 0.0158, Discriminator Loss: -6.6473, Pseudo Target MSELoss: 0.0210,  Dis_Pseudo_Loss: 4.2641, Dis_target_Loss.: -11.2490 
+
+2024-11-23T18:39:23.596753+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:39:26.078180+08:00 - CRITICAL - VFL Loss: 0.9951, VFL Acc: 66.3300,
+ Pseudo Loss: 1.0191, Pseudo Acc: 64.6900
+2024-11-23T18:39:28.887525+08:00 - CRITICAL - Iter: 7720 / 10000, Pseudo Loss: -9.7340, Pseudo Inverse Loss: 0.0136, Discriminator Loss: -6.8769, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: 9.7340, Dis_target_Loss.: -16.8664 
+
+2024-11-23T18:39:33.680110+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:39:36.213075+08:00 - CRITICAL - VFL Loss: 0.9982, VFL Acc: 66.2000,
+ Pseudo Loss: 1.0358, Pseudo Acc: 64.4500
+2024-11-23T18:39:37.653985+08:00 - CRITICAL - Iter: 7760 / 10000, Pseudo Loss: -2.3444, Pseudo Inverse Loss: 0.0142, Discriminator Loss: -7.1236, Pseudo Target MSELoss: 0.0221,  Dis_Pseudo_Loss: 2.3444, Dis_target_Loss.: -9.8153 
+
+2024-11-23T18:39:43.590330+08:00 - CRITICAL - Iter: 7800 / 10000, Pseudo Loss: 9.5288, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -6.3996, Pseudo Target MSELoss: 0.0284,  Dis_Pseudo_Loss: -9.5288, Dis_target_Loss.: 2.8934 
+
+2024-11-23T18:39:43.591792+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:39:46.098392+08:00 - CRITICAL - VFL Loss: 1.0222, VFL Acc: 64.9700,
+ Pseudo Loss: 1.0468, Pseudo Acc: 64.3900
+2024-11-23T18:39:52.325290+08:00 - CRITICAL - Iter: 7840 / 10000, Pseudo Loss: 2.8309, Pseudo Inverse Loss: 0.0127, Discriminator Loss: -8.0484, Pseudo Target MSELoss: 0.0196,  Dis_Pseudo_Loss: -2.8309, Dis_target_Loss.: -5.4319 
+
+2024-11-23T18:39:53.613842+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:39:56.072060+08:00 - CRITICAL - VFL Loss: 1.0305, VFL Acc: 66.2600,
+ Pseudo Loss: 1.0688, Pseudo Acc: 64.7900
+2024-11-23T18:40:00.001400+08:00 - CRITICAL - Iter: 7880 / 10000, Pseudo Loss: -9.2727, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -6.5205, Pseudo Target MSELoss: 0.0203,  Dis_Pseudo_Loss: 9.2727, Dis_target_Loss.: -16.0670 
+
+2024-11-23T18:40:03.020995+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:40:05.609284+08:00 - CRITICAL - VFL Loss: 1.0548, VFL Acc: 66.2400,
+ Pseudo Loss: 1.0791, Pseudo Acc: 65.1700
+2024-11-23T18:40:08.706517+08:00 - CRITICAL - Iter: 7920 / 10000, Pseudo Loss: -5.2111, Pseudo Inverse Loss: 0.0172, Discriminator Loss: -7.2380, Pseudo Target MSELoss: 0.0215,  Dis_Pseudo_Loss: 5.2111, Dis_target_Loss.: -12.7958 
+
+2024-11-23T18:40:13.189989+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:40:15.594825+08:00 - CRITICAL - VFL Loss: 1.0599, VFL Acc: 64.9800,
+ Pseudo Loss: 1.0723, Pseudo Acc: 64.3300
+2024-11-23T18:40:17.142869+08:00 - CRITICAL - Iter: 7960 / 10000, Pseudo Loss: -1.6009, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.2459, Pseudo Target MSELoss: 0.0201,  Dis_Pseudo_Loss: 1.6009, Dis_target_Loss.: -9.0656 
+
+2024-11-23T18:40:22.948924+08:00 - CRITICAL - Iter: 8000 / 10000, Pseudo Loss: 3.7955, Pseudo Inverse Loss: 0.0141, Discriminator Loss: -7.4280, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: -3.7955, Dis_target_Loss.: -3.8596 
+
+2024-11-23T18:40:22.950374+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:40:25.288060+08:00 - CRITICAL - VFL Loss: 1.0222, VFL Acc: 66.2400,
+ Pseudo Loss: 1.0474, Pseudo Acc: 65.1700
+2024-11-23T18:40:30.554793+08:00 - CRITICAL - Iter: 8040 / 10000, Pseudo Loss: -4.6281, Pseudo Inverse Loss: 0.0152, Discriminator Loss: -7.3114, Pseudo Target MSELoss: 0.0256,  Dis_Pseudo_Loss: 4.6281, Dis_target_Loss.: -12.3148 
+
+2024-11-23T18:40:31.858368+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:40:34.467064+08:00 - CRITICAL - VFL Loss: 1.0107, VFL Acc: 66.3500,
+ Pseudo Loss: 1.0386, Pseudo Acc: 64.8200
+2024-11-23T18:40:39.046443+08:00 - CRITICAL - Iter: 8080 / 10000, Pseudo Loss: -7.6556, Pseudo Inverse Loss: 0.0136, Discriminator Loss: -6.9121, Pseudo Target MSELoss: 0.0235,  Dis_Pseudo_Loss: 7.6556, Dis_target_Loss.: -14.7960 
+
+2024-11-23T18:40:42.075922+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:40:44.562820+08:00 - CRITICAL - VFL Loss: 1.0168, VFL Acc: 66.9700,
+ Pseudo Loss: 1.0485, Pseudo Acc: 65.5600
+2024-11-23T18:40:47.777518+08:00 - CRITICAL - Iter: 8120 / 10000, Pseudo Loss: -9.1428, Pseudo Inverse Loss: 0.0131, Discriminator Loss: -7.3725, Pseudo Target MSELoss: 0.0205,  Dis_Pseudo_Loss: 9.1428, Dis_target_Loss.: -16.7321 
+
+2024-11-23T18:40:51.976288+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:40:54.546066+08:00 - CRITICAL - VFL Loss: 1.0355, VFL Acc: 66.0400,
+ Pseudo Loss: 1.0797, Pseudo Acc: 64.4400
+2024-11-23T18:40:56.291617+08:00 - CRITICAL - Iter: 8160 / 10000, Pseudo Loss: 3.8664, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -6.2783, Pseudo Target MSELoss: 0.0199,  Dis_Pseudo_Loss: -3.8664, Dis_target_Loss.: -2.8613 
+
+2024-11-23T18:41:02.723047+08:00 - CRITICAL - Iter: 8200 / 10000, Pseudo Loss: 0.3868, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.4392, Pseudo Target MSELoss: 0.0215,  Dis_Pseudo_Loss: -0.3868, Dis_target_Loss.: -7.2702 
+
+2024-11-23T18:41:02.724501+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:41:05.460639+08:00 - CRITICAL - VFL Loss: 1.0419, VFL Acc: 66.5900,
+ Pseudo Loss: 1.1027, Pseudo Acc: 64.6300
+2024-11-23T18:41:10.215899+08:00 - CRITICAL - Iter: 8240 / 10000, Pseudo Loss: -4.8380, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -7.3480, Pseudo Target MSELoss: 0.0221,  Dis_Pseudo_Loss: 4.8380, Dis_target_Loss.: -12.3993 
+
+2024-11-23T18:41:11.567783+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:41:14.103889+08:00 - CRITICAL - VFL Loss: 1.0089, VFL Acc: 66.6600,
+ Pseudo Loss: 1.0252, Pseudo Acc: 65.5600
+2024-11-23T18:41:18.061630+08:00 - CRITICAL - Iter: 8280 / 10000, Pseudo Loss: -8.8851, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -7.0095, Pseudo Target MSELoss: 0.0194,  Dis_Pseudo_Loss: 8.8851, Dis_target_Loss.: -17.0246 
+
+2024-11-23T18:41:20.871765+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:41:23.208645+08:00 - CRITICAL - VFL Loss: 1.0301, VFL Acc: 66.1000,
+ Pseudo Loss: 1.0706, Pseudo Acc: 64.4700
+2024-11-23T18:41:25.866474+08:00 - CRITICAL - Iter: 8320 / 10000, Pseudo Loss: -3.6075, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -7.5132, Pseudo Target MSELoss: 0.0151,  Dis_Pseudo_Loss: 3.6075, Dis_target_Loss.: -11.3342 
+
+2024-11-23T18:41:29.879749+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:41:32.231521+08:00 - CRITICAL - VFL Loss: 1.0127, VFL Acc: 65.9700,
+ Pseudo Loss: 1.0452, Pseudo Acc: 64.9700
+2024-11-23T18:41:33.711350+08:00 - CRITICAL - Iter: 8360 / 10000, Pseudo Loss: 5.2663, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -6.6530, Pseudo Target MSELoss: 0.0170,  Dis_Pseudo_Loss: -5.2663, Dis_target_Loss.: -1.7925 
+
+2024-11-23T18:41:40.127575+08:00 - CRITICAL - Iter: 8400 / 10000, Pseudo Loss: -2.2963, Pseudo Inverse Loss: 0.0128, Discriminator Loss: -7.2603, Pseudo Target MSELoss: 0.0233,  Dis_Pseudo_Loss: 2.2963, Dis_target_Loss.: -9.8593 
+
+2024-11-23T18:41:40.129139+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:41:42.575920+08:00 - CRITICAL - VFL Loss: 1.0049, VFL Acc: 66.4500,
+ Pseudo Loss: 1.0219, Pseudo Acc: 65.3400
+2024-11-23T18:41:48.543292+08:00 - CRITICAL - Iter: 8440 / 10000, Pseudo Loss: -11.2236, Pseudo Inverse Loss: 0.0153, Discriminator Loss: -7.6737, Pseudo Target MSELoss: 0.0187,  Dis_Pseudo_Loss: 11.2236, Dis_target_Loss.: -19.1860 
+
+2024-11-23T18:41:49.847102+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:41:52.498305+08:00 - CRITICAL - VFL Loss: 0.9646, VFL Acc: 67.3300,
+ Pseudo Loss: 0.9928, Pseudo Acc: 66.6500
+2024-11-23T18:41:56.868677+08:00 - CRITICAL - Iter: 8480 / 10000, Pseudo Loss: 1.4433, Pseudo Inverse Loss: 0.0162, Discriminator Loss: -7.8795, Pseudo Target MSELoss: 0.0195,  Dis_Pseudo_Loss: -1.4433, Dis_target_Loss.: -6.7350 
+
+2024-11-23T18:41:59.704796+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:42:02.230397+08:00 - CRITICAL - VFL Loss: 0.9800, VFL Acc: 66.9600,
+ Pseudo Loss: 0.9930, Pseudo Acc: 66.6300
+2024-11-23T18:42:05.357784+08:00 - CRITICAL - Iter: 8520 / 10000, Pseudo Loss: 1.6299, Pseudo Inverse Loss: 0.0137, Discriminator Loss: -7.2060, Pseudo Target MSELoss: 0.0227,  Dis_Pseudo_Loss: -1.6299, Dis_target_Loss.: -5.8364 
+
+2024-11-23T18:42:10.072431+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:42:12.628249+08:00 - CRITICAL - VFL Loss: 0.9766, VFL Acc: 67.0900,
+ Pseudo Loss: 0.9882, Pseudo Acc: 66.4300
+2024-11-23T18:42:14.161526+08:00 - CRITICAL - Iter: 8560 / 10000, Pseudo Loss: -7.6456, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -6.9131, Pseudo Target MSELoss: 0.0189,  Dis_Pseudo_Loss: 7.6456, Dis_target_Loss.: -14.8481 
+
+2024-11-23T18:42:20.734168+08:00 - CRITICAL - Iter: 8600 / 10000, Pseudo Loss: -4.6948, Pseudo Inverse Loss: 0.0112, Discriminator Loss: -5.7192, Pseudo Target MSELoss: 0.0195,  Dis_Pseudo_Loss: 4.6948, Dis_target_Loss.: -10.9954 
+
+2024-11-23T18:42:20.735481+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:42:23.144292+08:00 - CRITICAL - VFL Loss: 1.0037, VFL Acc: 66.3800,
+ Pseudo Loss: 1.0209, Pseudo Acc: 65.3800
+2024-11-23T18:42:29.291001+08:00 - CRITICAL - Iter: 8640 / 10000, Pseudo Loss: -5.7866, Pseudo Inverse Loss: 0.0114, Discriminator Loss: -7.1788, Pseudo Target MSELoss: 0.0175,  Dis_Pseudo_Loss: 5.7866, Dis_target_Loss.: -13.2106 
+
+2024-11-23T18:42:30.617473+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:42:33.119738+08:00 - CRITICAL - VFL Loss: 1.0419, VFL Acc: 66.9400,
+ Pseudo Loss: 1.0675, Pseudo Acc: 66.2500
+2024-11-23T18:42:37.317833+08:00 - CRITICAL - Iter: 8680 / 10000, Pseudo Loss: -3.7682, Pseudo Inverse Loss: 0.0168, Discriminator Loss: -7.1759, Pseudo Target MSELoss: 0.0178,  Dis_Pseudo_Loss: 3.7682, Dis_target_Loss.: -11.4511 
+
+2024-11-23T18:42:40.517761+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:42:42.989752+08:00 - CRITICAL - VFL Loss: 1.0471, VFL Acc: 66.9900,
+ Pseudo Loss: 1.0540, Pseudo Acc: 66.3000
+2024-11-23T18:42:45.803190+08:00 - CRITICAL - Iter: 8720 / 10000, Pseudo Loss: 3.3182, Pseudo Inverse Loss: 0.0114, Discriminator Loss: -6.7453, Pseudo Target MSELoss: 0.0218,  Dis_Pseudo_Loss: -3.3182, Dis_target_Loss.: -3.7021 
+
+2024-11-23T18:42:50.398379+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:42:53.000496+08:00 - CRITICAL - VFL Loss: 1.0406, VFL Acc: 66.1900,
+ Pseudo Loss: 1.0559, Pseudo Acc: 65.6800
+2024-11-23T18:42:54.304445+08:00 - CRITICAL - Iter: 8760 / 10000, Pseudo Loss: -0.2136, Pseudo Inverse Loss: 0.0150, Discriminator Loss: -7.7456, Pseudo Target MSELoss: 0.0203,  Dis_Pseudo_Loss: 0.2136, Dis_target_Loss.: -8.2188 
+
+2024-11-23T18:42:59.639312+08:00 - CRITICAL - Iter: 8800 / 10000, Pseudo Loss: -10.6666, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -7.2891, Pseudo Target MSELoss: 0.0184,  Dis_Pseudo_Loss: 10.6666, Dis_target_Loss.: -18.1904 
+
+2024-11-23T18:42:59.640545+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:43:02.089980+08:00 - CRITICAL - VFL Loss: 1.0335, VFL Acc: 66.9800,
+ Pseudo Loss: 1.0539, Pseudo Acc: 65.7700
+2024-11-23T18:43:07.305817+08:00 - CRITICAL - Iter: 8840 / 10000, Pseudo Loss: -8.9039, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.8245, Pseudo Target MSELoss: 0.0235,  Dis_Pseudo_Loss: 8.9039, Dis_target_Loss.: -16.9594 
+
+2024-11-23T18:43:08.553051+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:43:11.106365+08:00 - CRITICAL - VFL Loss: 1.0598, VFL Acc: 66.3000,
+ Pseudo Loss: 1.1092, Pseudo Acc: 64.8000
+2024-11-23T18:43:15.447272+08:00 - CRITICAL - Iter: 8880 / 10000, Pseudo Loss: 2.1990, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -6.2179, Pseudo Target MSELoss: 0.0178,  Dis_Pseudo_Loss: -2.1990, Dis_target_Loss.: -4.2440 
+
+2024-11-23T18:43:18.628216+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:43:21.083017+08:00 - CRITICAL - VFL Loss: 1.0500, VFL Acc: 66.3700,
+ Pseudo Loss: 1.0843, Pseudo Acc: 65.1200
+2024-11-23T18:43:24.404596+08:00 - CRITICAL - Iter: 8920 / 10000, Pseudo Loss: 1.7732, Pseudo Inverse Loss: 0.0145, Discriminator Loss: -7.7279, Pseudo Target MSELoss: 0.0192,  Dis_Pseudo_Loss: -1.7732, Dis_target_Loss.: -6.1906 
+
+2024-11-23T18:43:28.772067+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:43:31.383150+08:00 - CRITICAL - VFL Loss: 0.9946, VFL Acc: 67.4900,
+ Pseudo Loss: 1.0292, Pseudo Acc: 65.7000
+2024-11-23T18:43:32.782720+08:00 - CRITICAL - Iter: 8960 / 10000, Pseudo Loss: -6.3626, Pseudo Inverse Loss: 0.0133, Discriminator Loss: -6.8241, Pseudo Target MSELoss: 0.0223,  Dis_Pseudo_Loss: 6.3626, Dis_target_Loss.: -13.3625 
+
+2024-11-23T18:43:39.318882+08:00 - CRITICAL - Iter: 9000 / 10000, Pseudo Loss: -3.5147, Pseudo Inverse Loss: 0.0137, Discriminator Loss: -7.3463, Pseudo Target MSELoss: 0.0210,  Dis_Pseudo_Loss: 3.5147, Dis_target_Loss.: -11.1422 
+
+2024-11-23T18:43:39.320533+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:43:41.732063+08:00 - CRITICAL - VFL Loss: 1.0221, VFL Acc: 66.3300,
+ Pseudo Loss: 1.0485, Pseudo Acc: 65.1900
+2024-11-23T18:43:46.913096+08:00 - CRITICAL - Iter: 9040 / 10000, Pseudo Loss: -3.3380, Pseudo Inverse Loss: 0.0133, Discriminator Loss: -7.4118, Pseudo Target MSELoss: 0.0196,  Dis_Pseudo_Loss: 3.3380, Dis_target_Loss.: -10.9310 
+
+2024-11-23T18:43:48.368930+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:43:50.869440+08:00 - CRITICAL - VFL Loss: 0.9995, VFL Acc: 67.2800,
+ Pseudo Loss: 1.0365, Pseudo Acc: 65.7100
+2024-11-23T18:43:55.411524+08:00 - CRITICAL - Iter: 9080 / 10000, Pseudo Loss: -1.8390, Pseudo Inverse Loss: 0.0145, Discriminator Loss: -7.0833, Pseudo Target MSELoss: 0.0212,  Dis_Pseudo_Loss: 1.8390, Dis_target_Loss.: -9.2341 
+
+2024-11-23T18:43:58.730489+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:44:01.271165+08:00 - CRITICAL - VFL Loss: 0.9947, VFL Acc: 67.0500,
+ Pseudo Loss: 1.0233, Pseudo Acc: 65.6200
+2024-11-23T18:44:03.927159+08:00 - CRITICAL - Iter: 9120 / 10000, Pseudo Loss: 0.3321, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -7.1358, Pseudo Target MSELoss: 0.0194,  Dis_Pseudo_Loss: -0.3321, Dis_target_Loss.: -7.1387 
+
+2024-11-23T18:44:08.196808+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:44:10.717487+08:00 - CRITICAL - VFL Loss: 1.0009, VFL Acc: 67.1600,
+ Pseudo Loss: 1.0316, Pseudo Acc: 66.3400
+2024-11-23T18:44:12.060172+08:00 - CRITICAL - Iter: 9160 / 10000, Pseudo Loss: 0.0163, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -8.1116, Pseudo Target MSELoss: 0.0202,  Dis_Pseudo_Loss: -0.0163, Dis_target_Loss.: -8.3120 
+
+2024-11-23T18:44:18.338759+08:00 - CRITICAL - Iter: 9200 / 10000, Pseudo Loss: -4.6678, Pseudo Inverse Loss: 0.0121, Discriminator Loss: -7.3177, Pseudo Target MSELoss: 0.0183,  Dis_Pseudo_Loss: 4.6678, Dis_target_Loss.: -12.2220 
+
+2024-11-23T18:44:18.340141+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:44:20.877462+08:00 - CRITICAL - VFL Loss: 0.9929, VFL Acc: 67.6900,
+ Pseudo Loss: 1.0068, Pseudo Acc: 67.0700
+2024-11-23T18:44:27.109044+08:00 - CRITICAL - Iter: 9240 / 10000, Pseudo Loss: -9.2308, Pseudo Inverse Loss: 0.0127, Discriminator Loss: -7.2367, Pseudo Target MSELoss: 0.0165,  Dis_Pseudo_Loss: 9.2308, Dis_target_Loss.: -16.9504 
+
+2024-11-23T18:44:28.526128+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:44:30.989200+08:00 - CRITICAL - VFL Loss: 1.0550, VFL Acc: 66.5100,
+ Pseudo Loss: 1.0684, Pseudo Acc: 65.7100
+2024-11-23T18:44:34.952901+08:00 - CRITICAL - Iter: 9280 / 10000, Pseudo Loss: -1.2282, Pseudo Inverse Loss: 0.0148, Discriminator Loss: -8.2118, Pseudo Target MSELoss: 0.0172,  Dis_Pseudo_Loss: 1.2282, Dis_target_Loss.: -9.6078 
+
+2024-11-23T18:44:38.138303+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:44:40.614578+08:00 - CRITICAL - VFL Loss: 0.9886, VFL Acc: 67.5400,
+ Pseudo Loss: 1.0115, Pseudo Acc: 66.7200
+2024-11-23T18:44:43.642472+08:00 - CRITICAL - Iter: 9320 / 10000, Pseudo Loss: 3.4619, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.5462, Pseudo Target MSELoss: 0.0206,  Dis_Pseudo_Loss: -3.4619, Dis_target_Loss.: -4.3063 
+
+2024-11-23T18:44:47.510675+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:44:50.002225+08:00 - CRITICAL - VFL Loss: 0.9973, VFL Acc: 67.2100,
+ Pseudo Loss: 1.0080, Pseudo Acc: 66.6800
+2024-11-23T18:44:51.461149+08:00 - CRITICAL - Iter: 9360 / 10000, Pseudo Loss: -4.7057, Pseudo Inverse Loss: 0.0105, Discriminator Loss: -7.1789, Pseudo Target MSELoss: 0.0174,  Dis_Pseudo_Loss: 4.7057, Dis_target_Loss.: -12.4513 
+
+2024-11-23T18:44:57.775780+08:00 - CRITICAL - Iter: 9400 / 10000, Pseudo Loss: -1.5956, Pseudo Inverse Loss: 0.0123, Discriminator Loss: -7.2654, Pseudo Target MSELoss: 0.0204,  Dis_Pseudo_Loss: 1.5956, Dis_target_Loss.: -9.1364 
+
+2024-11-23T18:44:57.776858+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:00.194797+08:00 - CRITICAL - VFL Loss: 1.0345, VFL Acc: 67.5400,
+ Pseudo Loss: 1.0521, Pseudo Acc: 66.6400
+2024-11-23T18:45:05.404890+08:00 - CRITICAL - Iter: 9440 / 10000, Pseudo Loss: -2.1677, Pseudo Inverse Loss: 0.0132, Discriminator Loss: -7.4183, Pseudo Target MSELoss: 0.0189,  Dis_Pseudo_Loss: 2.1677, Dis_target_Loss.: -9.8536 
+
+2024-11-23T18:45:06.794654+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:09.454025+08:00 - CRITICAL - VFL Loss: 1.0608, VFL Acc: 67.4800,
+ Pseudo Loss: 1.0829, Pseudo Acc: 65.9800
+2024-11-23T18:45:13.406675+08:00 - CRITICAL - Iter: 9480 / 10000, Pseudo Loss: -5.4087, Pseudo Inverse Loss: 0.0195, Discriminator Loss: -7.4921, Pseudo Target MSELoss: 0.0180,  Dis_Pseudo_Loss: 5.4087, Dis_target_Loss.: -13.2269 
+
+2024-11-23T18:45:15.909986+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:18.430782+08:00 - CRITICAL - VFL Loss: 1.0509, VFL Acc: 67.0400,
+ Pseudo Loss: 1.0728, Pseudo Acc: 65.8300
+2024-11-23T18:45:21.589078+08:00 - CRITICAL - Iter: 9520 / 10000, Pseudo Loss: 0.5484, Pseudo Inverse Loss: 0.0113, Discriminator Loss: -7.8768, Pseudo Target MSELoss: 0.0204,  Dis_Pseudo_Loss: -0.5484, Dis_target_Loss.: -7.5905 
+
+2024-11-23T18:45:26.075141+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:28.528679+08:00 - CRITICAL - VFL Loss: 1.0693, VFL Acc: 66.6600,
+ Pseudo Loss: 1.0880, Pseudo Acc: 65.7300
+2024-11-23T18:45:30.154501+08:00 - CRITICAL - Iter: 9560 / 10000, Pseudo Loss: -0.4188, Pseudo Inverse Loss: 0.0128, Discriminator Loss: -7.6424, Pseudo Target MSELoss: 0.0203,  Dis_Pseudo_Loss: 0.4188, Dis_target_Loss.: -8.3744 
+
+2024-11-23T18:45:36.297268+08:00 - CRITICAL - Iter: 9600 / 10000, Pseudo Loss: 2.2123, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -7.4864, Pseudo Target MSELoss: 0.0175,  Dis_Pseudo_Loss: -2.2123, Dis_target_Loss.: -5.6062 
+
+2024-11-23T18:45:36.298709+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:38.734788+08:00 - CRITICAL - VFL Loss: 1.0592, VFL Acc: 66.2700,
+ Pseudo Loss: 1.0616, Pseudo Acc: 65.9100
+2024-11-23T18:45:44.414264+08:00 - CRITICAL - Iter: 9640 / 10000, Pseudo Loss: -3.5521, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -7.8080, Pseudo Target MSELoss: 0.0171,  Dis_Pseudo_Loss: 3.5521, Dis_target_Loss.: -11.5509 
+
+2024-11-23T18:45:45.786577+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:48.232667+08:00 - CRITICAL - VFL Loss: 1.0273, VFL Acc: 67.1600,
+ Pseudo Loss: 1.0327, Pseudo Acc: 66.9300
+2024-11-23T18:45:52.340894+08:00 - CRITICAL - Iter: 9680 / 10000, Pseudo Loss: -6.5473, Pseudo Inverse Loss: 0.0140, Discriminator Loss: -7.9734, Pseudo Target MSELoss: 0.0223,  Dis_Pseudo_Loss: 6.5473, Dis_target_Loss.: -14.7640 
+
+2024-11-23T18:45:54.791475+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:45:57.233518+08:00 - CRITICAL - VFL Loss: 1.0144, VFL Acc: 67.1600,
+ Pseudo Loss: 1.0188, Pseudo Acc: 67.1600
+2024-11-23T18:46:00.099467+08:00 - CRITICAL - Iter: 9720 / 10000, Pseudo Loss: 3.9403, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -7.8037, Pseudo Target MSELoss: 0.0174,  Dis_Pseudo_Loss: -3.9403, Dis_target_Loss.: -4.1106 
+
+2024-11-23T18:46:04.731774+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:46:07.219268+08:00 - CRITICAL - VFL Loss: 1.0201, VFL Acc: 67.4900,
+ Pseudo Loss: 1.0347, Pseudo Acc: 66.9000
+2024-11-23T18:46:08.912789+08:00 - CRITICAL - Iter: 9760 / 10000, Pseudo Loss: -2.3233, Pseudo Inverse Loss: 0.0131, Discriminator Loss: -7.6464, Pseudo Target MSELoss: 0.0189,  Dis_Pseudo_Loss: 2.3233, Dis_target_Loss.: -10.5248 
+
+2024-11-23T18:46:15.248091+08:00 - CRITICAL - Iter: 9800 / 10000, Pseudo Loss: -3.9720, Pseudo Inverse Loss: 0.0123, Discriminator Loss: -7.1087, Pseudo Target MSELoss: 0.0196,  Dis_Pseudo_Loss: 3.9720, Dis_target_Loss.: -11.5911 
+
+2024-11-23T18:46:15.249557+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:46:17.703552+08:00 - CRITICAL - VFL Loss: 0.9985, VFL Acc: 67.4800,
+ Pseudo Loss: 1.0248, Pseudo Acc: 66.7400
+2024-11-23T18:46:24.014609+08:00 - CRITICAL - Iter: 9840 / 10000, Pseudo Loss: 3.0619, Pseudo Inverse Loss: 0.0135, Discriminator Loss: -7.1533, Pseudo Target MSELoss: 0.0186,  Dis_Pseudo_Loss: -3.0619, Dis_target_Loss.: -4.4424 
+
+2024-11-23T18:46:25.547172+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:46:28.116528+08:00 - CRITICAL - VFL Loss: 1.0252, VFL Acc: 67.4300,
+ Pseudo Loss: 1.0492, Pseudo Acc: 66.2400
+2024-11-23T18:46:32.825384+08:00 - CRITICAL - Iter: 9880 / 10000, Pseudo Loss: 1.3059, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.8853, Pseudo Target MSELoss: 0.0198,  Dis_Pseudo_Loss: -1.3059, Dis_target_Loss.: -6.8223 
+
+2024-11-23T18:46:35.927136+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:46:38.439025+08:00 - CRITICAL - VFL Loss: 0.9961, VFL Acc: 68.0800,
+ Pseudo Loss: 1.0564, Pseudo Acc: 66.0600
+2024-11-23T18:46:41.691911+08:00 - CRITICAL - Iter: 9920 / 10000, Pseudo Loss: -12.8072, Pseudo Inverse Loss: 0.0171, Discriminator Loss: -7.0785, Pseudo Target MSELoss: 0.0168,  Dis_Pseudo_Loss: 12.8072, Dis_target_Loss.: -20.1875 
+
+2024-11-23T18:46:46.537209+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:46:49.055612+08:00 - CRITICAL - VFL Loss: 1.0196, VFL Acc: 67.4600,
+ Pseudo Loss: 1.0257, Pseudo Acc: 66.7300
+2024-11-23T18:46:50.565053+08:00 - CRITICAL - Iter: 9960 / 10000, Pseudo Loss: 1.9623, Pseudo Inverse Loss: 0.0126, Discriminator Loss: -7.0752, Pseudo Target MSELoss: 0.0186,  Dis_Pseudo_Loss: -1.9623, Dis_target_Loss.: -5.3729 
+
+2024-11-23T18:46:56.648915+08:00 - CRITICAL - Iter: 10000 / 10000, Pseudo Loss: -3.0797, Pseudo Inverse Loss: 0.0188, Discriminator Loss: -7.6111, Pseudo Target MSELoss: 0.0161,  Dis_Pseudo_Loss: 3.0797, Dis_target_Loss.: -10.9142 
+
+2024-11-23T18:46:56.650147+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:46:59.192563+08:00 - CRITICAL - VFL Loss: 1.0277, VFL Acc: 66.1800,
+ Pseudo Loss: 1.0459, Pseudo Acc: 66.0700
+2024-11-23T18:47:05.411230+08:00 - CRITICAL - Iter: 10040 / 10000, Pseudo Loss: -3.2773, Pseudo Inverse Loss: 0.0126, Discriminator Loss: -8.2937, Pseudo Target MSELoss: 0.0175,  Dis_Pseudo_Loss: 3.2773, Dis_target_Loss.: -11.7956 
+
+2024-11-23T18:47:06.664829+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:47:09.329543+08:00 - CRITICAL - VFL Loss: 0.9966, VFL Acc: 67.5800,
+ Pseudo Loss: 0.9997, Pseudo Acc: 67.4800
+2024-11-23T18:47:13.851854+08:00 - CRITICAL - Iter: 10080 / 10000, Pseudo Loss: -0.2118, Pseudo Inverse Loss: 0.0124, Discriminator Loss: -7.2282, Pseudo Target MSELoss: 0.0186,  Dis_Pseudo_Loss: 0.2118, Dis_target_Loss.: -8.1334 
+
+2024-11-23T18:47:16.353572+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:47:18.819788+08:00 - CRITICAL - VFL Loss: 1.0025, VFL Acc: 67.2600,
+ Pseudo Loss: 1.0290, Pseudo Acc: 66.2300
+2024-11-23T18:47:21.540018+08:00 - CRITICAL - Iter: 10120 / 10000, Pseudo Loss: -2.7922, Pseudo Inverse Loss: 0.0118, Discriminator Loss: -7.1415, Pseudo Target MSELoss: 0.0167,  Dis_Pseudo_Loss: 2.7922, Dis_target_Loss.: -10.2388 
+
+2024-11-23T18:47:26.199090+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:47:28.683040+08:00 - CRITICAL - VFL Loss: 0.9697, VFL Acc: 68.3500,
+ Pseudo Loss: 0.9848, Pseudo Acc: 67.3400
+2024-11-23T18:47:30.321831+08:00 - CRITICAL - Iter: 10160 / 10000, Pseudo Loss: -1.8436, Pseudo Inverse Loss: 0.0103, Discriminator Loss: -7.8740, Pseudo Target MSELoss: 0.0197,  Dis_Pseudo_Loss: 1.8436, Dis_target_Loss.: -9.9498 
+
+2024-11-23T18:47:36.467537+08:00 - CRITICAL - Iter: 10200 / 10000, Pseudo Loss: -1.3861, Pseudo Inverse Loss: 0.0120, Discriminator Loss: -6.8579, Pseudo Target MSELoss: 0.0197,  Dis_Pseudo_Loss: 1.3861, Dis_target_Loss.: -8.4308 
+
+2024-11-23T18:47:36.469393+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:47:38.929165+08:00 - CRITICAL - VFL Loss: 1.0985, VFL Acc: 67.2500,
+ Pseudo Loss: 1.1045, Pseudo Acc: 66.7900
+2024-11-23T18:47:44.925708+08:00 - CRITICAL - Iter: 10240 / 10000, Pseudo Loss: -1.6998, Pseudo Inverse Loss: 0.0119, Discriminator Loss: -6.8758, Pseudo Target MSELoss: 0.0189,  Dis_Pseudo_Loss: 1.6998, Dis_target_Loss.: -8.8770 
+
+2024-11-23T18:47:46.428344+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:47:48.786429+08:00 - CRITICAL - VFL Loss: 1.0740, VFL Acc: 67.4900,
+ Pseudo Loss: 1.0830, Pseudo Acc: 66.6600
+2024-11-23T18:47:53.335312+08:00 - CRITICAL - Iter: 10280 / 10000, Pseudo Loss: -2.9440, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -7.4067, Pseudo Target MSELoss: 0.0201,  Dis_Pseudo_Loss: 2.9440, Dis_target_Loss.: -10.5915 
+
+2024-11-23T18:47:56.650464+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:47:59.305135+08:00 - CRITICAL - VFL Loss: 1.0612, VFL Acc: 67.3600,
+ Pseudo Loss: 1.0805, Pseudo Acc: 66.8300
+2024-11-23T18:48:02.218896+08:00 - CRITICAL - Iter: 10320 / 10000, Pseudo Loss: 0.7198, Pseudo Inverse Loss: 0.0107, Discriminator Loss: -7.4777, Pseudo Target MSELoss: 0.0192,  Dis_Pseudo_Loss: -0.7198, Dis_target_Loss.: -7.2015 
+
+2024-11-23T18:48:06.844784+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:48:09.250155+08:00 - CRITICAL - VFL Loss: 1.0498, VFL Acc: 68.1600,
+ Pseudo Loss: 1.0494, Pseudo Acc: 67.9400
+2024-11-23T18:48:10.645114+08:00 - CRITICAL - Iter: 10360 / 10000, Pseudo Loss: 0.3864, Pseudo Inverse Loss: 0.0115, Discriminator Loss: -7.9228, Pseudo Target MSELoss: 0.0213,  Dis_Pseudo_Loss: -0.3864, Dis_target_Loss.: -7.9241 
+
+2024-11-23T18:48:16.909520+08:00 - CRITICAL - Iter: 10400 / 10000, Pseudo Loss: -6.9858, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -6.4827, Pseudo Target MSELoss: 0.0166,  Dis_Pseudo_Loss: 6.9858, Dis_target_Loss.: -13.7684 
+
+2024-11-23T18:48:16.910876+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:48:19.302913+08:00 - CRITICAL - VFL Loss: 1.0520, VFL Acc: 67.4100,
+ Pseudo Loss: 1.0665, Pseudo Acc: 67.2400
+2024-11-23T18:48:25.153043+08:00 - CRITICAL - Iter: 10440 / 10000, Pseudo Loss: -1.6167, Pseudo Inverse Loss: 0.0119, Discriminator Loss: -7.0175, Pseudo Target MSELoss: 0.0180,  Dis_Pseudo_Loss: 1.6167, Dis_target_Loss.: -9.2166 
+
+2024-11-23T18:48:26.711579+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:48:29.151422+08:00 - CRITICAL - VFL Loss: 1.0883, VFL Acc: 66.2700,
+ Pseudo Loss: 1.0945, Pseudo Acc: 65.9700
+2024-11-23T18:48:33.953245+08:00 - CRITICAL - Iter: 10480 / 10000, Pseudo Loss: 2.9270, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -7.4201, Pseudo Target MSELoss: 0.0169,  Dis_Pseudo_Loss: -2.9270, Dis_target_Loss.: -4.8057 
+
+2024-11-23T18:48:37.491719+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:48:39.917978+08:00 - CRITICAL - VFL Loss: 1.0686, VFL Acc: 66.9400,
+ Pseudo Loss: 1.0855, Pseudo Acc: 65.6200
+2024-11-23T18:48:43.077214+08:00 - CRITICAL - Iter: 10520 / 10000, Pseudo Loss: -11.2952, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -7.1964, Pseudo Target MSELoss: 0.0205,  Dis_Pseudo_Loss: 11.2952, Dis_target_Loss.: -18.7749 
+
+2024-11-23T18:48:47.876455+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:48:50.499655+08:00 - CRITICAL - VFL Loss: 1.0234, VFL Acc: 67.1500,
+ Pseudo Loss: 1.0109, Pseudo Acc: 67.4400
+2024-11-23T18:48:51.938521+08:00 - CRITICAL - Iter: 10560 / 10000, Pseudo Loss: 2.3065, Pseudo Inverse Loss: 0.0109, Discriminator Loss: -7.4108, Pseudo Target MSELoss: 0.0184,  Dis_Pseudo_Loss: -2.3065, Dis_target_Loss.: -5.4142 
+
+2024-11-23T18:48:58.694246+08:00 - CRITICAL - Iter: 10600 / 10000, Pseudo Loss: -3.0357, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -6.1687, Pseudo Target MSELoss: 0.0174,  Dis_Pseudo_Loss: 3.0357, Dis_target_Loss.: -9.4948 
+
+2024-11-23T18:48:58.695719+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:49:01.167511+08:00 - CRITICAL - VFL Loss: 1.0785, VFL Acc: 66.7600,
+ Pseudo Loss: 1.0879, Pseudo Acc: 66.1500
+2024-11-23T18:49:07.606074+08:00 - CRITICAL - Iter: 10640 / 10000, Pseudo Loss: -0.9348, Pseudo Inverse Loss: 0.0137, Discriminator Loss: -7.1556, Pseudo Target MSELoss: 0.0172,  Dis_Pseudo_Loss: 0.9348, Dis_target_Loss.: -8.4454 
+
+2024-11-23T18:49:09.332647+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:49:11.749627+08:00 - CRITICAL - VFL Loss: 1.0711, VFL Acc: 67.0700,
+ Pseudo Loss: 1.0719, Pseudo Acc: 66.4300
+2024-11-23T18:49:15.912012+08:00 - CRITICAL - Iter: 10680 / 10000, Pseudo Loss: 2.4614, Pseudo Inverse Loss: 0.0118, Discriminator Loss: -7.5197, Pseudo Target MSELoss: 0.0199,  Dis_Pseudo_Loss: -2.4614, Dis_target_Loss.: -5.3496 
+
+2024-11-23T18:49:18.770097+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:49:21.217522+08:00 - CRITICAL - VFL Loss: 1.0247, VFL Acc: 67.6900,
+ Pseudo Loss: 1.0342, Pseudo Acc: 67.1000
+2024-11-23T18:49:23.675903+08:00 - CRITICAL - Iter: 10720 / 10000, Pseudo Loss: -7.5229, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -6.5735, Pseudo Target MSELoss: 0.0176,  Dis_Pseudo_Loss: 7.5229, Dis_target_Loss.: -14.3231 
+
+2024-11-23T18:49:27.958355+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:49:30.535519+08:00 - CRITICAL - VFL Loss: 1.0272, VFL Acc: 67.7600,
+ Pseudo Loss: 1.0314, Pseudo Acc: 67.3300
+2024-11-23T18:49:32.030551+08:00 - CRITICAL - Iter: 10760 / 10000, Pseudo Loss: -5.7997, Pseudo Inverse Loss: 0.0107, Discriminator Loss: -7.7600, Pseudo Target MSELoss: 0.0213,  Dis_Pseudo_Loss: 5.7997, Dis_target_Loss.: -13.7567 
+
+2024-11-23T18:49:38.449345+08:00 - CRITICAL - Iter: 10800 / 10000, Pseudo Loss: 3.1000, Pseudo Inverse Loss: 0.0125, Discriminator Loss: -7.7862, Pseudo Target MSELoss: 0.0165,  Dis_Pseudo_Loss: -3.1000, Dis_target_Loss.: -4.9259 
+
+2024-11-23T18:49:38.450834+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:49:40.837909+08:00 - CRITICAL - VFL Loss: 1.0236, VFL Acc: 67.1200,
+ Pseudo Loss: 1.0430, Pseudo Acc: 66.6000
+2024-11-23T18:49:46.718807+08:00 - CRITICAL - Iter: 10840 / 10000, Pseudo Loss: -8.2775, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -6.6874, Pseudo Target MSELoss: 0.0207,  Dis_Pseudo_Loss: 8.2775, Dis_target_Loss.: -15.4526 
+
+2024-11-23T18:49:48.312809+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:49:50.771214+08:00 - CRITICAL - VFL Loss: 1.0058, VFL Acc: 67.7700,
+ Pseudo Loss: 1.0184, Pseudo Acc: 67.0100
+2024-11-23T18:49:55.395454+08:00 - CRITICAL - Iter: 10880 / 10000, Pseudo Loss: 7.4335, Pseudo Inverse Loss: 0.0130, Discriminator Loss: -7.9445, Pseudo Target MSELoss: 0.0189,  Dis_Pseudo_Loss: -7.4335, Dis_target_Loss.: -1.0631 
+
+2024-11-23T18:49:58.516068+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:01.140363+08:00 - CRITICAL - VFL Loss: 1.0278, VFL Acc: 67.3600,
+ Pseudo Loss: 1.0302, Pseudo Acc: 67.2300
+2024-11-23T18:50:03.884840+08:00 - CRITICAL - Iter: 10920 / 10000, Pseudo Loss: -8.4475, Pseudo Inverse Loss: 0.0111, Discriminator Loss: -7.6418, Pseudo Target MSELoss: 0.0231,  Dis_Pseudo_Loss: 8.4475, Dis_target_Loss.: -16.2879 
+
+2024-11-23T18:50:08.644327+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:11.162085+08:00 - CRITICAL - VFL Loss: 1.0351, VFL Acc: 67.8000,
+ Pseudo Loss: 1.0916, Pseudo Acc: 66.3100
+2024-11-23T18:50:12.855777+08:00 - CRITICAL - Iter: 10960 / 10000, Pseudo Loss: -3.9897, Pseudo Inverse Loss: 0.0143, Discriminator Loss: -7.1753, Pseudo Target MSELoss: 0.0197,  Dis_Pseudo_Loss: 3.9897, Dis_target_Loss.: -11.8798 
+
+2024-11-23T18:50:19.108430+08:00 - CRITICAL - Iter: 11000 / 10000, Pseudo Loss: -0.3825, Pseudo Inverse Loss: 0.0096, Discriminator Loss: -8.0992, Pseudo Target MSELoss: 0.0189,  Dis_Pseudo_Loss: 0.3825, Dis_target_Loss.: -8.6881 
+
+2024-11-23T18:50:19.109630+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:21.719041+08:00 - CRITICAL - VFL Loss: 1.1279, VFL Acc: 67.2400,
+ Pseudo Loss: 1.1516, Pseudo Acc: 66.3700
+2024-11-23T18:50:26.989080+08:00 - CRITICAL - Iter: 11040 / 10000, Pseudo Loss: -5.3507, Pseudo Inverse Loss: 0.0115, Discriminator Loss: -7.8109, Pseudo Target MSELoss: 0.0178,  Dis_Pseudo_Loss: 5.3507, Dis_target_Loss.: -13.5049 
+
+2024-11-23T18:50:28.268416+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:30.774710+08:00 - CRITICAL - VFL Loss: 1.1013, VFL Acc: 67.6100,
+ Pseudo Loss: 1.1148, Pseudo Acc: 66.9000
+2024-11-23T18:50:34.568068+08:00 - CRITICAL - Iter: 11080 / 10000, Pseudo Loss: 1.5920, Pseudo Inverse Loss: 0.0109, Discriminator Loss: -7.4437, Pseudo Target MSELoss: 0.0174,  Dis_Pseudo_Loss: -1.5920, Dis_target_Loss.: -6.0164 
+
+2024-11-23T18:50:37.505421+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:40.076117+08:00 - CRITICAL - VFL Loss: 1.1097, VFL Acc: 67.5700,
+ Pseudo Loss: 1.1555, Pseudo Acc: 65.8400
+2024-11-23T18:50:42.778664+08:00 - CRITICAL - Iter: 11120 / 10000, Pseudo Loss: -5.0486, Pseudo Inverse Loss: 0.0123, Discriminator Loss: -6.7928, Pseudo Target MSELoss: 0.0223,  Dis_Pseudo_Loss: 5.0486, Dis_target_Loss.: -12.0702 
+
+2024-11-23T18:50:46.309962+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:49.001738+08:00 - CRITICAL - VFL Loss: 1.0689, VFL Acc: 67.5900,
+ Pseudo Loss: 1.0722, Pseudo Acc: 67.5500
+2024-11-23T18:50:50.581668+08:00 - CRITICAL - Iter: 11160 / 10000, Pseudo Loss: -5.2489, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -6.9153, Pseudo Target MSELoss: 0.0192,  Dis_Pseudo_Loss: 5.2489, Dis_target_Loss.: -12.4160 
+
+2024-11-23T18:50:56.864674+08:00 - CRITICAL - Iter: 11200 / 10000, Pseudo Loss: -6.7126, Pseudo Inverse Loss: 0.0103, Discriminator Loss: -7.8863, Pseudo Target MSELoss: 0.0182,  Dis_Pseudo_Loss: 6.7126, Dis_target_Loss.: -14.8678 
+
+2024-11-23T18:50:56.866235+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:50:59.453107+08:00 - CRITICAL - VFL Loss: 1.0954, VFL Acc: 67.1300,
+ Pseudo Loss: 1.0805, Pseudo Acc: 66.9200
+2024-11-23T18:51:05.515787+08:00 - CRITICAL - Iter: 11240 / 10000, Pseudo Loss: -1.0745, Pseudo Inverse Loss: 0.0108, Discriminator Loss: -7.0081, Pseudo Target MSELoss: 0.0200,  Dis_Pseudo_Loss: 1.0745, Dis_target_Loss.: -8.5769 
+
+2024-11-23T18:51:06.745301+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:51:09.281545+08:00 - CRITICAL - VFL Loss: 1.0632, VFL Acc: 67.1700,
+ Pseudo Loss: 1.0485, Pseudo Acc: 67.3500
+2024-11-23T18:51:13.799406+08:00 - CRITICAL - Iter: 11280 / 10000, Pseudo Loss: 0.8313, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -6.3422, Pseudo Target MSELoss: 0.0196,  Dis_Pseudo_Loss: -0.8313, Dis_target_Loss.: -5.9914 
+
+2024-11-23T18:51:16.409445+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:51:18.921100+08:00 - CRITICAL - VFL Loss: 1.0469, VFL Acc: 67.1700,
+ Pseudo Loss: 1.0469, Pseudo Acc: 67.4300
+2024-11-23T18:51:22.047759+08:00 - CRITICAL - Iter: 11320 / 10000, Pseudo Loss: -0.6303, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -7.4928, Pseudo Target MSELoss: 0.0170,  Dis_Pseudo_Loss: 0.6303, Dis_target_Loss.: -8.3661 
+
+2024-11-23T18:51:26.797819+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:51:29.425071+08:00 - CRITICAL - VFL Loss: 1.0695, VFL Acc: 67.2400,
+ Pseudo Loss: 1.0933, Pseudo Acc: 66.1100
+2024-11-23T18:51:30.944448+08:00 - CRITICAL - Iter: 11360 / 10000, Pseudo Loss: -7.0367, Pseudo Inverse Loss: 0.0128, Discriminator Loss: -7.6000, Pseudo Target MSELoss: 0.0172,  Dis_Pseudo_Loss: 7.0367, Dis_target_Loss.: -14.9407 
+
+2024-11-23T18:51:37.592594+08:00 - CRITICAL - Iter: 11400 / 10000, Pseudo Loss: -1.6407, Pseudo Inverse Loss: 0.0117, Discriminator Loss: -8.1714, Pseudo Target MSELoss: 0.0174,  Dis_Pseudo_Loss: 1.6407, Dis_target_Loss.: -10.0376 
+
+2024-11-23T18:51:37.593723+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:51:40.062070+08:00 - CRITICAL - VFL Loss: 1.0469, VFL Acc: 67.1000,
+ Pseudo Loss: 1.0295, Pseudo Acc: 67.1900
+2024-11-23T18:51:46.316736+08:00 - CRITICAL - Iter: 11440 / 10000, Pseudo Loss: -1.2427, Pseudo Inverse Loss: 0.0112, Discriminator Loss: -7.2459, Pseudo Target MSELoss: 0.0218,  Dis_Pseudo_Loss: 1.2427, Dis_target_Loss.: -8.8869 
+
+2024-11-23T18:51:47.832162+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:51:50.371827+08:00 - CRITICAL - VFL Loss: 1.0304, VFL Acc: 68.3600,
+ Pseudo Loss: 1.0478, Pseudo Acc: 67.0600
+2024-11-23T18:51:54.996709+08:00 - CRITICAL - Iter: 11480 / 10000, Pseudo Loss: -1.9989, Pseudo Inverse Loss: 0.0106, Discriminator Loss: -7.0818, Pseudo Target MSELoss: 0.0163,  Dis_Pseudo_Loss: 1.9989, Dis_target_Loss.: -9.2950 
+
+2024-11-23T18:51:58.042910+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:52:00.629081+08:00 - CRITICAL - VFL Loss: 1.0655, VFL Acc: 67.2100,
+ Pseudo Loss: 1.0621, Pseudo Acc: 67.3200
+2024-11-23T18:52:03.793586+08:00 - CRITICAL - Iter: 11520 / 10000, Pseudo Loss: -3.8702, Pseudo Inverse Loss: 0.0100, Discriminator Loss: -6.9689, Pseudo Target MSELoss: 0.0202,  Dis_Pseudo_Loss: 3.8702, Dis_target_Loss.: -11.0982 
+
+2024-11-23T18:52:08.520438+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:52:11.099544+08:00 - CRITICAL - VFL Loss: 1.0234, VFL Acc: 67.6300,
+ Pseudo Loss: 1.0388, Pseudo Acc: 67.1100
+2024-11-23T18:52:12.408966+08:00 - CRITICAL - Iter: 11560 / 10000, Pseudo Loss: -7.8318, Pseudo Inverse Loss: 0.0105, Discriminator Loss: -7.3617, Pseudo Target MSELoss: 0.0167,  Dis_Pseudo_Loss: 7.8318, Dis_target_Loss.: -15.4167 
+
+2024-11-23T18:52:18.368541+08:00 - CRITICAL - Iter: 11600 / 10000, Pseudo Loss: 4.0177, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -7.2497, Pseudo Target MSELoss: 0.0193,  Dis_Pseudo_Loss: -4.0177, Dis_target_Loss.: -3.4726 
+
+2024-11-23T18:52:18.370136+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:52:20.987840+08:00 - CRITICAL - VFL Loss: 1.0465, VFL Acc: 67.2700,
+ Pseudo Loss: 1.0938, Pseudo Acc: 66.3300
+2024-11-23T18:52:27.088467+08:00 - CRITICAL - Iter: 11640 / 10000, Pseudo Loss: -1.9221, Pseudo Inverse Loss: 0.0111, Discriminator Loss: -7.4841, Pseudo Target MSELoss: 0.0183,  Dis_Pseudo_Loss: 1.9221, Dis_target_Loss.: -9.8205 
+
+2024-11-23T18:52:28.589900+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:52:31.102986+08:00 - CRITICAL - VFL Loss: 1.0462, VFL Acc: 67.6200,
+ Pseudo Loss: 1.0589, Pseudo Acc: 67.0300
+2024-11-23T18:52:36.040781+08:00 - CRITICAL - Iter: 11680 / 10000, Pseudo Loss: -1.4090, Pseudo Inverse Loss: 0.0101, Discriminator Loss: -8.4982, Pseudo Target MSELoss: 0.0170,  Dis_Pseudo_Loss: 1.4090, Dis_target_Loss.: -10.1666 
+
+2024-11-23T18:52:39.127250+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:52:41.576902+08:00 - CRITICAL - VFL Loss: 0.9985, VFL Acc: 67.7200,
+ Pseudo Loss: 0.9976, Pseudo Acc: 67.5500
+2024-11-23T18:52:44.753927+08:00 - CRITICAL - Iter: 11720 / 10000, Pseudo Loss: -4.7528, Pseudo Inverse Loss: 0.0112, Discriminator Loss: -8.7733, Pseudo Target MSELoss: 0.0164,  Dis_Pseudo_Loss: 4.7528, Dis_target_Loss.: -13.7568 
+
+2024-11-23T18:52:49.320704+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:52:51.833868+08:00 - CRITICAL - VFL Loss: 1.0905, VFL Acc: 68.0000,
+ Pseudo Loss: 1.1070, Pseudo Acc: 67.4500
+2024-11-23T18:52:53.336753+08:00 - CRITICAL - Iter: 11760 / 10000, Pseudo Loss: -2.1425, Pseudo Inverse Loss: 0.0141, Discriminator Loss: -8.9226, Pseudo Target MSELoss: 0.0170,  Dis_Pseudo_Loss: 2.1425, Dis_target_Loss.: -11.4137 
+
+2024-11-23T18:52:59.271745+08:00 - CRITICAL - Iter: 11800 / 10000, Pseudo Loss: -3.7958, Pseudo Inverse Loss: 0.0129, Discriminator Loss: -7.5475, Pseudo Target MSELoss: 0.0176,  Dis_Pseudo_Loss: 3.7958, Dis_target_Loss.: -11.7238 
+
+2024-11-23T18:52:59.272952+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:53:01.889379+08:00 - CRITICAL - VFL Loss: 1.1436, VFL Acc: 67.9600,
+ Pseudo Loss: 1.1450, Pseudo Acc: 67.2800
+2024-11-23T18:53:07.523839+08:00 - CRITICAL - Iter: 11840 / 10000, Pseudo Loss: -5.8777, Pseudo Inverse Loss: 0.0113, Discriminator Loss: -7.7545, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: 5.8777, Dis_target_Loss.: -14.4921 
+
+2024-11-23T18:53:08.583382+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:53:11.290678+08:00 - CRITICAL - VFL Loss: 1.1358, VFL Acc: 67.9600,
+ Pseudo Loss: 1.1146, Pseudo Acc: 67.7600
+2024-11-23T18:53:15.886753+08:00 - CRITICAL - Iter: 11880 / 10000, Pseudo Loss: -0.6626, Pseudo Inverse Loss: 0.0106, Discriminator Loss: -7.6138, Pseudo Target MSELoss: 0.0190,  Dis_Pseudo_Loss: 0.6626, Dis_target_Loss.: -8.7132 
+
+2024-11-23T18:53:18.360384+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:53:20.880222+08:00 - CRITICAL - VFL Loss: 1.1422, VFL Acc: 67.7400,
+ Pseudo Loss: 1.1647, Pseudo Acc: 66.1300
+2024-11-23T18:53:23.691573+08:00 - CRITICAL - Iter: 11920 / 10000, Pseudo Loss: -1.4781, Pseudo Inverse Loss: 0.0146, Discriminator Loss: -7.0086, Pseudo Target MSELoss: 0.0205,  Dis_Pseudo_Loss: 1.4781, Dis_target_Loss.: -8.8568 
+
+2024-11-23T18:53:28.433474+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:53:31.080978+08:00 - CRITICAL - VFL Loss: 1.0916, VFL Acc: 67.9400,
+ Pseudo Loss: 1.0873, Pseudo Acc: 67.4900
+2024-11-23T18:53:32.577974+08:00 - CRITICAL - Iter: 11960 / 10000, Pseudo Loss: 2.9735, Pseudo Inverse Loss: 0.0147, Discriminator Loss: -8.0618, Pseudo Target MSELoss: 0.0173,  Dis_Pseudo_Loss: -2.9735, Dis_target_Loss.: -5.3997 
+
+2024-11-23T18:53:38.657551+08:00 - CRITICAL - Iter: 12000 / 10000, Pseudo Loss: -5.9446, Pseudo Inverse Loss: 0.0123, Discriminator Loss: -8.6234, Pseudo Target MSELoss: 0.0187,  Dis_Pseudo_Loss: 5.9446, Dis_target_Loss.: -14.7385 
+
+2024-11-23T18:53:38.658846+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-23T18:53:41.099492+08:00 - CRITICAL - VFL Loss: 1.0622, VFL Acc: 67.8700,
+ Pseudo Loss: 1.0734, Pseudo Acc: 66.6200
