@@ -1577,3 +1577,5 @@
 
 2024-11-23T20:10:36.201118+08:00 - CRITICAL - Start testing the accuracy of the model: 
 
+2024-11-23T20:10:38.818547+08:00 - CRITICAL - VFL Loss: 1.0622, VFL Acc: 67.8700,
+ Pseudo Loss: 1.0621, Pseudo Acc: 67.2300

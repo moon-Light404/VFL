@@ -91,6 +91,7 @@ def pseudo_training(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_opt
     # 更新逆网络、伪模型、fa
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
+    # 更新恶意方的底部模型
     target_vflnn.client2_optimizer.step()
     # if_update更新伪模型
     if args.if_update == True:
