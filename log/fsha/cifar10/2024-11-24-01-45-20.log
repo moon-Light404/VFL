@@ -1,0 +1,34 @@
+2024-11-24T01:45:20.195746+08:00 - INFO - >>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>
+2024-11-24T01:45:20.195900+08:00 - INFO - iteration: 8000
+2024-11-24T01:45:20.195987+08:00 - INFO - lr: 0.0001
+2024-11-24T01:45:20.196060+08:00 - INFO - dlr: 0.0001
+2024-11-24T01:45:20.196121+08:00 - INFO - batch_size: 64
+2024-11-24T01:45:20.196178+08:00 - INFO - print_freq: 40
+2024-11-24T01:45:20.196235+08:00 - INFO - dataset: cifar10
+2024-11-24T01:45:20.196306+08:00 - INFO - level: 2
+2024-11-24T01:45:20.196361+08:00 - INFO - dataset_portion: 0.05
+2024-11-24T01:45:20.196418+08:00 - INFO - train_portion: 0.7
+2024-11-24T01:45:20.196474+08:00 - INFO - test_portion: 0.3
+2024-11-24T01:45:20.196529+08:00 - INFO - attack: fsha
+2024-11-24T01:45:20.196598+08:00 - INFO - loss_threshold: 1.8
+2024-11-24T01:45:20.196651+08:00 - INFO - if_update: False
+2024-11-24T01:45:20.196702+08:00 - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+2024-11-24T01:45:21.899831+08:00 - INFO - DataSet:cifar10
+2024-11-24T01:45:21.900443+08:00 - INFO - Train Dataset: 50000
+2024-11-24T01:45:21.900549+08:00 - INFO - Test Dataset: 10000
+2024-11-24T01:45:21.900615+08:00 - INFO - Shadow Dataset:2500
+2024-11-24T01:45:30.583790+08:00 - CRITICAL - Iter: 40 / 10000,  Pseudo Inverse Loss: 0.0640, Discriminator Loss: 3.6605, Pseudo Target MSELoss: 0.1119,  Dis_Pseudo_Loss: 2.2485, Dis_target_Loss.: -2.4528
+2024-11-24T01:45:37.241149+08:00 - CRITICAL - Iter: 80 / 10000,  Pseudo Inverse Loss: 0.0437, Discriminator Loss: -1.9349, Pseudo Target MSELoss: 0.1230,  Dis_Pseudo_Loss: 6.3998, Dis_target_Loss.: -8.6329
+2024-11-24T01:45:43.283651+08:00 - CRITICAL - Iter: 120 / 10000,  Pseudo Inverse Loss: 0.0396, Discriminator Loss: -9.6402, Pseudo Target MSELoss: 0.0952,  Dis_Pseudo_Loss: 17.4578, Dis_target_Loss.: -27.2971
+2024-11-24T01:45:50.498889+08:00 - CRITICAL - Iter: 160 / 10000,  Pseudo Inverse Loss: 0.0332, Discriminator Loss: -7.7542, Pseudo Target MSELoss: 0.1516,  Dis_Pseudo_Loss: 14.1215, Dis_target_Loss.: -22.9678
+2024-11-24T01:45:57.775233+08:00 - CRITICAL - Iter: 200 / 10000,  Pseudo Inverse Loss: 0.0289, Discriminator Loss: -14.9828, Pseudo Target MSELoss: 0.1757,  Dis_Pseudo_Loss: 7.5283, Dis_target_Loss.: -23.7323
+2024-11-24T01:46:05.176624+08:00 - CRITICAL - Iter: 240 / 10000,  Pseudo Inverse Loss: 0.0257, Discriminator Loss: -11.6075, Pseudo Target MSELoss: 0.0901,  Dis_Pseudo_Loss: -8.5671, Dis_target_Loss.: -3.5214
+2024-11-24T01:46:12.524076+08:00 - CRITICAL - Iter: 280 / 10000,  Pseudo Inverse Loss: 0.0250, Discriminator Loss: -9.2486, Pseudo Target MSELoss: 0.1885,  Dis_Pseudo_Loss: 4.1476, Dis_target_Loss.: -13.7545
+2024-11-24T01:46:19.629410+08:00 - CRITICAL - Iter: 320 / 10000,  Pseudo Inverse Loss: 0.0216, Discriminator Loss: -14.5654, Pseudo Target MSELoss: 0.2695,  Dis_Pseudo_Loss: 2.8687, Dis_target_Loss.: -18.3004
+2024-11-24T01:46:26.738015+08:00 - CRITICAL - Iter: 360 / 10000,  Pseudo Inverse Loss: 0.0195, Discriminator Loss: -16.1322, Pseudo Target MSELoss: 0.4953,  Dis_Pseudo_Loss: -11.5052, Dis_target_Loss.: -5.2516
+2024-11-24T01:46:33.516781+08:00 - CRITICAL - Iter: 400 / 10000,  Pseudo Inverse Loss: 0.0209, Discriminator Loss: -15.4815, Pseudo Target MSELoss: 0.3811,  Dis_Pseudo_Loss: 6.1040, Dis_target_Loss.: -22.2824
+2024-11-24T01:46:39.652003+08:00 - CRITICAL - Iter: 440 / 10000,  Pseudo Inverse Loss: 0.0211, Discriminator Loss: -12.6140, Pseudo Target MSELoss: 0.0977,  Dis_Pseudo_Loss: 6.4707, Dis_target_Loss.: -19.4648
+2024-11-24T01:46:46.299839+08:00 - CRITICAL - Iter: 480 / 10000,  Pseudo Inverse Loss: 0.0206, Discriminator Loss: -13.4585, Pseudo Target MSELoss: 0.1039,  Dis_Pseudo_Loss: -8.6379, Dis_target_Loss.: -5.8508
+2024-11-24T01:46:52.656221+08:00 - CRITICAL - Iter: 520 / 10000,  Pseudo Inverse Loss: 0.0165, Discriminator Loss: -12.3904, Pseudo Target MSELoss: 0.1348,  Dis_Pseudo_Loss: -7.1605, Dis_target_Loss.: -7.2391
