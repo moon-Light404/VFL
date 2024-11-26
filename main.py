@@ -81,6 +81,9 @@ def main():
     parser.add_argument('--attack', type=str, default='our', help="the type of attack agn, our, fsha, grna")
     parser.add_argument('--loss_threshold', type=float, default=1.8, help="the loss flag of our attack")
     parser.add_argument('--if_update', action='store_true', help="the flag of update the pseudo model")
+    parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
+    # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4鉴别器+coral+pcat
+    parser.add_argument('--pseudo_train', type=str, choices=['1', '2', '3', '4'], help="the type of training")
 
     args = parser.parse_args()
     print(args.if_update)

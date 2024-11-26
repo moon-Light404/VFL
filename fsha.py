@@ -64,7 +64,7 @@ def fsha(pas_client, act_client, pseudo_model, decoder, discriminator, pas_clien
             attack_input = torch.cat((pas_intermediate, act_intermediate), cat_dimension)
             pseudo_attack_result = decoder(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        logging.critical('Iter: %d / %d,  Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f' % (n, 10000,  rec_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+        logging.critical('Iter: %d / %d,  Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f' % (n, args.iteration,  rec_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
 
 
 
