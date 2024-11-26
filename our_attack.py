@@ -200,8 +200,6 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         para.requires_grad = True
     for para in target_vflnn.server.parameters():
         para.requires_grad = True
-    for para in pseudo_model.parameters():
-        para.requires_grad = True
     # 攻击测试，输出攻击图片和真实的mse
     if n % args.print_freq == 0:
         with torch.no_grad():

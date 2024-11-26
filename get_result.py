@@ -21,29 +21,37 @@ if __name__ == '__main__':
     plot_data = []
     mse_losses = []
     loss_thresholdss = []
-    ll = [3, 5, 7, 9, 11] # 1.5 1.65 1.7 1.8 1.9
+    ll = [0, 1, 2, 3, 4, 7, 8] # 1.5 1.45 1.4
     # 打开并读取日志文件
-    
-    for indice in ll:
+    with open('log/fsha/cifar10/2024-11-24-01-45-20.log', 'r') as file:
+        for line in file:
+            match = pattern.search(line)
+            if match:
+                mse_loss = match.group(1)
+                mse_losses.append(float(mse_loss))
+        mean = sum(mse_losses[-50:]) / 50
+        print(mean)
+    # for indice in ll:
+    #     with open(log_files[indice], 'r') as file:
+    #         for line in file:
+    #             match = pattern.search(line)
+    #             if match:
+    #                 mse_loss = match.group(1)
+    #                 mse_losses.append(float(mse_loss))
+    #         mean = sum(mse_losses[-50:]) / 50
+    #         print(mean)
+    #         plot_data.append(mse_losses[-50:])
+    # print(plot_data)
 
-        with open(log_files[indice], 'r') as file:
-            for line in file:
-                match = pattern.search(line)
-                if match:
-                    mse_loss = match.group(1)
-                    mse_losses.append(float(mse_loss))
-            plot_data.append(mse_losses[-50:])
-    print(plot_data)
+    # for idx, mse_losses in enumerate(plot_data):
+    #     plt.plot(mse_losses, label=f'indices={ll[idx]}')
+    # # 添加标题和标签
+    # plt.title('MSE loss pic')
+    # plt.xlabel('Epoch')
+    # plt.ylabel('MSE Loss')
 
-    for idx, mse_losses in enumerate(plot_data):
-        plt.plot(mse_losses, label=f'indices={ll[idx]}')
-    # 添加标题和标签
-    plt.title('MSE loss pic')
-    plt.xlabel('Epoch')
-    plt.ylabel('MSE Loss')
-
-    # 显示图例
-    plt.legend()
-    #
-    plt.savefig('output_plot.png')
-    plt.show()
+    # # 显示图例
+    # plt.legend()
+    # #
+    # plt.savefig('./someresult/output_plot1.png')
+    # plt.show()

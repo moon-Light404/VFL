@@ -11,7 +11,7 @@ import torchvision.transforms as transforms
 import copy
 import torchvision.utils as vutils
 from vfl import Client, Server, VFLNN
-from our_attack import attack_test, pseudo_training_3, cal_test
+from our_attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, cal_test
 from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder
 import numpy as np
 from torch.utils.data import Subset
@@ -26,6 +26,7 @@ import argparse
 import pytz
 from datetime import datetime
 from logging import Formatter
+from utils import CorrelationAlignmentLoss
 
 # 设置时区为北京时间
 class BeijingFormatter(Formatter):
@@ -72,17 +73,17 @@ def main():
     parser.add_argument('--lr', type=float, default=1e-4, help="the learning rate of pseudo_inverse model")
     parser.add_argument('--dlr', type=float, default=1e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
-    parser.add_argument('--print_freq', type=int, default='50', help="the print frequency of ouput")
+    parser.add_argument('--print_freq', type=int, default='30', help="the print frequency of ouput")
     parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset")
     parser.add_argument('--level', type=int, default=2, help="the split layer of model")
     parser.add_argument('--dataset_portion', type=float, default=0.05, help="the size portion of auxiliary data")
     parser.add_argument('--train_portion', type=float, default=0.7, help="the train_data portion of bank/drive data")
     parser.add_argument('--test_portion', type=float, default=0.3, help="the test portion of bank.drive data")
     parser.add_argument('--attack', type=str, default='our', help="the type of attack agn, our, fsha, grna")
-    parser.add_argument('--loss_threshold', type=float, default=1.8, help="the loss flag of our attack")
+    parser.add_argument('--loss_threshold', type=float, default=1.7, help="the loss flag of our attack")
     parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
-    parser.add_argument('--pseudo_train', type=str, choices=['1', '2', '3', '4'], help="the type of training")
+    parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4], help="the type of training")
     parser.add_argument('--a', type=float, default=0.7, help="the weight of coral")
 
     args = parser.parse_args()
@@ -192,8 +193,6 @@ def main():
     discriminator = discriminator.to(device)
     pseudo_inverse_model = pseudo_inverse_model.to(device)
 
-
-
     # 初始化服务器和客户端
     pas_client = Client(target_bottom1)
     act_client = Client(target_bottom2)
@@ -208,21 +207,12 @@ def main():
     pseudo_optimizer = optim.Adam(pseudo_model.parameters(), lr=args.lr)
     pseudo_inverse_model_optimizer = optim.Adam(pseudo_inverse_model.parameters(), lr=args.lr)
     discriminator_optimizer = optim.Adam(discriminator.parameters(), lr=args.dlr)
-    # else:
-    #     pas_client_optimizer = optim.Adam(target_bottom1.parameters(), lr=0.01)
-    #     act_client_optimizer = optim.Adam(target_bottom2.parameters(), lr=0.01)
-    #     act_server_optimizer = optim.Adam(target_top.parameters(), lr=0.01)
-    #     pseudo_optimizer = optim.Adam(pseudo_model.parameters(), lr=0.001)
-    #     pseudo_inverse_model_optimizer = optim.Adam(pseudo_inverse_model.parameters(), lr=0.0001)
-    #     discriminator_optimizer = optim.Adam(discriminator.parameters(), lr=0.001)
 
     target_vflnn = VFLNN(pas_client, act_client, act_server, [pas_client_optimizer, act_client_optimizer], act_server_optimizer)
-
     target_iterator = iter(train_dataloader)
     shadow_iterator = iter(shadow_dataloader)
 
-    
-
+    coral_loss = CorrelationAlignmentLoss()
 
     for n in range(1, args.iteration+1):
         if (n-1)%int((len(train_dataset)/args.batch_size)) == 0 :        
@@ -252,7 +242,14 @@ def main():
         elif args.attack == 'fsha':
             fsha(pas_client, act_client, pseudo_model, pseudo_inverse_model, discriminator, pas_client_optimizer,pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator_optimizer, target_data, target_label, device, shadow_data, shadow_label, n, cat_dimension, args)
         elif args.attack == 'our':
-            target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+            if args.pseudo_train == 1:
+                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_1(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+            elif args.pseudo_train == 2:
+                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args)
+            elif args.pseudo_train == 3:
+                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+            elif args.pseudo_train == 4:
+                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
             # 每隔100次迭代进行攻击测试，保存图片
             # if args.attack == True and n % 100 == 0:
             #     attack_test(pseudo_inverse_model, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, n)
@@ -264,7 +261,6 @@ def main():
                 vfl_loss, vfl_acc = cal_test(target_vflnn, None, test_dataloader, device, args.dataset)
                 # 伪被动客户端VFL测试
                 pseudo_loss, pseudo_acc = cal_test(target_vflnn, pseudo_model, test_dataloader, device, args.dataset)
-            
                 logging.critical("VFL Loss: {:.4f}, VFL Acc: {:.4f},\n Pseudo Loss: {:.4f}, Pseudo Acc: {:.4f}".format(vfl_loss, vfl_acc, pseudo_loss, pseudo_acc))
 
 if __name__ == '__main__':
