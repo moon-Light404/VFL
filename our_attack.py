@@ -324,13 +324,11 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        # print('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
-
         logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
-
-def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
+# 只有pcat
+def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
     # 正常VFL训练
     target_vflnn.train()
     target_data = target_data.to(device)
@@ -349,47 +347,37 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     target_vflnn.backward()
     # 更新整个vfl模型
     target_vflnn.step()
-    
-
     # 整个VFL模型不更新
     for para in target_vflnn.client1.parameters():
         para.requires_grad = False
     for para in target_vflnn.server.parameters():
         para.requires_grad = False  
-
     
     # 训练伪模型，比较的特征空间是图像的一半
-    pseudo_model.train()
     pseudo_inverse_model.train()
-
     shadow_data = shadow_data.to(device)
     shadow_label = shadow_label.to(device)
     # 辅助数据分成两半，一般给伪模型，一般给主动方的底部模型fa
     shadow_x_a, shadow_x_b = split_data(shadow_data, args.dataset)
-
-
-    pseudo_optimizer.zero_grad()
-    pseduo_output = pseudo_model(shadow_x_a) # 伪模型的特征空间
     
-
-    # 训练逆网络，同时优化伪模型和fa
+    # 训练逆网络，同时优化fa
     pseudo_inverse_optimizer.zero_grad()
     target_vflnn.client2_optimizer.zero_grad()
-    
     with torch.no_grad():
-        # pseudo_model 是client1的伪模型，伪模型和fa都更新
+        # pseudo_model 是client1的伪模型，fa都更新
         pseudo_inverse_input_a = pseudo_model(shadow_x_a)
         pseduo_inverse_input_b = target_vflnn.client2(shadow_x_b)
     # 两个特征拼接输入到逆网络，恢复数据 
     pseudo_inverse_input = torch.cat((pseudo_inverse_input_a, pseduo_inverse_input_b), cat_dimension)
     pseudo_inverse_output = pseudo_inverse_model(pseudo_inverse_input)
     pseudo_inverse_loss = F.mse_loss(pseudo_inverse_output, shadow_data)
-    # 更新逆网络、伪模型、fa
+    # 更新逆网络、fa
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
     # 更新恶意方的底部模型
     target_vflnn.client2_optimizer.step()
 
+    pseudo_model.train()
     # 进一步更新伪模型，只更新伪模型
     for para in target_vflnn.client2.parameters():
         para.requires_grad = False
@@ -417,9 +405,6 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         para.requires_grad = True
     for para in target_vflnn.server.parameters():
         para.requires_grad = True
-    for para in pseudo_model.parameters():
-        para.requires_grad = True
-
 
     # 攻击测试，输出攻击图片和真实的mse
     if n % args.print_freq == 0:
@@ -427,8 +412,7 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-
-        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+        logging.critical('Iter: %d / %d,  Pseudo Inverse Loss: %.4f, Pseudo Target MSELoss: %.4f' % (n, 10000, pseudo_inverse_loss.item(), pseudo_target_mesloss.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 
