@@ -15,6 +15,7 @@ import torchvision.utils as vutils
 import logging
 from utils import split_data, gradient_penalty, DeNormalize
 
+# 只训练鉴别器
 def pseudo_training_1(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
     # 正常VFL训练
     target_vflnn.train()
@@ -34,22 +35,82 @@ def pseudo_training_1(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     target_vflnn.backward()
     # 更新整个vfl模型
     target_vflnn.step()
+    # 整个VFL模型不更新
+    for para in target_vflnn.client1.parameters():
+        para.requires_grad = False
+    for para in target_vflnn.server.parameters():
+        para.requires_grad = False  
 
+    # 训练伪模型，比较的特征空间是图像的一半
+    pseudo_model.train()
+    pseudo_inverse_model.train()
+    discriminator.train()
+    shadow_data = shadow_data.to(device)
+    shadow_label = shadow_label.to(device)
+    # 辅助数据分成两半，一般给伪模型，一般给主动方的底部模型fa
+    shadow_x_a, shadow_x_b = split_data(shadow_data, args.dataset)
+    pseudo_optimizer.zero_grad()
+    pseduo_output = pseudo_model(shadow_x_a) # 伪模型的特征空间
+     # 把伪模型的特征空间输入到鉴别器中
+    d_output_pseudo = discriminator(pseduo_output)
+    pseudo_loss = torch.mean(d_output_pseudo)
+    pseudo_loss.backward()
+    pseudo_optimizer.step()
 
+    # 训练逆网络，同时优化伪模型和fa
+    pseudo_inverse_optimizer.zero_grad()
+    target_vflnn.client2_optimizer.zero_grad()
+    with torch.no_grad():
+        # pseudo_model 是client1的伪模型，伪模型和fa都更新
+        pseudo_inverse_input_a = pseudo_model(shadow_x_a).detach()
+        pseduo_inverse_input_b = target_vflnn.client2(shadow_x_b)
+    # 两个特征拼接输入到逆网络，恢复数据 
+    pseudo_inverse_input = torch.cat((pseudo_inverse_input_a, pseduo_inverse_input_b), cat_dimension)
+    pseudo_inverse_output = pseudo_inverse_model(pseudo_inverse_input)
+    pseudo_inverse_loss = F.mse_loss(pseudo_inverse_output, shadow_data)
+    # 更新逆网络,fa
+    pseudo_inverse_loss.backward()
+    pseudo_inverse_optimizer.step()
+    # 更新恶意方的底部模型
+    target_vflnn.client2_optimizer.step()
 
+    # 更新鉴别器，此时不能更新伪模型，设为detach()
+    discriminator_optimizer.zero_grad()
+    pseduo_output_ = pseduo_output.detach()
+    # 目标客户端特征空间
+    target_vflnn_pas_intermediate_ = target_vflnn_pas_intermediate.detach()
+    adv_target_logits = discriminator(target_vflnn_pas_intermediate_)
+    adv_pseudo_logits = discriminator(pseduo_output_)
+    loss_discr_true = torch.mean(adv_target_logits)
+    loss_discr_fake = -torch.mean(adv_pseudo_logits)
+    vanila_D_loss = loss_discr_true + loss_discr_fake
+    D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
+    D_loss.backward()
+    discriminator_optimizer.step()
 
-def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
-    pass
+    for para in target_vflnn.client1.parameters():
+        para.requires_grad = True
+    for para in target_vflnn.client2.parameters():
+        para.requires_grad = True
+    for para in target_vflnn.server.parameters():
+        para.requires_grad = True
+    for para in pseudo_model.parameters():
+        para.requires_grad = True
+    # 攻击测试，输出攻击图片和真实的mse
+    if n % args.print_freq == 0:
+        with torch.no_grad():
+            attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
+            pseudo_attack_result = pseudo_inverse_model(attack_input)
+        pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
+        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+    return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
-
-def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
-    
+# 鉴别器+coral
+def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args):
     # 正常VFL训练
     target_vflnn.train()
-
     target_data = target_data.to(device)
     target_label = target_label.to(device)
-
     target_vflnn.zero_grads()
     # 分割数据
     target_x_a, target_x_b = split_data(target_data, args.dataset)
@@ -59,23 +120,123 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     target_vflnn_pas_intermediate = target_vflnn.intermediate_to_server1.detach()
     # active party的中间特征
     target_vflnn_act_intermediate = target_vflnn.intermediate_to_server2.detach()
-
     target_vflnn_loss = F.cross_entropy(target_vflnn_output, target_label)
-    
     target_vflnn_loss.backward()
-
     target_vflnn.backward()
     # 更新整个vfl模型
     target_vflnn.step()
-    
-
     # 整个VFL模型不更新
     for para in target_vflnn.client1.parameters():
         para.requires_grad = False
     for para in target_vflnn.server.parameters():
         para.requires_grad = False  
 
-    
+    # 训练伪模型，比较的特征空间是图像的一半
+    pseudo_model.train()
+    pseudo_inverse_model.train()
+    discriminator.train()
+    shadow_data = shadow_data.to(device)
+    shadow_label = shadow_label.to(device)
+    # 辅助数据分成两半，一般给伪模型，一般给主动方的底部模型fa
+    shadow_x_a, shadow_x_b = split_data(shadow_data, args.dataset)
+    pseudo_optimizer.zero_grad()
+    pseudo_output = pseudo_model(shadow_x_a) # 伪模型的特征空间
+    # coral_loss计算
+    n_domins = 4
+    indices = [range(i, i + 64 // n_domins) for i in range(0, 64, 64 // n_domins)]
+    coral_loss.train()
+    loss_penalty = 0.0
+    target = target_vflnn_pas_intermediate
+    source = pseudo_output
+    for domin_i in range(n_domins):
+        for domin_j in range(n_domins):
+            for i in range(64 // n_domins):
+                f_i = target[indices[domin_i][i], :, :, :].view(target.size(1),-1)
+                f_j = pseudo_output[indices[domin_j][i], :, :, :].view(target.size(1),-1)
+                loss_penalty += coral_loss(f_i,f_j)
+    loss_penalty /= n_domins * n_domins * (64 // n_domins)
+    if n % args.print_freq == 0:
+        logging.critical('Coral Loss: %.4f' % (loss_penalty.item()))
+     # 把伪模型的特征空间输入到鉴别器中
+    d_output_pseudo = discriminator(pseudo_output)
+    pseudo_loss = (1 - args.a) * torch.mean(d_output_pseudo) + args.a * loss_penalty
+    pseudo_loss.backward()
+    pseudo_optimizer.step()
+
+    # 训练逆网络，同时优化伪模型和fa
+    pseudo_inverse_optimizer.zero_grad()
+    target_vflnn.client2_optimizer.zero_grad()
+    with torch.no_grad():
+        # pseudo_model 是client1的伪模型，伪模型和fa都更新
+        pseudo_inverse_input_a = pseudo_model(shadow_x_a).detach()
+        pseduo_inverse_input_b = target_vflnn.client2(shadow_x_b)
+    # 两个特征拼接输入到逆网络，恢复数据 
+    pseudo_inverse_input = torch.cat((pseudo_inverse_input_a, pseduo_inverse_input_b), cat_dimension)
+    pseudo_inverse_output = pseudo_inverse_model(pseudo_inverse_input)
+    pseudo_inverse_loss = F.mse_loss(pseudo_inverse_output, shadow_data)
+    # 更新逆网络,fa
+    pseudo_inverse_loss.backward()
+    pseudo_inverse_optimizer.step()
+    # 更新恶意方的底部模型
+    target_vflnn.client2_optimizer.step()
+
+    # 更新鉴别器，此时不能更新伪模型，设为detach()
+    discriminator_optimizer.zero_grad()
+    pseduo_output_ = pseudo_output.detach()
+    # 目标客户端特征空间
+    target_vflnn_pas_intermediate_ = target_vflnn_pas_intermediate.detach()
+    adv_target_logits = discriminator(target_vflnn_pas_intermediate_)
+    adv_pseudo_logits = discriminator(pseduo_output_)
+    loss_discr_true = torch.mean(adv_target_logits)
+    loss_discr_fake = -torch.mean(adv_pseudo_logits)
+    vanila_D_loss = loss_discr_true + loss_discr_fake
+    D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
+    D_loss.backward()
+    discriminator_optimizer.step()
+
+    for para in target_vflnn.client1.parameters():
+        para.requires_grad = True
+    for para in target_vflnn.client2.parameters():
+        para.requires_grad = True
+    for para in target_vflnn.server.parameters():
+        para.requires_grad = True
+    for para in pseudo_model.parameters():
+        para.requires_grad = True
+    # 攻击测试，输出攻击图片和真实的mse
+    if n % args.print_freq == 0:
+        with torch.no_grad():
+            attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
+            pseudo_attack_result = pseudo_inverse_model(attack_input)
+        pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
+        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+    return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
+
+# 最初的代码
+def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
+    # 正常VFL训练
+    target_vflnn.train()
+    target_data = target_data.to(device)
+    target_label = target_label.to(device)
+    target_vflnn.zero_grads()
+    # 分割数据
+    target_x_a, target_x_b = split_data(target_data, args.dataset)
+    # 训练VFL模型
+    target_vflnn_output = target_vflnn(target_x_a, target_x_b)
+    # passive party的中间特征
+    target_vflnn_pas_intermediate = target_vflnn.intermediate_to_server1.detach()
+    # active party的中间特征
+    target_vflnn_act_intermediate = target_vflnn.intermediate_to_server2.detach()
+    target_vflnn_loss = F.cross_entropy(target_vflnn_output, target_label)
+    target_vflnn_loss.backward()
+    target_vflnn.backward()
+    # 更新整个vfl模型
+    target_vflnn.step()
+    # 整个VFL模型不更新
+    for para in target_vflnn.client1.parameters():
+        para.requires_grad = False
+    for para in target_vflnn.server.parameters():
+        para.requires_grad = False  
+
     # 训练伪模型，比较的特征空间是图像的一半
     pseudo_model.train()
     pseudo_inverse_model.train()
@@ -85,8 +246,6 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     shadow_label = shadow_label.to(device)
     # 辅助数据分成两半，一般给伪模型，一般给主动方的底部模型fa
     shadow_x_a, shadow_x_b = split_data(shadow_data, args.dataset)
-
-
     pseudo_optimizer.zero_grad()
     pseduo_output = pseudo_model(shadow_x_a) # 伪模型的特征空间
     
@@ -100,9 +259,6 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 训练逆网络，同时优化伪模型和fa
     pseudo_inverse_optimizer.zero_grad()
     target_vflnn.client2_optimizer.zero_grad()
-    if args.if_update == True:
-        pseudo_optimizer.zero_grad()
-
     with torch.no_grad():
         # pseudo_model 是client1的伪模型，伪模型和fa都更新
         pseudo_inverse_input_a = pseudo_model(shadow_x_a)
@@ -116,9 +272,6 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_inverse_optimizer.step()
     # 更新恶意方的底部模型
     target_vflnn.client2_optimizer.step()
-    # if_update更新伪模型
-    if args.if_update == True:
-        pseudo_optimizer.step()
 
     # 进一步更新伪模型，只更新伪模型
     for para in target_vflnn.client2.parameters():
@@ -141,7 +294,6 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         classifier_loss.backward()
         pseudo_optimizer.step() # 更新伪模型,更接近被动方模型
 
-
     # 更新鉴别器，此时不能更新伪模型，设为detach()
     discriminator_optimizer.zero_grad()
     
@@ -154,13 +306,9 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_discr_true = torch.mean(adv_target_logits)
     loss_discr_fake = -torch.mean(adv_pseudo_logits)
     vanila_D_loss = loss_discr_true + loss_discr_fake
-
     D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
-
     D_loss.backward()
     discriminator_optimizer.step()
-
-
 
     for para in target_vflnn.client1.parameters():
         para.requires_grad = True
@@ -170,7 +318,6 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         para.requires_grad = True
     for para in pseudo_model.parameters():
         para.requires_grad = True
-
     # 攻击测试，输出攻击图片和真实的mse
     if n % args.print_freq == 0:
         with torch.no_grad():
@@ -180,19 +327,14 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         # print('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
 
         logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
-
-
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 
 def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args):
-    
     # 正常VFL训练
     target_vflnn.train()
-
     target_data = target_data.to(device)
     target_label = target_label.to(device)
-
     target_vflnn.zero_grads()
     # 分割数据
     target_x_a, target_x_b = split_data(target_data, args.dataset)
@@ -202,11 +344,8 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     target_vflnn_pas_intermediate = target_vflnn.intermediate_to_server1.detach()
     # active party的中间特征
     target_vflnn_act_intermediate = target_vflnn.intermediate_to_server2.detach()
-
     target_vflnn_loss = F.cross_entropy(target_vflnn_output, target_label)
-    
     target_vflnn_loss.backward()
-
     target_vflnn.backward()
     # 更新整个vfl模型
     target_vflnn.step()
@@ -222,7 +361,6 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 训练伪模型，比较的特征空间是图像的一半
     pseudo_model.train()
     pseudo_inverse_model.train()
-    discriminator.train()
 
     shadow_data = shadow_data.to(device)
     shadow_label = shadow_label.to(device)
@@ -233,22 +371,11 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_optimizer.zero_grad()
     pseduo_output = pseudo_model(shadow_x_a) # 伪模型的特征空间
     
-    # 把伪模型的特征空间输入到鉴别器中
-    d_output_pseudo = discriminator(pseduo_output)
-    pseudo_loss = torch.mean(d_output_pseudo)
-
-    pseudo_loss.backward()
-    pseudo_optimizer.step()
-    # if args.if_update == False:
-    #     for para in pseudo_model.parameters():
-    #         para.requires_grad = False
 
     # 训练逆网络，同时优化伪模型和fa
     pseudo_inverse_optimizer.zero_grad()
     target_vflnn.client2_optimizer.zero_grad()
-    if args.if_update == True:
-        pseudo_model.zero_grad()
-
+    
     with torch.no_grad():
         # pseudo_model 是client1的伪模型，伪模型和fa都更新
         pseudo_inverse_input_a = pseudo_model(shadow_x_a)
@@ -262,9 +389,6 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_inverse_optimizer.step()
     # 更新恶意方的底部模型
     target_vflnn.client2_optimizer.step()
-    # if_update更新伪模型
-    if args.if_update == True:
-        pseudo_optimizer.step()
 
     # 进一步更新伪模型，只更新伪模型
     for para in target_vflnn.client2.parameters():
@@ -287,27 +411,6 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         classifier_loss.backward()
         pseudo_optimizer.step() # 更新伪模型,更接近被动方模型
 
-
-    # 更新鉴别器，此时不能更新伪模型，设为detach()
-    discriminator_optimizer.zero_grad()
-    
-    pseduo_output_ = pseduo_output.detach()
-    # 目标客户端特征空间
-    target_vflnn_pas_intermediate_ = target_vflnn_pas_intermediate.detach()
-     
-    adv_target_logits = discriminator(target_vflnn_pas_intermediate_)
-    adv_pseudo_logits = discriminator(pseduo_output_)
-    loss_discr_true = torch.mean(adv_target_logits)
-    loss_discr_fake = -torch.mean(adv_pseudo_logits)
-    vanila_D_loss = loss_discr_true + loss_discr_fake
-
-    D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
-
-    D_loss.backward()
-    discriminator_optimizer.step()
-
-    
-
     for para in target_vflnn.client1.parameters():
         para.requires_grad = True
     for para in target_vflnn.client2.parameters():
@@ -318,18 +421,14 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         para.requires_grad = True
 
 
-
     # 攻击测试，输出攻击图片和真实的mse
     if n % args.print_freq == 0:
         with torch.no_grad():
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        # print('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
 
         logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
-
-
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 
@@ -386,49 +485,6 @@ def cal_test(target_vflnn, pseudo_model, test_loader, device, dataset):
 
 
 
-class CorrelationAlignmentLoss(nn.Module):
-    r"""The `Correlation Alignment Loss` in
-    `Deep CORAL: Correlation Alignment for Deep Domain Adaptation (ECCV 2016) <https://arxiv.org/pdf/1607.01719.pdf>`_.
 
-    Given source features :math:`f_S` and target features :math:`f_T`, the covariance matrices are given by
-
-    .. math::
-        C_S = \frac{1}{n_S-1}(f_S^Tf_S-\frac{1}{n_S}(\textbf{1}^Tf_S)^T(\textbf{1}^Tf_S))
-    .. math::
-        C_T = \frac{1}{n_T-1}(f_T^Tf_T-\frac{1}{n_T}(\textbf{1}^Tf_T)^T(\textbf{1}^Tf_T))
-
-    where :math:`\textbf{1}` denotes a column vector with all elements equal to 1, :math:`n_S, n_T` denotes number of
-    source and target samples, respectively. We use :math:`d` to denote feature dimension, use
-    :math:`{\Vert\cdot\Vert}^2_F` to denote the squared matrix `Frobenius norm`. The correlation alignment loss is
-    given by
-
-    .. math::
-        l_{CORAL} = \frac{1}{4d^2}\Vert C_S-C_T \Vert^2_F
-
-    Inputs:
-        - f_s (tensor): feature representations on source domain, :math:`f^s`
-        - f_t (tensor): feature representations on target domain, :math:`f^t`
-
-    Shape:
-        - f_s, f_t: :math:`(N, d)` where d means the dimension of input features, :math:`N=n_S=n_T` is mini-batch size.
-        - Outputs: scalar.
-    """
-
-    def __init__(self):
-        super(CorrelationAlignmentLoss, self).__init__()
-
-    def forward(self, f_s: torch.Tensor, f_t: torch.Tensor) -> torch.Tensor:
-        mean_s = f_s.mean(0, keepdim=True)
-        mean_t = f_t.mean(0, keepdim=True)
-        cent_s = f_s - mean_s
-        cent_t = f_t - mean_t
-        # conv_s、conv_t: covariance matrix 都是d * d矩阵
-        cov_s = torch.mm(cent_s.t(), cent_s) / (len(f_s) - 1)
-        cov_t = torch.mm(cent_t.t(), cent_t) / (len(f_t) - 1)
-
-        mean_diff = (mean_s - mean_t).pow(2).mean()
-        cov_diff = (cov_s - cov_t).pow(2).mean()
-
-        return mean_diff + cov_diff
     
 

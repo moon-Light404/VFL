@@ -11,7 +11,7 @@ import torchvision.transforms as transforms
 import copy
 import torchvision.utils as vutils
 from vfl import Client, Server, VFLNN
-from our_attack import attack_test, pseudo_training, cal_test
+from our_attack import attack_test, pseudo_training_3, cal_test
 from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder
 import numpy as np
 from torch.utils.data import Subset
@@ -68,7 +68,7 @@ def save_model(model, path):
 
 def main():
     parser = argparse.ArgumentParser(description="VFL of implementation")
-    parser.add_argument('--iteration', type=int, default=12000, help="")
+    parser.add_argument('--iteration', type=int, default=10000, help="")
     parser.add_argument('--lr', type=float, default=1e-4, help="the learning rate of pseudo_inverse model")
     parser.add_argument('--dlr', type=float, default=1e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
@@ -80,13 +80,12 @@ def main():
     parser.add_argument('--test_portion', type=float, default=0.3, help="the test portion of bank.drive data")
     parser.add_argument('--attack', type=str, default='our', help="the type of attack agn, our, fsha, grna")
     parser.add_argument('--loss_threshold', type=float, default=1.8, help="the loss flag of our attack")
-    parser.add_argument('--if_update', action='store_true', help="the flag of update the pseudo model")
     parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
-    # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4鉴别器+coral+pcat
+    # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
     parser.add_argument('--pseudo_train', type=str, choices=['1', '2', '3', '4'], help="the type of training")
+    parser.add_argument('--a', type=float, default=0.7, help="the weight of coral")
 
     args = parser.parse_args()
-    print(args.if_update)
 
     gid = '0'
     date_time_file = datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d-%H-%M-%S")
@@ -253,7 +252,7 @@ def main():
         elif args.attack == 'fsha':
             fsha(pas_client, act_client, pseudo_model, pseudo_inverse_model, discriminator, pas_client_optimizer,pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator_optimizer, target_data, target_label, device, shadow_data, shadow_label, n, cat_dimension, args)
         elif args.attack == 'our':
-            target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+            target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
             # 每隔100次迭代进行攻击测试，保存图片
             # if args.attack == True and n % 100 == 0:
             #     attack_test(pseudo_inverse_model, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, n)
