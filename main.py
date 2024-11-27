@@ -251,8 +251,8 @@ def main():
             elif args.pseudo_train == 4:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
             # 每隔100次迭代进行攻击测试，保存图片
-            # if args.attack == True and n % 100 == 0:
-            #     attack_test(pseudo_inverse_model, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, n)
+            
+            # attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
 
             # 下面测试伪模型的实用性
             if n % 50 == 0:

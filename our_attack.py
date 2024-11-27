@@ -11,7 +11,7 @@ import torchvision.transforms.functional as F_1
 import copy
 import numpy as np
 import torchvision.utils as vutils
-# from piq import ssim,psnr,LPIPS
+from piq import ssim,psnr,LPIPS
 import logging
 from utils import split_data, gradient_penalty, DeNormalize
 
@@ -415,26 +415,48 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
 
 
 # 攻击测试保存图片
-def attack_test(pseduo_invmodel, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, n):
+def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n):
     denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    target_pseudo_loss = 0
+    pseudo_ssim = 0
+    pseudo_psnr = 0
+    pseudo_llips = 0
+
     with torch.no_grad():
         target_output = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), 3)
         target_data = target_data.to(device)
-        pseudo_inverse_result = pseduo_invmodel(target_output)
-        # 去归一化
-        # pseudo_inverse_result = denorm(pseudo_inverse_result.detach().clone())
-        # origin_data = denorm(target_data.clone())
-        truth = target_data[0:32]
-        inverse_pseudo = pseudo_inverse_result[0:32]
-        out_pseudo = torch.cat((inverse_pseudo, truth))
+        pseudo_inverse_output = pseduo_invmodel(target_output)
 
-        for i in range(4):
-            out_pseudo[i * 16:i * 16 + 8] = inverse_pseudo[i * 8:i * 8 + 8]
-            out_pseudo[i * 16 + 8:i * 16 + 16] = truth[i * 8:i * 8 + 8]
-        out_pseudo = denorm(out_pseudo.detach())
-        pic_save_path = 'recon_pics2'
-        os.makedirs('{}/pseudo'.format(pic_save_path),exist_ok=True)
-        vutils.save_image(out_pseudo, '{}/pseudo/recon_{}.png'.format(pic_save_path,n), normalize=False)
+        origin_data = denorm(target_data.clone())
+        pseudo_inverse_output_ = denorm(pseudo_inverse_output.clone())
+        pseudo_ssim += ssim(origin_data, pseudo_inverse_output_, reduction='sum').item()
+        pseudo_psnr += psnr(origin_data, pseudo_inverse_output_, data_range=1.0, reduction='sum').item()
+        pseudo_llips += LPIPS(origin_data, pseudo_inverse_output_, reduction='sum').item()
+
+        x_a, x_b = split_data(target_data, args.dataset)
+        pseudo_intermediate = pseudo_model(x_a)
+        target_intermediate = target_vflnn.client1(x_a)
+        target_pseudo_loss += F.mse_loss(pseudo_intermediate, target_intermediate, reduce='sum').item()
+
+        # 保存图片
+        # if n % 100 == 0:
+        # truth = target_data[0:32]
+        # inverse_pseudo = pseudo_inverse_result[0:32]
+        # out_pseudo = torch.cat((inverse_pseudo, truth))
+
+        # for i in range(4):
+        #     out_pseudo[i * 16:i * 16 + 8] = inverse_pseudo[i * 8:i * 8 + 8]
+        #     out_pseudo[i * 16 + 8:i * 16 + 16] = truth[i * 8:i * 8 + 8]
+        # out_pseudo = denorm(out_pseudo.detach())
+        # pic_save_path = 'recon_pics2'
+        # os.makedirs('{}/pseudo'.format(pic_save_path),exist_ok=True)
+        # vutils.save_image(out_pseudo, '{}/pseudo/recon_{}.png'.format(pic_save_path,n), normalize=False)
+
+    pseudo_ssim /= len(target_data)
+    pseudo_psnr /= len(target_data)
+    pseudo_llips /= len(target_data)
+    target_pseudo_loss /= len(target_data)
+    return target_pseudo_loss, pseudo_ssim, pseudo_psnr, pseudo_llips
 
 # 测试整个vfl模型的准确率
 def cal_test(target_vflnn, pseudo_model, test_loader, device, dataset):
