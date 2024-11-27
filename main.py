@@ -147,7 +147,7 @@ def main():
         bank_expset = ExperimentDataset(datafilepath=dataset_path)
         train_dataset, test_dataset = getSplittedDataset(args.train_portion, args.test_portion, bank_expset)
         dataset_num = len(train_dataset) * args.dataset_portion
-        shadow_dataset = Subset(test_dataset, range(0, dataset_num))
+        shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
         cat_dimension = 1
    
 
@@ -155,9 +155,9 @@ def main():
     logging.info("Train Dataset: %d",len(train_dataset))
     logging.info("Test Dataset: %d",len(test_dataset))
     logging.info("Shadow Dataset:%d",len(shadow_dataset))
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= args.batch_size, shuffle=True, num_workers = 4, pin_memory = True)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 4, pin_memory = True)
-    shadow_dataloader = torch.utils.data.DataLoader(shadow_dataset, batch_size=args.batch_size, shuffle=True, num_workers = 4, pin_memory = True)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 8, pin_memory = True)
+    shadow_dataloader = torch.utils.data.DataLoader(shadow_dataset, batch_size=args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
 
     if args.dataset == 'cifar10':
         target_bottom1, target_top = cifar_mobilenet(args.level)
@@ -179,8 +179,7 @@ def main():
     else:
         target_bottom1, target_top = bank_net(input_dim=vfl_input_dim, output_dim=vfl_output_dim)
         target_bottom2 = copy.deepcopy(target_bottom1)
-        data_shape = train_dataset[0][0].shape
-        test_data = torch.ones(1, data_shape[0])
+        test_data = torch.ones(1, vfl_input_dim)
         with torch.no_grad():
             test_data_output = target_bottom1(test_data)
             d_input_shape = test_data_output.shape[1]

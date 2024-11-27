@@ -142,19 +142,30 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_optimizer.zero_grad()
     pseudo_output = pseudo_model(shadow_x_a) # 伪模型的特征空间
     # coral_loss计算
-    n_domins = 4
+    n_domins = args.n_domins
     indices = [range(i, i + 64 // n_domins) for i in range(0, 64, 64 // n_domins)]
     coral_loss.train()
     loss_penalty = 0.0
     target = target_vflnn_pas_intermediate
     source = pseudo_output
-    for domin_i in range(n_domins):
-        for domin_j in range(n_domins):
-            for i in range(64 // n_domins):
-                f_i = target[indices[domin_i][i], :, :, :].view(target.size(1),-1)
-                f_j = pseudo_output[indices[domin_j][i], :, :, :].view(target.size(1),-1)
+    if args.dataset == 'cifar10':
+        for domin_i in range(n_domins):
+            for domin_j in range(n_domins):
+                for i in range(64 // n_domins):
+                    f_i = target[indices[domin_i][i], :, :, :].view(target.size(1),-1)
+                    f_j = pseudo_output[indices[domin_j][i], :, :, :].view(target.size(1),-1)
+                    loss_penalty += coral_loss(f_i,f_j)
+        loss_penalty /= n_domins * n_domins * (64 // n_domins)
+    else:
+        target = target.chunk(n_domins, dim=0)
+        source = pseudo_output.chunk(n_domins, dim=0)
+
+        for domin_i in range(n_domins):
+            for domin_j in range(n_domins):
+                f_i = target[domin_i]
+                f_j = source[domin_j]
                 loss_penalty += coral_loss(f_i,f_j)
-    loss_penalty /= n_domins * n_domins * (64 // n_domins)
+        loss_penalty /= n_domins * n_domins
     if n % args.print_freq == 0:
         logging.critical('Coral Loss: %.4f' % (loss_penalty.item()))
      # 把伪模型的特征空间输入到鉴别器中

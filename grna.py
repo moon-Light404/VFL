@@ -229,13 +229,13 @@ if __name__ == '__main__':
         g_output_dim = 10
         classfier_input_dim = 10
         classfier_ouput_dim = 2
-        dataset_path = 'data/bank_cleaned.csv'
+        dataset_path = './data/bank_cleaned.csv'
     elif args.dataset == 'drive':
         g_input_dim = 48
         g_output_dim = 24
         classfier_input_dim = 24
         classfier_ouput_dim = 11
-        dataset_path = 'data/drive_cleaned.csv'
+        dataset_path = './data/drive_cleaned.csv'
 
     enableMean = False
      
@@ -244,7 +244,7 @@ if __name__ == '__main__':
     data_time_fime = time.strftime("%Y-%m-%d-%H", time.localtime())
 
     if args.backup:
-        path_name = os.path.join('log', 'GRNA', args.dataset)
+        path_name = os.path.join('./log', 'GRNA', args.dataset)
         os.makedirs(path_name, exist_ok=True)
         initlogging(logfile=os.path.join(path_name, data_time_fime + '.log'))
         logging.info(">>>>>>>>>>>>>>Running Settings>>>>>>>>>>>>>>")
