@@ -14,3 +14,6 @@ git config --global https.proxy https://13.75.113.101:53026
 git config --global user.name "moon-Light404"
 git config --global user.email "1908328781@qq.com"
 git clone https://moon-Light404:1472583690adc@github.com/moon-Light404/VFL.git
+
+pip install piq==0.8.0
+pip install pytz==2024.2
