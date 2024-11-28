@@ -21,9 +21,10 @@ if __name__ == '__main__':
     plot_data = []
     mse_losses = []
     loss_thresholdss = []
-    ll = [0, 1, 2, 3, 4, 7, 8] # 1.5 1.45 1.4
+    ll = [0, 1, 2, 3, 4] # 1.5 1.45 1.4
     # 打开并读取日志文件
-    with open('log/our/cifar10/2024-11-27-02-01-32.log', 'r') as file:
+    
+    with open('log/our/cifar10/2024-11-28-00-05-55.log', 'r') as file:
         for line in file:
             match = pattern.search(line)
             if match:

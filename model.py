@@ -292,11 +292,9 @@ def bank_net(input_dim, output_dim):
     client = []
     server = []
     # client 输入10 输出10
-    client += [nn.Linear(input_dim, 600)]
+    client += [nn.Linear(input_dim, 200)]
     client += [nn.ReLU(inplace=True)]
-    client += [nn.Linear(600, 300)]
-    client += [nn.ReLU(inplace=True)]
-    client += [nn.Linear(300, 100)]
+    client += [nn.Linear(200, 100)]
 
     server += [nn.Linear(200, 100)]
     server + [nn.ReLU(inplace=True)]
@@ -306,22 +304,9 @@ def bank_net(input_dim, output_dim):
     return nn.Sequential(*client), nn.Sequential(*server)
 
 
-# def bank_decoder(input_dim, output_dim):
-#     net = []
-#     net += [nn.Linear(input_dim, 100)]
-#     net += [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(100, 50)]
-#     net += [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(50, 20)]
-#     net += [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(20, output_dim)]
-#     return nn.Sequential(*net)
-
 def bank_decoder(input_dim, output_dim):
     net = []
-    net += [nn.Linear(input_dim, 600)]
-    net += [nn.ReLU(inplace=True)]
-    net += [nn.Linear(600, 200)]
+    net += [nn.Linear(input_dim, 200)]
     net += [nn.ReLU(inplace=True)]
     net += [nn.Linear(200, 100)]
     net += [nn.ReLU(inplace=True)]
@@ -330,41 +315,21 @@ def bank_decoder(input_dim, output_dim):
 
 def bank_pseudo(input_dim, output_dim):
     net = []
-    net += [nn.Linear(input_dim, 600)]
-    net += [nn.ReLU(inplace=True)]
-    net += [nn.Linear(600, 300)]
-    net += [nn.ReLU(inplace=True)]
-    net += [nn.Linear(300, output_dim)]
-    return nn.Sequential(*net)
-
-
-def bank_discriminator(input_dim, output_dim=1):
-    net = []
-    net += [nn.Linear(input_dim, 600)]
-    net += [nn.ReLU(inplace=True)]
-    net += [nn.Linear(600, 300)]
-    net += [nn.ReLU(inplace=True)]
-    net += [nn.Linear(300, 100)]
+    net += [nn.Linear(input_dim, 100)]
     net += [nn.ReLU(inplace=True)]
     net += [nn.Linear(100, output_dim)]
     return nn.Sequential(*net)
 
 
-# def bank_net(input_dim, output_dim):
-#     net = []
-    
-#     net += [nn.Linear(input_dim, 200)]
-#     net += [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(200, 100)]
-#     net += [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(100, 10)]
+def bank_discriminator(input_dim, output_dim=1):
+    net = []
+    net += [nn.Linear(input_dim, 200)]
+    net += [nn.ReLU(inplace=True)]
+    net += [nn.Linear(200, 100)]
+    net += [nn.ReLU(inplace=True)]
+    net += [nn.Linear(100, output_dim)]
+    return nn.Sequential(*net)
 
-#     net += [nn.Linear(10, 20)]
-#     net + [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(20, 10)]
-#     net += [nn.ReLU(inplace=True)]
-#     net += [nn.Linear(10, output_dim)]
-#     return nn.Sequential(*net)
 
 # 生成taregt feature的生成器
 class cifar_generator(nn.Module):
@@ -381,7 +346,6 @@ class cifar_generator(nn.Module):
             nn.BatchNorm2d(3),
             nn.Tanh()
         )
-
     def forward(self, x):
         x = self.layer1(x)
         x = self.layer2(x)
@@ -406,6 +370,5 @@ class bank_generator(nn.Module):
             nn.Linear(100, target_dim),
             nn.Sigmoid()
         )
-
     def forward(self, x):
         return self.net(x)

@@ -46,10 +46,14 @@ def split_data(data, dataset):
     if dataset == 'cifar10':
         x_a = data[:, :, :, 0:16]
         x_b = data[:, :, :, 16:32]
-    else:
+    elif dataset == 'bank':
         x_a = data[:, 0:10]
         x_b = data[:, 10:20]
+    elif dataset == 'drive':
+        x_a = data[:, 0:24]
+        x_b = data[:, 24:48]
     return x_a, x_b
+
 
 
 def gradient_penalty(discriminator, x, x_gen,device):

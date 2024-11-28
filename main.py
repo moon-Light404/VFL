@@ -11,7 +11,7 @@ import torchvision.transforms as transforms
 import copy
 import torchvision.utils as vutils
 from vfl import Client, Server, VFLNN
-from our_attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, cal_test
+from our_attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test
 from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder
 import numpy as np
 from torch.utils.data import Subset
@@ -73,7 +73,7 @@ def main():
     parser.add_argument('--lr', type=float, default=1e-4, help="the learning rate of pseudo_inverse model")
     parser.add_argument('--dlr', type=float, default=1e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
-    parser.add_argument('--print_freq', type=int, default='30', help="the print frequency of ouput")
+    parser.add_argument('--print_freq', type=int, default='50', help="the print frequency of ouput")
     parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset")
     parser.add_argument('--level', type=int, default=2, help="the split layer of model")
     parser.add_argument('--dataset_portion', type=float, default=0.05, help="the size portion of auxiliary data")
@@ -83,7 +83,7 @@ def main():
     parser.add_argument('--loss_threshold', type=float, default=1.7, help="the loss flag of our attack")
     parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
-    parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4], help="the type of training")
+    parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], help="the type of training")
     parser.add_argument('--a', type=float, default=0.7, help="the weight of coral")
 
     args = parser.parse_args()
@@ -231,7 +231,7 @@ def main():
         if target_data.size(0) != shadow_data.size(0):
             print("The number is not match")
             exit() 
-        if args.dataset == 'bank':
+        if args.dataset == 'bank' or args.dataset == 'drive':
             target_label = target_label.long()
             shadow_label = shadow_label.long()
         
@@ -249,10 +249,12 @@ def main():
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
             elif args.pseudo_train == 4:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+            elif args.pseudo_train == 5:
+                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args)
             # 每隔100次迭代进行攻击测试，保存图片
-            
-            # attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
-
+            if args.dataset == 'cifar10' and n > 6000 and n % 10 == 0:
+                target_pseudo_loss, pseudo_ssim, pseudo_psnr = attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
+                logging.critical("Iter: %d / %d, Pseudo SSIM: %.4f, Pseudo PSNR: %.4f" %(n, args.iteration,pseudo_ssim, pseudo_psnr))
             # 下面测试伪模型的实用性
             if n % 50 == 0:
                 # 正常VFL测试
