@@ -355,20 +355,11 @@ class bank_generator(nn.Module):
     def __init__(self, latent_dim, target_dim):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(latent_dim, 600), 
-            nn.LayerNorm(600),
+            nn.Linear(latent_dim, 200), 
             nn.ReLU(),
-            
-            nn.Linear(600, 200), 
-            nn.LayerNorm(200),
+            nn.Linear(200, 100), 
             nn.ReLU(),
-            
-            nn.Linear(200, 100),
-            nn.LayerNorm(100),
-            nn.ReLU(),
-            
             nn.Linear(100, target_dim),
-            nn.Sigmoid()
         )
     def forward(self, x):
         return self.net(x)

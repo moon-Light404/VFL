@@ -137,8 +137,8 @@ def main():
                 transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5)),
             ])
     if args.dataset == 'cifar10':
-        train_dataset = torchvision.datasets.CIFAR10(root='./data', train = True, transform=cinic_transform, download=True)
-        test_dataset = torchvision.datasets.CIFAR10(root='./data', train = False, transform=cinic_transform, download=True)
+        train_dataset = torchvision.datasets.CIFAR10(root='./data', train = True, transform=cinic_transform, download=False)
+        test_dataset = torchvision.datasets.CIFAR10(root='./data', train = False, transform=cinic_transform, download=False)
         # 取2500/5000个私有数据
         dataset_num = len(train_dataset) * args.dataset_portion
         shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
