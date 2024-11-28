@@ -1,0 +1,104 @@
+2024-11-28T00:50:14.701413+08:00 - INFO - >>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>
+2024-11-28T00:50:14.701553+08:00 - INFO - iteration: 10000
+2024-11-28T00:50:14.701628+08:00 - INFO - lr: 0.0001
+2024-11-28T00:50:14.701733+08:00 - INFO - dlr: 0.0001
+2024-11-28T00:50:14.701800+08:00 - INFO - batch_size: 64
+2024-11-28T00:50:14.701863+08:00 - INFO - print_freq: 30
+2024-11-28T00:50:14.701924+08:00 - INFO - dataset: drive
+2024-11-28T00:50:14.701985+08:00 - INFO - level: 2
+2024-11-28T00:50:14.702044+08:00 - INFO - dataset_portion: 0.05
+2024-11-28T00:50:14.702106+08:00 - INFO - train_portion: 0.7
+2024-11-28T00:50:14.702167+08:00 - INFO - test_portion: 0.3
+2024-11-28T00:50:14.702227+08:00 - INFO - attack: our
+2024-11-28T00:50:14.702286+08:00 - INFO - loss_threshold: 1.7
+2024-11-28T00:50:14.702347+08:00 - INFO - n_domins: 4
+2024-11-28T00:50:14.702406+08:00 - INFO - pseudo_train: 1
+2024-11-28T00:50:14.702465+08:00 - INFO - a: 0.7
+2024-11-28T00:50:14.702525+08:00 - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+2024-11-28T00:50:18.979323+08:00 - CRITICAL - Dataset column permutation is: 
+ range(0, 48)
+2024-11-28T00:50:18.992485+08:00 - CRITICAL - Creating dataset, len(samples): 58509; positive labels sum: 53190
+2024-11-28T00:50:19.038746+08:00 - CRITICAL - 
+[FUNCTION]: Splitting dataset by getSplittedDataset()......
+2024-11-28T00:50:19.038905+08:00 - INFO - Display first (x, y) pair of dataset:
+ tensor([7.0346e-01, 5.4556e-01, 7.2105e-01, 8.9780e-01, 9.1003e-01, 7.7792e-01,
+        8.2103e-01, 8.1753e-01, 8.1294e-01, 3.2505e-01, 3.2502e-01, 3.2505e-01,
+        1.3157e-04, 8.5679e-04, 2.3714e-03, 1.1571e-04, 9.0313e-04, 4.7071e-03,
+        6.2715e-02, 6.2719e-02, 6.2769e-02, 6.2360e-02, 6.2368e-02, 6.2405e-02,
+        3.5851e-01, 5.0865e-01, 4.1320e-01, 3.9434e-01, 5.2852e-01, 5.0881e-01,
+        3.5808e-01, 3.6554e-01, 3.6990e-01, 6.2594e-01, 6.3140e-01, 6.3767e-01,
+        6.0996e-05, 1.5917e-02, 2.0749e-02, 7.3337e-05, 3.9992e-03, 5.1032e-02,
+        4.3299e-01, 4.2939e-01, 4.0469e-01, 1.1835e-01, 1.2688e-01, 1.1781e-01]), tensor(0.)
+2024-11-28T00:50:19.042166+08:00 - INFO - Shape of (x, y): torch.Size([48]) torch.Size([])
+2024-11-28T00:50:19.047738+08:00 - CRITICAL - len(trainset): 40956
+2024-11-28T00:50:19.047964+08:00 - CRITICAL - len(testset): 17553
+2024-11-28T00:50:19.048122+08:00 - INFO - DataSet:drive
+2024-11-28T00:50:19.048271+08:00 - INFO - Train Dataset: 40956
+2024-11-28T00:50:19.048360+08:00 - INFO - Test Dataset: 17553
+2024-11-28T00:50:19.048442+08:00 - INFO - Shadow Dataset:2047
+2024-11-28T00:50:21.264199+08:00 - CRITICAL - Iter: 30 / 10000, Pseudo Loss: -0.0766, Pseudo Inverse Loss: 0.1918, Discriminator Loss: 0.4738, Pseudo Target MSELoss: 0.1947,  Dis_Pseudo_Loss: 0.0766, Dis_target_Loss.: -0.0341 
+
+2024-11-28T00:50:22.331265+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:23.928606+08:00 - CRITICAL - VFL Loss: 1.4145, VFL Acc: 39.6741,
+ Pseudo Loss: 3.2277, Pseudo Acc: 9.2292
+2024-11-28T00:50:24.203829+08:00 - CRITICAL - Iter: 60 / 10000, Pseudo Loss: -0.1417, Pseudo Inverse Loss: 0.0559, Discriminator Loss: -0.2975, Pseudo Target MSELoss: 0.0724,  Dis_Pseudo_Loss: 0.1417, Dis_target_Loss.: -0.4510 
+
+2024-11-28T00:50:25.124878+08:00 - CRITICAL - Iter: 90 / 10000, Pseudo Loss: -0.2740, Pseudo Inverse Loss: 0.0165, Discriminator Loss: -1.0101, Pseudo Target MSELoss: 0.0313,  Dis_Pseudo_Loss: 0.2740, Dis_target_Loss.: -1.3516 
+
+2024-11-28T00:50:25.570221+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:27.294127+08:00 - CRITICAL - VFL Loss: 1.0571, VFL Acc: 51.1821,
+ Pseudo Loss: 5.0707, Pseudo Acc: 6.3408
+2024-11-28T00:50:27.889000+08:00 - CRITICAL - Iter: 120 / 10000, Pseudo Loss: -0.4037, Pseudo Inverse Loss: 0.0105, Discriminator Loss: -1.2349, Pseudo Target MSELoss: 0.0249,  Dis_Pseudo_Loss: 0.4037, Dis_target_Loss.: -1.6802 
+
+2024-11-28T00:50:29.039171+08:00 - CRITICAL - Iter: 150 / 10000, Pseudo Loss: -0.3429, Pseudo Inverse Loss: 0.0116, Discriminator Loss: -1.3362, Pseudo Target MSELoss: 0.0211,  Dis_Pseudo_Loss: 0.3429, Dis_target_Loss.: -1.7132 
+
+2024-11-28T00:50:29.040097+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:30.721345+08:00 - CRITICAL - VFL Loss: 1.0077, VFL Acc: 54.9878,
+ Pseudo Loss: 5.9910, Pseudo Acc: 9.2235
+2024-11-28T00:50:31.648802+08:00 - CRITICAL - Iter: 180 / 10000, Pseudo Loss: -0.1214, Pseudo Inverse Loss: 0.0122, Discriminator Loss: -1.4219, Pseudo Target MSELoss: 0.0252,  Dis_Pseudo_Loss: 0.1214, Dis_target_Loss.: -1.6296 
+
+2024-11-28T00:50:32.384685+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:33.910181+08:00 - CRITICAL - VFL Loss: 0.9682, VFL Acc: 56.1158,
+ Pseudo Loss: 5.9452, Pseudo Acc: 9.2064
+2024-11-28T00:50:34.120531+08:00 - CRITICAL - Iter: 210 / 10000, Pseudo Loss: -0.0017, Pseudo Inverse Loss: 0.0100, Discriminator Loss: -1.5233, Pseudo Target MSELoss: 0.0326,  Dis_Pseudo_Loss: 0.0017, Dis_target_Loss.: -1.5755 
+
+2024-11-28T00:50:35.198570+08:00 - CRITICAL - Iter: 240 / 10000, Pseudo Loss: -0.0785, Pseudo Inverse Loss: 0.0074, Discriminator Loss: -1.2821, Pseudo Target MSELoss: 0.0283,  Dis_Pseudo_Loss: 0.0785, Dis_target_Loss.: -1.4232 
+
+2024-11-28T00:50:35.612342+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:37.371010+08:00 - CRITICAL - VFL Loss: 0.9219, VFL Acc: 52.7659,
+ Pseudo Loss: 6.6921, Pseudo Acc: 9.2064
+2024-11-28T00:50:37.986440+08:00 - CRITICAL - Iter: 270 / 10000, Pseudo Loss: -0.1353, Pseudo Inverse Loss: 0.0072, Discriminator Loss: -1.2328, Pseudo Target MSELoss: 0.0272,  Dis_Pseudo_Loss: 0.1353, Dis_target_Loss.: -1.3804 
+
+2024-11-28T00:50:38.957910+08:00 - CRITICAL - Iter: 300 / 10000, Pseudo Loss: -0.1654, Pseudo Inverse Loss: 0.0080, Discriminator Loss: -1.2159, Pseudo Target MSELoss: 0.0275,  Dis_Pseudo_Loss: 0.1654, Dis_target_Loss.: -1.4075 
+
+2024-11-28T00:50:38.958674+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:40.720646+08:00 - CRITICAL - VFL Loss: 1.0123, VFL Acc: 52.9368,
+ Pseudo Loss: 6.0276, Pseudo Acc: 9.2064
+2024-11-28T00:50:41.751580+08:00 - CRITICAL - Iter: 330 / 10000, Pseudo Loss: -0.1639, Pseudo Inverse Loss: 0.0071, Discriminator Loss: -0.8590, Pseudo Target MSELoss: 0.0234,  Dis_Pseudo_Loss: 0.1639, Dis_target_Loss.: -1.2142 
+
+2024-11-28T00:50:42.532989+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:44.124000+08:00 - CRITICAL - VFL Loss: 0.9059, VFL Acc: 57.3919,
+ Pseudo Loss: 7.8644, Pseudo Acc: 10.8471
+2024-11-28T00:50:44.310828+08:00 - CRITICAL - Iter: 360 / 10000, Pseudo Loss: -0.1213, Pseudo Inverse Loss: 0.0063, Discriminator Loss: -0.6438, Pseudo Target MSELoss: 0.0136,  Dis_Pseudo_Loss: 0.1213, Dis_target_Loss.: -0.8051 
+
+2024-11-28T00:50:45.275955+08:00 - CRITICAL - Iter: 390 / 10000, Pseudo Loss: -0.0129, Pseudo Inverse Loss: 0.0063, Discriminator Loss: -0.8907, Pseudo Target MSELoss: 0.0202,  Dis_Pseudo_Loss: 0.0129, Dis_target_Loss.: -0.9206 
+
+2024-11-28T00:50:45.507259+08:00 - CRITICAL - Start testing the accuracy of the model: 
+
+2024-11-28T00:50:47.076463+08:00 - CRITICAL - VFL Loss: 0.7847, VFL Acc: 63.9549,
+ Pseudo Loss: 10.5014, Pseudo Acc: 10.0610
+2024-11-28T00:50:47.831594+08:00 - CRITICAL - Iter: 420 / 10000, Pseudo Loss: 0.1098, Pseudo Inverse Loss: 0.0059, Discriminator Loss: -0.7418, Pseudo Target MSELoss: 0.0214,  Dis_Pseudo_Loss: -0.1098, Dis_target_Loss.: -0.7375 
+
+2024-11-28T00:50:48.914701+08:00 - CRITICAL - Iter: 450 / 10000, Pseudo Loss: 0.1700, Pseudo Inverse Loss: 0.0068, Discriminator Loss: -0.8219, Pseudo Target MSELoss: 0.0435,  Dis_Pseudo_Loss: -0.1700, Dis_target_Loss.: -0.7040 
+
+2024-11-28T00:50:48.915578+08:00 - CRITICAL - Start testing the accuracy of the model: 
+

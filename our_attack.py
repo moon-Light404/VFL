@@ -489,7 +489,7 @@ def pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
         logging.critical('Coral Loss: %.4f' % (loss_penalty.item()))
     # 把伪模型的特征空间输入到鉴别器中
     d_output_pseudo = discriminator(pseudo_output)
-    pseudo_loss = torch.mean(d_output_pseudo)
+    pseudo_loss = (1 - args.a) * torch.mean(d_output_pseudo) + args.a * loss_penalty
 
     pseudo_loss.backward()
     pseudo_optimizer.step()
