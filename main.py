@@ -89,7 +89,7 @@ def main():
     args = parser.parse_args()
 
     gid = '0'
-    date_time_file = datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d-%H-%M-%S")
+    date_time_file = datetime.now(pytz.timezone('Asia/Shanghai')).strftime("%Y-%m-%d-%H-%M")
 
 
     if args.dataset == 'bank':
@@ -114,7 +114,7 @@ def main():
     
     path_name = os.path.join('log', args.attack, args.dataset)
     os.makedirs(path_name, exist_ok=True)
-    initlogging(logfile=os.path.join(path_name, date_time_file + '.log'))
+    initlogging(logfile=os.path.join(path_name, "pse" + str(args.pseudo_train) + '-' + date_time_file + '.log'))
     logging.info(">>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>")
     for arg in vars(args):
         logging.info("%s: %s", arg, getattr(args, arg))
