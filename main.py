@@ -114,7 +114,11 @@ def main():
     
     path_name = os.path.join('log', args.attack, args.dataset)
     os.makedirs(path_name, exist_ok=True)
-    initlogging(logfile=os.path.join(path_name, "pse" + str(args.pseudo_train) + '-' + date_time_file + '.log'))
+    if args.attack == 'our':
+        file_tmp = "pse" + str(args.pseudo_train) + '-'
+    else:
+        file_tmp = ""
+    initlogging(logfile=os.path.join(path_name, file_tmp + date_time_file + '.log'))
     logging.info(">>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>")
     for arg in vars(args):
         logging.info("%s: %s", arg, getattr(args, arg))
@@ -182,9 +186,13 @@ def main():
         test_data = torch.ones(1, vfl_input_dim)
         with torch.no_grad():
             test_data_output = target_bottom1(test_data)
-            d_input_shape = test_data_output.shape[1]
+            d_input_shape = test_data_output.shape[1] # d_input_shape是被动客户端输入的中间特征
         pseudo_model = bank_pseudo(input_dim=vfl_input_dim, output_dim = d_input_shape)
+        if args.attack == 'agn': # 鉴别器输入的是完整的数据记录
+            d_input_shape = vfl_input_dim * 2
         discriminator = bank_discriminator(input_dim = d_input_shape)
+        d_input_shape = test_data_output.shape[1]
+        # decoder的输入是两个中间特征拼接
         pseudo_inverse_model = bank_decoder(input_dim = 2 * d_input_shape, output_dim = vfl_input_dim * 2)
 
     target_bottom1, target_bottom2, target_top = target_bottom1.to(device), target_bottom2.to(device), target_top.to(device)
