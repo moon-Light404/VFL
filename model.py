@@ -295,10 +295,12 @@ def bank_net(input_dim, output_dim):
     client += [nn.Linear(input_dim, 200)]
     client += [nn.ReLU(inplace=True)]
     client += [nn.Linear(200, 100)]
+    client += [nn.ReLU(inplace=True)]
+    client += [nn.Linear(100, 30)]
 
-    server += [nn.Linear(200, 100)]
+    server += [nn.Linear(60, 120)]
     server + [nn.ReLU(inplace=True)]
-    server += [nn.Linear(100, 50)]
+    server += [nn.Linear(120, 50)]
     server += [nn.ReLU(inplace=True)]
     server += [nn.Linear(50, output_dim)]
     return nn.Sequential(*client), nn.Sequential(*server)
@@ -317,7 +319,9 @@ def bank_pseudo(input_dim, output_dim):
     net = []
     net += [nn.Linear(input_dim, 100)]
     net += [nn.ReLU(inplace=True)]
-    net += [nn.Linear(100, output_dim)]
+    net += [nn.Linear(100, 50)]
+    net += [nn.ReLU(inplace=True)]
+    net += [nn.Linear(50, output_dim)]
     return nn.Sequential(*net)
 
 

@@ -185,7 +185,7 @@ def main():
             d_input_shape = test_data_output.shape[1]
         pseudo_model = bank_pseudo(input_dim=vfl_input_dim, output_dim = d_input_shape)
         discriminator = bank_discriminator(input_dim = d_input_shape)
-        pseudo_inverse_model = bank_decoder(input_dim = 200, output_dim = vfl_input_dim * 2)
+        pseudo_inverse_model = bank_decoder(input_dim = 2 * d_input_shape, output_dim = vfl_input_dim * 2)
 
     target_bottom1, target_bottom2, target_top = target_bottom1.to(device), target_bottom2.to(device), target_top.to(device)
     pseudo_model = pseudo_model.to(device)
