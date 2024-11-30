@@ -71,7 +71,7 @@ def main():
     parser = argparse.ArgumentParser(description="VFL of implementation")
     parser.add_argument('--iteration', type=int, default=10000, help="")
     parser.add_argument('--lr', type=float, default=1e-4, help="the learning rate of pseudo_inverse model")
-    parser.add_argument('--dlr', type=float, default=1e-4, help="the learning rate of discriminate")
+    parser.add_argument('--dlr', type=float, default=3e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
     parser.add_argument('--print_freq', type=int, default='50', help="the print frequency of ouput")
     parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset")
@@ -84,7 +84,7 @@ def main():
     parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
     parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], default=2, help="the type of training")
-    parser.add_argument('--a', type=float, default=0.7, help="the weight of coral")
+    parser.add_argument('--a', type=float, default=0.3, help="the weight of coral")
     parser.add_argument('--gan_p', type=float, default=1000, help="the weight of wgan")
 
     args = parser.parse_args()
