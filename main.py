@@ -85,6 +85,7 @@ def main():
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
     parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], help="the type of training")
     parser.add_argument('--a', type=float, default=0.7, help="the weight of coral")
+    parser.add_argument('--gan_p', type=float, default=1000, help="the weight of wgan")
 
     args = parser.parse_args()
 
