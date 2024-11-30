@@ -83,7 +83,7 @@ def main():
     parser.add_argument('--loss_threshold', type=float, default=1.7, help="the loss flag of our attack")
     parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
-    parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], help="the type of training")
+    parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], default=2, help="the type of training")
     parser.add_argument('--a', type=float, default=0.7, help="the weight of coral")
     parser.add_argument('--gan_p', type=float, default=1000, help="the weight of wgan")
 
@@ -112,14 +112,17 @@ def main():
     cudnn.deterministic = True
     cudnn.benchmark = False
 
+    level = 'level' + str(args.level)
+    n_domins = 'n_domins' + str(args.n_domins)
+    pseudo_train = 'pseudo_train' + str(args.pseudo_train)
     
-    path_name = os.path.join('log', args.attack, args.dataset)
-    os.makedirs(path_name, exist_ok=True)
+    path_name = os.path.join('log', args.attack, args.dataset, level)
     if args.attack == 'our':
-        file_tmp = "pse" + str(args.pseudo_train) + '-'
-    else:
-        file_tmp = ""
-    initlogging(logfile=os.path.join(path_name, file_tmp + date_time_file + '.log'))
+        path_name = os.path.join(path_name, pseudo_train)
+        if args.pseudo_train == 2:
+            path_name = os.path.join(path_name, n_domins)
+    os.makedirs(path_name, exist_ok=True)
+    initlogging(logfile=os.path.join(path_name, date_time_file + '.log'))
     logging.info(">>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>")
     for arg in vars(args):
         logging.info("%s: %s", arg, getattr(args, arg))

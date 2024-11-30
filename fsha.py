@@ -55,11 +55,8 @@ def fsha(pas_client, act_client, pseudo_model, decoder, discriminator, pas_clien
     loss_discr_fake = -torch.mean(adv_target_logits)  
     van_D_loss = loss_discr_true + loss_discr_fake
     # 更新鉴别器的参数
-<<<<<<< Updated upstream
-    D_loss = van_D_loss + 600 * gradient_penalty(discriminator, pas_intermediate.detach(), pseudo_output_a.detach(), device)
-=======
+
     D_loss = van_D_loss + args.gan_p * gradient_penalty(discriminator, pas_intermediate.detach(), pseudo_output_a.detach(), device)
->>>>>>> Stashed changes
     D_loss.backward()
     discriminator_optimizer.step()  
 
