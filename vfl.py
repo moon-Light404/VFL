@@ -13,7 +13,7 @@ class Client(torch.nn.Module):
         # intermediate_to_server = self.client_side_intermediate.detach()\
         #     .requires_grad_()
         intermediate_to_server = self.client_side_intermediate
-
+        # client的中间结果传给Server
         return intermediate_to_server
     
     def client_backward(self, grad_from_server):
@@ -37,12 +37,13 @@ class Server(torch.nn.Module):
         self.cat_dimension = cat_dimension
         self.intermediate_to_server = [] # List of intermediate values from the clients
         self.grad_to_client = []
+        self.input = None
 
     def forward(self, intermediate_to_server):
         self.intermediate_to_server = intermediate_to_server
         # Concatenate the intermediate values from the clients
         input = torch.cat((self.intermediate_to_server[0], self.intermediate_to_server[1]), self.cat_dimension)
-        
+        self.input = input
         output = self.server_model(input)
         return output
     

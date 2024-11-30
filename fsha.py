@@ -3,6 +3,7 @@ from torch.nn import functional as F
 import torch
 import torch.nn as nn
 import logging
+from piq import ssim, psnr
 
 def fsha(pas_client, act_client, pseudo_model, decoder, discriminator, pas_client_optimizer, pseudo_model_optimizer, decoder_optimizer, discriminator_optimizer, target_data, target_label, device, shadow_data, shadow_label, n, cat_dimension, args):
 
@@ -67,6 +68,32 @@ def fsha(pas_client, act_client, pseudo_model, decoder, discriminator, pas_clien
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
         logging.critical('Iter: %d / %d,  Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f' % (n, args.iteration,  rec_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
 
+def FSHA_test(target_vflnn, pseudo_inverse_model, target_loader, device, args):
+    denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    target_vflnn.eval()
+    pseudo_inverse_model.eval()
+    mse_loss = []
+    psnr_loss = []
+    ssim_loss = []
+    with torch.no_grad():
+        for data, target in target_loader:
+            data, target = data.to(device), target.to(device)
+            x_a, x_b = split_data(data, args.dataset)
+            target_output = target_vflnn(x_a, x_b)
+            pseudo_inverse_input = target_vflnn.server.input
+            recover_data = pseudo_inverse_model(pseudo_inverse_input)
+            recover_loss = F.mse_loss(recover_data, data, reduction='mean').item()
+            mse_loss.append(recover_loss)
+            origin_data_ = denorm(data.clone())
+            recover_data_ = denorm(recover_data.clone())
+            ssim_ = ssim(origin_data_, recover_data_, reduction='mean').item()
+            psnr_ = psnr(origin_data_, recover_data_, reduction='mean').item()
+            psnr_loss.append(psnr_)
+            ssim_loss.append(ssim_)
+    mean_loss = sum(mse_loss) / len(mse_loss)
+    mean_psnr = sum(psnr_loss) / len(psnr_loss)
+    mean_ssim = sum(ssim_loss) / len(ssim_loss)
+    return mean_loss, mean_psnr, mean_ssim
 
 
 

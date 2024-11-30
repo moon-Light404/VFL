@@ -84,7 +84,7 @@ def pseudo_training_1(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_discr_true = torch.mean(adv_target_logits)
     loss_discr_fake = -torch.mean(adv_pseudo_logits)
     vanila_D_loss = loss_discr_true + loss_discr_fake
-    D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
+    D_loss = vanila_D_loss + args.gan_p * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
     D_loss.backward()
     discriminator_optimizer.step()
 
@@ -201,7 +201,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_discr_true = torch.mean(adv_target_logits)
     loss_discr_fake = -torch.mean(adv_pseudo_logits)
     vanila_D_loss = loss_discr_true + loss_discr_fake
-    D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
+    D_loss = vanila_D_loss + args._gan_p * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
     D_loss.backward()
     discriminator_optimizer.step()
 
@@ -315,7 +315,7 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_discr_true = torch.mean(adv_target_logits)
     loss_discr_fake = -torch.mean(adv_pseudo_logits)
     vanila_D_loss = loss_discr_true + loss_discr_fake
-    D_loss = vanila_D_loss + 1000 * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
+    D_loss = vanila_D_loss + args.gan_p * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
     D_loss.backward()
     discriminator_optimizer.step()
 
@@ -611,16 +611,34 @@ def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target
     target_pseudo_loss /= len(target_data)
     return target_pseudo_loss, pseudo_ssim, pseudo_psnr
 
-# def attack_test_all(target_vflnn, pseudo_inverse_model, target_data, device, args):
-#     target_vflnn.eval()
-#     with torch.no_grad():
-#         x_a, x_b = split_data(target_data, args.dataset)
-#         target_intermediate = target_vflnn.client1(x_a)
-#         target_intermediate = target_intermediate.to(device)
-#         target_output = target_vflnn.client2(x_b)
-#         target_output = target_output.to(device)
-#         target_output = torch.cat((target_intermediate, target_output), 3)
-#         pseudo_inverse_output = pseudo_inverse_model(target_output)
+# 训练完成后测试逆网络恢复的性能mse psnr ssim
+def attack_test_all(target_vflnn, pseudo_inverse_model, target_loader, device, args):
+    denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    target_vflnn.eval()
+    pseudo_inverse_model.eval()
+    mse_loss = []
+    psnr_loss = []
+    ssim_loss = []
+    with torch.no_grad():
+        for data, target in target_loader:
+            data, target = data.to(device), target.to(device)
+            x_a, x_b = split_data(data, args.dataset)
+            target_output = target_vflnn(x_a, x_b)
+            pseudo_inverse_input = target_vflnn.server.input
+            recover_data = pseudo_inverse_model(pseudo_inverse_input)
+            recover_loss = F.mse_loss(recover_data, data, reduction='mean').item()
+            mse_loss.append(recover_loss)
+            origin_data_ = denorm(data.clone())
+            recover_data_ = denorm(recover_data.clone())
+            ssim_ = ssim(origin_data_, recover_data_, reduction='mean').item()
+            psnr_ = psnr(origin_data_, recover_data_, reduction='mean').item()
+            psnr_loss.append(psnr_)
+            ssim_loss.append(ssim_)
+    mean_loss = sum(mse_loss) / len(mse_loss)
+    mean_psnr = sum(psnr_loss) / len(psnr_loss)
+    mean_ssim = sum(ssim_loss) / len(ssim_loss)
+    return mean_loss, mean_psnr, mean_ssim
+
 
 # 测试整个vfl模型的准确率
 def cal_test(target_vflnn, pseudo_model, test_loader, device, dataset):
@@ -645,9 +663,6 @@ def cal_test(target_vflnn, pseudo_model, test_loader, device, dataset):
             pred = output.argmax(dim=1, keepdim=True)
             correct += pred.eq(target.view_as(pred)).sum().item()
     test_loss /= len(test_loader.dataset)
-    # logging.info('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-    #     test_loss, correct, len(test_loader.dataset),
-    #     100. * correct / len(test_loader.dataset)))
     return test_loss, 100. * correct / len(test_loader.dataset)
 
 

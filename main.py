@@ -11,7 +11,7 @@ import torchvision.transforms as transforms
 import copy
 import torchvision.utils as vutils
 from vfl import Client, Server, VFLNN
-from our_attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test
+from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test
 from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder
 import numpy as np
 from torch.utils.data import Subset
@@ -73,7 +73,7 @@ def main():
     parser.add_argument('--lr', type=float, default=1e-4, help="the learning rate of pseudo_inverse model")
     parser.add_argument('--dlr', type=float, default=3e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
-    parser.add_argument('--print_freq', type=int, default='50', help="the print frequency of ouput")
+    parser.add_argument('--print_freq', type=int, default='25', help="the print frequency of ouput")
     parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset")
     parser.add_argument('--level', type=int, default=2, help="the split layer of model")
     parser.add_argument('--dataset_portion', type=float, default=0.05, help="the size portion of auxiliary data")
