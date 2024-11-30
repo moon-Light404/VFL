@@ -14,8 +14,7 @@ class ResBlock(nn.Module):
             self.bn0 = nn.BatchNorm2d(in_planes)
 
         
-        self.conv1 = nn.Conv2d(
-            in_planes, planes, kernel_size=3, stride=stride, padding=1)
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1)
         if bn:
             self.bn1 = nn.BatchNorm2d(planes)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3,
@@ -87,6 +86,7 @@ def cifar_mobilenet(level):
     if level == 2:
         client += conv_bn(  3,  32, 2)
         client += conv_dw( 32,  64, 1)
+
         server += conv_dw( 64, 128, 2)
         server += conv_dw(128, 128, 1)
         server += conv_dw(128, 256, 2)
@@ -106,6 +106,7 @@ def cifar_mobilenet(level):
         client += conv_dw( 32,  64, 1)
         client += conv_dw( 64, 128, 2)
         client += conv_dw(128, 128, 1)
+
         server += conv_dw(128, 256, 2)
         server += conv_dw(256, 256, 1)
         server += conv_dw(256, 512, 2)
@@ -125,6 +126,7 @@ def cifar_mobilenet(level):
         client += conv_dw(128, 128, 1)
         client += conv_dw(128, 256, 2)
         client += conv_dw(256, 256, 1)
+
         server += conv_dw(256, 512, 2)
         server += conv_dw(512, 512, 1)
         server += conv_dw(512, 512, 1)
@@ -225,7 +227,7 @@ def cifar_decoder(input_shape, level, channels=3):
         net += [nn.Tanh()]
         return nn.Sequential(*net)
     
-def cifar_discriminator_model(input_shape, level, agn):
+def cifar_discriminator_model(input_shape, level, agn=False, fc_dim=512):
 
     net = []
     if level <=2:
@@ -256,7 +258,8 @@ def cifar_discriminator_model(input_shape, level, agn):
         net += [nn.Linear(4096, 1024)]
         net += [nn.Linear(1024, 1)]
     else:
-        net += [nn.Linear(512, 1)] # vfl分割后的一半特征
+        net += [nn.Linear(fc_dim, 1)] # cifar_model 512
+        # net += [nn.Linear(1024, 1)] # resnet
     return nn.Sequential(*net)
 
 def cifar_pseudo(level):
@@ -367,3 +370,110 @@ class bank_generator(nn.Module):
         )
     def forward(self, x):
         return self.net(x)
+
+
+def Resnet(level, output_dim = 100):
+    client = []
+    server = []
+    bn = False
+    if level == 1:
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+                                nn.BatchNorm2d(64),
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+       
+        server += [ResBlock(64, 64, bn=bn)]
+        server += [ResBlock(64, 64, bn=bn)]
+        server += [ResBlock(64, 128, bn=bn, stride=2)]
+        server += [ResBlock(128, 128, bn=bn, stride=2)]
+        server += [ResBlock(128, 256, bn=bn,stride=2)]
+        server += [ResBlock(256, 256, bn=bn, stride=2)]
+        server += [ResBlock(256, 512, bn=bn,stride=2)]
+        server += [ResBlock(512, 512, bn=bn, stride=2)]
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+    if level == 2:
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+                                nn.BatchNorm2d(64),
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        client += [ResBlock(64, 64, bn=bn)]
+        client += [ResBlock(64, 64, bn=bn)]
+        server += [ResBlock(64, 128, bn=bn, stride=2)]
+        server += [ResBlock(128, 128, bn=bn, stride=2)]
+        server += [ResBlock(128, 256, bn=bn,stride=2)]
+        server += [ResBlock(256, 256, bn=bn, stride=2)]
+        server += [ResBlock(256, 512, bn=bn,stride=2)]
+        server += [ResBlock(512, 512, bn=bn,stride=2)]
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+    if level == 3:
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+                                nn.BatchNorm2d(64),
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        client += [ResBlock(64, 64, bn=bn)]
+        client += [ResBlock(64, 64, bn=bn)]
+        client += [ResBlock(64, 128, bn=bn, stride=2)]
+        client += [ResBlock(128, 128, bn=bn ,stride=2)]
+        server += [ResBlock(128, 256, bn=bn,stride=2)]
+        server += [ResBlock(256, 256, bn=bn, stride=2)]
+        server += [ResBlock(256, 512, bn=bn,stride=2)]
+        server += [ResBlock(512, 512, bn=bn, stride=2)]
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+    if level == 4:
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
+                                nn.BatchNorm2d(64),
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        client += [ResBlock(64, 64, bn=bn)]
+        client += [ResBlock(64, 64, bn=bn)]
+        client += [ResBlock(64, 128, bn=bn, stride=2)]
+        client += [ResBlock(128, 128, bn=bn)]
+        client += [ResBlock(128, 256, bn=bn,stride=2)]
+        client += [ResBlock(256, 256, bn=bn,)]
+        server += [ResBlock(256, 512, bn=bn,stride=2)]
+        server += [ResBlock(512, 512, bn=bn,)]
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+
+
+def resnet_pseudo(level = 2):
+    client = []
+    return client
+
+def resent_decode(input_shape, level, channels=3):
+    net = []
+    #act = "relu"
+    act = None
+    print("[DECODER] activation: ", act)
+
+    net += [nn.ConvTranspose2d(input_shape[0], 256, 3, 2, 1, output_padding=1), nn.BatchNorm2d(256), nn.LeakyReLU(0.2, inplace=True)]
+
+    if level <= 2:
+        net += [nn.Conv2d(256, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
+        net += [nn.Tanh()]
+        return nn.Sequential(*net)
+    
+    net += [nn.ConvTranspose2d(256, 128, 3, 2, 1, output_padding=1), nn.BatchNorm2d(128), nn.LeakyReLU(0.2, inplace=True)]
+
+    if level == 3:
+        net += [nn.Conv2d(128, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
+        net += [nn.Tanh()]
+        return nn.Sequential(*net)
+    
+    net += [nn.ConvTranspose2d(128, 64, 3, 2, 1, output_padding=1), nn.BatchNorm2d(64), nn.LeakyReLU(0.2, inplace=True)]
+
+    if level == 4:
+        net += [nn.Conv2d(64, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
+        net += [nn.Tanh()]
+        return nn.Sequential(*net)
