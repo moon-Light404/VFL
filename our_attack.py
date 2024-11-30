@@ -102,7 +102,7 @@ def pseudo_training_1(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, args.iteration, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 # 鉴别器+coral
@@ -217,7 +217,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, args.iteration, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 # 鉴别器+pcat
@@ -333,7 +333,7 @@ def pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, args.iteration, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 # 只有pcat
@@ -421,7 +421,7 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        logging.critical('Iter: %d / %d,  Pseudo Inverse Loss: %.4f, Pseudo Target MSELoss: %.4f' % (n, 10000, pseudo_inverse_loss.item(), pseudo_target_mesloss.item()))
+        logging.critical('Iter: %d / %d,  Pseudo Inverse Loss: %.4f, Pseudo Target MSELoss: %.4f' % (n, args.iteration, pseudo_inverse_loss.item(), pseudo_target_mesloss.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
 # 鉴别器+coral+pcat
@@ -562,7 +562,7 @@ def pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
             attack_input = torch.cat((target_vflnn_pas_intermediate, target_vflnn_act_intermediate), cat_dimension)
             pseudo_attack_result = pseudo_inverse_model(attack_input)
         pseudo_target_mesloss = F.mse_loss(pseudo_attack_result, target_data)
-        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, 10000, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
+        logging.critical('Iter: %d / %d, Pseudo Loss: %.4f, Pseudo Inverse Loss: %.4f, Discriminator Loss: %.4f, Pseudo Target MSELoss: %.4f,  Dis_Pseudo_Loss: %.4f, Dis_target_Loss.: %.4f \n' % (n, args.iteration, pseudo_loss.item(), pseudo_inverse_loss.item(), D_loss.item(), pseudo_target_mesloss.item(), loss_discr_fake.item(), loss_discr_true.item()))
     return target_vflnn_pas_intermediate, target_vflnn_act_intermediate
 
     
