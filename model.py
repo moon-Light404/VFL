@@ -371,7 +371,7 @@ class bank_generator(nn.Module):
         return self.net(x)
 
 
-def Resnet(level, output_dim = 100):
+def Resnet(level, output_dim = 200):
     client = []
     server = []
     bn = False
