@@ -49,7 +49,7 @@ def AGN_training(target_vflnn, pseudo_inverse_model, pseudo_inverse_optimizer, d
     # 鉴别器损失
     loss_discr_true = torch.mean(adv_priv_logits)
     loss_discr_fake = -torch.mean(adv_pub_logits)
-    D_loss = loss_discr_true + loss_discr_fake + 500 * gradient_penalty(discriminator, shadow_data, pseudo_inverse_output.detach(), device)
+    D_loss = loss_discr_true + loss_discr_fake + 600 * gradient_penalty(discriminator, shadow_data, pseudo_inverse_output.detach(), device)
     # 更新鉴别器d的参数
     D_loss.backward()
     discriminator_optimizer.step()
