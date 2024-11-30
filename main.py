@@ -140,14 +140,30 @@ def main():
     print(device)
    
 
-    cinic_transform = transforms.Compose([
+    cifar_transform = transforms.Compose([
                 transforms.ToTensor(),
                 transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5)),
             ])
+    tiny_normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                     std=[0.229, 0.224, 0.225])
+    
     if args.dataset == 'cifar10':
-        train_dataset = torchvision.datasets.CIFAR10(root='./data', train = True, transform=cinic_transform, download=False)
-        test_dataset = torchvision.datasets.CIFAR10(root='./data', train = False, transform=cinic_transform, download=False)
+        train_dataset = torchvision.datasets.CIFAR10(root='./data', train = True, transform=cifar_transform, download=False)
+        test_dataset = torchvision.datasets.CIFAR10(root='./data', train = False, transform=cifar_transform, download=False)
         # 取2500/5000个私有数据
+        dataset_num = len(train_dataset) * args.dataset_portion
+        shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
+        cat_dimension = 3
+    elif args.dataset == 'tinyImageNet':
+        train_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/train', 
+                                                         transform=transforms.Compose([transforms.ToTensor(),
+                                                          tiny_normalize])
+                                                         )
+        test_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/val', 
+                                                        transform= transforms.Compose([transforms.ToTensor(),
+                                                            tiny_normalize])
+                                                        )
+        
         dataset_num = len(train_dataset) * args.dataset_portion
         shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
         cat_dimension = 3
