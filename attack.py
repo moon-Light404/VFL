@@ -516,23 +516,16 @@ def pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 进一步更新伪模型，只更新伪模型
     for para in target_vflnn.client2.parameters():
         para.requires_grad = False
-    # 学习服务器的知识
-    loss_flag = 1000
-    with torch.no_grad():
-        vflnn_output = target_vflnn(target_x_a, target_x_b)
-        target_vflnn_loss = F.cross_entropy(vflnn_output, target_label)
-        loss_flag = target_vflnn_loss.clone().item()
-    # loss_flag < 0 就不进入这个分支
-    if args.loss_threshold > 0 and loss_flag < args.loss_threshold:
-        target_vflnn.zero_grads()
-        pseudo_optimizer.zero_grad()
-        target_vflnn.eval()
-        classifier_input1 = pseudo_model(shadow_x_a)
-        classifier_input2 = target_vflnn.client2(shadow_x_b).detach()
-        classifer_output = target_vflnn.server([classifier_input1, classifier_input2])
-        classifier_loss = F.cross_entropy(classifer_output, shadow_label)
-        classifier_loss.backward()
-        pseudo_optimizer.step() # 更新伪模型,更接近被动方模型
+    
+    target_vflnn.zero_grads()
+    pseudo_optimizer.zero_grad()
+    target_vflnn.eval()
+    classifier_input1 = pseudo_model(shadow_x_a)
+    classifier_input2 = target_vflnn.client2(shadow_x_b).detach()
+    classifer_output = target_vflnn.server([classifier_input1, classifier_input2])
+    classifier_loss = F.cross_entropy(classifer_output, shadow_label)
+    classifier_loss.backward()
+    pseudo_optimizer.step() # 更新伪模型,更接近被动方模型
 
     # 更新鉴别器，此时不能更新伪模型，设为detach()
     discriminator_optimizer.zero_grad()
@@ -617,10 +610,10 @@ def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target
     return target_pseudo_loss, pseudo_ssim, pseudo_psnr
 
 # 训练完成后测试逆网络恢复的性能mse psnr ssim
-def attack_test_all(target_vflnn, pseudo_inverse_model, target_loader, device, args):
-    if args.dataset == 'tinyImagenet':
+def attack_test_all(target_vflnn, pseudo_inverse_model, target_loader, device, dataset):
+    if dataset == 'tinyImagenet':
         denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    elif args.dataset == 'cifar10':
+    elif dataset == 'cifar10':
         denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
     target_vflnn.eval()
     pseudo_inverse_model.eval()
@@ -630,7 +623,7 @@ def attack_test_all(target_vflnn, pseudo_inverse_model, target_loader, device, a
     with torch.no_grad():
         for data, target in target_loader:
             data, target = data.to(device), target.to(device)
-            x_a, x_b = split_data(data, args.dataset)
+            x_a, x_b = split_data(data, dataset)
             target_output = target_vflnn(x_a, x_b)
             pseudo_inverse_input = target_vflnn.server.input
             recover_data = pseudo_inverse_model(pseudo_inverse_input)
@@ -673,7 +666,36 @@ def cal_test(target_vflnn, pseudo_model, test_loader, device, dataset):
     test_loss /= len(test_loader.dataset)
     return test_loss, 100. * correct / len(test_loader.dataset)
 
+# 特征之间的余弦相似度
+def cosine_similarity(pseudo_model, client, target_data, device, dataset):
+    pseudo_model.eval()
+    client.eval()
+    with torch.no_grad():
+        target_data = target_data.to(device)
+        x_a, _ = split_data(target_data, dataset)
+        pseudo_output = pseudo_model(x_a)
+        client_output = client(x_a)
+    # 将特征展平
+    pseudo_output = pseudo_output.view(pseudo_output.size(0), -1)
+    client_output = client_output.view(client_output.size(0), -1)
+    similarity = F.cosine_similarity(pseudo_output, client_output, dim=1)
+    return similarity.mean().item()
 
+# 特征之间的均方误差
+def mean_squared_error_loss(pseudo_model, client, target_data, device, dataset):
+    pseudo_model.eval()
+    client.eval()
+    with torch.no_grad():
+        target_data = target_data.to(device)
+        x_a, _ = split_data(target_data, dataset)
+        pseudo_output = pseudo_model(x_a)
+        client_output = client(x_a)
+    # 将特征展平
+    pseudo_output = pseudo_output.view(pseudo_output.size(0), -1)
+    client_output = client_output.view(client_output.size(0), -1)
+    # 计算均方误差损失
+    mse_loss = F.mse_loss(pseudo_output, client_output, reduction='mean')
+    return mse_loss.item()
 
 
 

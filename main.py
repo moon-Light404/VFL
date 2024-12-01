@@ -13,6 +13,7 @@ import torchvision.utils as vutils
 import torchvision.models as models
 from vfl import Client, Server, VFLNN
 from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test, attack_test_all
+from attack import cosine_similarity, mean_squared_error_loss
 from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator, Resnet
 import numpy as np
 from torch.utils.data import Subset
@@ -317,7 +318,7 @@ def main():
             if (args.dataset == 'cifar10' or args.dataset == 'tinyImagenet') and n > 6000 and n % 10 == 0:
                 target_pseudo_loss, pseudo_ssim, pseudo_psnr = attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
                 logging.critical("Iter: %d / %d, Pseudo SSIM: %.4f, Pseudo PSNR: %.4f" %(n, args.iteration,pseudo_ssim, pseudo_psnr))
-                if pseudo_psnr < 15:
+                if args.pseudo_train == 2 and pseudo_psnr < 15:
                     break
                 
                 
@@ -329,12 +330,16 @@ def main():
                 # 伪被动客户端VFL测试
                 pseudo_loss, pseudo_acc = cal_test(target_vflnn, pseudo_model, test_dataloader, device, args.dataset)
                 logging.critical("VFL Loss: {:.4f}, VFL Acc: {:.4f},\n Pseudo Loss: {:.4f}, Pseudo Acc: {:.4f}".format(vfl_loss, vfl_acc, pseudo_loss, pseudo_acc))
-                
+            # 记录模型的攻击效果mse, psnr, ssim
             if n % 5000 == 0:
-                mean_loss, mean_psnr, mean_ssim = attack_test_all(target_vflnn, pseudo_inverse_model, train_dataloader, device, args)
+                mean_loss, mean_psnr, mean_ssim = attack_test_all(target_vflnn, pseudo_inverse_model, train_dataloader, device, args.dataset)
+                cos_similarity = cosine_similarity(pseudo_model, target_vflnn.client1, target_data, device, args.dataset)
+                mean_distance = mean_squared_error_loss(pseudo_model, target_vflnn.client1, target_data, device, args.dataset)
                 logging.critical("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
                 logging.critical("\n\n")
-                logging.critical("Iter: %d / %d, Mean_LOSS: %.4f,  Mean SSIM: %.4f, Mean PSNR: %.4f" %(n, args.iteration, mean_loss, mean_ssim, mean_psnr))
+                logging.critical("Iter: %d / %d, Rescontruct Mean_LOSS: %.4f,  Mean SSIM: %.4f, Mean PSNR: %.4f" %(n, args.iteration, mean_loss, mean_ssim, mean_psnr))
+                logging.critical("\n")
+                logging.critical("Cosine Similarity: %.4f, Mean Squared Error: %.4f" %(cos_similarity, mean_distance))
                 logging.critical("\n\n")
                 logging.critical(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
                 if mean_psnr < 17:
