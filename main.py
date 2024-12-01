@@ -167,7 +167,7 @@ def main():
                                                         )
         
         dataset_num = len(train_dataset) * args.dataset_portion
-        shadow_dataset = Subset(shadow_dataset, range(0, int(dataset_num)))
+        shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
         cat_dimension = 3
     else: # bank 数据集
         bank_expset = ExperimentDataset(datafilepath=dataset_path)
@@ -211,10 +211,13 @@ def main():
         # 初始化逆网络(inchannel, levle, outchannel)
         pseudo_inverse_model = cifar_decoder(discriminator_input_shape, args.level, 3)
     elif args.dataset == 'tinyImagenet':
-        model_ft = models.resnet18()
-        model_path = 'resnet18-f37072fd.pth'
-        model_ft.load_state_dict(torch.load(model_path))
-        target_bottom1, target_bottom2, target_top = resnet_from_model(model_ft, args.level)
+        # 使用预加载模型
+        # model_ft = models.resnet18()
+        # model_path = 'resnet18-f37072fd.pth'
+        # model_ft.load_state_dict(torch.load(model_path))
+        # target_bottom1, target_bottom2, target_top = resnet_from_model(model_ft, args.level)
+        target_bottom1, target_top = Resnet(level=2)
+        target_bottom2 = copy.deepcopy(target_bottom1)
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
         pseudo_model = Resnet(args.level)
