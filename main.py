@@ -13,7 +13,7 @@ import torchvision.utils as vutils
 import torchvision.models as models
 from vfl import Client, Server, VFLNN
 from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test
-from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder
+from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator
 import numpy as np
 from torch.utils.data import Subset
 from random import shuffle
@@ -202,12 +202,22 @@ def main():
         # 初始化鉴别器, agn==3
         discriminator = cifar_discriminator_model(d_input_shape, args.level, agn)
         # 初始化逆网络(inchannel, levle, outchannel)
-        pseudo_inverse_model = cifar_decoder(discriminator_input_shape, args.level, data_shape[0])
+        pseudo_inverse_model = cifar_decoder(discriminator_input_shape, args.level, 3)
     elif args.dataset == 'tinyImagnet':
         model_ft = models.resnet18()
         model_path = 'resnet18-f37072fd.pth'
         model_ft.load_state_dict(torch.load(model_path))
-        
+        bottom1, bottom2, top = resnet_from_model(model_ft, args.level)
+        data_shape = train_dataset[0][0].shape
+        test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
+        pseudo_model, _ = vgg16(args.level, batch_norm = True)
+        with torch.no_grad():
+            test_data_output = pseudo_model(test_data)
+            discriminator_input_shape = test_data_output.shape[1:]
+        print(discriminator_input_shape)
+        d_input_shape = discriminator_input_shape[0]
+        discriminator = resnet_discriminator(d_input_shape, args.level)
+        pseudo_inverse_model = resnet_decoder(d_input_shape, args.level, 3)
     else:
         target_bottom1, target_top = bank_net(input_dim=vfl_input_dim, output_dim=vfl_output_dim)
         target_bottom2 = copy.deepcopy(target_bottom1)

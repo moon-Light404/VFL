@@ -450,13 +450,13 @@ def resnet_pseudo(level = 2):
     client = []
     return client
 
-def resent_decoder(input_shape, level, channels=3):
+def resnet_decoder(input_shape, level, channels=3):
     net = []
     #act = "relu"
     act = None
     print("[DECODER] activation: ", act)
     # 第一层采样 16x16 -> 32x32 ||  8x8 -> 16x16 ||   4x4 -> 8x8
-    net += [nn.ConvTranspose2d(input_shape[0], 256, 3, 2, 1, output_padding=1), nn.BatchNorm2d(256), nn.LeakyReLU(0.2, inplace=True)]
+    net += [nn.ConvTranspose2d(input_shape, 256, 3, 2, 1, output_padding=1), nn.BatchNorm2d(256), nn.LeakyReLU(0.2, inplace=True)]
 
     if level <= 2:
         # 第二层上采样：32x32 -> 64x64
@@ -596,4 +596,4 @@ def resnet_from_model(model, level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client), nn.Sequential(*client), nn.Sequential(*server)
