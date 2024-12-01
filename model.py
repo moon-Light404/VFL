@@ -374,7 +374,7 @@ class bank_generator(nn.Module):
 def Resnet(level, output_dim = 200):
     client = []
     server = []
-    bn = False
+    bn = True
     if level == 1:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
                                 nn.BatchNorm2d(64),
@@ -394,7 +394,7 @@ def Resnet(level, output_dim = 200):
         )
         return nn.Sequential(*client)
     if level == 2:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
                                 nn.BatchNorm2d(64),
                                 nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
         client += [ResBlock(64, 64, bn=bn)]
@@ -411,7 +411,7 @@ def Resnet(level, output_dim = 200):
         )
         return nn.Sequential(*client)
     if level == 3:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
                                 nn.BatchNorm2d(64),
                                 nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
         client += [ResBlock(64, 64, bn=bn)]

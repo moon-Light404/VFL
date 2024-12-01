@@ -334,8 +334,10 @@ def main():
                 mean_loss, mean_psnr, mean_ssim = attack_test_all(target_vflnn, pseudo_inverse_model, train_dataloader, device, args)
                 logging.critical("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
                 logging.critical("\n\n")
-                logging.critical("Iter: %d / %d, Mean SSIM: %.4f, Mean PSNR: %.4f" %(n, args.iteration, mean_ssim, mean_psnr))
+                logging.critical("Iter: %d / %d, Mean_LOSS: %.4f,  Mean SSIM: %.4f, Mean PSNR: %.4f" %(n, args.iteration, mean_loss, mean_ssim, mean_psnr))
                 logging.critical("\n\n")
                 logging.critical(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                if mean_psnr < 17:
+                    break
 if __name__ == '__main__':
     main()
