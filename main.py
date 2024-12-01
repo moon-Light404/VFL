@@ -10,6 +10,7 @@ import torch.backends.cudnn as cudnn
 import torchvision.transforms as transforms
 import copy
 import torchvision.utils as vutils
+import torchvision.models as models
 from vfl import Client, Server, VFLNN
 from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test
 from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder
@@ -74,7 +75,7 @@ def main():
     parser.add_argument('--dlr', type=float, default=3e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
     parser.add_argument('--print_freq', type=int, default='25', help="the print frequency of ouput")
-    parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset")
+    parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset bank cifar10 tinyImagnet")
     parser.add_argument('--level', type=int, default=2, help="the split layer of model")
     parser.add_argument('--dataset_portion', type=float, default=0.05, help="the size portion of auxiliary data")
     parser.add_argument('--train_portion', type=float, default=0.7, help="the train_data portion of bank/drive data")
@@ -183,6 +184,8 @@ def main():
     test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 8, pin_memory = True)
     shadow_dataloader = torch.utils.data.DataLoader(shadow_dataset, batch_size=args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
 
+
+    # 构建模型
     if args.dataset == 'cifar10':
         target_bottom1, target_top = cifar_mobilenet(args.level)
         target_bottom2 = copy.deepcopy(target_bottom1)
@@ -200,6 +203,11 @@ def main():
         discriminator = cifar_discriminator_model(d_input_shape, args.level, agn)
         # 初始化逆网络(inchannel, levle, outchannel)
         pseudo_inverse_model = cifar_decoder(discriminator_input_shape, args.level, data_shape[0])
+    elif args.dataset == 'tinyImagnet':
+        model_ft = models.resnet18()
+        model_path = 'resnet18-f37072fd.pth'
+        model_ft.load_state_dict(torch.load(model_path))
+        
     else:
         target_bottom1, target_top = bank_net(input_dim=vfl_input_dim, output_dim=vfl_output_dim)
         target_bottom2 = copy.deepcopy(target_bottom1)
@@ -240,6 +248,8 @@ def main():
     shadow_iterator = iter(shadow_dataloader)
 
     coral_loss = CorrelationAlignmentLoss()
+
+
 
     for n in range(1, args.iteration+1):
         if (n-1)%int((len(train_dataset)/args.batch_size)) == 0 :        

@@ -515,3 +515,85 @@ def resnet_discriminator(input_shape, level):
     net += [nn.Flatten()]
     net += [nn.Linear(256, 1)]
     return nn.Sequential(*net)
+
+
+def resnet18(output_dim = 200):
+    net = []
+    bn = True
+    net += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
+                            nn.BatchNorm2d(64),
+                            nn.ReLU(), 
+                            nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+    net += [ResBlock(64, 64, bn=bn)]
+    net += [ResBlock(64, 64, bn=bn)]
+    net += [ResBlock(64, 128, bn=bn, stride=2)]
+    net += [ResBlock(128, 128, bn=bn)]
+    net += [ResBlock(128, 256, bn=bn,stride=2)]
+    net += [ResBlock(256, 256, bn=bn)]
+    net += [ResBlock(256, 512, bn=bn,stride=2)]
+    net += [ResBlock(512, 512, bn=bn)]
+    net += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                            nn.Flatten(),
+                            nn.Linear(512, output_dim)
+    )
+    return nn.Sequential(*net)
+
+def resnet_from_model(model, level, output_dim = 200):
+    client = []
+    server = []
+    if level == 1:
+        client += nn.Sequential(model.conv1,
+                                model.bn1,
+                                model.relu,
+                                model.maxpool)
+        server += [model.layer1]
+        server += [model.layer2]
+        server += [model.layer3]
+        server += [model.layer4]
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+    if level == 2:
+        client += nn.Sequential(model.conv1,
+                                model.bn1,
+                                model.relu,
+                                model.maxpool)
+        client += model.layer1
+        server += model.layer2
+        server += model.layer3
+        server += model.layer4
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+    if level == 3:
+        client += nn.Sequential(model.conv1,
+                                model.bn1,
+                                model.relu,
+                                model.maxpool)
+        client += model.layer1
+        client += model.layer2
+        server += model.layer3
+        server += model.layer4
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
+    if level == 4:
+        client += nn.Sequential(model.conv1,
+                                model.bn1,
+                                model.relu,
+                                model.maxpool)
+        client += model.layer1
+        client += model.layer2
+        client += model.layer3
+        server += model.layer4
+        server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
+                                nn.Flatten(),
+                                nn.Linear(512, output_dim)
+        )
+        return nn.Sequential(*client), nn.Sequential(*server)
