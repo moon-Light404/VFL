@@ -128,6 +128,8 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 整个VFL模型不更新
     for para in target_vflnn.client1.parameters():
         para.requires_grad = False
+    for para in target_vflnn.client2.parameters():
+        para.requires_grad = False
     for para in target_vflnn.server.parameters():
         para.requires_grad = False  
 
@@ -148,7 +150,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_penalty = 0.0
     target = target_vflnn_pas_intermediate
     source = pseudo_output
-    if args.dataset == 'cifar10':
+    if args.dataset == 'cifar10' or args.dataset == 'tinyImagenet': 
         for domin_i in range(n_domins):
             for domin_j in range(n_domins):
                 for i in range(64 // n_domins):
@@ -176,7 +178,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
 
     # 训练逆网络，同时优化伪模型和fa
     pseudo_inverse_optimizer.zero_grad()
-    target_vflnn.client2_optimizer.zero_grad()
+    # target_vflnn.client2_optimizer.zero_grad()
     with torch.no_grad():
         # pseudo_model 是client1的伪模型，伪模型和fa都更新
         pseudo_inverse_input_a = pseudo_model(shadow_x_a).detach()
@@ -189,7 +191,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
     # 更新恶意方的底部模型
-    target_vflnn.client2_optimizer.step()
+    # target_vflnn.client2_optimizer.step()
 
     # 更新鉴别器，此时不能更新伪模型，设为detach()
     discriminator_optimizer.zero_grad()
@@ -201,7 +203,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_discr_true = torch.mean(adv_target_logits)
     loss_discr_fake = -torch.mean(adv_pseudo_logits)
     vanila_D_loss = loss_discr_true + loss_discr_fake
-    D_loss = vanila_D_loss + args._gan_p * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
+    D_loss = vanila_D_loss + args.gan_p * gradient_penalty(discriminator, pseduo_output_, target_vflnn_pas_intermediate_, device)
     D_loss.backward()
     discriminator_optimizer.step()
 
@@ -467,7 +469,7 @@ def pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     loss_penalty = 0.0
     target = target_vflnn_pas_intermediate
     source = pseudo_output
-    if args.dataset == 'cifar10':
+    if args.dataset == 'cifar10' or args.dataset == 'tinyImagenet':
         for domin_i in range(n_domins):
             for domin_j in range(n_domins):
                 for i in range(64 // n_domins):
@@ -569,7 +571,10 @@ def pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
 
 # 攻击测试保存图片
 def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n):
-    denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    if args.dataset == 'tinyImagenet':
+        denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    elif args.dataset == 'cifar10':
+        denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
     target_pseudo_loss = 0
     pseudo_ssim = 0
     pseudo_psnr = 0
@@ -613,7 +618,10 @@ def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target
 
 # 训练完成后测试逆网络恢复的性能mse psnr ssim
 def attack_test_all(target_vflnn, pseudo_inverse_model, target_loader, device, args):
-    denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    if args.dataset == 'tinyImagenet':
+        denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    elif args.dataset == 'cifar10':
+        denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
     target_vflnn.eval()
     pseudo_inverse_model.eval()
     mse_loss = []

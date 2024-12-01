@@ -46,7 +46,7 @@ def split_data(data, dataset):
     if dataset == 'cifar10':
         x_a = data[:, :, :, 0:16]
         x_b = data[:, :, :, 16:32]
-    elif dataset == 'tinyImagnet':
+    elif dataset == 'tinyImagenet':
         x_a = data[:, :, :, 0:32]
         x_b = data[:, :, :, 32:64]
     elif dataset == 'bank':

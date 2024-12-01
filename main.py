@@ -12,8 +12,8 @@ import copy
 import torchvision.utils as vutils
 import torchvision.models as models
 from vfl import Client, Server, VFLNN
-from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test
-from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator
+from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test, attack_test_all
+from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator, Resnet
 import numpy as np
 from torch.utils.data import Subset
 from random import shuffle
@@ -75,7 +75,7 @@ def main():
     parser.add_argument('--dlr', type=float, default=3e-4, help="the learning rate of discriminate")
     parser.add_argument('--batch_size', type=int, default=64, help="")
     parser.add_argument('--print_freq', type=int, default='25', help="the print frequency of ouput")
-    parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset bank cifar10 tinyImagnet")
+    parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset bank cifar10 tinyImagenet")
     parser.add_argument('--level', type=int, default=2, help="the split layer of model")
     parser.add_argument('--dataset_portion', type=float, default=0.05, help="the size portion of auxiliary data")
     parser.add_argument('--train_portion', type=float, default=0.7, help="the train_data portion of bank/drive data")
@@ -86,7 +86,7 @@ def main():
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
     parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], default=2, help="the type of training")
     parser.add_argument('--a', type=float, default=0.3, help="the weight of coral")
-    parser.add_argument('--gan_p', type=float, default=1000, help="the weight of wgan")
+    parser.add_argument('--gan_p', type=float, default=1000.0, help="the weight of wgan")
 
     args = parser.parse_args()
 
@@ -155,7 +155,7 @@ def main():
         dataset_num = len(train_dataset) * args.dataset_portion
         shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
         cat_dimension = 3
-    elif args.dataset == 'tinyImageNet':
+    elif args.dataset == 'tinyImagenet':
         train_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/train', 
                                                          transform=transforms.Compose([transforms.ToTensor(),
                                                           tiny_normalize])
@@ -164,9 +164,13 @@ def main():
                                                         transform= transforms.Compose([transforms.ToTensor(),
                                                             tiny_normalize])
                                                         )
+        shadow_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/test', 
+                                                        transform= transforms.Compose([transforms.ToTensor(),
+                                                            tiny_normalize])
+                                                        )
         
         dataset_num = len(train_dataset) * args.dataset_portion
-        shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
+        shadow_dataset = Subset(shadow_dataset, range(0, int(dataset_num)))
         cat_dimension = 3
     else: # bank 数据集
         bank_expset = ExperimentDataset(datafilepath=dataset_path)
@@ -203,14 +207,14 @@ def main():
         discriminator = cifar_discriminator_model(d_input_shape, args.level, agn)
         # 初始化逆网络(inchannel, levle, outchannel)
         pseudo_inverse_model = cifar_decoder(discriminator_input_shape, args.level, 3)
-    elif args.dataset == 'tinyImagnet':
+    elif args.dataset == 'tinyImagenet':
         model_ft = models.resnet18()
         model_path = 'resnet18-f37072fd.pth'
         model_ft.load_state_dict(torch.load(model_path))
-        bottom1, bottom2, top = resnet_from_model(model_ft, args.level)
+        target_bottom1, target_bottom2, target_top = resnet_from_model(model_ft, args.level)
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
-        pseudo_model, _ = vgg16(args.level, batch_norm = True)
+        pseudo_model = Resnet(args.level)
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)
             discriminator_input_shape = test_data_output.shape[1:]
@@ -291,20 +295,32 @@ def main():
         elif args.attack == 'our':
             if args.pseudo_train == 1:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_1(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+                
+                
             elif args.pseudo_train == 2:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args)
+                    
+                    
             elif args.pseudo_train == 3:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+                
+                
             elif args.pseudo_train == 4:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
+                
+                
             elif args.pseudo_train == 5:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args)
+                
+                
             # 每隔100次迭代进行攻击测试，保存图片
-            if args.dataset == 'cifar10' and n > 6000 and n % 10 == 0:
+            if (args.dataset == 'cifar10' or args.dataset == 'tinyImagenet') and n > 6000 and n % 10 == 0:
                 target_pseudo_loss, pseudo_ssim, pseudo_psnr = attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
                 logging.critical("Iter: %d / %d, Pseudo SSIM: %.4f, Pseudo PSNR: %.4f" %(n, args.iteration,pseudo_ssim, pseudo_psnr))
                 if pseudo_psnr < 15:
                     break
+                
+                
             # 下面测试伪模型的实用性
             if n % 50 == 0:
                 # 正常VFL测试
@@ -313,6 +329,13 @@ def main():
                 # 伪被动客户端VFL测试
                 pseudo_loss, pseudo_acc = cal_test(target_vflnn, pseudo_model, test_dataloader, device, args.dataset)
                 logging.critical("VFL Loss: {:.4f}, VFL Acc: {:.4f},\n Pseudo Loss: {:.4f}, Pseudo Acc: {:.4f}".format(vfl_loss, vfl_acc, pseudo_loss, pseudo_acc))
-
+                
+            if n % 5000 == 0:
+                mean_loss, mean_psnr, mean_ssim = attack_test_all(target_vflnn, pseudo_inverse_model, train_dataloader, device, args)
+                logging.critical("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+                logging.critical("\n\n")
+                logging.critical("Iter: %d / %d, Mean SSIM: %.4f, Mean PSNR: %.4f" %(n, args.iteration, mean_ssim, mean_psnr))
+                logging.critical("\n\n")
+                logging.critical(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 if __name__ == '__main__':
     main()

@@ -392,7 +392,7 @@ def Resnet(level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client)
     if level == 2:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
@@ -409,7 +409,7 @@ def Resnet(level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client)
     if level == 3:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
@@ -426,7 +426,7 @@ def Resnet(level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client)
     if level == 4:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
                                 nn.BatchNorm2d(64),
@@ -443,7 +443,7 @@ def Resnet(level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client)
 
 
 def resnet_pseudo(level = 2):
@@ -554,7 +554,7 @@ def resnet_from_model(model, level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client), nn.Sequential(*client), nn.Sequential(*server)
     if level == 2:
         client += nn.Sequential(model.conv1,
                                 model.bn1,
@@ -568,7 +568,7 @@ def resnet_from_model(model, level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client), nn.Sequential(*client), nn.Sequential(*server)
     if level == 3:
         client += nn.Sequential(model.conv1,
                                 model.bn1,
@@ -582,7 +582,7 @@ def resnet_from_model(model, level, output_dim = 200):
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
-        return nn.Sequential(*client), nn.Sequential(*server)
+        return nn.Sequential(*client), nn.Sequential(*client), nn.Sequential(*server)
     if level == 4:
         client += nn.Sequential(model.conv1,
                                 model.bn1,
