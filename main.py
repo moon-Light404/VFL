@@ -124,11 +124,7 @@ def main():
         if args.pseudo_train == 2:
             path_name = os.path.join(path_name, n_domins)
     os.makedirs(path_name, exist_ok=True)
-    initlogging(logfile=os.path.join(path_name, date_time_file + '.log'))
-    logging.info(">>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>")
-    for arg in vars(args):
-        logging.info("%s: %s", arg, getattr(args, arg))
-    logging.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n")
+    
 
     use_cuda = torch.cuda.is_available()
     if use_cuda:
@@ -179,12 +175,18 @@ def main():
         dataset_num = len(train_dataset) * args.dataset_portion
         shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
         cat_dimension = 1
-   
-
+    
+    ## 数据处理完了再初始化日志
+    initlogging(logfile=os.path.join(path_name, date_time_file + '.log'))
+    logging.info(">>>>>>>>>>>>>>Running settings>>>>>>>>>>>>>>")
+    for arg in vars(args):
+        logging.info("%s: %s", arg, getattr(args, arg))
+    logging.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n")
     logging.info("DataSet:%s", args.dataset)
     logging.info("Train Dataset: %d",len(train_dataset))
     logging.info("Test Dataset: %d",len(test_dataset))
     logging.info("Shadow Dataset:%d",len(shadow_dataset))
+    
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
     test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 8, pin_memory = True)
     shadow_dataloader = torch.utils.data.DataLoader(shadow_dataset, batch_size=args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
@@ -265,7 +267,7 @@ def main():
     coral_loss = CorrelationAlignmentLoss()
 
 
-
+    # 开始迭代训练
     for n in range(1, args.iteration+1):
         if (n-1)%int((len(train_dataset)/args.batch_size)) == 0 :        
             target_iterator = iter(train_dataloader) # 从头开始迭代
