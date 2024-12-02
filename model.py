@@ -376,9 +376,9 @@ def Resnet(level, output_dim = 200):
     server = []
     bn = True
     if level == 1:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
         server += [ResBlock(64, 64, bn=bn)]
         server += [ResBlock(64, 64, bn=bn)]
@@ -394,9 +394,9 @@ def Resnet(level, output_dim = 200):
         )
         return nn.Sequential(*client), nn.Sequential(*server)
     if level == 2:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 64, bn=bn)]
@@ -412,9 +412,9 @@ def Resnet(level, output_dim = 200):
         )
         return nn.Sequential(*client), nn.Sequential(*server)
     if level == 3:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 64, bn=bn)]
@@ -430,9 +430,9 @@ def Resnet(level, output_dim = 200):
         )
         return nn.Sequential(*client), nn.Sequential(*server)
     if level == 4:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 64, bn=bn)]
