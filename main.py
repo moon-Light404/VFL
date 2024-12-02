@@ -216,11 +216,12 @@ def main():
         # model_path = 'resnet18-f37072fd.pth'
         # model_ft.load_state_dict(torch.load(model_path))
         # target_bottom1, target_bottom2, target_top = resnet_from_model(model_ft, args.level)
-        target_bottom1, target_top = Resnet(level=2)
+        target_bottom1, target_top = Resnet(level=args.level)
         target_bottom2 = copy.deepcopy(target_bottom1)
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
-        pseudo_model = Resnet(args.level)
+        
+        pseudo_model = copy.deepcopy(target_bottom1) # 暂时使用相同的模型架构
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)
             discriminator_input_shape = test_data_output.shape[1:]
@@ -323,8 +324,8 @@ def main():
             if (args.dataset == 'cifar10' or args.dataset == 'tinyImagenet') and n > 6000 and n % 10 == 0:
                 target_pseudo_loss, pseudo_ssim, pseudo_psnr = attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
                 logging.critical("Iter: %d / %d, Pseudo SSIM: %.4f, Pseudo PSNR: %.4f" %(n, args.iteration,pseudo_ssim, pseudo_psnr))
-                if args.pseudo_train == 2 and pseudo_psnr < 15:
-                    break
+                # if args.pseudo_train == 2 and pseudo_psnr < 15:
+                #     break
                 
                 
             # 下面测试伪模型的实用性
@@ -347,7 +348,6 @@ def main():
                 logging.critical("Cosine Similarity: %.4f, Mean Squared Error: %.4f" %(cos_similarity, mean_distance))
                 logging.critical("\n\n")
                 logging.critical(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-                if mean_psnr < 17:
-                    break
+                
 if __name__ == '__main__':
     main()

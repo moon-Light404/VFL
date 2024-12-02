@@ -128,8 +128,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 整个VFL模型不更新
     for para in target_vflnn.client1.parameters():
         para.requires_grad = False
-    for para in target_vflnn.client2.parameters():
-        para.requires_grad = False
+
     for para in target_vflnn.server.parameters():
         para.requires_grad = False  
 
@@ -178,7 +177,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
 
     # 训练逆网络，同时优化伪模型和fa
     pseudo_inverse_optimizer.zero_grad()
-    # target_vflnn.client2_optimizer.zero_grad()
+    target_vflnn.client2_optimizer.zero_grad()
     with torch.no_grad():
         # pseudo_model 是client1的伪模型，伪模型和fa都更新
         pseudo_inverse_input_a = pseudo_model(shadow_x_a).detach()
@@ -191,7 +190,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
     # 更新恶意方的底部模型
-    # target_vflnn.client2_optimizer.step()
+    target_vflnn.client2_optimizer.step()
 
     # 更新鉴别器，此时不能更新伪模型，设为detach()
     discriminator_optimizer.zero_grad()
