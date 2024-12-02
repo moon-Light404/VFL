@@ -105,7 +105,6 @@ def main():
         vfl_input_dim = 24
         vfl_output_dim = 11
         cat_dimension = 1 # 拼接维度
-    # dataset_num = 1524
     
      # 固定初始化，可重复性
     torch.manual_seed(3407)
@@ -222,6 +221,7 @@ def main():
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
         
         pseudo_model = copy.deepcopy(target_bottom1) # 暂时使用相同的模型架构
+
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)
             discriminator_input_shape = test_data_output.shape[1:]
