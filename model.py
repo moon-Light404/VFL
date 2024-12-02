@@ -376,69 +376,72 @@ def Resnet(level, output_dim = 200):
     server = []
     bn = True
     if level == 1:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
        
         server += [ResBlock(64, 64, bn=bn)]
         server += [ResBlock(64, 64, bn=bn)]
         server += [ResBlock(64, 128, bn=bn, stride=2)]
-        server += [ResBlock(128, 128, bn=bn)]
+        server += [ResBlock(128, 128, bn=bn, stride=1)]
         server += [ResBlock(128, 256, bn=bn,stride=2)]
-        server += [ResBlock(256, 256, bn=bn)]
+        server += [ResBlock(256, 256, bn=bn, stride=1)]
         server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn)]
+        server += [ResBlock(512, 512, bn=bn, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
         return nn.Sequential(*client), nn.Sequential(*server)
     if level == 2:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+       
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 64, bn=bn)]
         server += [ResBlock(64, 128, bn=bn, stride=2)]
-        server += [ResBlock(128, 128, bn=bn)]
+        server += [ResBlock(128, 128, bn=bn, stride=1)]
         server += [ResBlock(128, 256, bn=bn,stride=2)]
-        server += [ResBlock(256, 256, bn=bn)]
+        server += [ResBlock(256, 256, bn=bn, stride=1)]
         server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn)]
+        server += [ResBlock(512, 512, bn=bn, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
         return nn.Sequential(*client), nn.Sequential(*server)
     if level == 3:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+       
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 128, bn=bn, stride=2)]
-        client += [ResBlock(128, 128, bn=bn)]
+        client += [ResBlock(128, 128, bn=bn, stride=1)]
         server += [ResBlock(128, 256, bn=bn,stride=2)]
-        server += [ResBlock(256, 256, bn=bn)]
+        server += [ResBlock(256, 256, bn=bn, stride=1)]
         server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn)]
+        server += [ResBlock(512, 512, bn=bn, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
         )
         return nn.Sequential(*client), nn.Sequential(*server)
     if level == 4:
-        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False),
+        client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=2, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
-                                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+                                nn.MaxPool2d(kernel_size=3, stride=1, padding=1))
+       
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 64, bn=bn)]
         client += [ResBlock(64, 128, bn=bn, stride=2)]
-        client += [ResBlock(128, 128, bn=bn)]
+        client += [ResBlock(128, 128, bn=bn, stride=1)]
         client += [ResBlock(128, 256, bn=bn,stride=2)]
-        client += [ResBlock(256, 256, bn=bn,)]
+        client += [ResBlock(256, 256, bn=bn, stride=1)]
         server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn,)]
+        server += [ResBlock(512, 512, bn=bn, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
@@ -455,34 +458,25 @@ def resnet_decoder(input_shape, level, channels=3):
     #act = "relu"
     act = None
     print("[DECODER] activation: ", act)
-    # 第一层采样 16x16 -> 32x32 ||  8x8 -> 16x16 ||   4x4 -> 8x8
+    
     net += [nn.ConvTranspose2d(input_shape, 256, 3, 2, 1, output_padding=1), nn.BatchNorm2d(256), nn.LeakyReLU(0.2, inplace=True)]
 
     if level <= 2:
-        # 第二层上采样：32x32 -> 64x64
-        net += [nn.ConvTranspose2d(256, 128, 3, 2, 1, output_padding=1), nn.BatchNorm2d(128), nn.LeakyReLU(0.2, inplace=True)]
-        # 第三层上采样：128 -> 3 通道，保持空间尺寸
-        net += [nn.Conv2d(128, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
+        net += [nn.Conv2d(256, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
         net += [nn.Tanh()]
         return nn.Sequential(*net)
-    # 第二层上采样：16x16 -> 32x32  8x8 -> 16x16
+    
     net += [nn.ConvTranspose2d(256, 128, 3, 2, 1, output_padding=1), nn.BatchNorm2d(128), nn.LeakyReLU(0.2, inplace=True)]
 
     if level == 3:
-        # 第三层上采样：32x32 -> 64x64
-        net += [nn.ConvTranspose2d(128, 64, 3, 2, 1, output_padding=1), nn.BatchNorm2d(64), nn.LeakyReLU(0.2, inplace=True)]
-        # 第四层上采样：64 -> 3 -> 通道，保持空间尺寸
-        net += [nn.Conv2d(64, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
+        net += [nn.Conv2d(128, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
         net += [nn.Tanh()]
         return nn.Sequential(*net)
-    # 第三层上采样：16x16 -> 32x32 
+    
     net += [nn.ConvTranspose2d(128, 64, 3, 2, 1, output_padding=1), nn.BatchNorm2d(64), nn.LeakyReLU(0.2, inplace=True)]
 
     if level == 4:
-        # 第四层上采样：32x32 -> 64x64
-        net += [nn.ConvTranspose2d(64, 32, 3, 2, 1, output_padding=1), nn.BatchNorm2d(32), nn.LeakyReLU(0.2, inplace=True)]
-        # 第五层上采样：64 -> 3 -> 通道，保持空间
-        net += [nn.Conv2d(32, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
+        net += [nn.Conv2d(64, channels, 3, 1, 1), nn.BatchNorm2d(channels)]
         net += [nn.Tanh()]
         return nn.Sequential(*net)
 
@@ -513,7 +507,7 @@ def resnet_discriminator(input_shape, level):
 
     net += [nn.Conv2d(256, 256, 3, 2, 1)]
     net += [nn.Flatten()]
-    net += [nn.Linear(256, 1)]
+    net += [nn.Linear(512, 1)]
     return nn.Sequential(*net)
 
 
