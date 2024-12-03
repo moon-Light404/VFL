@@ -14,8 +14,8 @@ __pycache__/
 
 # C extensions
 *.so
-
-
+*.sh
+imagenet.sh
 # Distribution / packaging
 .Python
 build/

@@ -147,28 +147,33 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     indices = [range(i, i + 64 // n_domins) for i in range(0, 64, 64 // n_domins)]
     coral_loss.train()
     loss_penalty = 0.0
-    target = target_vflnn_pas_intermediate
-    source = pseudo_output
-    if args.dataset == 'cifar10' or args.dataset == 'tinyImagenet': 
-        for domin_i in range(n_domins):
-            for domin_j in range(n_domins):
-                for i in range(64 // n_domins):
-                    f_i = target[indices[domin_i][i], :, :, :].view(target.size(1),-1)
-                    f_j = pseudo_output[indices[domin_j][i], :, :, :].view(target.size(1),-1)
-                    loss_penalty += coral_loss(f_i,f_j)
-        loss_penalty /= n_domins * n_domins * (64 // n_domins)
-    else:
-        target = target.chunk(n_domins, dim=0)
-        source = pseudo_output.chunk(n_domins, dim=0)
+    target = target_vflnn_pas_intermediate.view(pseudo_output.size(0), -1)
+    source = pseudo_output.view(pseudo_output.size(0), -1)
+    coral_loss = coral_loss(target, source)
+    # if args.dataset == 'cifar10' or args.dataset == 'tinyImagenet': 
+    #     # for domin_i in range(n_domins):
+    #     #     for domin_j in range(n_domins):
+    #     #         for i in range(64 // n_domins):
+    #     #             f_i = target[indices[domin_i][i], :, :, :].view(target.size(1),-1)
+    #     #             f_j = pseudo_output[indices[domin_j][i], :, :, :].view(target.size(1),-1)
+    #     #             loss_penalty += coral_loss(f_i,f_j)
+    #     for i in range(target.size(0)):
+    #         f_i = target[i, :, :, :].view(target.size(1),-1)
+    #         f_j = pseudo_output[i, :, :, :].view(target.size(1),-1)
+    #         loss_penalty += coral_loss(f_i,f_j)
+    #     loss_penalty /= target.size(0)
+    # else:
+    #     target = target.chunk(n_domins, dim=0)
+    #     source = pseudo_output.chunk(n_domins, dim=0)
 
-        for domin_i in range(n_domins):
-            for domin_j in range(n_domins):
-                f_i = target[domin_i]
-                f_j = source[domin_j]
-                loss_penalty += coral_loss(f_i,f_j)
-        loss_penalty /= n_domins * n_domins * (64 // n_domins)
+    #     for domin_i in range(n_domins):
+    #         for domin_j in range(n_domins):
+    #             f_i = target[domin_i]
+    #             f_j = source[domin_j]
+    #             loss_penalty += coral_loss(f_i,f_j)
+    #     loss_penalty /= n_domins * n_domins * (64 // n_domins)
     if n % args.print_freq == 0:
-        logging.critical('Coral Loss: %.4f' % (loss_penalty.item()))
+        logging.critical('Coral Loss: %.4f' % (loss_penalty))
      # 把伪模型的特征空间输入到鉴别器中
     d_output_pseudo = discriminator(pseudo_output)
     pseudo_loss = (1 - args.a) * torch.mean(d_output_pseudo) + args.a * loss_penalty
@@ -177,7 +182,6 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
 
     # 训练逆网络，同时优化伪模型和fa
     pseudo_inverse_optimizer.zero_grad()
-    target_vflnn.client2_optimizer.zero_grad()
     with torch.no_grad():
         # pseudo_model 是client1的伪模型，伪模型和fa都更新
         pseudo_inverse_input_a = pseudo_model(shadow_x_a).detach()
@@ -189,8 +193,6 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 更新逆网络,fa
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
-    # 更新恶意方的底部模型
-    target_vflnn.client2_optimizer.step()
 
     # 更新鉴别器，此时不能更新伪模型，设为detach()
     discriminator_optimizer.zero_grad()

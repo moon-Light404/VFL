@@ -28,7 +28,7 @@ import argparse
 import pytz
 from datetime import datetime
 from logging import Formatter
-from utils import CorrelationAlignmentLoss
+from utils import CorrelationAlignmentLoss, GaussianKernel, MultipleKernelMaximumMeanDiscrepancy
 
 # 设置时区为北京时间
 class BeijingFormatter(Formatter):
@@ -269,6 +269,10 @@ def main():
     shadow_iterator = iter(shadow_dataloader)
 
     coral_loss = CorrelationAlignmentLoss()
+    
+    coral_loss = MultipleKernelMaximumMeanDiscrepancy(
+            kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],
+                linear=False)
 
 
     # 开始迭代训练
