@@ -14,7 +14,7 @@ import torchvision.models as models
 from vfl import Client, Server, VFLNN
 from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test, attack_test_all
 from attack import cosine_similarity, mean_squared_error_loss
-from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator, Resnet
+from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator, Resnet, vgg16_64
 import numpy as np
 from torch.utils.data import Subset
 from random import shuffle
@@ -106,7 +106,7 @@ def main():
         vfl_output_dim = 11
         cat_dimension = 1 # 拼接维度
     
-     # 固定初始化，可重复性
+     # 固定初始化，可重复性 3407
     torch.manual_seed(3407)
     random.seed(3407)
     np.random.seed(3407)
@@ -220,7 +220,7 @@ def main():
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
         
-        pseudo_model = copy.deepcopy(target_bottom1) # 暂时使用相同的模型架构
+        pseudo_model, _ = vgg16_64(args.level, batch_norm=True) # 暂时使用相同的模型架构
 
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)
@@ -270,9 +270,9 @@ def main():
 
     coral_loss = CorrelationAlignmentLoss()
     
-    coral_loss = MultipleKernelMaximumMeanDiscrepancy(
-            kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],
-                linear=False)
+    # coral_loss = MultipleKernelMaximumMeanDiscrepancy(
+    #         kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],
+    #             linear=False)
 
 
     # 开始迭代训练

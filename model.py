@@ -152,6 +152,52 @@ def vgg16_make_layers(cfg, batch_norm=True, in_channels=3):
             in_channels = v
     return nn.Sequential(*layers)
 
+def vgg16_64(level, batch_norm, num_class = 200):
+
+    client_net = []
+    server_net = []
+    # print(level)
+    if level == 1 :
+        client_net += vgg16_make_layers([64, 64, "M"], batch_norm, in_channels=3)
+        server_net += vgg16_make_layers([128, 128, "M"], batch_norm, in_channels=64)
+        server_net += vgg16_make_layers([256, 256, 256, "M"], batch_norm, in_channels=128)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], batch_norm, in_channels=256)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], batch_norm, in_channels=512)
+        server_net += [nn.AdaptiveAvgPool2d((1, 1))]
+        server_net += [nn.Flatten(),nn.Linear(512 * 1 * 1, num_class)]
+        return nn.Sequential(*client_net),nn.Sequential(*server_net)
+
+
+    if level == 2 :
+        client_net += vgg16_make_layers([64,64,"M"], batch_norm, in_channels=3)
+        server_net += vgg16_make_layers([128, 128, "M"], batch_norm, in_channels=64)
+        server_net += vgg16_make_layers([256, 256, 256, "M"], batch_norm, in_channels=128)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], batch_norm, in_channels=256)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], batch_norm, in_channels=512)
+        server_net += [nn.AdaptiveAvgPool2d((1, 1))]
+        server_net += [nn.Flatten(),nn.Linear(512 * 1 * 1, num_class)]
+        return nn.Sequential(*client_net),nn.Sequential(*server_net)
+
+    if level == 3:
+        client_net += vgg16_make_layers([64, 64, "M"], batch_norm, in_channels=3)
+        client_net += vgg16_make_layers([128, 128, "M"], batch_norm, in_channels=64)
+        server_net += vgg16_make_layers([256, 256, 256, "M"], in_channels=128)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], in_channels=256)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], in_channels=512)
+        server_net += [nn.AdaptiveAvgPool2d((1, 1))]
+        server_net += [nn.Flatten(),nn.Linear(512 * 1 * 1, num_class)]
+        return nn.Sequential(*client_net),nn.Sequential(*server_net)
+
+    if level == 4:
+        client_net += vgg16_make_layers([64, 64, "M"], batch_norm, in_channels=3)
+        client_net += vgg16_make_layers([128, 128, "M"], batch_norm, in_channels=64)
+        client_net += vgg16_make_layers([256, 256, 256, "M"], batch_norm, in_channels=128)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], in_channels=256)
+        server_net += vgg16_make_layers([512, 512, 512, "M"], in_channels=512)
+        server_net += [nn.AdaptiveAvgPool2d((1, 1))]
+        server_net += [nn.Flatten(),nn.Linear(512 * 1 * 1, num_class)]
+        return nn.Sequential(*client_net),nn.Sequential(*server_net)
+
 def vgg16(level, batch_norm, num_class = 10):
 
     client_net = []
@@ -448,10 +494,7 @@ def Resnet(level, output_dim = 200):
         )
         return nn.Sequential(*client), nn.Sequential(*server)
 
-
-def resnet_pseudo(level = 2):
-    client = []
-    return client
+       
 
 def resnet_decoder(input_shape, level, channels=3):
     net = []
@@ -495,7 +538,7 @@ def resnet_discriminator(input_shape, level):
     elif level == 4:
         net += [nn.Conv2d(input_shape, 256, 3, 2, 1)]
         net += [nn.ReLU()]
-        net += [nn.Conv2d(256, 256, 3, 2, 1)]
+        net += [nn.Conv2d(256, 256, 3, 1, 1)]
 
     bn = False
     net += [ResBlock(256, 256, bn=bn)]
@@ -531,6 +574,8 @@ def resnet18(output_dim = 200):
                             nn.Linear(512, output_dim)
     )
     return nn.Sequential(*net)
+
+
 
 def resnet_from_model(model, level, output_dim = 200):
     client = []
