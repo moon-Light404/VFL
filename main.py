@@ -114,7 +114,7 @@ def main():
     cudnn.benchmark = False
 
     level = 'level' + str(args.level)
-    n_domins = 'n_domins' + str(args.n_domins)
+    n_domins = 'n_domin' + str(args.n_domins)
     pseudo_train = 'pseudo_train' + str(args.pseudo_train)
     
     path_name = os.path.join('log', args.attack, args.dataset, level)
@@ -185,6 +185,8 @@ def main():
     logging.info("Train Dataset: %d",len(train_dataset))
     logging.info("Test Dataset: %d",len(test_dataset))
     logging.info("Shadow Dataset:%d",len(shadow_dataset))
+    gpu_name = torch.cuda.get_device_name(0)
+    logging.info("GPU Name: %s", gpu_name)
     
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
     test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 8, pin_memory = True)
@@ -220,7 +222,7 @@ def main():
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
         
-        pseudo_model, _ = Resnet(level=args.level)# 暂时使用相同的模型架构
+        pseudo_model, _ = vgg16_64(level=args.level, batch_norm=True)
 
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)

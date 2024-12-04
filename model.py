@@ -217,7 +217,7 @@ def vgg16_64(level, batch_norm, num_class = 200):
 
 
     if level == 2 :
-        client_net += vgg16_make_layers([64, 64,64,"M"], batch_norm, in_channels=3)
+        client_net += vgg16_make_layers([64, 64,"M"], batch_norm, in_channels=3)
         server_net += vgg16_make_layers([128, 128, "M"], batch_norm, in_channels=64)
         server_net += vgg16_make_layers([256, 256, 256, "M"], batch_norm, in_channels=128)
         server_net += vgg16_make_layers([512, 512, 512, "M"], batch_norm, in_channels=256)
@@ -352,7 +352,7 @@ def cifar_discriminator_model(input_shape, level, agn=False, fc_dim=512):
         net += [nn.Linear(4096, 1024)]
         net += [nn.Linear(1024, 1)]
     else:
-        net += [nn.Linear(fc_dim, 1)] # cifar_model 512
+        net += [nn.Linear(1024, 1)] # cifar_model 512
     return nn.Sequential(*net)
 
 def cifar_pseudo(level):

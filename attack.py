@@ -128,7 +128,8 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     # 整个VFL模型不更新
     for para in target_vflnn.client1.parameters():
         para.requires_grad = False
-
+    for para in target_vflnn.client2.parameters():
+        para.requires_grad = False
     for para in target_vflnn.server.parameters():
         para.requires_grad = False  
 
@@ -189,7 +190,7 @@ def pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_inverse_input = torch.cat((pseudo_inverse_input_a, pseduo_inverse_input_b), cat_dimension)
     pseudo_inverse_output = pseudo_inverse_model(pseudo_inverse_input)
     pseudo_inverse_loss = F.mse_loss(pseudo_inverse_output, shadow_data)
-    # 更新逆网络,fa
+    # 更新逆网络
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
 
@@ -383,21 +384,12 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
     pseudo_inverse_input = torch.cat((pseudo_inverse_input_a, pseduo_inverse_input_b), cat_dimension)
     pseudo_inverse_output = pseudo_inverse_model(pseudo_inverse_input)
     pseudo_inverse_loss = F.mse_loss(pseudo_inverse_output, shadow_data)
-    # 更新逆网络、fa
+    # 更新逆网络
     pseudo_inverse_loss.backward()
     pseudo_inverse_optimizer.step()
-    # 更新恶意方的底部模型
+    
 
     pseudo_model.train()
-    # 进一步更新伪模型，只更新伪模型
-    # 学习服务器的知识
-    # loss_flag = 1000
-    # with torch.no_grad():
-    #     vflnn_output = target_vflnn(target_x_a, target_x_b)
-    #     target_vflnn_loss = F.cross_entropy(vflnn_output, target_label)
-    #     loss_flag = target_vflnn_loss.clone().item()
-    # loss_flag < 0 就不进入这个分支
-    # if args.loss_threshold > 0 and loss_flag < args.loss_threshold:
     target_vflnn.zero_grads()
     pseudo_optimizer.zero_grad()
     target_vflnn.eval()
@@ -688,11 +680,10 @@ def mean_squared_error_loss(pseudo_model, client, target_data, device, dataset):
         x_a, _ = split_data(target_data, dataset)
         pseudo_output = pseudo_model(x_a)
         client_output = client(x_a)
-    # 将特征展平
-    pseudo_output = pseudo_output.view(pseudo_output.size(0), -1)
-    client_output = client_output.view(client_output.size(0), -1)
+   
     # 计算均方误差损失
-    mse_loss = F.mse_loss(pseudo_output, client_output, reduction='mean')
+    mse_loss = F.mse_loss(pseudo_output, client_output, reduction='sum').item()
+    mse_loss /= len(target_data)
     return mse_loss.item()
 
 
