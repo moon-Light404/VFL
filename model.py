@@ -3,6 +3,54 @@ import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
 
+def conv3x3(in_planes, out_planes, stride=1, groups=1, dilation=1):
+    """3x3 convolution with padding"""
+    return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride,
+                     padding=dilation, groups=groups, bias=False, dilation=dilation)
+
+
+def conv1x1(in_planes, out_planes, stride=1):
+    """1x1 convolution"""
+    return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
+
+class BasicBlock(nn.Module):
+    expansion = 1
+
+    def __init__(self, inplanes, planes, stride=1, downsample=None, groups=1,
+                 base_width=64, dilation=1, norm_layer=None):
+        super(BasicBlock, self).__init__()
+        if norm_layer is None:
+            norm_layer = nn.BatchNorm2d
+        if groups != 1 or base_width != 64:
+            raise ValueError('BasicBlock only supports groups=1 and base_width=64')
+        if dilation > 1:
+            raise NotImplementedError("Dilation > 1 not supported in BasicBlock")
+        # Both self.conv1 and self.downsample layers downsample the input when stride != 1
+        self.conv1 = conv3x3(inplanes, planes, stride)
+        self.bn1 = norm_layer(planes)
+        self.relu = nn.ReLU(inplace=True)
+        self.conv2 = conv3x3(planes, planes)
+        self.bn2 = norm_layer(planes)
+        self.downsample = downsample
+        self.stride = stride
+
+    def forward(self, x):
+        identity = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+
+        if self.downsample is not None:
+            identity = self.downsample(x)
+
+        out += identity
+        out = self.relu(out)
+
+        return out
 
 class ResBlock(nn.Module):
     expansion = 1
@@ -169,7 +217,7 @@ def vgg16_64(level, batch_norm, num_class = 200):
 
 
     if level == 2 :
-        client_net += vgg16_make_layers([64,64,"M"], batch_norm, in_channels=3)
+        client_net += vgg16_make_layers([64, 64,64,"M"], batch_norm, in_channels=3)
         server_net += vgg16_make_layers([128, 128, "M"], batch_norm, in_channels=64)
         server_net += vgg16_make_layers([256, 256, 256, "M"], batch_norm, in_channels=128)
         server_net += vgg16_make_layers([512, 512, 512, "M"], batch_norm, in_channels=256)
@@ -420,20 +468,38 @@ class bank_generator(nn.Module):
 def Resnet(level, output_dim = 200):
     client = []
     server = []
+    # 定义下采样路径
+    downsample1 = nn.Sequential(
+        conv1x1(64, 64, stride=1),
+        nn.BatchNorm2d(64),
+    )
+    downsample2 = nn.Sequential(
+        conv1x1(64, 128, stride=2),
+        nn.BatchNorm2d(128),
+    )
+    downsample3 = nn.Sequential(
+        conv1x1(128, 256, stride=2),
+        nn.BatchNorm2d(256),
+    )
+    downsample4 = nn.Sequential(
+        conv1x1(256, 512, stride=2),
+        nn.BatchNorm2d(512),
+    )
     bn = True
     if level == 1:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
+                                nn.ReLU(inplace=True),
                                 nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
-        server += [ResBlock(64, 64, bn=bn)]
-        server += [ResBlock(64, 64, bn=bn)]
-        server += [ResBlock(64, 128, bn=bn, stride=2)]
-        server += [ResBlock(128, 128, bn=bn, stride=1)]
-        server += [ResBlock(128, 256, bn=bn,stride=2)]
-        server += [ResBlock(256, 256, bn=bn, stride=1)]
-        server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn, stride=1)]
+        server += [BasicBlock(64, 64)]
+        server += [BasicBlock(64, 64, downsample=downsample1)]
+        server += [BasicBlock(64, 128, stride=2, downsample=downsample2)]
+        server += [BasicBlock(128, 128, stride=1)]
+        server += [BasicBlock(128, 256,stride=2, downsample=downsample3)]
+        server += [BasicBlock(256, 256, stride=1)]
+        server += [BasicBlock(256, 512,stride=2, downsample=downsample4)]
+        server += [BasicBlock(512, 512, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
@@ -442,16 +508,17 @@ def Resnet(level, output_dim = 200):
     if level == 2:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
+                                nn.ReLU(inplace=True),
                                 nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
-        client += [ResBlock(64, 64, bn=bn)]
-        client += [ResBlock(64, 64, bn=bn)]
-        server += [ResBlock(64, 128, bn=bn, stride=2)]
-        server += [ResBlock(128, 128, bn=bn, stride=1)]
-        server += [ResBlock(128, 256, bn=bn,stride=2)]
-        server += [ResBlock(256, 256, bn=bn, stride=1)]
-        server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn, stride=1)]
+        client += [BasicBlock(64, 64)]
+        client += [BasicBlock(64, 64, downsample=downsample1)]
+        server += [BasicBlock(64, 128, stride=2, downsample=downsample2)]
+        server += [BasicBlock(128, 128, stride=1)]
+        server += [BasicBlock(128, 256,stride=2, downsample=downsample3)]
+        server += [BasicBlock(256, 256, stride=1)]
+        server += [BasicBlock(256, 512,stride=2, downsample=downsample4)]
+        server += [BasicBlock(512, 512, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
@@ -460,16 +527,17 @@ def Resnet(level, output_dim = 200):
     if level == 3:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
+                                nn.ReLU(inpace=True),
                                 nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
-        client += [ResBlock(64, 64, bn=bn)]
-        client += [ResBlock(64, 64, bn=bn)]
-        client += [ResBlock(64, 128, bn=bn, stride=2)]
-        client += [ResBlock(128, 128, bn=bn, stride=1)]
-        server += [ResBlock(128, 256, bn=bn,stride=2)]
-        server += [ResBlock(256, 256, bn=bn, stride=1)]
-        server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn, stride=1)]
+        client += [BasicBlock(64, 64)]
+        client += [BasicBlock(64, 64, downsample=downsample1)]
+        client += [BasicBlock(64, 128, stride=2, downsample=downsample2)]
+        client += [BasicBlock(128, 128, stride=1)]
+        server += [BasicBlock(128, 256,stride=2, downsample=downsample3)]
+        server += [BasicBlock(256, 256, stride=1)]
+        server += [BasicBlock(256, 512,stride=2, downsample=downsample4)]
+        server += [BasicBlock(512, 512, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)
@@ -478,16 +546,17 @@ def Resnet(level, output_dim = 200):
     if level == 4:
         client += nn.Sequential(nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
                                 nn.BatchNorm2d(64),
+                                nn.ReLU(inplace=True),
                                 nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
        
-        client += [ResBlock(64, 64, bn=bn)]
-        client += [ResBlock(64, 64, bn=bn)]
-        client += [ResBlock(64, 128, bn=bn, stride=2)]
-        client += [ResBlock(128, 128, bn=bn, stride=1)]
-        client += [ResBlock(128, 256, bn=bn,stride=2)]
-        client += [ResBlock(256, 256, bn=bn, stride=1)]
-        server += [ResBlock(256, 512, bn=bn,stride=2)]
-        server += [ResBlock(512, 512, bn=bn, stride=1)]
+        client += [BasicBlock(64, 64)]
+        client += [BasicBlock(64, 64, downsample=downsample1)]
+        client += [BasicBlock(64, 128, stride=2, downsample=downsample2)]
+        client += [BasicBlock(128, 128, stride=1)]
+        client += [BasicBlock(128, 256,stride=2, downsample=downsample3)]
+        client += [BasicBlock(256, 256, stride=1)]
+        server += [BasicBlock(256, 512,stride=2, downsample=downsample4)]
+        server += [BasicBlock(512, 512, stride=1)]
         server += nn.Sequential(nn.AdaptiveAvgPool2d((1, 1)),
                                 nn.Flatten(),
                                 nn.Linear(512, output_dim)

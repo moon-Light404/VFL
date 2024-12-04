@@ -220,7 +220,7 @@ def main():
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
         
-        pseudo_model, _ = vgg16_64(args.level, batch_norm=True) # 暂时使用相同的模型架构
+        pseudo_model, _ = Resnet(level=args.level)# 暂时使用相同的模型架构
 
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)
