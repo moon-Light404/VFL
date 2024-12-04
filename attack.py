@@ -675,6 +675,7 @@ def cosine_similarity(pseudo_model, client, target_data, device, dataset):
 def mean_squared_error_loss(pseudo_model, client, target_data, device, dataset):
     pseudo_model.eval()
     client.eval()
+    mse_loss = 0
     with torch.no_grad():
         target_data = target_data.to(device)
         x_a, _ = split_data(target_data, dataset)
@@ -682,7 +683,7 @@ def mean_squared_error_loss(pseudo_model, client, target_data, device, dataset):
         client_output = client(x_a)
    
     # 计算均方误差损失
-    mse_loss = F.mse_loss(pseudo_output, client_output, reduction='sum').item()
+    mse_loss += F.mse_loss(pseudo_output, client_output, reduction='sum').item()
     mse_loss /= len(target_data)
     return mse_loss.item()
 
