@@ -306,10 +306,10 @@ def pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_o
 
 # 攻击测试保存图片
 def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n):
-    if args.dataset == 'tinyImagenet':
-        denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    elif args.dataset == 'cifar10':
-        denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    # if args.dataset == 'tinyImagenet':
+    #     denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    # elif args.dataset == 'cifar10':
+    denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
     target_pseudo_loss = 0
     pseudo_ssim = 0
     pseudo_psnr = 0
@@ -353,10 +353,10 @@ def attack_test(pseduo_invmodel, pseudo_model, target_vflnn, target_data, target
 
 # 训练完成后测试逆网络恢复的性能mse psnr ssim
 def attack_test_all(target_vflnn, pseudo_inverse_model, target_loader, device, dataset):
-    if dataset == 'tinyImagenet':
-        denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    elif dataset == 'cifar10':
-        denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    # if dataset == 'tinyImagenet':
+    #     denorm = DeNormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    # elif dataset == 'cifar10':
+    denorm = DeNormalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
     target_vflnn.eval()
     pseudo_inverse_model.eval()
     mse_loss = []

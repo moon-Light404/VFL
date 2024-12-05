@@ -12,9 +12,9 @@ import copy
 import torchvision.utils as vutils
 import torchvision.models as models
 from vfl import Client, Server, VFLNN
-from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_3, pseudo_training_4, pseudo_training_5, cal_test, attack_test_all
+from attack import attack_test, pseudo_training_1, pseudo_training_2, pseudo_training_4, cal_test, attack_test_all
 from attack import cosine_similarity, mean_squared_error_loss
-from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder,resnet_from_model, resnet_decoder, resnet_discriminator, Resnet, vgg16_64
+from model import cifar_mobilenet, cifar_decoder, cifar_discriminator_model, vgg16, cifar_pseudo, bank_net, bank_pseudo, bank_discriminator,bank_decoder, resnet_decoder, resnet_discriminator, Resnet, vgg16_64
 import numpy as np
 from torch.utils.data import Subset
 from random import shuffle
@@ -78,16 +78,15 @@ def main():
     parser.add_argument('--print_freq', type=int, default='25', help="the print frequency of ouput")
     parser.add_argument('--dataset', type=str, default='cifar10', help="the test dataset bank cifar10 tinyImagenet")
     parser.add_argument('--level', type=int, default=2, help="the split layer of model")
-    parser.add_argument('--dataset_portion', type=float, default=0.05, help="the size portion of auxiliary data")
+    parser.add_argument('--dataset_portion', type=float, default=0.1, help="the size portion of auxiliary data")
     parser.add_argument('--train_portion', type=float, default=0.7, help="the train_data portion of bank/drive data")
     parser.add_argument('--test_portion', type=float, default=0.3, help="the test portion of bank.drive data")
     parser.add_argument('--attack', type=str, default='our', help="the type of attack agn, our, fsha, grna")
-    parser.add_argument('--loss_threshold', type=float, default=1.7, help="the loss flag of our attack")
     parser.add_argument('--n_domins', type=int, default=4, help="the domins of save each epoch")
     # 1-鉴别器 2-鉴别器+coral 3-鉴别器+pcat 4-pcat 5-鉴别器+coral+pcat
     parser.add_argument('--pseudo_train', type=int, choices=[1, 2, 3, 4, 5], default=2, help="the type of training")
     parser.add_argument('--a', type=float, default=0.3, help="the weight of coral")
-    parser.add_argument('--gan_p', type=float, default=1000.0, help="the weight of wgan")
+    parser.add_argument('--gan_p', type=float, default=500.0, help="the weight of wgan")
 
     args = parser.parse_args()
 
@@ -153,17 +152,14 @@ def main():
         cat_dimension = 3
     elif args.dataset == 'tinyImagenet':
         train_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/train', 
-                                                         transform=transforms.Compose([transforms.ToTensor(),
-                                                          tiny_normalize])
-                                                         )
+                                                         transform=cifar_transform)
+                                                         
         test_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/val', 
-                                                        transform= transforms.Compose([transforms.ToTensor(),
-                                                            tiny_normalize])
-                                                        )
+                                                        transform= cifar_transform)
+                                                        
         shadow_dataset = torchvision.datasets.ImageFolder(root='./data/tiny-imagenet-200/test', 
-                                                        transform= transforms.Compose([transforms.ToTensor(),
-                                                            tiny_normalize])
-                                                        )
+                                                        transform= cifar_transform)
+                                                        
         
         dataset_num = len(train_dataset) * args.dataset_portion
         shadow_dataset = Subset(test_dataset, range(0, int(dataset_num)))
@@ -188,9 +184,9 @@ def main():
     gpu_name = torch.cuda.get_device_name(0)
     logging.info("GPU Name: %s", gpu_name)
     
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 8, pin_memory = True)
-    shadow_dataloader = torch.utils.data.DataLoader(shadow_dataset, batch_size=args.batch_size, shuffle=True, num_workers = 8, pin_memory = True)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= args.batch_size, shuffle=True, num_workers = 4, pin_memory = True)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers = 4, pin_memory = True)
+    shadow_dataloader = torch.utils.data.DataLoader(shadow_dataset, batch_size=args.batch_size, shuffle=True, num_workers = 4, pin_memory = True)
 
 
     # 构建模型
@@ -222,7 +218,7 @@ def main():
         data_shape = train_dataset[0][0].shape
         test_data = torch.ones(1,data_shape[0], data_shape[1], data_shape[2])
         
-        pseudo_model, _ = vgg16_64(level=args.level, batch_norm=True)
+        pseudo_model, _ = Resnet(level=args.level)
 
         with torch.no_grad():
             test_data_output = pseudo_model(test_data)
