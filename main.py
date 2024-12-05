@@ -327,11 +327,11 @@ def main():
                 
                 
             # 每隔100次迭代进行攻击测试，保存图片
-            if (args.dataset == 'cifar10' or args.dataset == 'tinyImagenet') and n > 6000 and n % 10 == 0:
+            if (args.dataset == 'cifar10' or args.dataset == 'tinyImagenet') and n > 8000 and n % 10 == 0:
                 target_pseudo_loss, pseudo_ssim, pseudo_psnr = attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
                 logging.critical("Iter: %d / %d, Pseudo SSIM: %.4f, Pseudo PSNR: %.4f" %(n, args.iteration,pseudo_ssim, pseudo_psnr))
-                # if args.pseudo_train == 2 and pseudo_psnr < 15:
-                #     break
+                if args.pseudo_train == 2 and pseudo_psnr < 11:
+                    break
                 
                 
             # 下面测试伪模型的实用性
