@@ -683,8 +683,7 @@ def mean_squared_error_loss(pseudo_model, client, target_data, device, dataset):
         client_output = client(x_a)
    
     # 计算均方误差损失
-    mse_loss += F.mse_loss(pseudo_output, client_output, reduction='sum').item()
-    mse_loss /= len(target_data)
+    mse_loss = F.mse_loss(pseudo_output, client_output, reduction='mean').item()
     return mse_loss.item()
 
 
