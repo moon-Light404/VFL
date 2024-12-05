@@ -312,20 +312,11 @@ def main():
                 
             elif args.pseudo_train == 2:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_2(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args)
-                    
-                    
-            elif args.pseudo_train == 3:
-                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_3(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
-                
+
                 
             elif args.pseudo_train == 4:
                 target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_4(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, args)
-                
-                
-            elif args.pseudo_train == 5:
-                target_vflnn_pas_intermediate, target_vflnn_act_intermediate = pseudo_training_5(target_vflnn, pseudo_model, pseudo_inverse_model, pseudo_optimizer, pseudo_inverse_model_optimizer, discriminator, discriminator_optimizer, target_data, target_label, shadow_data, shadow_label, device, n, cat_dimension, coral_loss, args)
-                
-                
+
             # 每隔100次迭代进行攻击测试，保存图片
             if (args.dataset == 'cifar10' or args.dataset == 'tinyImagenet') and n > 8000 and n % 10 == 0:
                 target_pseudo_loss, pseudo_ssim, pseudo_psnr = attack_test(pseudo_inverse_model, pseudo_model, target_vflnn, target_data, target_vflnn_pas_intermediate, target_vflnn_act_intermediate, device, args, n)
